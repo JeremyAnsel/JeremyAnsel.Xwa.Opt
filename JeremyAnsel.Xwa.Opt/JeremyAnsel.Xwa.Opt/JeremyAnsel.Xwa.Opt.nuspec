@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <projectUrl>https://github.com/JeremyAnsel/JeremyAnsel.Xwa.Opt</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A .Net library to handle X-Wing Alliance's OPT files.</description>
+    <copyright>Copyright © 2013 Jérémy Ansel</copyright>
+    <tags>Xwa Opt</tags>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\$id$.pdb" target="lib\net40\" />
+  </files>
+</package>
