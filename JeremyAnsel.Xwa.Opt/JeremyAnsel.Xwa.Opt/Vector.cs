@@ -14,7 +14,7 @@ namespace JeremyAnsel.Xwa.Opt
     using System.Text;
     using System.Threading.Tasks;
 
-    public struct Vector
+    public struct Vector : IEquatable<Vector>
     {
         private float x;
 

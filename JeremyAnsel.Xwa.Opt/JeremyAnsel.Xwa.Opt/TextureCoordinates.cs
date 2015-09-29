@@ -14,7 +14,7 @@ namespace JeremyAnsel.Xwa.Opt
     using System.Text;
     using System.Threading.Tasks;
 
-    public struct TextureCoordinates
+    public struct TextureCoordinates : IEquatable<TextureCoordinates>
     {
         private float u;
 

@@ -14,7 +14,7 @@ namespace JeremyAnsel.Xwa.Opt
     using System.Text;
     using System.Threading.Tasks;
 
-    public struct Index
+    public struct Index : IEquatable<Index>
     {
         private int a;
 

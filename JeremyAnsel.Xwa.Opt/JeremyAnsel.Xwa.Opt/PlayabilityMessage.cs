@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JeremyAnsel.Xwa.Opt
 {
-    public class PlayabilityMessage : IComparable, IComparable<PlayabilityMessage>
+    public class PlayabilityMessage : IEquatable<PlayabilityMessage>, IComparable, IComparable<PlayabilityMessage>
     {
         public PlayabilityMessage(PlayabilityMessageLevel level, string category, string format, params object[] args)
         {
