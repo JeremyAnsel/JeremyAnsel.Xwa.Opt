@@ -17,7 +17,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class TextureNode : Node
     {
         public TextureNode()
-            : base(NodeTypes.Texture)
+            : base(NodeType.Texture)
         {
         }
 

@@ -16,7 +16,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class VertexNormalsNode : Node
     {
         public VertexNormalsNode()
-            : base(NodeTypes.VertexNormals)
+            : base(NodeType.VertexNormals)
         {
             this.Normals = new List<Vector>();
         }

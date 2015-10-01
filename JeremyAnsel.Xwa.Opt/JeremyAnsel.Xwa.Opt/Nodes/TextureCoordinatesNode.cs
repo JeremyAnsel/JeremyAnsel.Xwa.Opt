@@ -16,7 +16,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class TextureCoordinatesNode : Node
     {
         public TextureCoordinatesNode()
-            : base(NodeTypes.TextureCoordinates)
+            : base(NodeType.TextureCoordinates)
         {
             this.TextureVertices = new List<TextureCoordinates>();
         }

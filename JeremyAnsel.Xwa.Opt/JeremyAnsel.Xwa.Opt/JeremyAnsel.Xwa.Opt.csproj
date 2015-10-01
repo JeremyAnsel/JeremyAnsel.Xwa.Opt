@@ -59,12 +59,12 @@
     <Compile Include="Face.cs" />
     <Compile Include="FaceGroup.cs" />
     <Compile Include="Hardpoint.cs" />
-    <Compile Include="HardpointTypes.cs" />
+    <Compile Include="HardpointType.cs" />
     <Compile Include="Index.cs" />
     <Compile Include="Mesh.cs" />
     <Compile Include="MeshDescriptor.cs" />
     <Compile Include="MeshLod.cs" />
-    <Compile Include="MeshTypes.cs" />
+    <Compile Include="MeshType.cs" />
     <Compile Include="Nodes\EngineGlowNode.cs" />
     <Compile Include="Nodes\FaceDataNode.cs" />
     <Compile Include="Nodes\FaceDataNodeData.cs" />
@@ -83,7 +83,7 @@
     <Compile Include="Nodes\TextureCoordinatesNode.cs" />
     <Compile Include="Nodes\TextureNode.cs" />
     <Compile Include="Nodes\VertexNormalsNode.cs" />
-    <Compile Include="NodeTypes.cs" />
+    <Compile Include="NodeType.cs" />
     <Compile Include="OptFile.cs" />
     <Compile Include="PlayabilityChecker.cs" />
     <Compile Include="PlayabilityMessage.cs" />
@@ -102,6 +102,7 @@
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
+      <SubType>Designer</SubType>
     </CodeAnalysisDictionary>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

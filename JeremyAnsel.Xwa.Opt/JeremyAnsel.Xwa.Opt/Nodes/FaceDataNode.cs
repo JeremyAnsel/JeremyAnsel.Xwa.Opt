@@ -16,7 +16,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class FaceDataNode : Node
     {
         public FaceDataNode()
-            : base(NodeTypes.FaceData)
+            : base(NodeType.FaceData)
         {
             this.Faces = new List<FaceDataNodeData>();
         }

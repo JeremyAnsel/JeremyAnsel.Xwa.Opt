@@ -12,7 +12,7 @@ namespace JeremyAnsel.Xwa.Opt
     using System.Text;
     using System.Threading.Tasks;
 
-    public enum MeshTypes
+    public enum MeshType
     {
         Default,
         MainHull,

@@ -16,7 +16,7 @@ namespace JeremyAnsel.Xwa.Opt
     {
         public MeshDescriptor()
         {
-            this.MeshType = Opt.MeshTypes.Default;
+            this.MeshType = Opt.MeshType.Default;
             this.ExplosionType = Opt.ExplosionTypes.None;
             this.Span = Vector.Empty;
             this.Center = Vector.Empty;
@@ -26,7 +26,7 @@ namespace JeremyAnsel.Xwa.Opt
             this.Target = Vector.Empty;
         }
 
-        public MeshTypes MeshType { get; set; }
+        public MeshType MeshType { get; set; }
 
         public ExplosionTypes ExplosionType { get; set; }
 

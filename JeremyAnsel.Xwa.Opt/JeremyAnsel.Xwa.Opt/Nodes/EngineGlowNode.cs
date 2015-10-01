@@ -16,7 +16,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class EngineGlowNode : Node
     {
         public EngineGlowNode()
-            : base(NodeTypes.EngineGlow)
+            : base(NodeType.EngineGlow)
         {
         }
 

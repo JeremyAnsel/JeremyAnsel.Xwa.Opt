@@ -16,7 +16,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class NodeReferenceNode : Node
     {
         public NodeReferenceNode()
-            : base(NodeTypes.NodeReference)
+            : base(NodeType.NodeReference)
         {
         }
 

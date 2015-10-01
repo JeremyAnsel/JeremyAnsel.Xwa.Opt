@@ -16,7 +16,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class MeshVerticesNode : Node
     {
         public MeshVerticesNode()
-            : base(NodeTypes.MeshVertices)
+            : base(NodeType.MeshVertices)
         {
             this.Vertices = new List<Vector>();
         }

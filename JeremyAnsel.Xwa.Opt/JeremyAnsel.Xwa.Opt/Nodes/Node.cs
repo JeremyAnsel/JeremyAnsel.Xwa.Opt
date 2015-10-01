@@ -18,7 +18,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     {
         private static readonly Node nullNode = new NullNode();
 
-        internal Node(NodeTypes type)
+        internal Node(NodeType type)
         {
             this.NodeType = type;
             this.Nodes = new List<Node>();
@@ -31,7 +31,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
         public int Offset { get; private set; }
 
-        public NodeTypes NodeType { get; private set; }
+        public NodeType NodeType { get; private set; }
 
         public string Name { get; set; }
 
@@ -45,7 +45,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
         {
             get
             {
-                if (this.NodeType == NodeTypes.NullNode)
+                if (this.NodeType == NodeType.NullNode)
                 {
                     return 0;
                 }
@@ -93,55 +93,55 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
         internal static Node ParseNode(byte[] buffer, int globalOffset, int offset)
         {
-            NodeTypes type = (NodeTypes)BitConverter.ToInt32(buffer, offset + 4);
+            NodeType type = (NodeType)BitConverter.ToInt32(buffer, offset + 4);
 
             Node node = null;
 
             switch (type)
             {
-                case NodeTypes.NullNode:
+                case NodeType.NullNode:
                     node = new NullNode();
                     break;
-                case NodeTypes.NodeGroup:
+                case NodeType.NodeGroup:
                     node = new NodeGroupNode();
                     break;
-                case NodeTypes.FaceData:
+                case NodeType.FaceData:
                     node = new FaceDataNode();
                     break;
-                case NodeTypes.MeshVertices:
+                case NodeType.MeshVertices:
                     node = new MeshVerticesNode();
                     break;
-                case NodeTypes.NodeReference:
+                case NodeType.NodeReference:
                     node = new NodeReferenceNode();
                     break;
-                case NodeTypes.VertexNormals:
+                case NodeType.VertexNormals:
                     node = new VertexNormalsNode();
                     break;
-                case NodeTypes.TextureCoordinates:
+                case NodeType.TextureCoordinates:
                     node = new TextureCoordinatesNode();
                     break;
-                case NodeTypes.Texture:
+                case NodeType.Texture:
                     node = new TextureNode();
                     break;
-                case NodeTypes.FaceGrouping:
+                case NodeType.FaceGrouping:
                     node = new FaceGroupingNode();
                     break;
-                case NodeTypes.Hardpoint:
+                case NodeType.Hardpoint:
                     node = new HardpointNode();
                     break;
-                case NodeTypes.RotationScale:
+                case NodeType.RotationScale:
                     node = new RotationScaleNode();
                     break;
-                case NodeTypes.NodeSwitch:
+                case NodeType.NodeSwitch:
                     node = new NodeSwitchNode();
                     break;
-                case NodeTypes.MeshDescriptor:
+                case NodeType.MeshDescriptor:
                     node = new MeshDescriptorNode();
                     break;
-                case NodeTypes.TextureAlpha:
+                case NodeType.TextureAlpha:
                     node = new TextureAlphaNode();
                     break;
-                case NodeTypes.EngineGlow:
+                case NodeType.EngineGlow:
                     node = new EngineGlowNode();
                     break;
             }
@@ -247,7 +247,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             foreach (Node node in this.Nodes)
             {
-                if (node.NodeType == Opt.NodeTypes.NullNode)
+                if (node.NodeType == Opt.NodeType.NullNode)
                 {
                     file.Write((int)0);
                     continue;
@@ -274,7 +274,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             foreach (Node node in this.Nodes)
             {
-                if (node.NodeType == NodeTypes.NullNode)
+                if (node.NodeType == NodeType.NullNode)
                 {
                     continue;
                 }

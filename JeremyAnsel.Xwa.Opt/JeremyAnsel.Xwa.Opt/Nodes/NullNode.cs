@@ -15,7 +15,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     internal sealed class NullNode : Node
     {
         internal NullNode()
-            : base(NodeTypes.NullNode)
+            : base(NodeType.NullNode)
         {
         }
 

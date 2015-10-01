@@ -15,7 +15,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class NodeSwitchNode : Node
     {
         public NodeSwitchNode()
-            : base(NodeTypes.NodeSwitch)
+            : base(NodeType.NodeSwitch)
         {
         }
 

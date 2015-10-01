@@ -12,7 +12,7 @@ namespace JeremyAnsel.Xwa.Opt
     using System.Text;
     using System.Threading.Tasks;
 
-    public enum NodeTypes
+    public enum NodeType
     {
         NullNode = -1,
         

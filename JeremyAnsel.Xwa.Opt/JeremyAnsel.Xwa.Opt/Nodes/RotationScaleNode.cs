@@ -15,7 +15,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class RotationScaleNode : Node
     {
         public RotationScaleNode()
-            : base(NodeTypes.RotationScale)
+            : base(NodeType.RotationScale)
         {
         }
 

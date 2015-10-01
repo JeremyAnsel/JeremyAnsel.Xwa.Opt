@@ -15,7 +15,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class FaceGroupingNode : Node
     {
         public FaceGroupingNode()
-            : base(NodeTypes.FaceGrouping)
+            : base(NodeType.FaceGrouping)
         {
             this.Distances = new List<float>();
         }

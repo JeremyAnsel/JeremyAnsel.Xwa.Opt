@@ -16,11 +16,11 @@ namespace JeremyAnsel.Xwa.Opt
     {
         public Hardpoint()
         {
-            this.HardpointType = HardpointTypes.None;
+            this.HardpointType = HardpointType.None;
             this.Position = Vector.Empty;
         }
 
-        public HardpointTypes HardpointType { get; set; }
+        public HardpointType HardpointType { get; set; }
 
         public Vector Position { get; set; }
     }

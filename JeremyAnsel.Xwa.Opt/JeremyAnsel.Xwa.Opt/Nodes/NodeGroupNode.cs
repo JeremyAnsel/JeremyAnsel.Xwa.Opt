@@ -15,7 +15,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class NodeGroupNode : Node
     {
         public NodeGroupNode()
-            : base(NodeTypes.NodeGroup)
+            : base(NodeType.NodeGroup)
         {
         }
 

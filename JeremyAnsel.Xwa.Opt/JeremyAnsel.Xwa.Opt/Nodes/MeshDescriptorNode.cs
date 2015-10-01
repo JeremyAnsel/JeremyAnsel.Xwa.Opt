@@ -16,11 +16,11 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class MeshDescriptorNode : Node
     {
         public MeshDescriptorNode()
-            : base(NodeTypes.MeshDescriptor)
+            : base(NodeType.MeshDescriptor)
         {
         }
 
-        public MeshTypes MeshType { get; set; }
+        public MeshType MeshType { get; set; }
 
         public ExplosionTypes ExplosionType { get; set; }
 
@@ -62,7 +62,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             dataOffset -= globalOffset;
 
-            this.MeshType = (MeshTypes)BitConverter.ToInt32(buffer, dataOffset + 0);
+            this.MeshType = (MeshType)BitConverter.ToInt32(buffer, dataOffset + 0);
             this.ExplosionType = (ExplosionTypes)BitConverter.ToInt32(buffer, dataOffset + 4);
             this.Span = Vector.FromByteArray(buffer, dataOffset + 8);
             this.Center = Vector.FromByteArray(buffer, dataOffset + 20);

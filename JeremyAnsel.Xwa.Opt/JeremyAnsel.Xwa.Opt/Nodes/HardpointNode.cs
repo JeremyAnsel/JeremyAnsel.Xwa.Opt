@@ -16,11 +16,11 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     public sealed class HardpointNode : Node
     {
         public HardpointNode()
-            : base(NodeTypes.Hardpoint)
+            : base(NodeType.Hardpoint)
         {
         }
 
-        public HardpointTypes HardpointType { get; set; }
+        public HardpointType HardpointType { get; set; }
 
         public Vector Position { get; set; }
 
@@ -50,7 +50,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             dataOffset -= globalOffset;
 
-            this.HardpointType = (HardpointTypes)BitConverter.ToInt32(buffer, dataOffset + 0);
+            this.HardpointType = (HardpointType)BitConverter.ToInt32(buffer, dataOffset + 0);
             this.Position = Vector.FromByteArray(buffer, dataOffset + 4);
         }
 

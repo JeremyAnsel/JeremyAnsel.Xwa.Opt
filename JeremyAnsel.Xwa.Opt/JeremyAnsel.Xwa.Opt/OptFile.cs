@@ -165,7 +165,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             for (int meshId = 0; meshId < optNodes.Nodes.Count; meshId++)
             {
-                if (meshId == 0 && optNodes.Nodes[meshId].NodeType == NodeTypes.Texture)
+                if (meshId == 0 && optNodes.Nodes[meshId].NodeType == NodeType.Texture)
                 {
                     TextureNode textureNode = (TextureNode)optNodes.Nodes[meshId];
                     opt.CreateTexture(textureNode);
@@ -173,25 +173,25 @@ namespace JeremyAnsel.Xwa.Opt
                     continue;
                 }
 
-                if (optNodes.Nodes[meshId].NodeType != NodeTypes.NodeGroup)
+                if (optNodes.Nodes[meshId].NodeType != NodeType.NodeGroup)
                 {
                     throw new InvalidDataException("invalid mesh");
                 }
 
                 NodeGroupNode meshNode = (NodeGroupNode)optNodes.Nodes[meshId];
 
-                var meshNodes = meshNode.Nodes.Union((meshNode.Nodes.Where(t => t.NodeType == NodeTypes.NodeGroup).FirstOrDefault() ?? new NodeGroupNode()).Nodes).ToList();
+                var meshNodes = meshNode.Nodes.Union((meshNode.Nodes.Where(t => t.NodeType == NodeType.NodeGroup).FirstOrDefault() ?? new NodeGroupNode()).Nodes).ToList();
 
-                RotationScaleNode rotationScaleNode = (RotationScaleNode)meshNodes.FirstOrDefault(t => t.NodeType == NodeTypes.RotationScale);
-                MeshDescriptorNode descriptorNode = (MeshDescriptorNode)meshNodes.FirstOrDefault(t => t.NodeType == NodeTypes.MeshDescriptor);
-                MeshVerticesNode verticesNode = (MeshVerticesNode)meshNodes.First(t => t.NodeType == NodeTypes.MeshVertices);
-                TextureCoordinatesNode textureVerticesNode = (TextureCoordinatesNode)meshNodes.First(t => t.NodeType == NodeTypes.TextureCoordinates);
-                VertexNormalsNode vertexNormalsNode = (VertexNormalsNode)meshNodes.First(t => t.NodeType == NodeTypes.VertexNormals);
+                RotationScaleNode rotationScaleNode = (RotationScaleNode)meshNodes.FirstOrDefault(t => t.NodeType == NodeType.RotationScale);
+                MeshDescriptorNode descriptorNode = (MeshDescriptorNode)meshNodes.FirstOrDefault(t => t.NodeType == NodeType.MeshDescriptor);
+                MeshVerticesNode verticesNode = (MeshVerticesNode)meshNodes.First(t => t.NodeType == NodeType.MeshVertices);
+                TextureCoordinatesNode textureVerticesNode = (TextureCoordinatesNode)meshNodes.First(t => t.NodeType == NodeType.TextureCoordinates);
+                VertexNormalsNode vertexNormalsNode = (VertexNormalsNode)meshNodes.First(t => t.NodeType == NodeType.VertexNormals);
 
-                var hardpointsNodes = meshNodes.Where(t => t.NodeType == NodeTypes.Hardpoint).Select(t => (HardpointNode)t).ToList();
-                var engineGlowsNodes = meshNodes.Where(t => t.NodeType == NodeTypes.EngineGlow).Select(t => (EngineGlowNode)t).ToList();
+                var hardpointsNodes = meshNodes.Where(t => t.NodeType == NodeType.Hardpoint).Select(t => (HardpointNode)t).ToList();
+                var engineGlowsNodes = meshNodes.Where(t => t.NodeType == NodeType.EngineGlow).Select(t => (EngineGlowNode)t).ToList();
 
-                FaceGroupingNode faceGroupingNode = (FaceGroupingNode)meshNodes.First(t => t.NodeType == NodeTypes.FaceGrouping);
+                FaceGroupingNode faceGroupingNode = (FaceGroupingNode)meshNodes.First(t => t.NodeType == NodeType.FaceGrouping);
 
                 Mesh mesh = new Mesh();
 
@@ -271,7 +271,7 @@ namespace JeremyAnsel.Xwa.Opt
                     {
                         switch (node.NodeType)
                         {
-                            case NodeTypes.Texture:
+                            case NodeType.Texture:
                                 {
                                     TextureNode textureNode = (TextureNode)node;
 
@@ -280,11 +280,11 @@ namespace JeremyAnsel.Xwa.Opt
                                     break;
                                 }
 
-                            case NodeTypes.NodeReference:
+                            case NodeType.NodeReference:
                                 texture = new List<string>() { ((NodeReferenceNode)node).Reference };
                                 break;
 
-                            case NodeTypes.NodeSwitch:
+                            case NodeType.NodeSwitch:
                                 {
                                     NodeSwitchNode switchNode = (NodeSwitchNode)node;
                                     texture = new List<string>();
@@ -293,7 +293,7 @@ namespace JeremyAnsel.Xwa.Opt
                                     {
                                         switch (nodeSwitch.NodeType)
                                         {
-                                            case NodeTypes.Texture:
+                                            case NodeType.Texture:
                                                 {
                                                     TextureNode textureNode = (TextureNode)nodeSwitch;
 
@@ -302,7 +302,7 @@ namespace JeremyAnsel.Xwa.Opt
                                                     break;
                                                 }
 
-                                            case NodeTypes.NodeReference:
+                                            case NodeType.NodeReference:
                                                 texture.Add(((NodeReferenceNode)nodeSwitch).Reference);
                                                 break;
                                         }
@@ -311,7 +311,7 @@ namespace JeremyAnsel.Xwa.Opt
                                     break;
                                 }
 
-                            case NodeTypes.FaceData:
+                            case NodeType.FaceData:
                                 {
                                     FaceDataNode faceDataNode = (FaceDataNode)node;
 
@@ -685,7 +685,7 @@ namespace JeremyAnsel.Xwa.Opt
                 texture.ImageData = textureNode.Bytes;
 
                 TextureAlphaNode alphaNode = (TextureAlphaNode)textureNode.Nodes
-                    .FirstOrDefault(t => t.NodeType == NodeTypes.TextureAlpha);
+                    .FirstOrDefault(t => t.NodeType == NodeType.TextureAlpha);
 
                 if (alphaNode != null)
                 {
