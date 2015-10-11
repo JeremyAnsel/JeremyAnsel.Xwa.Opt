@@ -41,7 +41,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="JeremyAnsel.ColorQuant, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a5c614433db515df, processorArchitecture=MSIL">
-      <HintPath>..\packages\JeremyAnsel.ColorQuant.1.0.52\lib\net40\JeremyAnsel.ColorQuant.dll</HintPath>
+      <HintPath>..\packages\JeremyAnsel.ColorQuant.1.0.54\lib\net40\JeremyAnsel.ColorQuant.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
