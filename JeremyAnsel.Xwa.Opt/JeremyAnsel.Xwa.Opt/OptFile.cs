@@ -454,7 +454,6 @@ namespace JeremyAnsel.Xwa.Opt
         public void Save(string path)
         {
             this.CompactBuffers();
-            this.CompactTextures();
 
             OptFileNodes optNodes = new OptFileNodes();
 
