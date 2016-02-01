@@ -743,6 +743,47 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
+        public void GenerateTexturesNames()
+        {
+            var map = new Dictionary<string, string>(this.Textures.Count);
+            var mapTextures = new List<Texture>(this.Textures.Count);
+
+            for (int index = 0; index < this.Textures.Count; index++)
+            {
+                var texture = this.Textures.ElementAt(index).Value;
+
+                string newName = string.Format(CultureInfo.InvariantCulture, "Tex{0:D5}", index);
+
+                map.Add(texture.Name, newName);
+
+                texture.Name = newName;
+                mapTextures.Add(texture);
+            }
+
+            this.Textures.Clear();
+
+            foreach (var texture in mapTextures)
+            {
+                this.Textures.Add(texture.Name, texture);
+            }
+
+            foreach (var faceGroup in this.Meshes
+                .SelectMany(t => t.Lods)
+                .SelectMany(t => t.FaceGroups))
+            {
+                for (int i = 0; i < faceGroup.Textures.Count; i++)
+                {
+                    string key = faceGroup.Textures[i];
+                    string name;
+
+                    if (map.TryGetValue(key, out name))
+                    {
+                        faceGroup.Textures[i] = name;
+                    }
+                }
+            }
+        }
+
         public void ComputeHitzones()
         {
             this.Meshes
