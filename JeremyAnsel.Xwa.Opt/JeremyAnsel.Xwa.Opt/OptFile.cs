@@ -150,6 +150,7 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
+        [SuppressMessage("Microsoft.Performance", "CA1809:AvoidExcessiveLocals")]
         [SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling")]
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         [SuppressMessage("Microsoft.Maintainability", "CA1505:AvoidUnmaintainableCode")]
@@ -1032,32 +1033,14 @@ namespace JeremyAnsel.Xwa.Opt
                 .AsParallel()
                 .ForAll(mesh =>
                 {
-                    var newVertices = new List<Vector>(mesh.Vertices.Count);
-
-                    foreach (var vertex in mesh.Vertices)
+                    for (int i = 0; i < mesh.Vertices.Count; i++)
                     {
-                        newVertices.Add(vertex.Scale(scaleX, scaleY, scaleZ));
+                        mesh.Vertices[i] = mesh.Vertices[i].Scale(scaleX, scaleY, scaleZ);
                     }
 
-                    mesh.Vertices.Clear();
-
-                    foreach (var vertex in newVertices)
+                    for (int i = 0; i < mesh.VertexNormals.Count; i++)
                     {
-                        mesh.Vertices.Add(vertex);
-                    }
-
-                    var newNormals = new List<Vector>(mesh.VertexNormals.Count);
-
-                    foreach (var normal in mesh.VertexNormals)
-                    {
-                        newNormals.Add(normal.Scale(Math.Sign(scaleX), Math.Sign(scaleY), Math.Sign(scaleZ)));
-                    }
-
-                    mesh.VertexNormals.Clear();
-
-                    foreach (var normal in newNormals)
-                    {
-                        mesh.VertexNormals.Add(normal);
+                        mesh.VertexNormals[i] = mesh.VertexNormals[i].Scale(Math.Sign(scaleX), Math.Sign(scaleY), Math.Sign(scaleZ));
                     }
 
                     Vector min = mesh.Descriptor.Min.Scale(scaleX, scaleY, scaleZ);
@@ -1169,32 +1152,14 @@ namespace JeremyAnsel.Xwa.Opt
                 .AsParallel()
                 .ForAll(mesh =>
                 {
-                    var newVertices = new List<Vector>(mesh.Vertices.Count);
-
-                    foreach (var vertex in mesh.Vertices)
+                    for (int i = 0; i < mesh.Vertices.Count; i++)
                     {
-                        newVertices.Add(selectVector(vertex));
+                        mesh.Vertices[i] = selectVector(mesh.Vertices[i]);
                     }
 
-                    mesh.Vertices.Clear();
-
-                    foreach (var vertex in newVertices)
+                    for (int i = 0; i < mesh.VertexNormals.Count; i++)
                     {
-                        mesh.Vertices.Add(vertex);
-                    }
-
-                    var newNormals = new List<Vector>(mesh.VertexNormals.Count);
-
-                    foreach (var normal in mesh.VertexNormals)
-                    {
-                        newNormals.Add(selectVector(normal));
-                    }
-
-                    mesh.VertexNormals.Clear();
-
-                    foreach (var normal in newNormals)
-                    {
-                        mesh.VertexNormals.Add(normal);
+                        mesh.VertexNormals[i] = selectVector(mesh.VertexNormals[i]);
                     }
 
                     Vector min = selectVector(mesh.Descriptor.Min);
