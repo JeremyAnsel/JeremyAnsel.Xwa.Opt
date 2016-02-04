@@ -438,5 +438,30 @@ namespace JeremyAnsel.Xwa.Opt
 
             return merge;
         }
+
+        public void Move(float moveX, float moveY, float moveZ)
+        {
+            for (int i = 0; i < this.Vertices.Count; i++)
+            {
+                this.Vertices[i] = this.Vertices[i].Move(moveX, moveY, moveZ);
+            }
+
+            this.Descriptor.Min = this.Descriptor.Min.Move(moveX, moveY, moveZ);
+            this.Descriptor.Max = this.Descriptor.Max.Move(moveX, moveY, moveZ);
+            this.Descriptor.Center = this.Descriptor.Center.Move(moveX, moveY, moveZ);
+            this.Descriptor.Target = this.Descriptor.Target.Move(moveX, moveY, moveZ);
+
+            this.RotationScale.Pivot = this.RotationScale.Pivot.Move(moveX, moveY, moveZ);
+
+            foreach (var hardpoint in this.Hardpoints)
+            {
+                hardpoint.Position = hardpoint.Position.Move(moveX, moveY, moveZ);
+            }
+
+            foreach (var engineGlow in this.EngineGlows)
+            {
+                engineGlow.Position = engineGlow.Position.Move(moveX, moveY, moveZ);
+            }
+        }
     }
 }

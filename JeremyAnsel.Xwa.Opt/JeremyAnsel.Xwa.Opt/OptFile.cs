@@ -1087,6 +1087,13 @@ namespace JeremyAnsel.Xwa.Opt
                 });
         }
 
+        public void Move(float moveX, float moveY, float moveZ)
+        {
+            this.Meshes
+                .AsParallel()
+                .ForAll(mesh => mesh.Move(moveX, moveY, moveZ));
+        }
+
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         public void ChangeAxes(int axisX, int axisY, int axisZ)
         {

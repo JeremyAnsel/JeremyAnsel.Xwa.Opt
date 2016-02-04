@@ -190,6 +190,11 @@ namespace JeremyAnsel.Xwa.Opt
             return new Vector(this.x * scaleX, this.y * scaleY, this.z * scaleZ);
         }
 
+        public Vector Move(float moveX, float moveY, float moveZ)
+        {
+            return new Vector(this.x + moveX, this.y + moveY, this.z + moveZ);
+        }
+
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "a", Justification = "Reviewed")]
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "b", Justification = "Reviewed")]
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "c", Justification = "Reviewed")]
