@@ -140,6 +140,14 @@ namespace JeremyAnsel.Xwa.Opt
             {
                 yield break;
             }
+
+            if (opt.Meshes.SelectMany(t => t.Hardpoints).Count(t => t.HardpointType == HardpointType.CockpitSparks) > 16)
+            {
+                yield return new PlayabilityMessage(
+                    PlayabilityMessageLevel.Error,
+                    "Hardpoints",
+                    "The maximun cockpit sparks count for an opt is 16");
+            }
         }
     }
 }
