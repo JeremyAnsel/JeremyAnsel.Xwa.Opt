@@ -463,5 +463,103 @@ namespace JeremyAnsel.Xwa.Opt
                 engineGlow.Position = engineGlow.Position.Move(moveX, moveY, moveZ);
             }
         }
+
+        public Mesh Duplicate()
+        {
+            var newMesh = new Mesh();
+
+            foreach (var vertex in this.Vertices)
+            {
+                newMesh.Vertices.Add(vertex);
+            }
+
+            foreach (var textureCoordinate in this.TextureCoordinates)
+            {
+                newMesh.TextureCoordinates.Add(textureCoordinate);
+            }
+
+            foreach (var vertexNormal in this.VertexNormals)
+            {
+                newMesh.VertexNormals.Add(vertexNormal);
+            }
+
+            newMesh.Descriptor.MeshType = this.Descriptor.MeshType;
+            newMesh.Descriptor.ExplosionType = this.Descriptor.ExplosionType;
+            newMesh.Descriptor.Span = this.Descriptor.Span;
+            newMesh.Descriptor.Center = this.Descriptor.Center;
+            newMesh.Descriptor.Min = this.Descriptor.Min;
+            newMesh.Descriptor.Max = this.Descriptor.Max;
+            newMesh.Descriptor.TargetId = this.Descriptor.TargetId;
+            newMesh.Descriptor.Target = this.Descriptor.Target;
+
+            newMesh.RotationScale.Pivot = this.RotationScale.Pivot;
+            newMesh.RotationScale.Look = this.RotationScale.Look;
+            newMesh.RotationScale.Up = this.RotationScale.Up;
+            newMesh.RotationScale.Right = this.RotationScale.Right;
+
+            foreach (var lod in this.Lods)
+            {
+                var newLod = new MeshLod();
+
+                newLod.Distance = lod.Distance;
+
+                foreach (var faceGroup in lod.FaceGroups)
+                {
+                    var newFaceGroup = new FaceGroup();
+
+                    foreach (var face in faceGroup.Faces)
+                    {
+                        newFaceGroup.Faces.Add(new Face
+                        {
+                            VerticesIndex = face.VerticesIndex,
+                            EdgesIndex = face.EdgesIndex,
+                            TextureCoordinatesIndex = face.TextureCoordinatesIndex,
+                            VertexNormalsIndex = face.VertexNormalsIndex,
+                            Normal = face.Normal,
+                            TexturingDirection = face.TexturingDirection,
+                            TexturingMagniture = face.TexturingMagniture
+                        });
+                    }
+
+                    foreach (var texture in faceGroup.Textures)
+                    {
+                        newFaceGroup.Textures.Add(texture);
+                    }
+
+                    newLod.FaceGroups.Add(newFaceGroup);
+                }
+
+                newMesh.Lods.Add(newLod);
+            }
+
+            foreach (var hardpoint in this.Hardpoints)
+            {
+                newMesh.Hardpoints.Add(new Hardpoint
+                {
+                    HardpointType = hardpoint.HardpointType,
+                    Position = hardpoint.Position
+                });
+            }
+
+            foreach (var engineGlow in this.EngineGlows)
+            {
+                newMesh.EngineGlows.Add(new EngineGlow
+                {
+                    IsDisabled = engineGlow.IsDisabled,
+                    CoreColor = engineGlow.CoreColor,
+                    OuterColor = engineGlow.OuterColor,
+                    Format = engineGlow.Format,
+                    Position = engineGlow.Position,
+                    Look = engineGlow.Look,
+                    Up = engineGlow.Up,
+                    Right = engineGlow.Right
+                });
+            }
+
+            var center = newMesh.Descriptor.Center;
+            newMesh.Move(-center.X, -center.Y, -center.Z);
+
+            return newMesh;
+        }
     }
 }
