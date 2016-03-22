@@ -1261,6 +1261,54 @@ namespace JeremyAnsel.Xwa.Opt
             this.AlphaData = alpha;
         }
 
+        public void MakeColorIlluminated(byte red, byte green, byte blue)
+        {
+            this.MakeColorIlluminated(red, green, blue, red, green, blue);
+        }
+
+        public void MakeColorIlluminated(byte red0, byte green0, byte blue0, byte red1, byte green1, byte blue1)
+        {
+            if (this.BitsPerPixel != 8)
+            {
+                return;
+            }
+
+            if (this.Palette == null)
+            {
+                return;
+            }
+
+            for (int c = 0; c < 256; c++)
+            {
+                ushort color = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
+
+                byte r = (byte)((color & 0xF800U) >> 11);
+                byte g = (byte)((color & 0x7E0U) >> 5);
+                byte b = (byte)(color & 0x1FU);
+
+                r = (byte)((r * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+                g = (byte)((g * (0xffU * 2) + 0x3fU) / (0x3fU * 2));
+                b = (byte)((b * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+
+                if (r >= red0 && r <= red1 && g >= green0 && g <= green1 && b >= blue0 && b <= blue1)
+                {
+                    byte color0 = this.Palette[8 * 512 + c * 2];
+                    byte color1 = this.Palette[8 * 512 + c * 2 + 1];
+
+                    for (int i = 0; i < 16; i++)
+                    {
+                        if (i == 8)
+                        {
+                            continue;
+                        }
+
+                        this.Palette[i * 512 + c * 2] = color0;
+                        this.Palette[i * 512 + c * 2 + 1] = color1;
+                    }
+                }
+            }
+        }
+
         public static bool AreEquals(Texture textureA, Texture textureB)
         {
             if (textureA == null || textureB == null)
