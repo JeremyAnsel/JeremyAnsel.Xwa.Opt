@@ -246,6 +246,68 @@ namespace JeremyAnsel.Xwa.Opt
             this.Palette = palette;
         }
 
+        public void ResetPaletteColors()
+        {
+            if (this.Palette == null || this.Palette.Length != 8192)
+            {
+                return;
+            }
+
+            for (int c = 0; c < 256; c++)
+            {
+                uint cr;
+                uint cg;
+                uint cb;
+
+                ushort color16 = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
+
+                cr = (byte)((color16 & 0xF800) >> 11);
+                cg = (byte)((color16 & 0x7E0) >> 5);
+                cb = (byte)(color16 & 0x1F);
+
+                cr = (byte)((cr * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+                cg = (byte)((cg * (0xffU * 2) + 0x3fU) / (0x3fU * 2));
+                cb = (byte)((cb * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+
+                for (uint i = 0; i < 16; i++)
+                {
+                    if (i == 8)
+                    {
+                        continue;
+                    }
+
+                    uint r;
+                    uint g;
+                    uint b;
+
+                    if (i < 8)
+                    {
+                        uint d = i;
+
+                        r = (cr * 128 * d / 8 + cr * 128) / 256;
+                        g = (cg * 128 * d / 8 + cg * 128) / 256;
+                        b = (cb * 128 * d / 8 + cb * 128) / 256;
+                    }
+                    else
+                    {
+                        uint d = i - 8;
+
+                        r = ((255 - cr) * 256 * d / 8 + cr * 256) / 256;
+                        g = ((255 - cg) * 256 * d / 8 + cg * 256) / 256;
+                        b = ((255 - cb) * 256 * d / 8 + cb * 256) / 256;
+                    }
+
+                    r = (r * (0x1fU * 2) + 0xffU) / (0xffU * 2);
+                    g = (g * (0x3fU * 2) + 0xffU) / (0xffU * 2);
+                    b = (b * (0x1fU * 2) + 0xffU) / (0xffU * 2);
+
+                    ushort color = (ushort)((r << 11) | (g << 5) | b);
+
+                    BitConverter.GetBytes(color).CopyTo(this.Palette, i * 512 + c * 2);
+                }
+            }
+        }
+
         public byte[] GetMipmapImageData()
         {
             int w;
