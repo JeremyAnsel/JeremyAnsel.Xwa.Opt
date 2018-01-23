@@ -883,44 +883,85 @@ namespace JeremyAnsel.Xwa.Opt
             var rect = new Rectangle(0, 0, image.Width, image.Height);
             int length = image.Width * image.Height;
 
-            byte[] bytes = new byte[length * 4];
+            var texture = new Texture();
+            texture.Width = image.Width;
+            texture.Height = image.Height;
 
-            using (var bitmap = image.Clone(rect, PixelFormat.Format32bppArgb))
+            if (image.PixelFormat == PixelFormat.Format8bppIndexed)
             {
-                var data = bitmap.LockBits(rect, ImageLockMode.ReadOnly, bitmap.PixelFormat);
+                byte[] bytes = new byte[length];
+
+                var data = image.LockBits(rect, ImageLockMode.ReadOnly, image.PixelFormat);
 
                 try
                 {
-                    Marshal.Copy(data.Scan0, bytes, 0, length * 4);
+                    if (data.Width == data.Stride)
+                    {
+                        Marshal.Copy(data.Scan0, bytes, 0, length);
+                    }
+                    else
+                    {
+                        for (int h = 0; h < data.Height; h++)
+                        {
+                            Marshal.Copy(IntPtr.Add(data.Scan0, h * data.Stride), bytes, h * data.Width, data.Width);
+                        }
+                    }
                 }
                 finally
                 {
-                    bitmap.UnlockBits(data);
+                    image.UnlockBits(data);
                 }
-            }
 
-            byte[] alphaData = new byte[length];
-            bool hasAlpha = false;
+                byte[] palette = new byte[256 * 3];
+                var colors = image.Palette.Entries;
 
-            for (int i = 0; i < length; i++)
-            {
-                byte a = bytes[i * 4 + 3];
-
-                alphaData[i] = a;
-
-                if (a != (byte)255)
+                for (int i = 0; i < 256; i++)
                 {
-                    hasAlpha = true;
+                    palette[i * 3 + 0] = colors[i].R;
+                    palette[i * 3 + 1] = colors[i].G;
+                    palette[i * 3 + 2] = colors[i].B;
                 }
+
+                texture.ImageData = bytes;
+                texture.SetPaletteColors(palette);
             }
+            else
+            {
+                byte[] bytes = new byte[length * 4];
 
-            var texture = new Texture();
+                using (var bitmap = image.Clone(rect, PixelFormat.Format32bppArgb))
+                {
+                    var data = bitmap.LockBits(rect, ImageLockMode.ReadOnly, bitmap.PixelFormat);
 
-            texture.Width = image.Width;
-            texture.Height = image.Height;
-            texture.ImageData = bytes;
-            texture.AlphaData = hasAlpha ? alphaData : null;
-            texture.Palette = new byte[8192];
+                    try
+                    {
+                        Marshal.Copy(data.Scan0, bytes, 0, length * 4);
+                    }
+                    finally
+                    {
+                        bitmap.UnlockBits(data);
+                    }
+                }
+
+                byte[] alphaData = new byte[length];
+                bool hasAlpha = false;
+
+                for (int i = 0; i < length; i++)
+                {
+                    byte a = bytes[i * 4 + 3];
+
+                    alphaData[i] = a;
+
+                    if (a != (byte)255)
+                    {
+                        hasAlpha = true;
+                    }
+                }
+
+                texture.ImageData = bytes;
+                texture.AlphaData = hasAlpha ? alphaData : null;
+                texture.Palette = new byte[8192];
+            }
 
             return texture;
         }
