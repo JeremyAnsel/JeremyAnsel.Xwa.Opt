@@ -586,27 +586,18 @@ namespace JeremyAnsel.Xwa.Opt
 
                 if (alphaData == null)
                 {
-                    var handle = GCHandle.Alloc(imageData, GCHandleType.Pinned);
+                    var bitmap = GetBitmap8bpp(this.Width, this.Height, imageData);
 
-                    try
+                    var pal = bitmap.Palette;
+
+                    for (int i = 0; i < 256; i++)
                     {
-                        var bitmap = new Bitmap(this.Width, this.Height, this.Width, PixelFormat.Format8bppIndexed, handle.AddrOfPinnedObject());
-
-                        var pal = bitmap.Palette;
-
-                        for (int i = 0; i < 256; i++)
-                        {
-                            pal.Entries[i] = Color.FromArgb(palette[i].Item1, palette[i].Item2, palette[i].Item3);
-                        }
-
-                        bitmap.Palette = pal;
-
-                        return bitmap;
+                        pal.Entries[i] = Color.FromArgb(palette[i].Item1, palette[i].Item2, palette[i].Item3);
                     }
-                    finally
-                    {
-                        handle.Free();
-                    }
+
+                    bitmap.Palette = pal;
+
+                    return bitmap;
                 }
                 else
                 {
@@ -689,27 +680,18 @@ namespace JeremyAnsel.Xwa.Opt
                     })
                     .ToList();
 
-                var handle = GCHandle.Alloc(colorMap, GCHandleType.Pinned);
+                var bitmap = GetBitmap8bpp(this.Width, this.Height, colorMap);
 
-                try
+                var pal = bitmap.Palette;
+
+                for (int i = 0; i < 256; i++)
                 {
-                    var bitmap = new Bitmap(this.Width, this.Height, this.Width, PixelFormat.Format8bppIndexed, handle.AddrOfPinnedObject());
-
-                    var pal = bitmap.Palette;
-
-                    for (int i = 0; i < 256; i++)
-                    {
-                        pal.Entries[i] = Color.FromArgb(palette[i].Item1, palette[i].Item2, palette[i].Item3);
-                    }
-
-                    bitmap.Palette = pal;
-
-                    return bitmap;
+                    pal.Entries[i] = Color.FromArgb(palette[i].Item1, palette[i].Item2, palette[i].Item3);
                 }
-                finally
-                {
-                    handle.Free();
-                }
+
+                bitmap.Palette = pal;
+
+                return bitmap;
             }
             else if (bpp == 32)
             {
@@ -740,27 +722,58 @@ namespace JeremyAnsel.Xwa.Opt
                 return null;
             }
 
-            var handle = GCHandle.Alloc(alphaMap, GCHandleType.Pinned);
+            var bitmap = GetBitmap8bpp(this.Width, this.Height, alphaMap);
 
-            try
+            var pal = bitmap.Palette;
+
+            for (int i = 0; i < 256; i++)
             {
-                var bitmap = new Bitmap(this.Width, this.Height, this.Width, PixelFormat.Format8bppIndexed, handle.AddrOfPinnedObject());
+                pal.Entries[i] = Color.FromArgb(i, i, i, i);
+            }
 
-                var pal = bitmap.Palette;
+            bitmap.Palette = pal;
 
-                for (int i = 0; i < 256; i++)
+            return bitmap;
+        }
+
+        [SuppressMessage("Microsoft.Reliability", "CA2000:Supprimer les objets avant la mise hors de portée")]
+        private static Bitmap GetBitmap8bpp(int width, int height, byte[] imageData)
+        {
+            Bitmap bitmap;
+
+            if (width % 4 == 0)
+            {
+                var handle = GCHandle.Alloc(imageData, GCHandleType.Pinned);
+
+                try
                 {
-                    pal.Entries[i] = Color.FromArgb(i, i, i, i);
+                    bitmap = new Bitmap(width, height, width, PixelFormat.Format8bppIndexed, handle.AddrOfPinnedObject());
                 }
-
-                bitmap.Palette = pal;
-
-                return bitmap;
+                finally
+                {
+                    handle.Free();
+                }
             }
-            finally
+            else
             {
-                handle.Free();
+                bitmap = new Bitmap(width, height, PixelFormat.Format8bppIndexed);
+                var rect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
+                var data = bitmap.LockBits(rect, ImageLockMode.WriteOnly, bitmap.PixelFormat);
+
+                try
+                {
+                    for (int h = 0; h < data.Height; h++)
+                    {
+                        Marshal.Copy(imageData, h * data.Width, IntPtr.Add(data.Scan0, h * data.Stride), data.Width);
+                    }
+                }
+                finally
+                {
+                    bitmap.UnlockBits(data);
+                }
             }
+
+            return bitmap;
         }
 
         public static Texture FromFile(string fileName)
