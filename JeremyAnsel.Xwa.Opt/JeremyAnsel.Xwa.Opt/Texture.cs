@@ -1315,6 +1315,38 @@ namespace JeremyAnsel.Xwa.Opt
             this.AlphaData = alpha;
         }
 
+        public void RemoveMipmaps()
+        {
+            if (this.ImageData == null)
+            {
+                return;
+            }
+
+            if (this.MipmapsCount == 1)
+            {
+                return;
+            }
+
+            int bpp = this.BitsPerPixel;
+
+            if (bpp == 0)
+            {
+                return;
+            }
+
+            int length = this.Width * this.Height;
+            byte[] data = new byte[length * bpp / 8];
+            Array.Copy(this.ImageData, 0, data, 0, data.Length);
+            this.ImageData = data;
+
+            if (this.AlphaData != null)
+            {
+                byte[] alphaData = new byte[length];
+                Array.Copy(this.AlphaData, 0, alphaData, 0, alphaData.Length);
+                this.AlphaData = alphaData;
+            }
+        }
+
         public void MakeColorIlluminated(byte red, byte green, byte blue)
         {
             this.MakeColorIlluminated(red, green, blue, red, green, blue);

@@ -827,6 +827,13 @@ namespace JeremyAnsel.Xwa.Opt
                 .ForAll(t => t.GenerateMipmaps());
         }
 
+        public void RemoveTexturesMipmaps()
+        {
+            this.Textures.Values
+                .AsParallel()
+                .ForAll(t => t.RemoveMipmaps());
+        }
+
         public void SplitMesh(Mesh mesh)
         {
             if (mesh == null)
