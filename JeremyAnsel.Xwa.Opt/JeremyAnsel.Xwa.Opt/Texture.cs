@@ -82,6 +82,49 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
+        public bool IsIlluminated
+        {
+            get
+            {
+                if (this.BitsPerPixel != 8)
+                {
+                    return false;
+                }
+
+                if (this.Palette == null)
+                {
+                    return false;
+                }
+
+                for (int c = 0; c < 256; c++)
+                {
+                    bool isIlluminated = true;
+
+                    byte color0 = this.Palette[8 * 512 + c * 2];
+                    byte color1 = this.Palette[8 * 512 + c * 2 + 1];
+
+                    for (int i = 0; i < 16; i++)
+                    {
+                        byte c0 = this.Palette[i * 512 + c * 2];
+                        byte c1 = this.Palette[i * 512 + c * 2 + 1];
+
+                        if (c0 != color0 || c1 != color1)
+                        {
+                            isIlluminated = false;
+                            break;
+                        }
+                    }
+
+                    if (isIlluminated)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }
+
         public int MipmapsCount
         {
             get
