@@ -23,5 +23,16 @@ namespace JeremyAnsel.Xwa.Opt
         public HardpointType HardpointType { get; set; }
 
         public Vector Position { get; set; }
+
+        public Hardpoint Clone()
+        {
+            var hardpoint = new Hardpoint
+            {
+                HardpointType = this.HardpointType,
+                Position = this.Position
+            };
+
+            return hardpoint;
+        }
     }
 }

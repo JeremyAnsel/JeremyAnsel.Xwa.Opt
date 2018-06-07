@@ -38,5 +38,21 @@ namespace JeremyAnsel.Xwa.Opt
         public Vector TexturingDirection { get; set; }
 
         public Vector TexturingMagniture { get; set; }
+
+        public Face Clone()
+        {
+            var face = new Face
+            {
+                VerticesIndex = this.VerticesIndex,
+                EdgesIndex = this.EdgesIndex,
+                TextureCoordinatesIndex = this.TextureCoordinatesIndex,
+                VertexNormalsIndex = this.VertexNormalsIndex,
+                Normal = this.Normal,
+                TexturingDirection = this.TexturingDirection,
+                TexturingMagniture = this.TexturingMagniture
+            };
+
+            return face;
+        }
     }
 }

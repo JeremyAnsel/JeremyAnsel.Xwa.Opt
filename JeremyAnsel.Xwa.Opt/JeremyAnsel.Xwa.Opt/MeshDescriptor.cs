@@ -41,5 +41,22 @@ namespace JeremyAnsel.Xwa.Opt
         public int TargetId { get; set; }
 
         public Vector Target { get; set; }
+
+        public MeshDescriptor Clone()
+        {
+            var descriptor = new MeshDescriptor
+            {
+                MeshType = this.MeshType,
+                ExplosionType = this.ExplosionType,
+                Span = this.Span,
+                Center = this.Center,
+                Min = this.Min,
+                Max = this.Max,
+                TargetId = this.TargetId,
+                Target = this.Target
+            };
+
+            return descriptor;
+        }
     }
 }

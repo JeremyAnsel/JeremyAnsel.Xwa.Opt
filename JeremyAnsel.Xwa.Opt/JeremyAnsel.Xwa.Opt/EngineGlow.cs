@@ -41,5 +41,22 @@ namespace JeremyAnsel.Xwa.Opt
         public Vector Up { get; set; }
 
         public Vector Right { get; set; }
+
+        public EngineGlow Clone()
+        {
+            var engineGlow = new EngineGlow
+            {
+                IsDisabled = this.IsDisabled,
+                CoreColor = this.CoreColor,
+                OuterColor = this.OuterColor,
+                Format = this.Format,
+                Position = this.Position,
+                Look = this.Look,
+                Up = this.Up,
+                Right = this.Right
+            };
+
+            return engineGlow;
+        }
     }
 }

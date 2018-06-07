@@ -220,6 +220,22 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
+        public Texture Clone()
+        {
+            var texture = new Texture
+            {
+                Id = this.Id,
+                Name = this.Name,
+                Width = this.Width,
+                Height = this.Height,
+                Palette = (byte[])this.Palette.Clone(),
+                ImageData = this.ImageData == null ? null : (byte[])this.ImageData.Clone(),
+                AlphaData = this.AlphaData == null ? null : (byte[])this.AlphaData.Clone()
+            };
+
+            return texture;
+        }
+
         public void SetPaletteColors(byte[] colors)
         {
             if (colors == null)

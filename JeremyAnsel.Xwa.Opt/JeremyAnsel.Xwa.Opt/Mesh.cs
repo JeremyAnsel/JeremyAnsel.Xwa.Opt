@@ -43,6 +43,46 @@ namespace JeremyAnsel.Xwa.Opt
 
         public IList<EngineGlow> EngineGlows { get; private set; }
 
+        public Mesh Clone()
+        {
+            var mesh = new Mesh();
+
+            foreach (var vertex in this.Vertices)
+            {
+                mesh.Vertices.Add(vertex);
+            }
+
+            foreach (var textureCoordinates in this.TextureCoordinates)
+            {
+                mesh.TextureCoordinates.Add(textureCoordinates);
+            }
+
+            foreach (var normal in this.VertexNormals)
+            {
+                mesh.VertexNormals.Add(normal);
+            }
+
+            mesh.Descriptor = this.Descriptor == null ? null : this.Descriptor.Clone();
+            mesh.RotationScale = this.RotationScale == null ? null : this.RotationScale.Clone();
+
+            foreach (var lod in this.Lods)
+            {
+                mesh.Lods.Add(lod.Clone());
+            }
+
+            foreach (var hardpoint in this.Hardpoints)
+            {
+                mesh.Hardpoints.Add(hardpoint.Clone());
+            }
+
+            foreach (var engineGlow in this.EngineGlows)
+            {
+                mesh.EngineGlows.Add(engineGlow.Clone());
+            }
+
+            return mesh;
+        }
+
         public void SortLods()
         {
             var lods = this.Lods.OrderByDescending(t => t.Distance).ToList();

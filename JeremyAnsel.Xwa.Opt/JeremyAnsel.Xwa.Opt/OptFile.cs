@@ -150,6 +150,26 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
+        public OptFile Clone()
+        {
+            var opt = new OptFile
+            {
+                FileName = this.FileName
+            };
+
+            foreach (var mesh in this.Meshes)
+            {
+                opt.Meshes.Add(mesh.Clone());
+            }
+
+            foreach (var texture in this.Textures)
+            {
+                opt.Textures.Add(texture.Key, texture.Value.Clone());
+            }
+
+            return opt;
+        }
+
         [SuppressMessage("Microsoft.Performance", "CA1809:AvoidExcessiveLocals")]
         [SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling")]
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]

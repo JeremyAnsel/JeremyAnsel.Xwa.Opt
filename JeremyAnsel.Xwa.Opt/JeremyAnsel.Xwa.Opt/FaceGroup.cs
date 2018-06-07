@@ -58,6 +58,23 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
+        public FaceGroup Clone()
+        {
+            var faceGroup = new FaceGroup();
+
+            foreach (var face in this.Faces)
+            {
+                faceGroup.Faces.Add(face.Clone());
+            }
+
+            foreach (string texture in this.Textures)
+            {
+                faceGroup.Textures.Add(texture);
+            }
+
+            return faceGroup;
+        }
+
         public void ComputeEdges()
         {
             List<Tuple<int, int>> edges = new List<Tuple<int, int>>();

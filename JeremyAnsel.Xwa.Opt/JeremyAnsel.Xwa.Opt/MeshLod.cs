@@ -40,6 +40,21 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
+        public MeshLod Clone()
+        {
+            var lod = new MeshLod
+            {
+                Distance = this.Distance
+            };
+
+            foreach(var faceGroup in this.FaceGroups)
+            {
+                lod.FaceGroups.Add(faceGroup.Clone());
+            }
+
+            return lod;
+        }
+
         public void CompactFaceGroups()
         {
             var groups = new List<FaceGroup>(this.FaceGroups.Count);
