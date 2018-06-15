@@ -250,6 +250,8 @@ namespace JeremyAnsel.Xwa.Opt
 
             byte[] palette = new byte[8192];
 
+            Array.Clear(palette, 0, 512);
+
             for (int c = 0; c < 256; c++)
             {
                 uint cr;
@@ -269,15 +271,21 @@ namespace JeremyAnsel.Xwa.Opt
                     cb = 0;
                 }
 
-                for (uint i = 0; i < 16; i++)
+                for (int i = 1; i < 16; i++)
                 {
                     uint r;
                     uint g;
                     uint b;
 
-                    if (i < 8)
+                    if (i == 8)
                     {
-                        uint d = i;
+                        r = cr;
+                        g = cg;
+                        b = cb;
+                    }
+                    else if (i < 8)
+                    {
+                        uint d = (uint)i;
 
                         r = (cr * 128 * d / 8 + cr * 128) / 256;
                         g = (cg * 128 * d / 8 + cg * 128) / 256;
@@ -285,7 +293,7 @@ namespace JeremyAnsel.Xwa.Opt
                     }
                     else
                     {
-                        uint d = i - 8;
+                        uint d = (uint)i - 8;
 
                         r = ((255 - cr) * 256 * d / 8 + cr * 256) / 256;
                         g = ((255 - cg) * 256 * d / 8 + cg * 256) / 256;
@@ -312,6 +320,8 @@ namespace JeremyAnsel.Xwa.Opt
                 return;
             }
 
+            Array.Clear(this.Palette, 0, 512);
+
             for (int c = 0; c < 256; c++)
             {
                 uint cr;
@@ -328,7 +338,7 @@ namespace JeremyAnsel.Xwa.Opt
                 cg = (byte)((cg * (0xffU * 2) + 0x3fU) / (0x3fU * 2));
                 cb = (byte)((cb * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
 
-                for (uint i = 0; i < 16; i++)
+                for (int i = 1; i < 16; i++)
                 {
                     if (i == 8)
                     {
@@ -341,7 +351,7 @@ namespace JeremyAnsel.Xwa.Opt
 
                     if (i < 8)
                     {
-                        uint d = i;
+                        uint d = (uint)i;
 
                         r = (cr * 128 * d / 8 + cr * 128) / 256;
                         g = (cg * 128 * d / 8 + cg * 128) / 256;
@@ -349,7 +359,7 @@ namespace JeremyAnsel.Xwa.Opt
                     }
                     else
                     {
-                        uint d = i - 8;
+                        uint d = (uint)i - 8;
 
                         r = ((255 - cr) * 256 * d / 8 + cr * 256) / 256;
                         g = ((255 - cg) * 256 * d / 8 + cg * 256) / 256;
