@@ -288,7 +288,7 @@ namespace JeremyAnsel.Xwa.Opt
 
                     lod.Distance = faceGroupingNode.Distances[lodId];
 
-                    foreach (Node node in faceGroupingNode.Nodes[lodId].Nodes)
+                    foreach (Node node in EnumerateNodesInNodeGroupNodes(faceGroupingNode.Nodes[lodId].Nodes))
                     {
                         switch (node.NodeType)
                         {
@@ -440,6 +440,24 @@ namespace JeremyAnsel.Xwa.Opt
             opt.SetFaceGroupTextureWhenEmpty();
 
             return opt;
+        }
+
+        private static IEnumerable<Node> EnumerateNodesInNodeGroupNodes(IEnumerable<Node> nodes)
+        {
+            foreach (Node node in nodes)
+            {
+                if (node.NodeType == NodeType.NodeGroup)
+                {
+                    foreach (Node sub in EnumerateNodesInNodeGroupNodes(node.Nodes))
+                    {
+                        yield return sub;
+                    }
+                }
+                else
+                {
+                    yield return node;
+                }
+            }
         }
 
         private void SetFaceGroupTextureWhenEmpty()
