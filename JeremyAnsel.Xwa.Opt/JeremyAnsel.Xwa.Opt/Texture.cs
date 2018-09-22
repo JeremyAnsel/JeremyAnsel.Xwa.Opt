@@ -392,6 +392,40 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
+        public int RemoveUnusedColors()
+        {
+            int count = 0;
+
+            for (int color = 0; color < 256; color++)
+            {
+                bool used = false;
+
+                for (int i = 0; i < this.ImageData.Length; i++)
+                {
+                    if (this.ImageData[i] == color)
+                    {
+                        used = true;
+                        break;
+                    }
+                }
+
+                if (!used)
+                {
+                    for (int i = 0; i < 16; i++)
+                    {
+                        this.Palette[i * 512 + color * 2] = 0;
+                        this.Palette[i * 512 + color * 2 + 1] = 0;
+                    }
+                }
+                else
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
         public byte[] GetMipmapImageData()
         {
             int w;
