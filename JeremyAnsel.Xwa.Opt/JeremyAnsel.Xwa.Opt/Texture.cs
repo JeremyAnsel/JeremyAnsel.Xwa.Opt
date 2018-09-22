@@ -98,12 +98,17 @@ namespace JeremyAnsel.Xwa.Opt
 
                 for (int c = 0; c < 256; c++)
                 {
-                    bool isIlluminated = true;
-
                     byte color0 = this.Palette[8 * 512 + c * 2];
                     byte color1 = this.Palette[8 * 512 + c * 2 + 1];
 
-                    for (int i = 0; i < 16; i++)
+                    if (color0 == 0 && color1 == 0)
+                    {
+                        continue;
+                    }
+
+                    bool isIlluminated = true;
+
+                    for (int i = 0; i < 8; i++)
                     {
                         byte c0 = this.Palette[i * 512 + c * 2];
                         byte c1 = this.Palette[i * 512 + c * 2 + 1];
