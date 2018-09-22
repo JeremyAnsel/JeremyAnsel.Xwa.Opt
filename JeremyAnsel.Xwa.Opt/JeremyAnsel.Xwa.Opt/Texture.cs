@@ -106,6 +106,16 @@ namespace JeremyAnsel.Xwa.Opt
                         continue;
                     }
 
+                    ushort color = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
+                    byte r = (byte)((color & 0xF800U) >> 11);
+                    byte g = (byte)((color & 0x7E0U) >> 5);
+                    byte b = (byte)(color & 0x1FU);
+
+                    if (r <= 8 && g <= 16 && b <= 8)
+                    {
+                        continue;
+                    }
+
                     bool isIlluminated = true;
 
                     for (int i = 0; i < 8; i++)
