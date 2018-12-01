@@ -39,6 +39,22 @@ namespace JeremyAnsel.Xwa.Opt
 
         public Vector TexturingMagniture { get; set; }
 
+        public int TrianglesCount
+        {
+            get
+            {
+                return this.VerticesIndex.D < 0 ? 1 : 2;
+            }
+        }
+
+        public int VerticesCount
+        {
+            get
+            {
+                return this.VerticesIndex.D < 0 ? 3 : 4;
+            }
+        }
+
         public Face Clone()
         {
             var face = new Face
