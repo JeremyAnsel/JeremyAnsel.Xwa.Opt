@@ -112,9 +112,30 @@ namespace JeremyAnsel.Xwa.Opt
             if (opt.Meshes.Any(t => t.Vertices.Count > 512))
             {
                 yield return new PlayabilityMessage(
+                    PlayabilityMessageLevel.Warning,
+                    "Meshes",
+                    "This opt requires the opt limit hook to work.");
+            }
+
+            if (opt.Meshes
+                .SelectMany(t => t.Lods)
+                .SelectMany(t => t.FaceGroups)
+                .Where(t => t.Textures.Any(name =>
+                {
+                    Texture texture;
+                    if (opt.Textures.TryGetValue(name, out texture))
+                    {
+                        return texture.HasAlpha;
+                    }
+
+                    return false;
+                }))
+                .Any(t => t.VerticesCount > 384))
+            {
+                yield return new PlayabilityMessage(
                     PlayabilityMessageLevel.Error,
                     "Meshes",
-                    "The maximum vertices count for a mesh is 512");
+                    "The maximum vertices count for a face group is 384. Save the opt to automatically split the face groups.");
             }
         }
 
@@ -130,7 +151,7 @@ namespace JeremyAnsel.Xwa.Opt
                 yield return new PlayabilityMessage(
                     PlayabilityMessageLevel.Error,
                     "Engine Glows",
-                    "The maximum engine glows count for an opt is 16");
+                    "The maximum engine glows count for an opt is 16.");
             }
         }
 
@@ -141,12 +162,51 @@ namespace JeremyAnsel.Xwa.Opt
                 yield break;
             }
 
+            if (opt.HardpointsCount > 256)
+            {
+                yield return new PlayabilityMessage(
+                    PlayabilityMessageLevel.Error,
+                    "Hardpoints",
+                    "The maximum hardpoints count for an opt is 256.");
+            }
+            else if (opt.HardpointsCount > 128)
+            {
+                yield return new PlayabilityMessage(
+                    PlayabilityMessageLevel.Warning,
+                    "Hardpoints",
+                    "The maximum hardpoints count for an opt is 128 if hardpoints mirroring is enabled for this opt.");
+            }
+
             if (opt.Meshes.SelectMany(t => t.Hardpoints).Count(t => t.HardpointType == HardpointType.CockpitSparks) > 16)
             {
                 yield return new PlayabilityMessage(
                     PlayabilityMessageLevel.Error,
                     "Hardpoints",
-                    "The maximun cockpit sparks count for an opt is 16");
+                    "The maximun cockpit sparks count for an opt is 16.");
+            }
+
+            if (opt.Meshes.SelectMany(t => t.Hardpoints).Count(t => t.HardpointType == HardpointType.AccEnd || t.HardpointType == HardpointType.Gunner) > 8)
+            {
+                yield return new PlayabilityMessage(
+                    PlayabilityMessageLevel.Error,
+                    "Hardpoints",
+                    "The maximun acc ends count for an opt is 8.");
+            }
+
+            if (opt.Meshes.SelectMany(t => t.Hardpoints).Count(t => t.HardpointType == HardpointType.DockingPoint) > 9)
+            {
+                yield return new PlayabilityMessage(
+                    PlayabilityMessageLevel.Error,
+                    "Hardpoints",
+                    "The maximun docking points count for an opt is 9.");
+            }
+
+            if (opt.Meshes.SelectMany(t => t.Hardpoints).Count(t => t.HardpointType == HardpointType.JammingPoint) > 8)
+            {
+                yield return new PlayabilityMessage(
+                    PlayabilityMessageLevel.Error,
+                    "Hardpoints",
+                    "The maximun jamming points count for an opt is 8.");
             }
         }
     }
