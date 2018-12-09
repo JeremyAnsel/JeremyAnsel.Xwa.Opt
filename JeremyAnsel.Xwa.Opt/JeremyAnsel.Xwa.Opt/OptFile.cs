@@ -1260,5 +1260,63 @@ namespace JeremyAnsel.Xwa.Opt
         {
             return PlayabilityChecker.CheckPlayability(this);
         }
+
+        public IList<string> CheckFlatTextures(bool removeFlatTextures)
+        {
+            var flatTextures = new List<string>();
+
+            for (int meshIndex = 0; meshIndex < this.Meshes.Count; meshIndex++)
+            {
+                var mesh = this.Meshes[meshIndex];
+
+                for (int lodIndex = 0; lodIndex < mesh.Lods.Count; lodIndex++)
+                {
+                    var lod = mesh.Lods[lodIndex];
+
+                    for (int faceGroupIndex = 0; faceGroupIndex < lod.FaceGroups.Count; faceGroupIndex++)
+                    {
+                        var faceGroup = lod.FaceGroups[faceGroupIndex];
+
+                        List<int> removeFacesIndexes = null;
+
+                        if (removeFlatTextures)
+                        {
+                            removeFacesIndexes = new List<int>(faceGroup.Faces.Count);
+                        }
+
+                        for (int faceIndex = 0; faceIndex < faceGroup.Faces.Count; faceIndex++)
+                        {
+                            var face = faceGroup.Faces[faceIndex];
+
+                            if (face.HasFlatTexture(mesh))
+                            {
+                                string text = "MESH " + (meshIndex + 1).ToString(CultureInfo.InvariantCulture)
+                                    + ", LOD " + (lodIndex + 1).ToString(CultureInfo.InvariantCulture)
+                                    + ", GROUP " + (faceGroupIndex + 1).ToString(CultureInfo.InvariantCulture)
+                                    + ", FACE " + (faceIndex + 1).ToString(CultureInfo.InvariantCulture)
+                                    + " has flat texture.";
+
+                                flatTextures.Add(text);
+
+                                if (removeFlatTextures)
+                                {
+                                    removeFacesIndexes.Add(faceIndex);
+                                }
+                            }
+                        }
+
+                        if (removeFlatTextures)
+                        {
+                            for (int faceIndex = removeFacesIndexes.Count - 1; faceIndex >= 0; faceIndex--)
+                            {
+                                faceGroup.Faces.RemoveAt(removeFacesIndexes[faceIndex]);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return flatTextures;
+        }
     }
 }

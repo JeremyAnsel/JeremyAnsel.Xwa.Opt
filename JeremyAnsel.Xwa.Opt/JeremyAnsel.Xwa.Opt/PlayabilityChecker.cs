@@ -17,6 +17,7 @@ namespace JeremyAnsel.Xwa.Opt
             messages.AddRange(PlayabilityChecker.CheckGeometry(opt));
             messages.AddRange(PlayabilityChecker.CheckEngineGlows(opt));
             messages.AddRange(PlayabilityChecker.CheckHardpoints(opt));
+            messages.AddRange(PlayabilityChecker.CheckFlatTextures(opt));
 
             messages.Sort();
 
@@ -207,6 +208,24 @@ namespace JeremyAnsel.Xwa.Opt
                     PlayabilityMessageLevel.Error,
                     "Hardpoints",
                     "The maximun jamming points count for an opt is 8.");
+            }
+        }
+
+        public static IEnumerable<PlayabilityMessage> CheckFlatTextures(OptFile opt)
+        {
+            if (opt == null)
+            {
+                yield break;
+            }
+
+            var flatTextures = opt.CheckFlatTextures(false);
+
+            foreach(string texture in flatTextures)
+            {
+                yield return new PlayabilityMessage(
+                    PlayabilityMessageLevel.Warning,
+                    "Flat Textures",
+                    texture);
             }
         }
     }

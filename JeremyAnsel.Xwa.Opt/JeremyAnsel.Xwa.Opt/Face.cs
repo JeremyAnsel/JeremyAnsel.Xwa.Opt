@@ -70,5 +70,115 @@ namespace JeremyAnsel.Xwa.Opt
 
             return face;
         }
+
+        internal bool HasFlatTexture(Mesh mesh)
+        {
+            int texCoordCount = 0;
+            int texUCount = 0;
+            int texVCount = 0;
+
+            int polyVerts = this.VerticesCount;
+            Index texIndex = this.TextureCoordinatesIndex;
+
+            for (int i = 0; i < polyVerts; i++)
+            {
+                TextureCoordinates vertexI;
+
+                switch (i)
+                {
+                    case 0:
+                        vertexI = mesh.TextureCoordinates[texIndex.A];
+                        break;
+
+                    case 1:
+                        vertexI = mesh.TextureCoordinates[texIndex.B];
+                        break;
+
+                    case 2:
+                        vertexI = mesh.TextureCoordinates[texIndex.C];
+                        break;
+
+                    case 3:
+                        vertexI = mesh.TextureCoordinates[texIndex.D];
+                        break;
+
+                    default:
+                        vertexI = default(TextureCoordinates);
+                        break;
+                }
+
+                bool foundUV = false;
+                bool foundU = false;
+                bool foundV = false;
+
+                for (int j = 0; j < i; j++)
+                {
+                    TextureCoordinates vertexJ;
+
+                    switch (j)
+                    {
+                        case 0:
+                            vertexJ = mesh.TextureCoordinates[texIndex.A];
+                            break;
+
+                        case 1:
+                            vertexJ = mesh.TextureCoordinates[texIndex.B];
+                            break;
+
+                        case 2:
+                            vertexJ = mesh.TextureCoordinates[texIndex.C];
+                            break;
+
+                        case 3:
+                            vertexJ = mesh.TextureCoordinates[texIndex.D];
+                            break;
+
+                        default:
+                            vertexJ = default(TextureCoordinates);
+                            break;
+                    }
+
+                    if (vertexI == vertexJ)
+                    {
+                        foundUV = true;
+                        break;
+                    }
+
+                    if (vertexI.U == vertexJ.U)
+                    {
+                        foundU = true;
+                        break;
+                    }
+
+                    if (vertexI.V == vertexJ.V)
+                    {
+                        foundV = true;
+                        break;
+                    }
+                }
+
+                if (!foundUV)
+                {
+                    texCoordCount++;
+                }
+
+                if (!foundU)
+                {
+                    texUCount++;
+                }
+
+                if (!foundV)
+                {
+                    texVCount++;
+                }
+            }
+
+            if (texCoordCount < 3 || texUCount < 2 || texVCount < 2)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
