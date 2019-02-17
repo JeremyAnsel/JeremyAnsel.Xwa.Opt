@@ -1032,12 +1032,20 @@ namespace JeremyAnsel.Xwa.Opt
 
                 byte[] palette = new byte[256 * 3];
                 var colors = image.Palette.Entries;
+                int count = colors.Length;
 
-                for (int i = 0; i < 256; i++)
+                for (int i = 0; i < count; i++)
                 {
                     palette[i * 3 + 0] = colors[i].R;
                     palette[i * 3 + 1] = colors[i].G;
                     palette[i * 3 + 2] = colors[i].B;
+                }
+
+                for (int i = count; i < 256; i++)
+                {
+                    palette[i * 3 + 0] = 0;
+                    palette[i * 3 + 1] = 0;
+                    palette[i * 3 + 2] = 0;
                 }
 
                 texture.ImageData = bytes;
