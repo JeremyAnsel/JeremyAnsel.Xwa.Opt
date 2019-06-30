@@ -580,10 +580,36 @@ namespace JeremyAnsel.Xwa.Opt
                                     textureNode.Palettes = texture.Palette;
                                     textureNode.Bytes = texture.ImageData;
 
+                                    if (textureNode.Bytes != null)
+                                    {
+                                        int size = textureNode.Width * textureNode.Height;
+                                        int bpp;
+
+                                        if (textureNode.Bytes.Length >= size && textureNode.Bytes.Length < size * 2)
+                                        {
+                                            bpp = 8;
+                                        }
+                                        else if (textureNode.Bytes.Length >= size * 4 && textureNode.Bytes.Length < size * 8)
+                                        {
+                                            bpp = 32;
+                                        }
+                                        else
+                                        {
+                                            bpp = 0;
+                                        }
+
+                                        if (bpp != 0)
+                                        {
+                                            textureNode.Bytes = OptFile.FlipPixels(textureNode.Bytes, textureNode.Width * bpp / 8);
+                                        }
+                                    }
+
                                     if (texture.AlphaData != null)
                                     {
                                         TextureAlphaNode alphaNode = new TextureAlphaNode();
                                         alphaNode.Bytes = texture.AlphaData;
+
+                                        alphaNode.Bytes = OptFile.FlipPixels(alphaNode.Bytes, textureNode.Width);
 
                                         textureNode.Nodes.Add(alphaNode);
                                     }
@@ -728,6 +754,35 @@ namespace JeremyAnsel.Xwa.Opt
                 if (alphaNode != null)
                 {
                     texture.AlphaData = alphaNode.Bytes;
+                }
+
+                if (texture.ImageData != null)
+                {
+                    int size = texture.Width * texture.Height;
+                    int bpp;
+
+                    if (texture.ImageData.Length >= size && texture.ImageData.Length < size * 2)
+                    {
+                        bpp = 8;
+                    }
+                    else if (texture.ImageData.Length >= size * 4 && texture.ImageData.Length < size * 8)
+                    {
+                        bpp = 32;
+                    }
+                    else
+                    {
+                        bpp = 0;
+                    }
+
+                    if (bpp != 0)
+                    {
+                        texture.ImageData = OptFile.FlipPixels(texture.ImageData, texture.Width * bpp / 8);
+                    }
+                }
+
+                if (texture.AlphaData != null)
+                {
+                    texture.AlphaData = OptFile.FlipPixels(texture.AlphaData, texture.Width);
                 }
             }
 
@@ -1317,6 +1372,19 @@ namespace JeremyAnsel.Xwa.Opt
             }
 
             return flatTextures;
+        }
+
+        private static byte[] FlipPixels(byte[] pixels, int stride)
+        {
+            byte[] data = new byte[pixels.Length];
+            int height = pixels.Length / stride;
+
+            for (int i = 0; i < height; i++)
+            {
+                Array.Copy(pixels, i * stride, data, (height - 1 - i) * stride, stride);
+            }
+
+            return data;
         }
     }
 }
