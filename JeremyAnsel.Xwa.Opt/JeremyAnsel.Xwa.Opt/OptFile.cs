@@ -600,7 +600,7 @@ namespace JeremyAnsel.Xwa.Opt
 
                                         if (bpp != 0)
                                         {
-                                            textureNode.Bytes = OptFile.FlipPixels(textureNode.Bytes, textureNode.Width * bpp / 8);
+                                            textureNode.Bytes = OptFile.FlipPixels(textureNode.Bytes, textureNode.Width, textureNode.Height, bpp);
                                         }
                                     }
 
@@ -609,7 +609,7 @@ namespace JeremyAnsel.Xwa.Opt
                                         TextureAlphaNode alphaNode = new TextureAlphaNode();
                                         alphaNode.Bytes = texture.AlphaData;
 
-                                        alphaNode.Bytes = OptFile.FlipPixels(alphaNode.Bytes, textureNode.Width);
+                                        alphaNode.Bytes = OptFile.FlipPixels(alphaNode.Bytes, textureNode.Width, textureNode.Height, 8);
 
                                         textureNode.Nodes.Add(alphaNode);
                                     }
@@ -776,13 +776,13 @@ namespace JeremyAnsel.Xwa.Opt
 
                     if (bpp != 0)
                     {
-                        texture.ImageData = OptFile.FlipPixels(texture.ImageData, texture.Width * bpp / 8);
+                        texture.ImageData = OptFile.FlipPixels(texture.ImageData, texture.Width, texture.Height, bpp);
                     }
                 }
 
                 if (texture.AlphaData != null)
                 {
-                    texture.AlphaData = OptFile.FlipPixels(texture.AlphaData, texture.Width);
+                    texture.AlphaData = OptFile.FlipPixels(texture.AlphaData, texture.Width, texture.Height, 8);
                 }
             }
 
@@ -1374,14 +1374,29 @@ namespace JeremyAnsel.Xwa.Opt
             return flatTextures;
         }
 
-        private static byte[] FlipPixels(byte[] pixels, int stride)
+        private static byte[] FlipPixels(byte[] pixels, int width, int height, int bpp)
         {
             byte[] data = new byte[pixels.Length];
-            int height = pixels.Length / stride;
+            int offset = 0;
 
-            for (int i = 0; i < height; i++)
+            int length = pixels.Length / (bpp / 8);
+            int w = width;
+            int h = height;
+
+            while (length > w * h && (w > 1 || h > 1))
             {
-                Array.Copy(pixels, i * stride, data, (height - 1 - i) * stride, stride);
+                int stride = w * bpp / 8;
+
+                for (int i = 0; i < h; i++)
+                {
+                    Array.Copy(pixels, offset + i * stride, data, offset + (h - 1 - i) * stride, stride);
+                }
+
+                offset += h * stride;
+
+                length -= w * h;
+                w = w > 1 ? w / 2 : 1;
+                h = h > 1 ? h / 2 : 1;
             }
 
             return data;
