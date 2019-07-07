@@ -1376,14 +1376,13 @@ namespace JeremyAnsel.Xwa.Opt
 
         private static byte[] FlipPixels(byte[] pixels, int width, int height, int bpp)
         {
-            byte[] data = new byte[pixels.Length];
+            int length = pixels.Length;
+            byte[] data = new byte[length];
             int offset = 0;
-
-            int length = pixels.Length / (bpp / 8);
             int w = width;
             int h = height;
 
-            while (length > w * h && (w > 1 || h > 1))
+            while (offset < length)
             {
                 int stride = w * bpp / 8;
 
@@ -1394,7 +1393,6 @@ namespace JeremyAnsel.Xwa.Opt
 
                 offset += h * stride;
 
-                length -= w * h;
                 w = w > 1 ? w / 2 : 1;
                 h = h > 1 ? h / 2 : 1;
             }
