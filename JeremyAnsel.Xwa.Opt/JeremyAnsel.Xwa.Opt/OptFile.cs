@@ -604,10 +604,10 @@ namespace JeremyAnsel.Xwa.Opt
                                         }
                                     }
 
-                                    if (texture.AlphaData != null)
+                                    if (texture.AlphaIllumData != null)
                                     {
                                         TextureAlphaNode alphaNode = new TextureAlphaNode();
-                                        alphaNode.Bytes = texture.AlphaData;
+                                        alphaNode.Bytes = texture.AlphaIllumData;
 
                                         alphaNode.Bytes = OptFile.FlipPixels(alphaNode.Bytes, textureNode.Width, textureNode.Height, 8);
 
@@ -738,7 +738,7 @@ namespace JeremyAnsel.Xwa.Opt
                 texture.Height = id.Height;
                 texture.Palette = id.Palette;
                 texture.ImageData = id.ImageData;
-                texture.AlphaData = id.AlphaData;
+                texture.AlphaIllumData = id.AlphaIllumData;
             }
             else
             {
@@ -753,7 +753,7 @@ namespace JeremyAnsel.Xwa.Opt
 
                 if (alphaNode != null)
                 {
-                    texture.AlphaData = alphaNode.Bytes;
+                    texture.AlphaIllumData = alphaNode.Bytes;
                 }
 
                 if (texture.ImageData != null)
@@ -780,9 +780,9 @@ namespace JeremyAnsel.Xwa.Opt
                     }
                 }
 
-                if (texture.AlphaData != null)
+                if (texture.AlphaIllumData != null)
                 {
-                    texture.AlphaData = OptFile.FlipPixels(texture.AlphaData, texture.Width, texture.Height, 8);
+                    texture.AlphaIllumData = OptFile.FlipPixels(texture.AlphaIllumData, texture.Width, texture.Height, 8);
                 }
             }
 

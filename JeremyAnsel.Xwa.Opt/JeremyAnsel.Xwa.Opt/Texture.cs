@@ -27,7 +27,7 @@ namespace JeremyAnsel.Xwa.Opt
             this.Height = 0;
             this.Palette = new byte[8192];
             this.ImageData = null;
-            this.AlphaData = null;
+            this.AlphaIllumData = null;
         }
 
         internal int Id { get; set; }
@@ -45,11 +45,31 @@ namespace JeremyAnsel.Xwa.Opt
         public byte[] ImageData { get; set; }
 
         [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
-        public byte[] AlphaData { get; set; }
+        public byte[] AlphaIllumData { get; set; }
 
         public bool HasAlpha
         {
-            get { return this.AlphaData != null; }
+            get
+            {
+                if (this.Palette == null)
+                {
+                    return false;
+                }
+
+                int bpp = this.BitsPerPixel;
+
+                if (bpp == 8)
+                {
+                    return this.AlphaIllumData != null;
+                }
+
+                if (bpp == 32)
+                {
+                    return this.Palette[2] != 0 || (this.Palette[4] == 0 && this.AlphaIllumData != null);
+                }
+
+                return false;
+            }
         }
 
         public int BitsPerPixel
@@ -86,54 +106,45 @@ namespace JeremyAnsel.Xwa.Opt
         {
             get
             {
-                if (this.BitsPerPixel != 8)
-                {
-                    return false;
-                }
-
                 if (this.Palette == null)
                 {
                     return false;
                 }
 
-                for (int c = 0; c < 256; c++)
+                int bpp = this.BitsPerPixel;
+
+                if (bpp == 8)
                 {
-                    byte color0 = this.Palette[8 * 512 + c * 2];
-                    byte color1 = this.Palette[8 * 512 + c * 2 + 1];
+                    bool hasIllum = false;
 
-                    if (color0 == 0 && color1 == 0)
+                    for (int i = 0; i < this.ImageData.Length; i++)
                     {
-                        continue;
-                    }
+                        int colorIndex = this.ImageData[i];
+                        ushort color = BitConverter.ToUInt16(this.Palette, 4 * 512 + colorIndex * 2);
+                        ushort color8 = BitConverter.ToUInt16(this.Palette, 8 * 512 + colorIndex * 2);
 
-                    ushort color = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
-                    byte r = (byte)((color & 0xF800U) >> 11);
-                    byte g = (byte)((color & 0x7E0U) >> 5);
-                    byte b = (byte)(color & 0x1FU);
+                        byte r = (byte)((color & 0xF800U) >> 11);
+                        byte g = (byte)((color & 0x7E0U) >> 5);
+                        byte b = (byte)(color & 0x1FU);
 
-                    if (r <= 8 && g <= 16 && b <= 8)
-                    {
-                        continue;
-                    }
-
-                    bool isIlluminated = true;
-
-                    for (int i = 0; i < 8; i++)
-                    {
-                        byte c0 = this.Palette[i * 512 + c * 2];
-                        byte c1 = this.Palette[i * 512 + c * 2 + 1];
-
-                        if (c0 != color0 || c1 != color1)
+                        if (r <= 8 && g <= 16 && b <= 8)
                         {
-                            isIlluminated = false;
+                            continue;
+                        }
+
+                        if (color == color8)
+                        {
+                            hasIllum = true;
                             break;
                         }
                     }
 
-                    if (isIlluminated)
-                    {
-                        return true;
-                    }
+                    return hasIllum;
+                }
+
+                if (bpp == 32)
+                {
+                    return this.Palette[4] != 0 && this.AlphaIllumData != null;
                 }
 
                 return false;
@@ -245,7 +256,7 @@ namespace JeremyAnsel.Xwa.Opt
                 Height = this.Height,
                 Palette = (byte[])this.Palette.Clone(),
                 ImageData = this.ImageData == null ? null : (byte[])this.ImageData.Clone(),
-                AlphaData = this.AlphaData == null ? null : (byte[])this.AlphaData.Clone()
+                AlphaIllumData = this.AlphaIllumData == null ? null : (byte[])this.AlphaIllumData.Clone()
             };
 
             return texture;
@@ -253,6 +264,11 @@ namespace JeremyAnsel.Xwa.Opt
 
         public void SetPaletteColors(byte[] colors)
         {
+            if (this.BitsPerPixel != 8)
+            {
+                throw new InvalidOperationException();
+            }
+
             if (colors == null)
             {
                 throw new ArgumentNullException("colors");
@@ -335,65 +351,87 @@ namespace JeremyAnsel.Xwa.Opt
                 return;
             }
 
-            Array.Clear(this.Palette, 0, 512);
+            int bpp = this.BitsPerPixel;
 
-            for (int c = 0; c < 256; c++)
+            if (bpp == 8)
             {
-                uint cr;
-                uint cg;
-                uint cb;
+                Array.Clear(this.Palette, 0, 512);
 
-                ushort color16 = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
-
-                cr = (byte)((color16 & 0xF800) >> 11);
-                cg = (byte)((color16 & 0x7E0) >> 5);
-                cb = (byte)(color16 & 0x1F);
-
-                cr = (byte)((cr * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
-                cg = (byte)((cg * (0xffU * 2) + 0x3fU) / (0x3fU * 2));
-                cb = (byte)((cb * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
-
-                for (int i = 1; i < 16; i++)
+                for (int c = 0; c < 256; c++)
                 {
-                    if (i == 8)
+                    uint cr;
+                    uint cg;
+                    uint cb;
+
+                    ushort color16 = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
+
+                    cr = (byte)((color16 & 0xF800) >> 11);
+                    cg = (byte)((color16 & 0x7E0) >> 5);
+                    cb = (byte)(color16 & 0x1F);
+
+                    cr = (byte)((cr * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+                    cg = (byte)((cg * (0xffU * 2) + 0x3fU) / (0x3fU * 2));
+                    cb = (byte)((cb * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+
+                    for (int i = 1; i < 16; i++)
                     {
-                        continue;
+                        if (i == 8)
+                        {
+                            continue;
+                        }
+
+                        uint r;
+                        uint g;
+                        uint b;
+
+                        if (i < 8)
+                        {
+                            uint d = (uint)i;
+
+                            r = (cr * 128 * d / 8 + cr * 128) / 256;
+                            g = (cg * 128 * d / 8 + cg * 128) / 256;
+                            b = (cb * 128 * d / 8 + cb * 128) / 256;
+                        }
+                        else
+                        {
+                            uint d = (uint)i - 8;
+
+                            r = ((255 - cr) * 256 * d / 8 + cr * 256) / 256;
+                            g = ((255 - cg) * 256 * d / 8 + cg * 256) / 256;
+                            b = ((255 - cb) * 256 * d / 8 + cb * 256) / 256;
+                        }
+
+                        r = (r * (0x1fU * 2) + 0xffU) / (0xffU * 2);
+                        g = (g * (0x3fU * 2) + 0xffU) / (0xffU * 2);
+                        b = (b * (0x1fU * 2) + 0xffU) / (0xffU * 2);
+
+                        ushort color = (ushort)((r << 11) | (g << 5) | b);
+
+                        BitConverter.GetBytes(color).CopyTo(this.Palette, i * 512 + c * 2);
                     }
+                }
+            }
+            else if (bpp == 32)
+            {
+                bool hasAlpha = this.HasAlpha;
 
-                    uint r;
-                    uint g;
-                    uint b;
+                Array.Clear(this.Palette, 0, 8192);
+                this.AlphaIllumData = null;
 
-                    if (i < 8)
-                    {
-                        uint d = (uint)i;
-
-                        r = (cr * 128 * d / 8 + cr * 128) / 256;
-                        g = (cg * 128 * d / 8 + cg * 128) / 256;
-                        b = (cb * 128 * d / 8 + cb * 128) / 256;
-                    }
-                    else
-                    {
-                        uint d = (uint)i - 8;
-
-                        r = ((255 - cr) * 256 * d / 8 + cr * 256) / 256;
-                        g = ((255 - cg) * 256 * d / 8 + cg * 256) / 256;
-                        b = ((255 - cb) * 256 * d / 8 + cb * 256) / 256;
-                    }
-
-                    r = (r * (0x1fU * 2) + 0xffU) / (0xffU * 2);
-                    g = (g * (0x3fU * 2) + 0xffU) / (0xffU * 2);
-                    b = (b * (0x1fU * 2) + 0xffU) / (0xffU * 2);
-
-                    ushort color = (ushort)((r << 11) | (g << 5) | b);
-
-                    BitConverter.GetBytes(color).CopyTo(this.Palette, i * 512 + c * 2);
+                if (hasAlpha)
+                {
+                    this.Palette[2] = 0xff;
                 }
             }
         }
 
         public int RemoveUnusedColors()
         {
+            if (this.BitsPerPixel != 8)
+            {
+                throw new InvalidOperationException();
+            }
+
             int count = 0;
 
             for (int color = 0; color < 256; color++)
@@ -487,7 +525,7 @@ namespace JeremyAnsel.Xwa.Opt
         {
             int count = this.MipmapsCount;
 
-            if (this.AlphaData == null || count == 0)
+            if (!this.HasAlpha || count == 0)
             {
                 width = 0;
                 height = 0;
@@ -499,6 +537,7 @@ namespace JeremyAnsel.Xwa.Opt
                 throw new ArgumentOutOfRangeException("level");
             }
 
+            int bpp = this.BitsPerPixel;
             int w = this.Width;
             int h = this.Height;
             int offset = 0;
@@ -510,13 +549,101 @@ namespace JeremyAnsel.Xwa.Opt
                 h = h > 1 ? h / 2 : 1;
             }
 
-            byte[] alphaData = new byte[w * h];
-            Array.Copy(this.AlphaData, offset, alphaData, 0, w * h);
+            int length = w * h;
+            byte[] alphaData = new byte[length];
+
+            if (bpp == 8)
+            {
+                Array.Copy(this.AlphaIllumData, offset, alphaData, 0, length);
+            }
+            else if (bpp == 32)
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    alphaData[i] = this.ImageData[i * 4 + 3];
+                }
+
+            }
 
             width = w;
             height = h;
 
             return alphaData;
+        }
+
+        public byte[] GetMipmapIllumData()
+        {
+            int w;
+            int h;
+
+            return this.GetMipmapIllumData(0, out w, out h);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "1#")]
+        [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "2#")]
+        public byte[] GetMipmapIllumData(int level, out int width, out int height)
+        {
+            int count = this.MipmapsCount;
+
+            if (!this.IsIlluminated || count == 0)
+            {
+                width = 0;
+                height = 0;
+                return null;
+            }
+
+            if (level >= count)
+            {
+                throw new ArgumentOutOfRangeException("level");
+            }
+
+            int bpp = this.BitsPerPixel;
+            int w = this.Width;
+            int h = this.Height;
+            int offset = 0;
+
+            for (int i = 0; i < level; i++)
+            {
+                offset += w * h;
+                w = w > 1 ? w / 2 : 1;
+                h = h > 1 ? h / 2 : 1;
+            }
+
+            int length = w * h;
+            byte[] illumData = new byte[length];
+
+            if (bpp == 8)
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    int colorIndex = this.ImageData[i];
+                    ushort color = BitConverter.ToUInt16(this.Palette, 4 * 512 + colorIndex * 2);
+                    ushort color8 = BitConverter.ToUInt16(this.Palette, 8 * 512 + colorIndex * 2);
+
+                    byte r = (byte)((color & 0xF800U) >> 11);
+                    byte g = (byte)((color & 0x7E0U) >> 5);
+                    byte b = (byte)(color & 0x1FU);
+
+                    if (r <= 8 && g <= 16 && b <= 8)
+                    {
+                        continue;
+                    }
+
+                    if (color == color8)
+                    {
+                        illumData[i] = 0x3f;
+                    }
+                }
+            }
+            else if (bpp == 32)
+            {
+                Array.Copy(this.AlphaIllumData, offset, illumData, 0, length);
+            }
+
+            width = w;
+            height = h;
+
+            return illumData;
         }
 
         public byte[] GetColorMap()
@@ -579,6 +706,36 @@ namespace JeremyAnsel.Xwa.Opt
             else if (bpp == 32)
             {
                 return this.GetMipmapAlphaData(level, out width, out height);
+            }
+            else
+            {
+                width = 0;
+                height = 0;
+                return null;
+            }
+        }
+
+        public byte[] GetIllumMap()
+        {
+            int w;
+            int h;
+
+            return this.GetIllumMap(0, out w, out h);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "1#")]
+        [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "2#")]
+        public byte[] GetIllumMap(int level, out int width, out int height)
+        {
+            int bpp = this.BitsPerPixel;
+
+            if (bpp == 8)
+            {
+                return this.GetMipmapIllumData(level, out width, out height);
+            }
+            else if (bpp == 32)
+            {
+                return this.GetMipmapIllumData(level, out width, out height);
             }
             else
             {
@@ -653,6 +810,31 @@ namespace JeremyAnsel.Xwa.Opt
 
                 case ".PNG":
                     using (var bitmap = this.GetSaveAlphaBitmap())
+                    {
+                        bitmap.Save(fileName, ImageFormat.Png);
+                    }
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException("fileName");
+            }
+        }
+
+        public void SaveIllumMap(string fileName)
+        {
+            string ext = Path.GetExtension(fileName).ToUpperInvariant();
+
+            switch (ext)
+            {
+                case ".BMP":
+                    using (var bitmap = this.GetSaveIllumBitmap())
+                    {
+                        bitmap.Save(fileName, ImageFormat.Bmp);
+                    }
+                    break;
+
+                case ".PNG":
+                    using (var bitmap = this.GetSaveIllumBitmap())
                     {
                         bitmap.Save(fileName, ImageFormat.Png);
                     }
@@ -855,6 +1037,30 @@ namespace JeremyAnsel.Xwa.Opt
         }
 
         [SuppressMessage("Microsoft.Reliability", "CA2000:Supprimer les objets avant la mise hors de portée")]
+        private Bitmap GetSaveIllumBitmap()
+        {
+            byte[] illumMap = this.GetIllumMap();
+
+            if (illumMap == null)
+            {
+                return null;
+            }
+
+            var bitmap = GetBitmap8bpp(this.Width, this.Height, illumMap);
+
+            var pal = bitmap.Palette;
+
+            for (int i = 0; i < 256; i++)
+            {
+                pal.Entries[i] = Color.FromArgb(i, i, i, i);
+            }
+
+            bitmap.Palette = pal;
+
+            return bitmap;
+        }
+
+        [SuppressMessage("Microsoft.Reliability", "CA2000:Supprimer les objets avant la mise hors de portée")]
         private static Bitmap GetBitmap8bpp(int width, int height, byte[] imageData)
         {
             Bitmap bitmap;
@@ -896,10 +1102,16 @@ namespace JeremyAnsel.Xwa.Opt
 
         public static Texture FromFile(string fileName)
         {
-            return FromFile(fileName, null);
+            return FromFile(fileName, null, null);
         }
 
         public static Texture FromFile(string fileName, string fileNameAlpha)
+        {
+            return FromFile(fileName, fileNameAlpha, null);
+        }
+
+
+        public static Texture FromFile(string fileName, string fileNameAlpha, string fileNameIllum)
         {
             Texture texture;
 
@@ -927,9 +1139,14 @@ namespace JeremyAnsel.Xwa.Opt
                     throw new ArgumentOutOfRangeException("fileName");
             }
 
-            if (fileNameAlpha != null)
+            if (!string.IsNullOrEmpty(fileNameAlpha))
             {
                 texture.SetAlphaMap(fileNameAlpha);
+            }
+
+            if (!string.IsNullOrEmpty(fileNameIllum))
+            {
+                texture.SetIllumMap(fileNameIllum);
             }
 
             return texture;
@@ -942,9 +1159,9 @@ namespace JeremyAnsel.Xwa.Opt
                 throw new InvalidOperationException();
             }
 
-            string extAlpha = Path.GetExtension(fileName).ToUpperInvariant();
+            string ext = Path.GetExtension(fileName).ToUpperInvariant();
 
-            switch (extAlpha)
+            switch (ext)
             {
                 case ".BMP":
                 case ".PNG":
@@ -968,7 +1185,7 @@ namespace JeremyAnsel.Xwa.Opt
                                 throw new InvalidDataException();
                             }
 
-                            this.AlphaData = alphaData;
+                            this.AlphaIllumData = alphaData;
                         }
                         else if (bpp == 32)
                         {
@@ -982,13 +1199,86 @@ namespace JeremyAnsel.Xwa.Opt
                                 this.ImageData[i * 4 + 3] = alphaData[i];
                             }
 
-                            this.AlphaData = alphaData;
+                            this.Palette[2] = 0xff;
                         }
                         else
                         {
                             throw new InvalidOperationException();
                         }
                     }
+
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException("fileName");
+            }
+        }
+
+        public void SetIllumMap(string fileName)
+        {
+            if (this.ImageData == null)
+            {
+                throw new InvalidOperationException();
+            }
+
+            string ext = Path.GetExtension(fileName).ToUpperInvariant();
+
+            switch (ext)
+            {
+                case ".BMP":
+                case ".PNG":
+                case ".JPG":
+                case ".GIF":
+                    if (!File.Exists(fileName))
+                    {
+                        throw new FileNotFoundException(null, fileName);
+                    }
+
+                    byte[] illumData = GetFileIllum(fileName);
+
+                    if (illumData != null)
+                    {
+                        int bpp = this.BitsPerPixel;
+
+                        if (bpp == 8)
+                        {
+                            if (illumData.Length != this.ImageData.Length)
+                            {
+                                throw new InvalidDataException();
+                            }
+
+                            for (int i = 0; i < illumData.Length; i++)
+                            {
+                                int c = this.ImageData[i];
+                                ushort color = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
+
+                                byte r = (byte)((color & 0xF800U) >> 11);
+                                byte g = (byte)((color & 0x7E0U) >> 5);
+                                byte b = (byte)(color & 0x1FU);
+
+                                r = (byte)((r * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+                                g = (byte)((g * (0xffU * 2) + 0x3fU) / (0x3fU * 2));
+                                b = (byte)((b * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+
+                                this.MakeColorIlluminated(r, g, b);
+                            }
+                        }
+                        else if (bpp == 32)
+                        {
+                            if (illumData.Length * 4 != this.ImageData.Length)
+                            {
+                                throw new InvalidDataException();
+                            }
+
+                            this.AlphaIllumData = illumData;
+                            this.Palette[4] = 0xff;
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException();
+                        }
+                    }
+
                     break;
 
                 default:
@@ -1069,24 +1359,25 @@ namespace JeremyAnsel.Xwa.Opt
                     }
                 }
 
-                byte[] alphaData = new byte[length];
                 bool hasAlpha = false;
 
                 for (int i = 0; i < length; i++)
                 {
                     byte a = bytes[i * 4 + 3];
 
-                    alphaData[i] = a;
-
                     if (a != (byte)255)
                     {
                         hasAlpha = true;
+                        break;
                     }
                 }
 
                 texture.ImageData = bytes;
-                texture.AlphaData = hasAlpha ? alphaData : null;
-                texture.Palette = new byte[8192];
+
+                if (hasAlpha)
+                {
+                    texture.Palette[2] = 0xff;
+                }
             }
 
             return texture;
@@ -1131,6 +1422,48 @@ namespace JeremyAnsel.Xwa.Opt
                 }
 
                 return hasAlpha ? alphaData : null;
+            }
+        }
+
+        private static byte[] GetFileIllum(string fileName)
+        {
+            using (var image = new Bitmap(fileName))
+            {
+                var rect = new Rectangle(0, 0, image.Width, image.Height);
+                int length = image.Width * image.Height;
+
+                byte[] bytes = new byte[length * 4];
+
+                using (var bitmap = image.Clone(rect, PixelFormat.Format32bppArgb))
+                {
+                    var data = bitmap.LockBits(rect, ImageLockMode.ReadOnly, bitmap.PixelFormat);
+
+                    try
+                    {
+                        Marshal.Copy(data.Scan0, bytes, 0, length * 4);
+                    }
+                    finally
+                    {
+                        bitmap.UnlockBits(data);
+                    }
+                }
+
+                byte[] illumData = new byte[length];
+                bool hasIlum = false;
+
+                for (int i = 0; i < length; i++)
+                {
+                    byte a = bytes[i * 4 + 3];
+
+                    illumData[i] = a;
+
+                    if (a != (byte)0)
+                    {
+                        hasIlum = true;
+                    }
+                }
+
+                return hasIlum ? illumData : null;
             }
         }
 
@@ -1193,6 +1526,33 @@ namespace JeremyAnsel.Xwa.Opt
                 return;
             }
 
+            bool hasAlpha = this.HasAlpha;
+            bool hasIllum = false;
+
+            byte[] illum = new byte[this.ImageData.Length];
+
+            for (int i = 0; i < this.ImageData.Length; i++)
+            {
+                int colorIndex = this.ImageData[i];
+                ushort color = BitConverter.ToUInt16(this.Palette, 4 * 512 + colorIndex * 2);
+                ushort color8 = BitConverter.ToUInt16(this.Palette, 8 * 512 + colorIndex * 2);
+
+                byte r = (byte)((color & 0xF800U) >> 11);
+                byte g = (byte)((color & 0x7E0U) >> 5);
+                byte b = (byte)(color & 0x1FU);
+
+                if (r <= 8 && g <= 16 && b <= 8)
+                {
+                    continue;
+                }
+
+                if (color == color8)
+                {
+                    hasIllum = true;
+                    illum[i] = 0x3f;
+                }
+            }
+
             byte[] data = new byte[this.ImageData.Length * 4];
 
             for (int i = 0; i < this.ImageData.Length; i++)
@@ -1201,7 +1561,7 @@ namespace JeremyAnsel.Xwa.Opt
 
                 ushort color = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
 
-                byte a = this.AlphaData == null ? (byte)255 : this.AlphaData[i];
+                byte a = this.AlphaIllumData == null ? (byte)255 : this.AlphaIllumData[i];
                 byte r = (byte)((color & 0xF800U) >> 11);
                 byte g = (byte)((color & 0x7E0U) >> 5);
                 byte b = (byte)(color & 0x1FU);
@@ -1217,8 +1577,20 @@ namespace JeremyAnsel.Xwa.Opt
             }
 
             this.ImageData = data;
+            this.AlphaIllumData = null;
 
             this.Palette = new byte[8192];
+
+            if (hasAlpha)
+            {
+                this.Palette[2] = 0xff;
+            }
+
+            if (hasIllum)
+            {
+                this.AlphaIllumData = illum;
+                this.Palette[4] = 0xff;
+            }
 
             this.GenerateMipmaps();
         }
@@ -1230,7 +1602,7 @@ namespace JeremyAnsel.Xwa.Opt
                 return;
             }
 
-            if (this.ImageData == null)
+            if (this.ImageData == null || this.Palette == null)
             {
                 return;
             }
@@ -1252,7 +1624,7 @@ namespace JeremyAnsel.Xwa.Opt
                 }
             }
 
-            this.AlphaData = hasAlpha ? alphaData : null;
+            bool isIllum = this.IsIlluminated;
 
             var imageColors = Enumerable.Range(0, length)
                 .Select(t =>
@@ -1298,8 +1670,8 @@ namespace JeremyAnsel.Xwa.Opt
                     })
                     .ToArray();
 
-                this.SetPaletteColors(palette);
                 this.ImageData = imageData;
+                this.SetPaletteColors(palette);
             }
             else
             {
@@ -1331,9 +1703,35 @@ namespace JeremyAnsel.Xwa.Opt
                     palette[i * 3 + 2] = image.Palette[i * 4 + 0];
                 }
 
-                this.SetPaletteColors(palette);
                 this.ImageData = image.Bytes;
+                this.SetPaletteColors(palette);
             }
+
+            if (isIllum)
+            {
+                for (int i = 0; i < this.AlphaIllumData.Length; i++)
+                {
+                    if (this.AlphaIllumData[i] == 0)
+                    {
+                        continue;
+                    }
+
+                    int c = this.ImageData[i];
+                    ushort color = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
+
+                    byte r = (byte)((color & 0xF800U) >> 11);
+                    byte g = (byte)((color & 0x7E0U) >> 5);
+                    byte b = (byte)(color & 0x1FU);
+
+                    r = (byte)((r * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+                    g = (byte)((g * (0xffU * 2) + 0x3fU) / (0x3fU * 2));
+                    b = (byte)((b * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+
+                    this.MakeColorIlluminated(r, g, b);
+                }
+            }
+
+            this.AlphaIllumData = hasAlpha ? alphaData : null;
         }
 
         public void GenerateMipmaps()
@@ -1364,18 +1762,13 @@ namespace JeremyAnsel.Xwa.Opt
             int mipmapsLength = this.MaximumMipmapsLength;
 
             byte[] data = new byte[mipmapsLength * 4];
-            byte[] alpha = this.HasAlpha ? new byte[mipmapsLength] : null;
-
             Array.Copy(this.ImageData, data, this.Width * this.Height * 4);
-
-            if (alpha != null)
-            {
-                Array.Copy(this.AlphaData, alpha, this.Width * this.Height);
-            }
 
             int index = 0;
             int xLength = 1;
             int yLength = 1;
+
+            bool hasAlpha = false;
 
             while (width > 1 || height > 1)
             {
@@ -1429,16 +1822,32 @@ namespace JeremyAnsel.Xwa.Opt
                         data[dataIndex * 4 + 2] = (byte)r;
                         data[dataIndex * 4 + 3] = (byte)a;
 
-                        if (alpha != null)
+                        if (data[dataIndex * 4 + 3] != 255)
                         {
-                            alpha[dataIndex] = (byte)a;
+                            hasAlpha = true;
                         }
                     }
                 }
             }
 
             this.ImageData = data;
-            this.AlphaData = alpha;
+
+            this.Palette[2] = hasAlpha ? (byte)0xff : (byte)0;
+
+            bool isIlluminated = this.Palette[4] != 0 && this.AlphaIllumData != null;
+
+            if (isIlluminated)
+            {
+                var illumData = new byte[mipmapsLength];
+                Array.Copy(this.AlphaIllumData, 0, illumData, 0, this.Width * this.Height);
+
+                this.AlphaIllumData = illumData;
+            }
+            else
+            {
+                this.AlphaIllumData = null;
+                this.Palette[4] = 0;
+            }
         }
 
         public void RemoveMipmaps()
@@ -1465,11 +1874,11 @@ namespace JeremyAnsel.Xwa.Opt
             Array.Copy(this.ImageData, 0, data, 0, data.Length);
             this.ImageData = data;
 
-            if (this.AlphaData != null)
+            if (this.AlphaIllumData != null)
             {
-                byte[] alphaData = new byte[length];
-                Array.Copy(this.AlphaData, 0, alphaData, 0, alphaData.Length);
-                this.AlphaData = alphaData;
+                byte[] alphaIllumData = new byte[length];
+                Array.Copy(this.AlphaIllumData, 0, alphaIllumData, 0, alphaIllumData.Length);
+                this.AlphaIllumData = alphaIllumData;
             }
         }
 
@@ -1480,42 +1889,64 @@ namespace JeremyAnsel.Xwa.Opt
 
         public void MakeColorIlluminated(byte red0, byte green0, byte blue0, byte red1, byte green1, byte blue1)
         {
-            if (this.BitsPerPixel != 8)
-            {
-                return;
-            }
-
             if (this.Palette == null)
             {
                 return;
             }
 
-            for (int c = 0; c < 256; c++)
+            int bpp = this.BitsPerPixel;
+
+            if (bpp == 8)
             {
-                ushort color = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
-
-                byte r = (byte)((color & 0xF800U) >> 11);
-                byte g = (byte)((color & 0x7E0U) >> 5);
-                byte b = (byte)(color & 0x1FU);
-
-                r = (byte)((r * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
-                g = (byte)((g * (0xffU * 2) + 0x3fU) / (0x3fU * 2));
-                b = (byte)((b * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
-
-                if (r >= red0 && r <= red1 && g >= green0 && g <= green1 && b >= blue0 && b <= blue1)
+                for (int c = 0; c < 256; c++)
                 {
-                    byte color0 = this.Palette[8 * 512 + c * 2];
-                    byte color1 = this.Palette[8 * 512 + c * 2 + 1];
+                    ushort color = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
 
-                    for (int i = 0; i < 16; i++)
+                    byte r = (byte)((color & 0xF800U) >> 11);
+                    byte g = (byte)((color & 0x7E0U) >> 5);
+                    byte b = (byte)(color & 0x1FU);
+
+                    r = (byte)((r * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+                    g = (byte)((g * (0xffU * 2) + 0x3fU) / (0x3fU * 2));
+                    b = (byte)((b * (0xffU * 2) + 0x1fU) / (0x1fU * 2));
+
+                    if (r >= red0 && r <= red1 && g >= green0 && g <= green1 && b >= blue0 && b <= blue1)
                     {
-                        if (i == 8)
+                        byte color0 = this.Palette[8 * 512 + c * 2];
+                        byte color1 = this.Palette[8 * 512 + c * 2 + 1];
+
+                        for (int i = 0; i < 16; i++)
                         {
-                            continue;
+                            if (i == 8)
+                            {
+                                continue;
+                            }
+
+                            this.Palette[i * 512 + c * 2] = color0;
+                            this.Palette[i * 512 + c * 2 + 1] = color1;
+                        }
+                    }
+                }
+            }
+            else if (bpp == 32)
+            {
+                int length = this.Width * this.Height;
+
+                for (int i = 0; i < length; i++)
+                {
+                    byte b = this.ImageData[i * 4 + 0];
+                    byte g = this.ImageData[i * 4 + 1];
+                    byte r = this.ImageData[i * 4 + 2];
+
+                    if (r >= red0 && r <= red1 && g >= green0 && g <= green1 && b >= blue0 && b <= blue1)
+                    {
+                        if (this.Palette[4] == 0 || this.AlphaIllumData == null)
+                        {
+                            this.AlphaIllumData = new byte[this.ImageData.Length];
+                            this.Palette[4] = 0xff;
                         }
 
-                        this.Palette[i * 512 + c * 2] = color0;
-                        this.Palette[i * 512 + c * 2 + 1] = color1;
+                        this.AlphaIllumData[i] = 0x3f;
                     }
                 }
             }
@@ -1582,21 +2013,21 @@ namespace JeremyAnsel.Xwa.Opt
                 }
             }
 
-            if ((textureA.AlphaData != null) != (textureB.AlphaData != null))
+            if ((textureA.AlphaIllumData != null) != (textureB.AlphaIllumData != null))
             {
                 return false;
             }
 
-            if (textureA.AlphaData != null)
+            if (textureA.AlphaIllumData != null)
             {
-                if (textureA.AlphaData.Length != textureB.AlphaData.Length)
+                if (textureA.AlphaIllumData.Length != textureB.AlphaIllumData.Length)
                 {
                     return false;
                 }
 
-                for (int i = 0; i < textureA.AlphaData.Length; i++)
+                for (int i = 0; i < textureA.AlphaIllumData.Length; i++)
                 {
-                    if (textureA.AlphaData[i] != textureB.AlphaData[i])
+                    if (textureA.AlphaIllumData[i] != textureB.AlphaIllumData[i])
                     {
                         return false;
                     }
