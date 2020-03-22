@@ -8,19 +8,15 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public sealed class FaceGroupingNode : Node
     {
         public FaceGroupingNode()
             : base(NodeType.FaceGrouping)
         {
-            this.Distances = new List<float>();
         }
 
-        public IList<float> Distances { get; private set; }
+        public IList<float> Distances { get; private set; } = new List<float>();
 
         protected override int DataSize
         {

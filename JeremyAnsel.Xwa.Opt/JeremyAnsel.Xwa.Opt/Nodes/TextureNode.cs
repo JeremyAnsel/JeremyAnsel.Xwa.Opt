@@ -7,12 +7,8 @@
 namespace JeremyAnsel.Xwa.Opt.Nodes
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public sealed class TextureNode : Node
     {
@@ -46,6 +42,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             return string.Format(CultureInfo.InvariantCulture, "TextureNode: {0} {1}x{2}", this.Name, this.Width, this.Height);
         }
 
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         internal override void Parse(byte[] buffer, int globalOffset, int offset)
         {
             base.Parse(buffer, globalOffset, offset);

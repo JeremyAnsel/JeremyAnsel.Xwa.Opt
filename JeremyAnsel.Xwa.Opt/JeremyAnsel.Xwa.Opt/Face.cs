@@ -6,12 +6,6 @@
 
 namespace JeremyAnsel.Xwa.Opt
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
     public class Face
     {
         public Face()
@@ -103,7 +97,7 @@ namespace JeremyAnsel.Xwa.Opt
                         break;
 
                     default:
-                        vertexI = default(TextureCoordinates);
+                        vertexI = default;
                         break;
                 }
 
@@ -134,7 +128,7 @@ namespace JeremyAnsel.Xwa.Opt
                             break;
 
                         default:
-                            vertexJ = default(TextureCoordinates);
+                            vertexJ = default;
                             break;
                     }
 

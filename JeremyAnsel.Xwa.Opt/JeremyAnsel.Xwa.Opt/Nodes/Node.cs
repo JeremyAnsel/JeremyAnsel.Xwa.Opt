@@ -12,7 +12,6 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     using System.IO;
     using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
 
     public abstract class Node
     {
@@ -21,7 +20,6 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
         internal Node(NodeType type)
         {
             this.NodeType = type;
-            this.Nodes = new List<Node>();
         }
 
         public static Node Null
@@ -35,7 +33,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
         public string Name { get; set; }
 
-        public IList<Node> Nodes { get; private set; }
+        public IList<Node> Nodes { get; private set; } = new List<Node>();
 
         protected int Parameter1 { get; private set; }
 
@@ -219,7 +217,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
         {
             if (file == null)
             {
-                throw new ArgumentNullException("file");
+                throw new ArgumentNullException(nameof(file));
             }
 
             if (this.NameSize == 0)
@@ -235,7 +233,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
         {
             if (file == null)
             {
-                throw new ArgumentNullException("file");
+                throw new ArgumentNullException(nameof(file));
             }
 
             int nodeOffset;
@@ -262,7 +260,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
         {
             if (file == null)
             {
-                throw new ArgumentNullException("file");
+                throw new ArgumentNullException(nameof(file));
             }
 
             int nodeOffset;

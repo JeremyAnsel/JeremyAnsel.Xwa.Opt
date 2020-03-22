@@ -7,12 +7,8 @@
 namespace JeremyAnsel.Xwa.Opt
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public struct Vector : IEquatable<Vector>
     {
@@ -132,7 +128,7 @@ namespace JeremyAnsel.Xwa.Opt
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             string[] data = value.Split(';');
@@ -145,11 +141,12 @@ namespace JeremyAnsel.Xwa.Opt
 
         internal static Vector FromByteArray(byte[] buffer, int start)
         {
-            Vector v = new Vector();
-
-            v.x = BitConverter.ToSingle(buffer, start + 0);
-            v.y = BitConverter.ToSingle(buffer, start + 4);
-            v.z = BitConverter.ToSingle(buffer, start + 8);
+            Vector v = new Vector
+            {
+                x = BitConverter.ToSingle(buffer, start + 0),
+                y = BitConverter.ToSingle(buffer, start + 4),
+                z = BitConverter.ToSingle(buffer, start + 8)
+            };
 
             return v;
         }

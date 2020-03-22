@@ -9,19 +9,15 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public sealed class MeshVerticesNode : Node
     {
         public MeshVerticesNode()
             : base(NodeType.MeshVertices)
         {
-            this.Vertices = new List<Vector>();
         }
 
-        public IList<Vector> Vertices { get; private set; }
+        public IList<Vector> Vertices { get; private set; } = new List<Vector>();
 
         protected override int DataSize
         {

@@ -9,20 +9,12 @@ namespace JeremyAnsel.Xwa.Opt
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class FaceGroup
     {
-        public FaceGroup()
-        {
-            this.Faces = new List<Face>();
-            this.Textures = new List<string>();
-        }
+        public IList<Face> Faces { get; } = new List<Face>();
 
-        public IList<Face> Faces { get; private set; }
-
-        public IList<string> Textures { get; private set; }
+        public IList<string> Textures { get; } = new List<string>();
 
         public int TrianglesCount
         {
@@ -79,7 +71,7 @@ namespace JeremyAnsel.Xwa.Opt
         {
             List<Tuple<int, int>> edges = new List<Tuple<int, int>>();
 
-            Func<int, int, int> getEdgeIndex = (a, b) =>
+            int getEdgeIndex(int a, int b)
             {
                 var edge = a < b ? new Tuple<int, int>(a, b) : new Tuple<int, int>(b, a);
 
@@ -93,7 +85,7 @@ namespace JeremyAnsel.Xwa.Opt
 
                 edges.Add(edge);
                 return edges.Count - 1;
-            };
+            }
 
             foreach (var face in this.Faces)
             {

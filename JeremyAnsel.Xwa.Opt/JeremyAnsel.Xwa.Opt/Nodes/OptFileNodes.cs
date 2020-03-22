@@ -8,17 +8,16 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
 
     public class OptFileNodes
     {
         public OptFileNodes()
         {
             this.Version = 5;
-            this.Nodes = new List<Node>();
         }
 
         public string FileName { get; private set; }
@@ -38,13 +37,15 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             }
         }
 
-        public IList<Node> Nodes { get; private set; }
+        public IList<Node> Nodes { get; private set; } = new List<Node>();
 
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         public static OptFileNodes FromFile(string path)
         {
-            OptFileNodes opt = new OptFileNodes();
-
-            opt.FileName = path;
+            OptFileNodes opt = new OptFileNodes
+            {
+                FileName = path
+            };
 
             FileStream filestream = null;
 

@@ -9,21 +9,17 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public sealed class FaceDataNode : Node
     {
         public FaceDataNode()
             : base(NodeType.FaceData)
         {
-            this.Faces = new List<FaceDataNodeData>();
         }
 
         public int EdgesCount { get; set; }
 
-        public IList<FaceDataNodeData> Faces { get; private set; }
+        public IList<FaceDataNodeData> Faces { get; private set; } = new List<FaceDataNodeData>();
 
         protected override int DataSize
         {
@@ -59,12 +55,13 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             for (int i = 0; i < facesCount; i++)
             {
-                FaceDataNodeData face = new FaceDataNodeData();
-
-                face.VerticesIndex = Indices.FromByteArray(buffer, dataOffset + 0);
-                face.EdgesIndex = Indices.FromByteArray(buffer, dataOffset + 16);
-                face.TextureCoordinatesIndex = Indices.FromByteArray(buffer, dataOffset + 32);
-                face.VertexNormalsIndex = Indices.FromByteArray(buffer, dataOffset + 48);
+                FaceDataNodeData face = new FaceDataNodeData
+                {
+                    VerticesIndex = Indices.FromByteArray(buffer, dataOffset + 0),
+                    EdgesIndex = Indices.FromByteArray(buffer, dataOffset + 16),
+                    TextureCoordinatesIndex = Indices.FromByteArray(buffer, dataOffset + 32),
+                    VertexNormalsIndex = Indices.FromByteArray(buffer, dataOffset + 48)
+                };
 
                 this.Faces.Add(face);
                 dataOffset += 64;

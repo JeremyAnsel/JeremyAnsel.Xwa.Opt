@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JeremyAnsel.Xwa.Opt
 {
@@ -123,8 +120,7 @@ namespace JeremyAnsel.Xwa.Opt
                 .SelectMany(t => t.FaceGroups)
                 .Where(t => t.Textures.Any(name =>
                 {
-                    Texture texture;
-                    if (opt.Textures.TryGetValue(name, out texture))
+                    if (opt.Textures.TryGetValue(name, out Texture texture))
                     {
                         return texture.HasAlpha;
                     }

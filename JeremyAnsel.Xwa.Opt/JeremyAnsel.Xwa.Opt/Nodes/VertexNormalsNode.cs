@@ -9,19 +9,15 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public sealed class VertexNormalsNode : Node
     {
         public VertexNormalsNode()
             : base(NodeType.VertexNormals)
         {
-            this.Normals = new List<Vector>();
         }
 
-        public IList<Vector> Normals { get; private set; }
+        public IList<Vector> Normals { get; private set; } = new List<Vector>();
 
         protected override int DataSize
         {

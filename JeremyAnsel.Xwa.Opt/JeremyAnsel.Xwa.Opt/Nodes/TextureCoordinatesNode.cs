@@ -9,19 +9,15 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public sealed class TextureCoordinatesNode : Node
     {
         public TextureCoordinatesNode()
             : base(NodeType.TextureCoordinates)
         {
-            this.TextureVertices = new List<TextureCoordinates>();
         }
 
-        public IList<TextureCoordinates> TextureVertices { get; private set; }
+        public IList<TextureCoordinates> TextureVertices { get; private set; } = new List<TextureCoordinates>();
 
         protected override int DataSize
         {

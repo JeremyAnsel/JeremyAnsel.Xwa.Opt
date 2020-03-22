@@ -12,25 +12,17 @@ namespace JeremyAnsel.Xwa.Opt
     using System.Globalization;
     using System.IO;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using JeremyAnsel.Xwa.Opt.Nodes;
 
     public class OptFile
     {
         public const float ScaleFactor = 1600.0f * 1.52587890625E-05f;
 
-        public OptFile()
-        {
-            this.Meshes = new List<Mesh>();
-            this.Textures = new SortedDictionary<string, Texture>();
-        }
-
         public string FileName { get; private set; }
 
-        public IList<Mesh> Meshes { get; private set; }
+        public IList<Mesh> Meshes { get; } = new List<Mesh>();
 
-        public IDictionary<string, Texture> Textures { get; private set; }
+        public IDictionary<string, Texture> Textures { get; } = new SortedDictionary<string, Texture>();
 
         public Vector MinSize
         {
@@ -174,11 +166,13 @@ namespace JeremyAnsel.Xwa.Opt
         [SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling")]
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         [SuppressMessage("Microsoft.Maintainability", "CA1505:AvoidUnmaintainableCode")]
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         public static OptFile FromFile(string path)
         {
-            OptFile opt = new OptFile();
-
-            opt.FileName = path;
+            OptFile opt = new OptFile
+            {
+                FileName = path
+            };
 
             OptFileNodes optNodes = OptFileNodes.FromFile(path);
 
@@ -284,9 +278,10 @@ namespace JeremyAnsel.Xwa.Opt
                 {
                     List<string> texture = globalTexture;
 
-                    MeshLod lod = new MeshLod();
-
-                    lod.Distance = faceGroupingNode.Distances[lodId];
+                    MeshLod lod = new MeshLod
+                    {
+                        Distance = faceGroupingNode.Distances[lodId]
+                    };
 
                     foreach (Node node in EnumerateNodesInNodeGroupNodes(faceGroupingNode.Nodes[lodId].Nodes))
                     {
@@ -572,13 +567,15 @@ namespace JeremyAnsel.Xwa.Opt
                                 {
                                     var texture = this.Textures[textureName];
 
-                                    TextureNode textureNode = new TextureNode();
-                                    textureNode.Name = texture.Name;
-                                    textureNode.UniqueId = 0; // texture.Id
-                                    textureNode.Width = texture.Width;
-                                    textureNode.Height = texture.Height;
-                                    textureNode.Palettes = texture.Palette;
-                                    textureNode.Bytes = texture.ImageData;
+                                    TextureNode textureNode = new TextureNode
+                                    {
+                                        Name = texture.Name,
+                                        UniqueId = 0, // texture.Id
+                                        Width = texture.Width,
+                                        Height = texture.Height,
+                                        Palettes = texture.Palette,
+                                        Bytes = texture.ImageData
+                                    };
 
                                     if (textureNode.Bytes != null)
                                     {
@@ -606,10 +603,10 @@ namespace JeremyAnsel.Xwa.Opt
 
                                     if (texture.AlphaIllumData != null)
                                     {
-                                        TextureAlphaNode alphaNode = new TextureAlphaNode();
-                                        alphaNode.Bytes = texture.AlphaIllumData;
-
-                                        alphaNode.Bytes = OptFile.FlipPixels(alphaNode.Bytes, textureNode.Width, textureNode.Height, 8);
+                                        TextureAlphaNode alphaNode = new TextureAlphaNode
+                                        {
+                                            Bytes = OptFile.FlipPixels(texture.AlphaIllumData, textureNode.Width, textureNode.Height, 8)
+                                        };
 
                                         textureNode.Nodes.Add(alphaNode);
                                     }
@@ -637,9 +634,10 @@ namespace JeremyAnsel.Xwa.Opt
                             }
                         }
 
-                        FaceDataNode faceDataNode = new FaceDataNode();
-
-                        faceDataNode.EdgesCount = faceGroup.EdgesCount;
+                        FaceDataNode faceDataNode = new FaceDataNode
+                        {
+                            EdgesCount = faceGroup.EdgesCount
+                        };
 
                         foreach (var face in faceGroup.Faces)
                         {
@@ -708,6 +706,7 @@ namespace JeremyAnsel.Xwa.Opt
             this.FileName = path;
         }
 
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private void CreateTexture(TextureNode textureNode)
         {
             if (textureNode.Name == null)
@@ -715,8 +714,10 @@ namespace JeremyAnsel.Xwa.Opt
                 textureNode.Name = string.Format(CultureInfo.InvariantCulture, "Tex{0}", textureNode.UniqueId);
             }
 
-            Texture texture = new Texture();
-            texture.Name = textureNode.Name;
+            Texture texture = new Texture
+            {
+                Name = textureNode.Name
+            };
 
             if (textureNode.Width == 0 || textureNode.Height == 0)
             {
@@ -826,7 +827,7 @@ namespace JeremyAnsel.Xwa.Opt
                 {
                     for (int i = 0; i < faceGroup.Textures.Count; i++)
                     {
-                        if (string.Equals(faceGroup.Textures[i], texture.Key))
+                        if (string.Equals(faceGroup.Textures[i], texture.Key, StringComparison.Ordinal))
                         {
                             faceGroup.Textures[i] = texture.Value;
                         }
@@ -868,9 +869,8 @@ namespace JeremyAnsel.Xwa.Opt
                 for (int i = 0; i < faceGroup.Textures.Count; i++)
                 {
                     string key = faceGroup.Textures[i];
-                    string name;
 
-                    if (map.TryGetValue(key, out name))
+                    if (map.TryGetValue(key, out string name))
                     {
                         faceGroup.Textures[i] = name;
                     }
@@ -931,12 +931,12 @@ namespace JeremyAnsel.Xwa.Opt
         {
             if (mesh == null)
             {
-                throw new ArgumentNullException("mesh");
+                throw new ArgumentNullException(nameof(mesh));
             }
 
             if (!this.Meshes.Contains(mesh))
             {
-                throw new ArgumentOutOfRangeException("mesh");
+                throw new ArgumentOutOfRangeException(nameof(mesh));
             }
 
             this.Meshes.Remove(mesh);
@@ -1009,20 +1009,20 @@ namespace JeremyAnsel.Xwa.Opt
         {
             if (meshes == null)
             {
-                throw new ArgumentNullException("meshes");
+                throw new ArgumentNullException(nameof(meshes));
             }
 
             if (!meshes.All(t => this.Meshes.Contains(t)))
             {
-                throw new ArgumentOutOfRangeException("meshes");
+                throw new ArgumentOutOfRangeException(nameof(meshes));
             }
 
-            if (meshes.Count() == 0)
+            if (!meshes.Any())
             {
                 return null;
             }
 
-            Func<Indices, int, Indices> indexAdd = (index, offset) => new Indices(
+            Indices indexAdd(Indices index, int offset) => new Indices(
                 index.A >= 0 ? index.A + offset : -1,
                 index.B >= 0 ? index.B + offset : -1,
                 index.C >= 0 ? index.C + offset : -1,
@@ -1114,17 +1114,17 @@ namespace JeremyAnsel.Xwa.Opt
         {
             if (scaleX == 0)
             {
-                throw new ArgumentOutOfRangeException("scaleX");
+                throw new ArgumentOutOfRangeException(nameof(scaleX));
             }
 
             if (scaleY == 0)
             {
-                throw new ArgumentOutOfRangeException("scaleY");
+                throw new ArgumentOutOfRangeException(nameof(scaleY));
             }
 
             if (scaleZ == 0)
             {
-                throw new ArgumentOutOfRangeException("scaleZ");
+                throw new ArgumentOutOfRangeException(nameof(scaleZ));
             }
 
             bool invertFaceOrder = (Math.Sign(scaleX) * Math.Sign(scaleY) * Math.Sign(scaleZ)) < 0;
@@ -1157,7 +1157,7 @@ namespace JeremyAnsel.Xwa.Opt
 
                     foreach (var lod in mesh.Lods)
                     {
-                        lod.Distance = lod.Distance / Math.Max(Math.Max(Math.Abs(scaleX), Math.Abs(scaleY)), Math.Abs(scaleZ));
+                        lod.Distance /= Math.Max(Math.Max(Math.Abs(scaleX), Math.Abs(scaleY)), Math.Abs(scaleZ));
 
                         foreach (var face in lod.FaceGroups.SelectMany(t => t.Faces))
                         {
@@ -1195,21 +1195,22 @@ namespace JeremyAnsel.Xwa.Opt
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         public void ChangeAxes(int axisX, int axisY, int axisZ)
         {
             if (axisX < -3 || axisX == 0 || axisX > 3)
             {
-                throw new ArgumentOutOfRangeException("axisX");
+                throw new ArgumentOutOfRangeException(nameof(axisX));
             }
 
             if (axisY < -3 || axisY == 0 || axisY > 3)
             {
-                throw new ArgumentOutOfRangeException("axisY");
+                throw new ArgumentOutOfRangeException(nameof(axisY));
             }
 
             if (axisZ < -3 || axisZ == 0 || axisZ > 3)
             {
-                throw new ArgumentOutOfRangeException("axisZ");
+                throw new ArgumentOutOfRangeException(nameof(axisZ));
             }
 
             if (Math.Abs(axisX) == Math.Abs(axisY) || Math.Abs(axisY) == Math.Abs(axisZ) || Math.Abs(axisZ) == Math.Abs(axisX))
@@ -1224,33 +1225,33 @@ namespace JeremyAnsel.Xwa.Opt
                 invertFaceOrder = !invertFaceOrder;
             }
 
-            Func<Vector, int, float> selectAxis = (v, axis) =>
+            float selectAxis(Vector v, int axis)
+            {
+                switch (axis)
                 {
-                    switch (axis)
-                    {
-                        case 1:
-                            return v.X;
+                    case 1:
+                        return v.X;
 
-                        case 2:
-                            return v.Y;
+                    case 2:
+                        return v.Y;
 
-                        case 3:
-                            return v.Z;
+                    case 3:
+                        return v.Z;
 
-                        case -1:
-                            return -v.X;
+                    case -1:
+                        return -v.X;
 
-                        case -2:
-                            return -v.Y;
+                    case -2:
+                        return -v.Y;
 
-                        case -3:
-                            return -v.Z;
-                    }
+                    case -3:
+                        return -v.Z;
+                }
 
-                    return 0;
-                };
+                return 0;
+            }
 
-            Func<Vector, Vector> selectVector = v => new Vector(
+            Vector selectVector(Vector v) => new Vector(
                 selectAxis(v, axisX),
                 selectAxis(v, axisY),
                 selectAxis(v, axisZ));

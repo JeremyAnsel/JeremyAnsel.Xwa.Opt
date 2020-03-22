@@ -7,11 +7,7 @@
 namespace JeremyAnsel.Xwa.Opt.Nodes
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public sealed class TextureAlphaNode : Node
     {

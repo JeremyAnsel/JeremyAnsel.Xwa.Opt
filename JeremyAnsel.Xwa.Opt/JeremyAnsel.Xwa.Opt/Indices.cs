@@ -7,12 +7,8 @@
 namespace JeremyAnsel.Xwa.Opt
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public struct Indices : IEquatable<Indices>
     {
@@ -172,7 +168,7 @@ namespace JeremyAnsel.Xwa.Opt
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             string[] data = value.Split(';');
@@ -197,12 +193,13 @@ namespace JeremyAnsel.Xwa.Opt
 
         internal static Indices FromByteArray(byte[] buffer, int start)
         {
-            Indices i = new Indices();
-
-            i.a = BitConverter.ToInt32(buffer, start + 0);
-            i.b = BitConverter.ToInt32(buffer, start + 4);
-            i.c = BitConverter.ToInt32(buffer, start + 8);
-            i.d = BitConverter.ToInt32(buffer, start + 12);
+            Indices i = new Indices
+            {
+                a = BitConverter.ToInt32(buffer, start + 0),
+                b = BitConverter.ToInt32(buffer, start + 4),
+                c = BitConverter.ToInt32(buffer, start + 8),
+                d = BitConverter.ToInt32(buffer, start + 12)
+            };
 
             return i;
         }

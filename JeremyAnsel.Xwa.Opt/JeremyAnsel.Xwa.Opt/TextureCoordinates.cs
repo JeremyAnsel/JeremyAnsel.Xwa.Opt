@@ -7,12 +7,8 @@
 namespace JeremyAnsel.Xwa.Opt
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public struct TextureCoordinates : IEquatable<TextureCoordinates>
     {
@@ -119,7 +115,7 @@ namespace JeremyAnsel.Xwa.Opt
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             string[] data = value.Split(';');
@@ -131,10 +127,11 @@ namespace JeremyAnsel.Xwa.Opt
 
         internal static TextureCoordinates FromByteArray(byte[] buffer, int start)
         {
-            TextureCoordinates v = new TextureCoordinates();
-
-            v.u = BitConverter.ToSingle(buffer, start + 0);
-            v.v = BitConverter.ToSingle(buffer, start + 4);
+            TextureCoordinates v = new TextureCoordinates
+            {
+                u = BitConverter.ToSingle(buffer, start + 0),
+                v = BitConverter.ToSingle(buffer, start + 4)
+            };
 
             return v;
         }

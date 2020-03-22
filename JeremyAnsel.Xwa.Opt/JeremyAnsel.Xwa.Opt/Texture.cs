@@ -7,15 +7,12 @@
 namespace JeremyAnsel.Xwa.Opt
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
     using System.Linq;
     using System.Runtime.InteropServices;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class Texture
     {
@@ -271,12 +268,12 @@ namespace JeremyAnsel.Xwa.Opt
 
             if (colors == null)
             {
-                throw new ArgumentNullException("colors");
+                throw new ArgumentNullException(nameof(colors));
             }
 
             if (colors.Length > 256 * 3)
             {
-                throw new ArgumentOutOfRangeException("colors");
+                throw new ArgumentOutOfRangeException(nameof(colors));
             }
 
             byte[] palette = new byte[8192];
@@ -466,10 +463,7 @@ namespace JeremyAnsel.Xwa.Opt
 
         public byte[] GetMipmapImageData()
         {
-            int w;
-            int h;
-
-            return this.GetMipmapImageData(0, out w, out h);
+            return this.GetMipmapImageData(0, out _, out _);
         }
 
         [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "1#")]
@@ -487,7 +481,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             if (level >= count)
             {
-                throw new ArgumentOutOfRangeException("level");
+                throw new ArgumentOutOfRangeException(nameof(level));
             }
 
             int bpp = this.BitsPerPixel / 8;
@@ -513,10 +507,7 @@ namespace JeremyAnsel.Xwa.Opt
 
         public byte[] GetMipmapAlphaData()
         {
-            int w;
-            int h;
-
-            return this.GetMipmapAlphaData(0, out w, out h);
+            return this.GetMipmapAlphaData(0, out _, out _);
         }
 
         [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "1#")]
@@ -534,7 +525,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             if (level >= count)
             {
-                throw new ArgumentOutOfRangeException("level");
+                throw new ArgumentOutOfRangeException(nameof(level));
             }
 
             int bpp = this.BitsPerPixel;
@@ -573,10 +564,7 @@ namespace JeremyAnsel.Xwa.Opt
 
         public byte[] GetMipmapIllumData()
         {
-            int w;
-            int h;
-
-            return this.GetMipmapIllumData(0, out w, out h);
+            return this.GetMipmapIllumData(0, out _, out _);
         }
 
         [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "1#")]
@@ -594,7 +582,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             if (level >= count)
             {
-                throw new ArgumentOutOfRangeException("level");
+                throw new ArgumentOutOfRangeException(nameof(level));
             }
 
             int bpp = this.BitsPerPixel;
@@ -648,10 +636,7 @@ namespace JeremyAnsel.Xwa.Opt
 
         public byte[] GetColorMap()
         {
-            int w;
-            int h;
-
-            return this.GetColorMap(0, out w, out h);
+            return this.GetColorMap(0, out _, out _);
         }
 
         [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "1#")]
@@ -687,10 +672,7 @@ namespace JeremyAnsel.Xwa.Opt
 
         public byte[] GetAlphaMap()
         {
-            int w;
-            int h;
-
-            return this.GetAlphaMap(0, out w, out h);
+            return this.GetAlphaMap(0, out _, out _);
         }
 
         [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "1#")]
@@ -717,10 +699,7 @@ namespace JeremyAnsel.Xwa.Opt
 
         public byte[] GetIllumMap()
         {
-            int w;
-            int h;
-
-            return this.GetIllumMap(0, out w, out h);
+            return this.GetIllumMap(0, out _, out _);
         }
 
         [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "1#")]
@@ -766,7 +745,7 @@ namespace JeremyAnsel.Xwa.Opt
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("fileName");
+                    throw new ArgumentOutOfRangeException(nameof(fileName));
             }
         }
 
@@ -791,7 +770,7 @@ namespace JeremyAnsel.Xwa.Opt
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("fileName");
+                    throw new ArgumentOutOfRangeException(nameof(fileName));
             }
         }
 
@@ -816,7 +795,7 @@ namespace JeremyAnsel.Xwa.Opt
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("fileName");
+                    throw new ArgumentOutOfRangeException(nameof(fileName));
             }
         }
 
@@ -841,7 +820,7 @@ namespace JeremyAnsel.Xwa.Opt
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("fileName");
+                    throw new ArgumentOutOfRangeException(nameof(fileName));
             }
         }
 
@@ -1136,7 +1115,7 @@ namespace JeremyAnsel.Xwa.Opt
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("fileName");
+                    throw new ArgumentOutOfRangeException(nameof(fileName));
             }
 
             if (!string.IsNullOrEmpty(fileNameAlpha))
@@ -1210,7 +1189,7 @@ namespace JeremyAnsel.Xwa.Opt
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("fileName");
+                    throw new ArgumentOutOfRangeException(nameof(fileName));
             }
         }
 
@@ -1282,7 +1261,7 @@ namespace JeremyAnsel.Xwa.Opt
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("fileName");
+                    throw new ArgumentOutOfRangeException(nameof(fileName));
             }
         }
 
@@ -1291,9 +1270,11 @@ namespace JeremyAnsel.Xwa.Opt
             var rect = new Rectangle(0, 0, image.Width, image.Height);
             int length = image.Width * image.Height;
 
-            var texture = new Texture();
-            texture.Width = image.Width;
-            texture.Height = image.Height;
+            var texture = new Texture
+            {
+                Width = image.Width,
+                Height = image.Height
+            };
 
             if (image.PixelFormat == PixelFormat.Format8bppIndexed)
             {

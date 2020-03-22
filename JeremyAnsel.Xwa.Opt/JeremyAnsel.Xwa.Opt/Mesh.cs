@@ -10,38 +10,24 @@ namespace JeremyAnsel.Xwa.Opt
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class Mesh
     {
-        public Mesh()
-        {
-            this.Vertices = new List<Vector>();
-            this.TextureCoordinates = new List<TextureCoordinates>();
-            this.VertexNormals = new List<Vector>();
-            this.Descriptor = new MeshDescriptor();
-            this.RotationScale = new RotationScale();
-            this.Lods = new List<MeshLod>();
-            this.Hardpoints = new List<Hardpoint>();
-            this.EngineGlows = new List<EngineGlow>();
-        }
+        public IList<Vector> Vertices { get; private set; } = new List<Vector>();
 
-        public IList<Vector> Vertices { get; private set; }
+        public IList<TextureCoordinates> TextureCoordinates { get; private set; } = new List<TextureCoordinates>();
 
-        public IList<TextureCoordinates> TextureCoordinates { get; private set; }
+        public IList<Vector> VertexNormals { get; private set; } = new List<Vector>();
 
-        public IList<Vector> VertexNormals { get; private set; }
+        public MeshDescriptor Descriptor { get; set; } = new MeshDescriptor();
 
-        public MeshDescriptor Descriptor { get; set; }
+        public RotationScale RotationScale { get; set; } = new RotationScale();
 
-        public RotationScale RotationScale { get; set; }
+        public IList<MeshLod> Lods { get; } = new List<MeshLod>();
 
-        public IList<MeshLod> Lods { get; private set; }
+        public IList<Hardpoint> Hardpoints { get; } = new List<Hardpoint>();
 
-        public IList<Hardpoint> Hardpoints { get; private set; }
-
-        public IList<EngineGlow> EngineGlows { get; private set; }
+        public IList<EngineGlow> EngineGlows { get; } = new List<EngineGlow>();
 
         public Mesh Clone()
         {
@@ -62,8 +48,8 @@ namespace JeremyAnsel.Xwa.Opt
                 mesh.VertexNormals.Add(normal);
             }
 
-            mesh.Descriptor = this.Descriptor == null ? null : this.Descriptor.Clone();
-            mesh.RotationScale = this.RotationScale == null ? null : this.RotationScale.Clone();
+            mesh.Descriptor = this.Descriptor?.Clone();
+            mesh.RotationScale = this.RotationScale?.Clone();
 
             foreach (var lod in this.Lods)
             {
@@ -418,20 +404,22 @@ namespace JeremyAnsel.Xwa.Opt
         {
             if (lod == null)
             {
-                throw new ArgumentNullException("lod");
+                throw new ArgumentNullException(nameof(lod));
             }
 
             if (!this.Lods.Contains(lod))
             {
-                throw new ArgumentOutOfRangeException("lod");
+                throw new ArgumentOutOfRangeException(nameof(lod));
             }
 
             this.Lods.Remove(lod);
 
             foreach (var faceGroup in lod.FaceGroups)
             {
-                var groupLod = new MeshLod();
-                groupLod.Distance = lod.Distance;
+                var groupLod = new MeshLod
+                {
+                    Distance = lod.Distance
+                };
 
                 groupLod.FaceGroups.Add(faceGroup);
 
@@ -443,21 +431,23 @@ namespace JeremyAnsel.Xwa.Opt
         {
             if (lods == null)
             {
-                throw new ArgumentNullException("lods");
+                throw new ArgumentNullException(nameof(lods));
             }
 
             if (!lods.All(t => this.Lods.Contains(t)))
             {
-                throw new ArgumentOutOfRangeException("lods");
+                throw new ArgumentOutOfRangeException(nameof(lods));
             }
 
-            if (lods.Count() == 0)
+            if (!lods.Any())
             {
                 return null;
             }
 
-            var merge = new MeshLod();
-            merge.Distance = lods.Min(t => t.Distance);
+            var merge = new MeshLod
+            {
+                Distance = lods.Min(t => t.Distance)
+            };
 
             foreach (var lod in lods)
             {

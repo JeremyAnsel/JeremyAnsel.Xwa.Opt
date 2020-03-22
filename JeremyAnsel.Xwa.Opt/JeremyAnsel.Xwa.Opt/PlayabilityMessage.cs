@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JeremyAnsel.Xwa.Opt
 {
@@ -24,9 +21,9 @@ namespace JeremyAnsel.Xwa.Opt
 
         public static bool operator ==(PlayabilityMessage left, PlayabilityMessage right)
         {
-            if (object.ReferenceEquals(left, null))
+            if (left is null)
             {
-                return object.ReferenceEquals(right, null);
+                return right is null;
             }
 
             return left.Equals(right);
@@ -42,9 +39,19 @@ namespace JeremyAnsel.Xwa.Opt
             return PlayabilityMessage.Compare(left, right) < 0;
         }
 
+        public static bool operator <=(PlayabilityMessage left, PlayabilityMessage right)
+        {
+            return PlayabilityMessage.Compare(left, right) <= 0;
+        }
+
         public static bool operator >(PlayabilityMessage left, PlayabilityMessage right)
         {
             return PlayabilityMessage.Compare(left, right) > 0;
+        }
+
+        public static bool operator >=(PlayabilityMessage left, PlayabilityMessage right)
+        {
+            return PlayabilityMessage.Compare(left, right) >= 0;
         }
 
         public static int Compare(PlayabilityMessage left, PlayabilityMessage right)
@@ -54,7 +61,7 @@ namespace JeremyAnsel.Xwa.Opt
                 return 0;
             }
 
-            if (object.ReferenceEquals(left, null))
+            if (left is null)
             {
                 return -1;
             }
@@ -69,9 +76,7 @@ namespace JeremyAnsel.Xwa.Opt
 
         public override bool Equals(object obj)
         {
-            var other = obj as PlayabilityMessage;
-
-            if (object.ReferenceEquals(other, null))
+            if (!(obj is PlayabilityMessage other))
             {
                 return false;
             }
@@ -95,6 +100,7 @@ namespace JeremyAnsel.Xwa.Opt
             .GetHashCode();
         }
 
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         public int CompareTo(object obj)
         {
             if (obj == null)
@@ -106,7 +112,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             if (other == null)
             {
-                throw new ArgumentException("A PlayabilityMessage object is required for comparison.", "obj");
+                throw new ArgumentException("A PlayabilityMessage object is required for comparison.", nameof(obj));
             }
 
             return this.CompareTo(other);

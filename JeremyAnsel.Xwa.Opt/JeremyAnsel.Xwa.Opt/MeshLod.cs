@@ -9,20 +9,17 @@ namespace JeremyAnsel.Xwa.Opt
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class MeshLod
     {
         public MeshLod()
         {
             this.Distance = 0.0f;
-            this.FaceGroups = new List<FaceGroup>();
         }
 
         public float Distance { get; set; }
 
-        public IList<FaceGroup> FaceGroups { get; private set; }
+        public IList<FaceGroup> FaceGroups { get; private set; } = new List<FaceGroup>();
 
         public int TrianglesCount
         {
