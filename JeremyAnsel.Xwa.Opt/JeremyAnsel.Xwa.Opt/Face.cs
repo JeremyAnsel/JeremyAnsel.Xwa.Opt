@@ -16,22 +16,22 @@ namespace JeremyAnsel.Xwa.Opt
     {
         public Face()
         {
-            this.VerticesIndex = Index.Empty;
-            this.EdgesIndex = Index.Empty;
-            this.TextureCoordinatesIndex = Index.Empty;
-            this.VertexNormalsIndex = Index.Empty;
+            this.VerticesIndex = Indices.Empty;
+            this.EdgesIndex = Indices.Empty;
+            this.TextureCoordinatesIndex = Indices.Empty;
+            this.VertexNormalsIndex = Indices.Empty;
             this.Normal = Vector.Empty;
             this.TexturingDirection = Vector.Empty;
             this.TexturingMagniture = Vector.Empty;
         }
 
-        public Index VerticesIndex { get; set; }
+        public Indices VerticesIndex { get; set; }
 
-        public Index EdgesIndex { get; set; }
+        public Indices EdgesIndex { get; set; }
 
-        public Index TextureCoordinatesIndex { get; set; }
+        public Indices TextureCoordinatesIndex { get; set; }
 
-        public Index VertexNormalsIndex { get; set; }
+        public Indices VertexNormalsIndex { get; set; }
 
         public Vector Normal { get; set; }
 
@@ -78,7 +78,7 @@ namespace JeremyAnsel.Xwa.Opt
             int texVCount = 0;
 
             int polyVerts = this.VerticesCount;
-            Index texIndex = this.TextureCoordinatesIndex;
+            Indices texIndex = this.TextureCoordinatesIndex;
 
             for (int i = 0; i < polyVerts; i++)
             {

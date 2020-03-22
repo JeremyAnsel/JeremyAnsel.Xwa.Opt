@@ -14,13 +14,13 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class FaceDataNodeData
     {
-        public Index VerticesIndex { get; set; }
+        public Indices VerticesIndex { get; set; }
 
-        public Index EdgesIndex { get; set; }
+        public Indices EdgesIndex { get; set; }
 
-        public Index TextureCoordinatesIndex { get; set; }
+        public Indices TextureCoordinatesIndex { get; set; }
 
-        public Index VertexNormalsIndex { get; set; }
+        public Indices VertexNormalsIndex { get; set; }
 
         public Vector Normal { get; set; }
 

@@ -97,7 +97,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             foreach (var face in this.Faces)
             {
-                Index vertex = face.VerticesIndex;
+                Indices vertex = face.VerticesIndex;
 
                 if (vertex.D < 0)
                 {
@@ -105,7 +105,7 @@ namespace JeremyAnsel.Xwa.Opt
                     int b = getEdgeIndex(vertex.B, vertex.C);
                     int c = getEdgeIndex(vertex.C, vertex.A);
 
-                    face.EdgesIndex = new Index(a, b, c);
+                    face.EdgesIndex = new Indices(a, b, c);
                 }
                 else
                 {
@@ -114,7 +114,7 @@ namespace JeremyAnsel.Xwa.Opt
                     int c = getEdgeIndex(vertex.C, vertex.D);
                     int d = getEdgeIndex(vertex.D, vertex.A);
 
-                    face.EdgesIndex = new Index(a, b, c, d);
+                    face.EdgesIndex = new Indices(a, b, c, d);
                 }
             }
         }

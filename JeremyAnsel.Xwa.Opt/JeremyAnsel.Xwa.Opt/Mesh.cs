@@ -170,9 +170,9 @@ namespace JeremyAnsel.Xwa.Opt
                 .SelectMany(t => t.FaceGroups)
                 .SelectMany(t => t.Faces))
             {
-                Index index = face.VerticesIndex;
+                Indices index = face.VerticesIndex;
 
-                face.VerticesIndex = new Index(
+                face.VerticesIndex = new Indices(
                     index.A < 0 ? -1 : newIndices[index.A],
                     index.B < 0 ? -1 : newIndices[index.B],
                     index.C < 0 ? -1 : newIndices[index.C],
@@ -243,9 +243,9 @@ namespace JeremyAnsel.Xwa.Opt
                 .SelectMany(t => t.FaceGroups)
                 .SelectMany(t => t.Faces))
             {
-                Index index = face.TextureCoordinatesIndex;
+                Indices index = face.TextureCoordinatesIndex;
 
-                face.TextureCoordinatesIndex = new Index(
+                face.TextureCoordinatesIndex = new Indices(
                     index.A < 0 ? -1 : newIndices[index.A],
                     index.B < 0 ? -1 : newIndices[index.B],
                     index.C < 0 ? -1 : newIndices[index.C],
@@ -316,9 +316,9 @@ namespace JeremyAnsel.Xwa.Opt
                 .SelectMany(t => t.FaceGroups)
                 .SelectMany(t => t.Faces))
             {
-                Index index = face.VertexNormalsIndex;
+                Indices index = face.VertexNormalsIndex;
 
-                face.VertexNormalsIndex = new Index(
+                face.VertexNormalsIndex = new Indices(
                     index.A < 0 ? -1 : newIndices[index.A],
                     index.B < 0 ? -1 : newIndices[index.B],
                     index.C < 0 ? -1 : newIndices[index.C],

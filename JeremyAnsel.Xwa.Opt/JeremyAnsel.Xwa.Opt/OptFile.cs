@@ -1022,7 +1022,7 @@ namespace JeremyAnsel.Xwa.Opt
                 return null;
             }
 
-            Func<Index, int, Index> indexAdd = (index, offset) => new Index(
+            Func<Indices, int, Indices> indexAdd = (index, offset) => new Indices(
                 index.A >= 0 ? index.A + offset : -1,
                 index.B >= 0 ? index.B + offset : -1,
                 index.C >= 0 ? index.C + offset : -1,

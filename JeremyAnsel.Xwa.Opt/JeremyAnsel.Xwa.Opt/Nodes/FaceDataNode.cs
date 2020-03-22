@@ -61,10 +61,10 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             {
                 FaceDataNodeData face = new FaceDataNodeData();
 
-                face.VerticesIndex = Index.FromByteArray(buffer, dataOffset + 0);
-                face.EdgesIndex = Index.FromByteArray(buffer, dataOffset + 16);
-                face.TextureCoordinatesIndex = Index.FromByteArray(buffer, dataOffset + 32);
-                face.VertexNormalsIndex = Index.FromByteArray(buffer, dataOffset + 48);
+                face.VerticesIndex = Indices.FromByteArray(buffer, dataOffset + 0);
+                face.EdgesIndex = Indices.FromByteArray(buffer, dataOffset + 16);
+                face.TextureCoordinatesIndex = Indices.FromByteArray(buffer, dataOffset + 32);
+                face.VertexNormalsIndex = Indices.FromByteArray(buffer, dataOffset + 48);
 
                 this.Faces.Add(face);
                 dataOffset += 64;

@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="Index.cs" company="">
+// <copyright file="Indices.cs" company="">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -14,7 +14,7 @@ namespace JeremyAnsel.Xwa.Opt
     using System.Text;
     using System.Threading.Tasks;
 
-    public struct Index : IEquatable<Index>
+    public struct Indices : IEquatable<Indices>
     {
         private int a;
 
@@ -27,7 +27,7 @@ namespace JeremyAnsel.Xwa.Opt
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "a")]
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "b")]
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "c")]
-        public Index(int a, int b, int c)
+        public Indices(int a, int b, int c)
         {
             this.a = a;
             this.b = b;
@@ -39,7 +39,7 @@ namespace JeremyAnsel.Xwa.Opt
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "b")]
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "c")]
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "d")]
-        public Index(int a, int b, int c, int d)
+        public Indices(int a, int b, int c, int d)
         {
             this.a = a;
             this.b = b;
@@ -75,7 +75,7 @@ namespace JeremyAnsel.Xwa.Opt
             set { this.d = value; }
         }
 
-        public static readonly Index Empty = new Index(-1, -1, -1, -1);
+        public static readonly Indices Empty = new Indices(-1, -1, -1, -1);
 
         public bool IsTriangle
         {
@@ -94,23 +94,23 @@ namespace JeremyAnsel.Xwa.Opt
         }
 
         /// <summary>
-        /// Compares two <see cref="Index"/> objects. The result specifies whether the values of the two objects are equal.
+        /// Compares two <see cref="Indices"/> objects. The result specifies whether the values of the two objects are equal.
         /// </summary>
-        /// <param name="left">The left <see cref="Index"/> to compare.</param>
-        /// <param name="right">The right <see cref="Index"/> to compare.</param>
+        /// <param name="left">The left <see cref="Indices"/> to compare.</param>
+        /// <param name="right">The right <see cref="Indices"/> to compare.</param>
         /// <returns><value>true</value> if the values of left and right are equal; otherwise, <value>false</value>.</returns>
-        public static bool operator ==(Index left, Index right)
+        public static bool operator ==(Indices left, Indices right)
         {
             return left.Equals(right);
         }
 
         /// <summary>
-        /// Compares two <see cref="Index"/> objects. The result specifies whether the values of the two objects are unequal.
+        /// Compares two <see cref="Indices"/> objects. The result specifies whether the values of the two objects are unequal.
         /// </summary>
-        /// <param name="left">The left <see cref="Index"/> to compare.</param>
-        /// <param name="right">The right <see cref="Index"/> to compare.</param>
+        /// <param name="left">The left <see cref="Indices"/> to compare.</param>
+        /// <param name="right">The right <see cref="Indices"/> to compare.</param>
         /// <returns><value>true</value> if the values of left and right differ; otherwise, <value>false</value>.</returns>
-        public static bool operator !=(Index left, Index right)
+        public static bool operator !=(Indices left, Indices right)
         {
             return !(left == right);
         }
@@ -131,12 +131,12 @@ namespace JeremyAnsel.Xwa.Opt
         /// <returns><value>true</value> if the specified object is equal to the current object; otherwise, <value>false</value>.</returns>
         public override bool Equals(object obj)
         {
-            if (!(obj is Index))
+            if (!(obj is Indices))
             {
                 return false;
             }
 
-            return this.Equals((Index)obj);
+            return this.Equals((Indices)obj);
         }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace JeremyAnsel.Xwa.Opt
         /// </summary>
         /// <param name="other">The object to compare with the current object.</param>
         /// <returns><value>true</value> if the specified object is equal to the current object; otherwise, <value>false</value>.</returns>
-        public bool Equals(Index other)
+        public bool Equals(Indices other)
         {
             return this.a == other.a
                 && this.b == other.b
@@ -168,7 +168,7 @@ namespace JeremyAnsel.Xwa.Opt
             .GetHashCode();
         }
 
-        public static Index Parse(string value)
+        public static Indices Parse(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -179,7 +179,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             if (data.Length == 3)
             {
-                return new Index(
+                return new Indices(
                     int.Parse(data[0], CultureInfo.InvariantCulture),
                     int.Parse(data[1], CultureInfo.InvariantCulture),
                     int.Parse(data[2], CultureInfo.InvariantCulture),
@@ -187,7 +187,7 @@ namespace JeremyAnsel.Xwa.Opt
             }
             else
             {
-                return new Index(
+                return new Indices(
                     int.Parse(data[0], CultureInfo.InvariantCulture),
                     int.Parse(data[1], CultureInfo.InvariantCulture),
                     int.Parse(data[2], CultureInfo.InvariantCulture),
@@ -195,9 +195,9 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
-        internal static Index FromByteArray(byte[] buffer, int start)
+        internal static Indices FromByteArray(byte[] buffer, int start)
         {
-            Index i = new Index();
+            Indices i = new Indices();
 
             i.a = BitConverter.ToInt32(buffer, start + 0);
             i.b = BitConverter.ToInt32(buffer, start + 4);
@@ -219,35 +219,35 @@ namespace JeremyAnsel.Xwa.Opt
             return buffer;
         }
 
-        public Index SetA(int value)
+        public Indices SetA(int value)
         {
-            return new Index(value, this.b, this.c, this.d);
+            return new Indices(value, this.b, this.c, this.d);
         }
 
-        public Index SetB(int value)
+        public Indices SetB(int value)
         {
-            return new Index(this.a, value, this.c, this.d);
+            return new Indices(this.a, value, this.c, this.d);
         }
 
-        public Index SetC(int value)
+        public Indices SetC(int value)
         {
-            return new Index(this.a, this.b, value, this.d);
+            return new Indices(this.a, this.b, value, this.d);
         }
 
-        public Index SetD(int value)
+        public Indices SetD(int value)
         {
-            return new Index(this.a, this.b, this.c, value);
+            return new Indices(this.a, this.b, this.c, value);
         }
 
-        public Index InvertOrder()
+        public Indices InvertOrder()
         {
             if (this.d < 0)
             {
-                return new Index(this.c, this.b, this.a);
+                return new Indices(this.c, this.b, this.a);
             }
             else
             {
-                return new Index(this.d, this.c, this.b, this.a);
+                return new Indices(this.d, this.c, this.b, this.a);
             }
         }
     }
