@@ -1228,6 +1228,11 @@ namespace JeremyAnsel.Xwa.Opt
 
                             for (int i = 0; i < illumData.Length; i++)
                             {
+                                if (illumData[i] == 0)
+                                {
+                                    continue;
+                                }
+
                                 int c = this.ImageData[i];
                                 ushort color = BitConverter.ToUInt16(this.Palette, 8 * 512 + c * 2);
 
@@ -1435,6 +1440,11 @@ namespace JeremyAnsel.Xwa.Opt
                 for (int i = 0; i < length; i++)
                 {
                     byte a = bytes[i * 4 + 3];
+
+                    if (bytes[i * 4 + 0] == 0 && bytes[i * 4 + 1] == 0 && bytes[i * 4 + 2] == 0)
+                    {
+                        a = 0;
+                    }
 
                     illumData[i] = a;
 
