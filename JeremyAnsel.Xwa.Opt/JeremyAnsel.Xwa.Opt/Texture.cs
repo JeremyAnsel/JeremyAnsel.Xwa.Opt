@@ -892,30 +892,12 @@ namespace JeremyAnsel.Xwa.Opt
                         data[i * 4 + 3] = alphaData[i];
                     }
 
-                    var handle = GCHandle.Alloc(data, GCHandleType.Pinned);
-
-                    try
-                    {
-                        return new Bitmap(this.Width, this.Height, this.Width * 4, PixelFormat.Format32bppArgb, handle.AddrOfPinnedObject());
-                    }
-                    finally
-                    {
-                        handle.Free();
-                    }
+                    return GetBitmap32bpp(this.Width, this.Height, data);
                 }
             }
             else if (bpp == 32)
             {
-                var handle = GCHandle.Alloc(imageData, GCHandleType.Pinned);
-
-                try
-                {
-                    return new Bitmap(this.Width, this.Height, this.Width * 4, PixelFormat.Format32bppArgb, handle.AddrOfPinnedObject());
-                }
-                finally
-                {
-                    handle.Free();
-                }
+                return GetBitmap32bpp(this.Width, this.Height, imageData);
             }
             else
             {
@@ -974,16 +956,7 @@ namespace JeremyAnsel.Xwa.Opt
             }
             else if (bpp == 32)
             {
-                var handle = GCHandle.Alloc(colorMap, GCHandleType.Pinned);
-
-                try
-                {
-                    return new Bitmap(this.Width, this.Height, this.Width * 4, PixelFormat.Format32bppRgb, handle.AddrOfPinnedObject());
-                }
-                finally
-                {
-                    handle.Free();
-                }
+                return GetBitmap32bpp(this.Width, this.Height, colorMap);
             }
             else
             {
@@ -1042,38 +1015,46 @@ namespace JeremyAnsel.Xwa.Opt
         [SuppressMessage("Microsoft.Reliability", "CA2000:Supprimer les objets avant la mise hors de portée")]
         private static Bitmap GetBitmap8bpp(int width, int height, byte[] imageData)
         {
-            Bitmap bitmap;
+            Bitmap bitmap = new Bitmap(width, height, PixelFormat.Format8bppIndexed);
+            var rect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
+            var data = bitmap.LockBits(rect, ImageLockMode.WriteOnly, bitmap.PixelFormat);
 
-            if (width % 4 == 0)
+            try
             {
-                var handle = GCHandle.Alloc(imageData, GCHandleType.Pinned);
-
-                try
+                if (width % 4 == 0)
                 {
-                    bitmap = new Bitmap(width, height, width, PixelFormat.Format8bppIndexed, handle.AddrOfPinnedObject());
+                    Marshal.Copy(imageData, 0, data.Scan0, imageData.Length);
                 }
-                finally
-                {
-                    handle.Free();
-                }
-            }
-            else
-            {
-                bitmap = new Bitmap(width, height, PixelFormat.Format8bppIndexed);
-                var rect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
-                var data = bitmap.LockBits(rect, ImageLockMode.WriteOnly, bitmap.PixelFormat);
-
-                try
+                else
                 {
                     for (int h = 0; h < data.Height; h++)
                     {
                         Marshal.Copy(imageData, h * data.Width, IntPtr.Add(data.Scan0, h * data.Stride), data.Width);
                     }
                 }
-                finally
-                {
-                    bitmap.UnlockBits(data);
-                }
+            }
+            finally
+            {
+                bitmap.UnlockBits(data);
+            }
+
+            return bitmap;
+        }
+
+        [SuppressMessage("Microsoft.Reliability", "CA2000:Supprimer les objets avant la mise hors de portée")]
+        private static Bitmap GetBitmap32bpp(int width, int height, byte[] imageData)
+        {
+            Bitmap bitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb);
+            var rect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
+            var data = bitmap.LockBits(rect, ImageLockMode.WriteOnly, bitmap.PixelFormat);
+
+            try
+            {
+                Marshal.Copy(imageData, 0, data.Scan0, imageData.Length);
+            }
+            finally
+            {
+                bitmap.UnlockBits(data);
             }
 
             return bitmap;
