@@ -4297,6 +4297,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.Texture.IsIlluminated
   nameWithType: Texture.IsIlluminated
+- uid: JeremyAnsel.Xwa.Opt.Texture.MakeColor8bppIlluminated(System.Int32)
+  name: MakeColor8bppIlluminated(Int32)
+  href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_MakeColor8bppIlluminated_System_Int32_
+  commentId: M:JeremyAnsel.Xwa.Opt.Texture.MakeColor8bppIlluminated(System.Int32)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.MakeColor8bppIlluminated(System.Int32)
+  nameWithType: Texture.MakeColor8bppIlluminated(Int32)
+- uid: JeremyAnsel.Xwa.Opt.Texture.MakeColor8bppIlluminated*
+  name: MakeColor8bppIlluminated
+  href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_MakeColor8bppIlluminated_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.Texture.MakeColor8bppIlluminated
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Opt.Texture.MakeColor8bppIlluminated
+  nameWithType: Texture.MakeColor8bppIlluminated
 - uid: JeremyAnsel.Xwa.Opt.Texture.MakeColorIlluminated(System.Byte,System.Byte,System.Byte)
   name: MakeColorIlluminated(Byte, Byte, Byte)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_MakeColorIlluminated_System_Byte_System_Byte_System_Byte_
@@ -4439,6 +4452,12 @@ references:
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.Save(System.String)
   fullName: JeremyAnsel.Xwa.Opt.Texture.Save(System.String)
   nameWithType: Texture.Save(String)
+- uid: JeremyAnsel.Xwa.Opt.Texture.Save(System.String,System.Int32)
+  name: Save(String, Int32)
+  href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_Save_System_String_System_Int32_
+  commentId: M:JeremyAnsel.Xwa.Opt.Texture.Save(System.String,System.Int32)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.Save(System.String, System.Int32)
+  nameWithType: Texture.Save(String, Int32)
 - uid: JeremyAnsel.Xwa.Opt.Texture.Save*
   name: Save
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_Save_
@@ -4452,6 +4471,12 @@ references:
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.String)
   fullName: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.String)
   nameWithType: Texture.SaveAlphaMap(String)
+- uid: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.String,System.Int32)
+  name: SaveAlphaMap(String, Int32)
+  href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveAlphaMap_System_String_System_Int32_
+  commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.String,System.Int32)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.String, System.Int32)
+  nameWithType: Texture.SaveAlphaMap(String, Int32)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap*
   name: SaveAlphaMap
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveAlphaMap_
@@ -4465,6 +4490,12 @@ references:
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.String)
   fullName: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.String)
   nameWithType: Texture.SaveColorMap(String)
+- uid: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.String,System.Int32)
+  name: SaveColorMap(String, Int32)
+  href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveColorMap_System_String_System_Int32_
+  commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.String,System.Int32)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.String, System.Int32)
+  nameWithType: Texture.SaveColorMap(String, Int32)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap*
   name: SaveColorMap
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveColorMap_
@@ -4478,6 +4509,12 @@ references:
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.String)
   fullName: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.String)
   nameWithType: Texture.SaveIllumMap(String)
+- uid: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.String,System.Int32)
+  name: SaveIllumMap(String, Int32)
+  href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveIllumMap_System_String_System_Int32_
+  commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.String,System.Int32)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.String, System.Int32)
+  nameWithType: Texture.SaveIllumMap(String, Int32)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap*
   name: SaveIllumMap
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveIllumMap_
