@@ -618,7 +618,8 @@ namespace JeremyAnsel.Xwa.Opt
 
                     if (color == color8)
                     {
-                        illumData[i] = 0x3f;
+                        //illumData[i] = 0x3f;
+                        illumData[i] = 0x7f;
                     }
                 }
             }
@@ -1540,7 +1541,8 @@ namespace JeremyAnsel.Xwa.Opt
                 if (color == color8)
                 {
                     hasIllum = true;
-                    illum[i] = 0x3f;
+                    //illum[i] = 0x3f;
+                    illum[i] = 0x7f;
                 }
             }
 
@@ -1946,7 +1948,8 @@ namespace JeremyAnsel.Xwa.Opt
                             this.Palette[4] = 0xff;
                         }
 
-                        this.AlphaIllumData[i] = 0x3f;
+                        //this.AlphaIllumData[i] = 0x3f;
+                        this.AlphaIllumData[i] = 0x7f;
                     }
                 }
             }
