@@ -3441,6 +3441,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.OptFile.RemoveTexturesMipmaps
   nameWithType: OptFile.RemoveTexturesMipmaps
+- uid: JeremyAnsel.Xwa.Opt.OptFile.RemoveUnusedTextures
+  name: RemoveUnusedTextures()
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_RemoveUnusedTextures
+  commentId: M:JeremyAnsel.Xwa.Opt.OptFile.RemoveUnusedTextures
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.RemoveUnusedTextures()
+  nameWithType: OptFile.RemoveUnusedTextures()
+- uid: JeremyAnsel.Xwa.Opt.OptFile.RemoveUnusedTextures*
+  name: RemoveUnusedTextures
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_RemoveUnusedTextures_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.OptFile.RemoveUnusedTextures
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.RemoveUnusedTextures
+  nameWithType: OptFile.RemoveUnusedTextures
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.String)
   name: Save(String)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_String_
