@@ -838,6 +838,33 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
+        public void RemoveUnusedTextures()
+        {
+            Dictionary<string, bool> texturesUsed = this.Textures.Keys.ToDictionary(t => t, t => false);
+
+            foreach (Mesh mesh in this.Meshes)
+            {
+                foreach (var lod in mesh.Lods)
+                {
+                    foreach (var faceGroup in lod.FaceGroups)
+                    {
+                        foreach (var textureName in faceGroup.Textures)
+                        {
+                            if (texturesUsed.TryGetValue(textureName, out bool value) && !value)
+                            {
+                                texturesUsed[textureName] = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach (var texture in texturesUsed.Where(t => !t.Value))
+            {
+                this.Textures.Remove(texture.Key);
+            }
+        }
+
         public void GenerateTexturesNames()
         {
             var map = new Dictionary<string, string>(this.Textures.Count);
