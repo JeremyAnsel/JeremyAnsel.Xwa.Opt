@@ -1667,6 +1667,16 @@ namespace JeremyAnsel.Xwa.Opt
 
                 this.ImageData = imageData;
                 this.SetPaletteColors(palette);
+
+                for (int i = 0; i < colors.Length; i++)
+                {
+                    byte illum = colors[i].A;
+
+                    if (illum != 0)
+                    {
+                        this.MakeColor8bppIlluminated(i);
+                    }
+                }
             }
             else
             {
