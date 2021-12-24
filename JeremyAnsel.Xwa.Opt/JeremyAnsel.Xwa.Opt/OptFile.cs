@@ -162,20 +162,29 @@ namespace JeremyAnsel.Xwa.Opt
             return opt;
         }
 
+        public static OptFile FromFile(string path)
+        {
+            OptFileNodes optNodes = OptFileNodes.FromFile(path);
+            OptFile opt = ReadOpt(optNodes);
+            opt.FileName = path;
+            return opt;
+        }
+
+        public static OptFile FromStream(Stream stream)
+        {
+            OptFileNodes optNodes = OptFileNodes.FromStream(stream);
+            OptFile opt = ReadOpt(optNodes);
+            return opt;
+        }
+
         [SuppressMessage("Microsoft.Performance", "CA1809:AvoidExcessiveLocals")]
         [SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling")]
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         [SuppressMessage("Microsoft.Maintainability", "CA1505:AvoidUnmaintainableCode")]
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        public static OptFile FromFile(string path)
+        private static OptFile ReadOpt(OptFileNodes optNodes)
         {
-            OptFile opt = new OptFile
-            {
-                FileName = path
-            };
-
-            OptFileNodes optNodes = OptFileNodes.FromFile(path);
-
+            var opt = new OptFile();
             List<string> globalTexture = null;
 
             for (int meshId = 0; meshId < optNodes.Nodes.Count; meshId++)
@@ -483,9 +492,27 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
+        public void Save(string path)
+        {
+            OptFileNodes optNodes = this.BuildOptFileNodes();
+            optNodes.Save(path);
+            this.FileName = path;
+        }
+
+        public void Save(Stream stream)
+        {
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
+            OptFileNodes optNodes = this.BuildOptFileNodes();
+            optNodes.Save(stream);
+        }
+
         [SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling")]
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        public void Save(string path)
+        private OptFileNodes BuildOptFileNodes()
         {
             this.CompactBuffers();
 
@@ -702,8 +729,7 @@ namespace JeremyAnsel.Xwa.Opt
                 this.Textures.Remove(texture.Key);
             }
 
-            optNodes.Save(path);
-            this.FileName = path;
+            return optNodes;
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]

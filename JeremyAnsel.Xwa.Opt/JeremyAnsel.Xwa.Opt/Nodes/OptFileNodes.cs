@@ -39,14 +39,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
         public IList<Node> Nodes { get; private set; } = new List<Node>();
 
-        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         public static OptFileNodes FromFile(string path)
         {
-            OptFileNodes opt = new OptFileNodes
-            {
-                FileName = path
-            };
-
+            OptFileNodes opt;
             FileStream filestream = null;
 
             try
@@ -57,31 +52,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
                 {
                     filestream = null;
 
-                    int version;
-                    int filesize;
-
-                    version = file.ReadInt32();
-                    if (version > 0)
-                    {
-                        filesize = version;
-                        version = 0;
-                    }
-                    else
-                    {
-                        version = -version;
-                        filesize = file.ReadInt32();
-                    }
-
-                    opt.Version = version;
-
-                    if (file.BaseStream.Length - file.BaseStream.Position != filesize)
-                    {
-                        throw new InvalidDataException("invalid file size");
-                    }
-
-                    byte[] buffer = file.ReadBytes(filesize);
-
-                    opt.Parse(buffer);
+                    opt = ReadOpt(file);
                 }
             }
             finally
@@ -92,6 +63,57 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
                 }
             }
 
+            opt.FileName = path;
+            return opt;
+        }
+
+        public static OptFileNodes FromStream(Stream stream)
+        {
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
+            OptFileNodes opt;
+
+            using (BinaryReader file = new BinaryReader(stream, Encoding.ASCII))
+            {
+                opt = ReadOpt(file);
+            }
+
+            return opt;
+        }
+
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
+        private static OptFileNodes ReadOpt(BinaryReader file)
+        {
+            var opt = new OptFileNodes();
+
+            int version;
+            int filesize;
+
+            version = file.ReadInt32();
+            if (version > 0)
+            {
+                filesize = version;
+                version = 0;
+            }
+            else
+            {
+                version = -version;
+                filesize = file.ReadInt32();
+            }
+
+            opt.Version = version;
+
+            if (file.BaseStream.Length - file.BaseStream.Position != filesize)
+            {
+                throw new InvalidDataException("invalid file size");
+            }
+
+            byte[] buffer = file.ReadBytes(filesize);
+
+            opt.Parse(buffer);
             return opt;
         }
 
@@ -107,44 +129,61 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
                 {
                     filestream = null;
 
-                    if (this.Version != 0)
-                    {
-                        file.Write(-this.Version);
-                    }
-
-                    file.Write(this.FileSize - (this.Version == 0 ? 4 : 8));
-
-                    file.Write((int)0);
-                    file.Write((short)0);
-
-                    file.Write(this.Nodes.Count);
-                    file.Write((int)14);
-
-                    int offset = 14 + (this.Nodes.Count * 4);
-
-                    foreach (Node node in this.Nodes)
-                    {
-                        file.Write(offset);
-                        offset += node.SizeInFile;
-                    }
-
-                    offset = 14 + (this.Nodes.Count * 4);
-
-                    foreach (Node node in this.Nodes)
-                    {
-                        node.Write(file, offset);
-                        offset += node.SizeInFile;
-                    }
-
+                    this.WriteOpt(file);
                     this.FileName = path;
                 }
             }
             finally
             {
-                if(filestream!=null)
+                if (filestream != null)
                 {
                     filestream.Dispose();
                 }
+            }
+        }
+
+        public void Save(Stream stream)
+        {
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
+            using (BinaryWriter file = new BinaryWriter(stream, Encoding.ASCII))
+            {
+                this.WriteOpt(file);
+            }
+        }
+
+        private void WriteOpt(BinaryWriter file)
+        {
+            if (this.Version != 0)
+            {
+                file.Write(-this.Version);
+            }
+
+            file.Write(this.FileSize - (this.Version == 0 ? 4 : 8));
+
+            file.Write((int)0);
+            file.Write((short)0);
+
+            file.Write(this.Nodes.Count);
+            file.Write((int)14);
+
+            int offset = 14 + (this.Nodes.Count * 4);
+
+            foreach (Node node in this.Nodes)
+            {
+                file.Write(offset);
+                offset += node.SizeInFile;
+            }
+
+            offset = 14 + (this.Nodes.Count * 4);
+
+            foreach (Node node in this.Nodes)
+            {
+                node.Write(file, offset);
+                offset += node.SizeInFile;
             }
         }
 
