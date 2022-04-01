@@ -125,7 +125,7 @@ namespace JeremyAnsel.Xwa.Opt
                 float.Parse(data[1], CultureInfo.InvariantCulture));
         }
 
-        internal static TextureCoordinates FromByteArray(byte[] buffer, int start)
+        public static TextureCoordinates FromByteArray(byte[] buffer, int start)
         {
             TextureCoordinates v = new TextureCoordinates
             {
@@ -136,7 +136,18 @@ namespace JeremyAnsel.Xwa.Opt
             return v;
         }
 
-        internal byte[] ToByteArray()
+        public static TextureCoordinates Read(System.IO.BinaryReader file)
+        {
+            TextureCoordinates v = new TextureCoordinates
+            {
+                u = file.ReadSingle(),
+                v = file.ReadSingle()
+            };
+
+            return v;
+        }
+
+        public byte[] ToByteArray()
         {
             byte[] buffer = new byte[8];
 
@@ -144,6 +155,12 @@ namespace JeremyAnsel.Xwa.Opt
             BitConverter.GetBytes(this.v).CopyTo(buffer, 4);
 
             return buffer;
+        }
+
+        public void Write(System.IO.BinaryWriter file)
+        {
+            file.Write(this.u);
+            file.Write(this.v);
         }
 
         public TextureCoordinates SetU(float value)
