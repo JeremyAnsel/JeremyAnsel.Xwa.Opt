@@ -191,7 +191,7 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
-        internal static Indices FromByteArray(byte[] buffer, int start)
+        public static Indices FromByteArray(byte[] buffer, int start)
         {
             Indices i = new Indices
             {
@@ -204,7 +204,20 @@ namespace JeremyAnsel.Xwa.Opt
             return i;
         }
 
-        internal byte[] ToByteArray()
+        public static Indices Read(System.IO.BinaryReader file)
+        {
+            Indices i = new Indices
+            {
+                a = file.ReadInt32(),
+                b = file.ReadInt32(),
+                c = file.ReadInt32(),
+                d = file.ReadInt32()
+            };
+
+            return i;
+        }
+
+        public byte[] ToByteArray()
         {
             byte[] buffer = new byte[16];
 
@@ -214,6 +227,14 @@ namespace JeremyAnsel.Xwa.Opt
             BitConverter.GetBytes(this.d).CopyTo(buffer, 12);
 
             return buffer;
+        }
+
+        public void Write(System.IO.BinaryWriter file)
+        {
+            file.Write(this.a);
+            file.Write(this.b);
+            file.Write(this.c);
+            file.Write(this.d);
         }
 
         public Indices SetA(int value)
