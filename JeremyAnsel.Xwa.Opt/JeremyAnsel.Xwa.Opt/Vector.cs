@@ -139,7 +139,7 @@ namespace JeremyAnsel.Xwa.Opt
                 float.Parse(data[2], CultureInfo.InvariantCulture));
         }
 
-        internal static Vector FromByteArray(byte[] buffer, int start)
+        public static Vector FromByteArray(byte[] buffer, int start)
         {
             Vector v = new Vector
             {
@@ -151,7 +151,19 @@ namespace JeremyAnsel.Xwa.Opt
             return v;
         }
 
-        internal byte[] ToByteArray()
+        public static Vector Read(System.IO.BinaryReader file)
+        {
+            Vector v = new Vector
+            {
+                x = file.ReadSingle(),
+                y = file.ReadSingle(),
+                z = file.ReadSingle()
+            };
+
+            return v;
+        }
+
+        public byte[] ToByteArray()
         {
             byte[] buffer = new byte[12];
 
@@ -160,6 +172,13 @@ namespace JeremyAnsel.Xwa.Opt
             BitConverter.GetBytes(this.z).CopyTo(buffer, 8);
 
             return buffer;
+        }
+
+        public void Write(System.IO.BinaryWriter file)
+        {
+            file.Write(this.x);
+            file.Write(this.y);
+            file.Write(this.z);
         }
 
         public Vector SetX(float value)
