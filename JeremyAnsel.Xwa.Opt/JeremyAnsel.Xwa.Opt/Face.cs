@@ -6,7 +6,7 @@
 
 namespace JeremyAnsel.Xwa.Opt
 {
-    public class Face
+    public sealed class Face
     {
         public Face()
         {
