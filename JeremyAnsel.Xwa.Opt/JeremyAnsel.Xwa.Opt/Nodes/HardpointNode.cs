@@ -11,8 +11,8 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class HardpointNode : Node
     {
-        public HardpointNode()
-            : base(NodeType.Hardpoint)
+        public HardpointNode(int nodesCount = -1)
+            : base(NodeType.Hardpoint, nodesCount)
         {
         }
 
@@ -33,11 +33,12 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             return string.Format(CultureInfo.InvariantCulture, "HardpointNode: {0} at {1}", this.HardpointType, this.Position);
         }
 
-        internal override void Parse(byte[] buffer, int globalOffset, int offset)
+        internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
         {
-            base.Parse(buffer, globalOffset, offset);
+            base.Parse(file, globalOffset, offset);
 
-            int dataOffset = BitConverter.ToInt32(buffer, offset + 20);
+            file.BaseStream.Position = offset + 20;
+            int dataOffset = file.ReadInt32();
 
             if (dataOffset == 0)
             {
@@ -46,8 +47,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             dataOffset -= globalOffset;
 
-            this.HardpointType = (HardpointType)BitConverter.ToInt32(buffer, dataOffset + 0);
-            this.Position = Vector.FromByteArray(buffer, dataOffset + 4);
+            file.BaseStream.Position = dataOffset;
+            this.HardpointType = (HardpointType)file.ReadInt32();
+            this.Position = Vector.Read(file);
         }
 
         internal override void Write(System.IO.BinaryWriter file, int offset)
@@ -64,7 +66,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             this.WriteNodesOffsets(file, offset);
 
             file.Write((int)this.HardpointType);
-            file.Write(this.Position.ToByteArray());
+            this.Position.Write(file);
 
             this.WriteNodes(file, offset);
         }

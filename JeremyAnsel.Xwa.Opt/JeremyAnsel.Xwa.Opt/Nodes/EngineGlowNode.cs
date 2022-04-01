@@ -11,8 +11,8 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class EngineGlowNode : Node
     {
-        public EngineGlowNode()
-            : base(NodeType.EngineGlow)
+        public EngineGlowNode(int nodesCount = -1)
+            : base(NodeType.EngineGlow, nodesCount)
         {
         }
 
@@ -45,11 +45,12 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             return string.Format(CultureInfo.InvariantCulture, "EngineGlowNode: {0:x8},{1:x8} at {2}", this.CoreColor, this.OuterColor, this.Position);
         }
 
-        internal override void Parse(byte[] buffer, int globalOffset, int offset)
+        internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
         {
-            base.Parse(buffer, globalOffset, offset);
+            base.Parse(file, globalOffset, offset);
 
-            int dataOffset = BitConverter.ToInt32(buffer, offset + 20);
+            file.BaseStream.Position = offset + 20;
+            int dataOffset = file.ReadInt32();
 
             if (dataOffset == 0)
             {
@@ -58,14 +59,15 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             dataOffset -= globalOffset;
 
-            this.IsDisabled = BitConverter.ToInt32(buffer, dataOffset + 0) != 0;
-            this.CoreColor = BitConverter.ToUInt32(buffer, dataOffset + 4);
-            this.OuterColor = BitConverter.ToUInt32(buffer, dataOffset + 8);
-            this.Format = Vector.FromByteArray(buffer, dataOffset + 12);
-            this.Position = Vector.FromByteArray(buffer, dataOffset + 24);
-            this.Look = Vector.FromByteArray(buffer, dataOffset + 36);
-            this.Up = Vector.FromByteArray(buffer, dataOffset + 48);
-            this.Right = Vector.FromByteArray(buffer, dataOffset + 60);
+            file.BaseStream.Position = dataOffset;
+            this.IsDisabled = file.ReadInt32() != 0;
+            this.CoreColor = file.ReadUInt32();
+            this.OuterColor = file.ReadUInt32();
+            this.Format = Vector.Read(file);
+            this.Position = Vector.Read(file);
+            this.Look = Vector.Read(file);
+            this.Up = Vector.Read(file);
+            this.Right = Vector.Read(file);
         }
 
         internal override void Write(System.IO.BinaryWriter file, int offset)
@@ -84,11 +86,11 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             file.Write(this.IsDisabled ? (int)1 : (int)0);
             file.Write(this.CoreColor);
             file.Write(this.OuterColor);
-            file.Write(this.Format.ToByteArray());
-            file.Write(this.Position.ToByteArray());
-            file.Write(this.Look.ToByteArray());
-            file.Write(this.Up.ToByteArray());
-            file.Write(this.Right.ToByteArray());
+            this.Format.Write(file);
+            this.Position.Write(file);
+            this.Look.Write(file);
+            this.Up.Write(file);
+            this.Right.Write(file);
 
             this.WriteNodes(file, offset);
         }

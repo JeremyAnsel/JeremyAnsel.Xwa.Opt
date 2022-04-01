@@ -12,14 +12,18 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class FaceDataNode : Node
     {
-        public FaceDataNode()
-            : base(NodeType.FaceData)
+        public FaceDataNode(int nodesCount = -1, bool alloc = true)
+            : base(NodeType.FaceData, nodesCount)
         {
+            if (alloc)
+            {
+                this.Faces = new List<Face>();
+            }
         }
 
         public int EdgesCount { get; set; }
 
-        public IList<FaceDataNodeData> Faces { get; private set; } = new List<FaceDataNodeData>();
+        public IList<Face> Faces { get; set; }
 
         protected override int DataSize
         {
@@ -34,56 +38,52 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             return string.Format(CultureInfo.InvariantCulture, "FaceDataNode: {0} faces", this.Faces.Count);
         }
 
-        internal override void Parse(byte[] buffer, int globalOffset, int offset)
+        internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
         {
-            base.Parse(buffer, globalOffset, offset);
+            base.Parse(file, globalOffset, offset);
 
-            int facesCount = BitConverter.ToInt32(buffer, offset + 16);
-            int dataOffset = BitConverter.ToInt32(buffer, offset + 20);
+            file.BaseStream.Position = offset + 16;
+            int facesCount = file.ReadInt32();
+            int dataOffset = file.ReadInt32();
 
             if (dataOffset == 0)
             {
                 return;
             }
 
-            this.Faces = new List<FaceDataNodeData>(facesCount);
+            this.Faces = new List<Face>(facesCount);
 
             dataOffset -= globalOffset;
 
-            this.EdgesCount = BitConverter.ToInt32(buffer, dataOffset + 0);
-            dataOffset += 4;
+            file.BaseStream.Position = dataOffset;
+            this.EdgesCount = file.ReadInt32();
 
             for (int i = 0; i < facesCount; i++)
             {
-                FaceDataNodeData face = new FaceDataNodeData
+                Face face = new Face
                 {
-                    VerticesIndex = Indices.FromByteArray(buffer, dataOffset + 0),
-                    EdgesIndex = Indices.FromByteArray(buffer, dataOffset + 16),
-                    TextureCoordinatesIndex = Indices.FromByteArray(buffer, dataOffset + 32),
-                    VertexNormalsIndex = Indices.FromByteArray(buffer, dataOffset + 48)
+                    VerticesIndex = Indices.Read(file),
+                    EdgesIndex = Indices.Read(file),
+                    TextureCoordinatesIndex = Indices.Read(file),
+                    VertexNormalsIndex = Indices.Read(file)
                 };
 
                 this.Faces.Add(face);
-                dataOffset += 64;
             }
 
             for (int i = 0; i < facesCount; i++)
             {
-                FaceDataNodeData face = this.Faces[i];
+                Face face = this.Faces[i];
 
-                face.Normal = Vector.FromByteArray(buffer, dataOffset);
-
-                dataOffset += 12;
+                face.Normal = Vector.Read(file);
             }
 
             for (int i = 0; i < facesCount; i++)
             {
-                FaceDataNodeData face = this.Faces[i];
+                Face face = this.Faces[i];
 
-                face.TexturingDirection = Vector.FromByteArray(buffer, dataOffset + 0);
-                face.TexturingMagniture = Vector.FromByteArray(buffer, dataOffset + 12);
-
-                dataOffset += 24;
+                face.TexturingDirection = Vector.Read(file);
+                face.TexturingMagniture = Vector.Read(file);
             }
         }
 
@@ -102,23 +102,26 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             file.Write(this.EdgesCount);
 
-            foreach (var face in this.Faces)
+            for (int i = 0; i < this.Faces.Count; i++)
             {
-                file.Write(face.VerticesIndex.ToByteArray());
-                file.Write(face.EdgesIndex.ToByteArray());
-                file.Write(face.TextureCoordinatesIndex.ToByteArray());
-                file.Write(face.VertexNormalsIndex.ToByteArray());
+                Face face = this.Faces[i];
+                face.VerticesIndex.Write(file);
+                face.EdgesIndex.Write(file);
+                face.TextureCoordinatesIndex.Write(file);
+                face.VertexNormalsIndex.Write(file);
             }
 
-            foreach (var face in this.Faces)
+            for (int i = 0; i < this.Faces.Count; i++)
             {
-                file.Write(face.Normal.ToByteArray());
+                Face face = this.Faces[i];
+                face.Normal.Write(file);
             }
 
-            foreach (var face in this.Faces)
+            for (int i = 0; i < this.Faces.Count; i++)
             {
-                file.Write(face.TexturingDirection.ToByteArray());
-                file.Write(face.TexturingMagniture.ToByteArray());
+                Face face = this.Faces[i];
+                face.TexturingDirection.Write(file);
+                face.TexturingMagniture.Write(file);
             }
 
             this.WriteNodes(file, offset);

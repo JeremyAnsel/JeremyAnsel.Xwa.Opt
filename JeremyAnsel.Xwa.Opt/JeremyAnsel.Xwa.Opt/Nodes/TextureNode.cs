@@ -12,8 +12,8 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class TextureNode : Node
     {
-        public TextureNode()
-            : base(NodeType.Texture)
+        public TextureNode(int nodesCount = -1)
+            : base(NodeType.Texture, nodesCount)
         {
         }
 
@@ -43,13 +43,14 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        internal override void Parse(byte[] buffer, int globalOffset, int offset)
+        internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
         {
-            base.Parse(buffer, globalOffset, offset);
+            base.Parse(file, globalOffset, offset);
 
-            this.UniqueId = BitConverter.ToInt32(buffer, offset + 16);
+            file.BaseStream.Position = offset + 16;
+            this.UniqueId = file.ReadInt32();
 
-            int dataOffset = BitConverter.ToInt32(buffer, offset + 20);
+            int dataOffset = file.ReadInt32();
 
             if (dataOffset == 0)
             {
@@ -58,12 +59,13 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             dataOffset -= globalOffset;
 
-            int paletteType = BitConverter.ToInt32(buffer, dataOffset + 4);
-            int textureSize = BitConverter.ToInt32(buffer, dataOffset + 8);
-            int dataSize = BitConverter.ToInt32(buffer, dataOffset + 12);
+            file.BaseStream.Position = dataOffset + 4;
+            int paletteType = file.ReadInt32();
+            int textureSize = file.ReadInt32();
+            int dataSize = file.ReadInt32();
 
-            this.Width = BitConverter.ToInt32(buffer, dataOffset + 16);
-            this.Height = BitConverter.ToInt32(buffer, dataOffset + 20);
+            this.Width = file.ReadInt32();
+            this.Height = file.ReadInt32();
 
             int bytesSize;
 
@@ -77,11 +79,13 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             }
 
             this.Bytes = new byte[bytesSize];
-            Array.Copy(buffer, dataOffset + 24, this.Bytes, 0, this.Bytes.Length);
+            file.BaseStream.Position = dataOffset + 24;
+            file.Read(this.Bytes, 0, this.Bytes.Length);
 
             if (paletteType == 0)
             {
-                int paletteOffset = BitConverter.ToInt32(buffer, dataOffset + 0);
+                file.BaseStream.Position = dataOffset;
+                int paletteOffset = file.ReadInt32();
 
                 if (paletteOffset == 0)
                 {
@@ -91,12 +95,14 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
                 paletteOffset -= globalOffset;
 
                 this.Palettes = new byte[8192];
-                Array.Copy(buffer, paletteOffset, this.Palettes, 0, this.Palettes.Length);
+                file.BaseStream.Position = paletteOffset;
+                file.Read(this.Palettes, 0, this.Palettes.Length);
             }
             else
             {
                 this.Palettes = new byte[8192];
-                Array.Copy(buffer, dataOffset + 24 + bytesSize, this.Palettes, 0, this.Palettes.Length);
+                file.BaseStream.Position = dataOffset + 24 + bytesSize;
+                file.Read(this.Palettes, 0, this.Palettes.Length);
             }
         }
 
@@ -123,7 +129,18 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
                 file.Write(this.Width);
                 file.Write(this.Height);
                 file.Write(this.Bytes);
-                file.Write(this.Palettes ?? new byte[8192]);
+
+                if (this.Palettes != null)
+                {
+                    file.Write(this.Palettes);
+                }
+                else
+                {
+                    for (int i = 0; i < 8192; i++)
+                    {
+                        file.Write((byte)0);
+                    }
+                }
             }
 
             this.WriteNodes(file, offset);

@@ -8,14 +8,14 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 {
     public sealed class NodeSwitchNode : Node
     {
-        public NodeSwitchNode()
-            : base(NodeType.NodeSwitch)
+        public NodeSwitchNode(int nodesCount = -1)
+            : base(NodeType.NodeSwitch, nodesCount)
         {
         }
 
-        internal override void Parse(byte[] buffer, int globalOffset, int offset)
+        internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
         {
-            base.Parse(buffer, globalOffset, offset);
+            base.Parse(file, globalOffset, offset);
         }
 
         internal override void Write(System.IO.BinaryWriter file, int offset)

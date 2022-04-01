@@ -15,9 +15,18 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public class OptFileNodes
     {
-        public OptFileNodes()
+        public OptFileNodes(int nodesCount = -1)
         {
             this.Version = 5;
+
+            if (nodesCount <= 0)
+            {
+                this.Nodes = new List<Node>();
+            }
+            else
+            {
+                this.Nodes = new List<Node>(nodesCount);
+            }
         }
 
         public string FileName { get; private set; }
@@ -31,13 +40,17 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
                 int size = (this.Version == 0 ? 4 : 8) + 14;
 
                 size += this.Nodes.Count * 4;
-                size += this.Nodes.Sum(t => t.SizeInFile);
+
+                for (int i = 0; i < this.Nodes.Count; i++)
+                {
+                    size += this.Nodes[i].SizeInFile;
+                }
 
                 return size;
             }
         }
 
-        public IList<Node> Nodes { get; private set; } = new List<Node>();
+        public IList<Node> Nodes { get; private set; }
 
         public static OptFileNodes FromFile(string path)
         {
@@ -111,9 +124,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
                 throw new InvalidDataException("invalid file size");
             }
 
-            byte[] buffer = file.ReadBytes(filesize);
-
-            opt.Parse(buffer);
+            opt.Parse(file);
             return opt;
         }
 
@@ -172,26 +183,31 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             int offset = 14 + (this.Nodes.Count * 4);
 
-            foreach (Node node in this.Nodes)
+            for (int i = 0; i < this.Nodes.Count; i++)
             {
+                Node node = this.Nodes[i];
                 file.Write(offset);
                 offset += node.SizeInFile;
             }
 
             offset = 14 + (this.Nodes.Count * 4);
 
-            foreach (Node node in this.Nodes)
+            for (int i = 0; i < this.Nodes.Count; i++)
             {
+                Node node = this.Nodes[i];
                 node.Write(file, offset);
                 offset += node.SizeInFile;
             }
         }
 
-        private void Parse(byte[] buffer)
+        private void Parse(BinaryReader file)
         {
-            int globalOffset = BitConverter.ToInt32(buffer, 0);
-            int nodesCount = BitConverter.ToInt32(buffer, 6);
-            int nodesOffset = BitConverter.ToInt32(buffer, 10);
+            int globalOffset = file.ReadInt32();
+            file.BaseStream.Position += 2;
+            int nodesCount = file.ReadInt32();
+            int nodesOffset = file.ReadInt32();
+
+            globalOffset -= this.Version == 0 ? 4 : 8;
 
             if (nodesOffset == 0)
             {
@@ -204,7 +220,8 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             for (int i = 0; i < nodesCount; i++)
             {
-                int nodeOffset = BitConverter.ToInt32(buffer, nodesOffset + (i * 4));
+                file.BaseStream.Position = nodesOffset + (i * 4);
+                int nodeOffset = file.ReadInt32();
 
                 if (nodeOffset == 0)
                 {
@@ -214,7 +231,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
                 nodeOffset -= globalOffset;
 
-                this.Nodes.Add(Node.ParseNode(buffer, globalOffset, nodeOffset));
+                this.Nodes.Add(Node.ParseNode(file, globalOffset, nodeOffset));
             }
         }
     }

@@ -11,8 +11,8 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class FaceGroupingNode : Node
     {
-        public FaceGroupingNode()
-            : base(NodeType.FaceGrouping)
+        public FaceGroupingNode(int nodesCount = -1)
+            : base(NodeType.FaceGrouping, nodesCount)
         {
         }
 
@@ -26,12 +26,13 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             }
         }
 
-        internal override void Parse(byte[] buffer, int globalOffset, int offset)
+        internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
         {
-            base.Parse(buffer, globalOffset, offset);
+            base.Parse(file, globalOffset, offset);
 
-            int distancesCount = BitConverter.ToInt32(buffer, offset + 16);
-            int distancesOffset = BitConverter.ToInt32(buffer, offset + 20);
+            file.BaseStream.Position = offset + 16;
+            int distancesCount = file.ReadInt32();
+            int distancesOffset = file.ReadInt32();
 
             if (distancesCount == 0 || distancesOffset == 0)
             {
@@ -42,9 +43,10 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             distancesOffset -= globalOffset;
 
+            file.BaseStream.Position = distancesOffset;
             for (int i = 0; i < distancesCount; i++)
             {
-                this.Distances.Add(BitConverter.ToSingle(buffer, distancesOffset + (i * 4)));
+                this.Distances.Add(file.ReadSingle());
             }
         }
 
@@ -63,8 +65,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             if (dataOffset != 0)
             {
-                foreach (float distance in this.Distances)
+                for (int i = 0; i < this.Distances.Count; i++)
                 {
+                    float distance = this.Distances[i];
                     file.Write(distance);
                 }
             }

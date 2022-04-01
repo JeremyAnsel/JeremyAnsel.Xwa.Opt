@@ -11,8 +11,8 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class MeshDescriptorNode : Node
     {
-        public MeshDescriptorNode()
-            : base(NodeType.MeshDescriptor)
+        public MeshDescriptorNode(int nodesCount = -1)
+            : base(NodeType.MeshDescriptor, nodesCount)
         {
         }
 
@@ -45,11 +45,12 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             return string.Format(CultureInfo.InvariantCulture, "MeshDescriptorNode: {0}", this.MeshType);
         }
 
-        internal override void Parse(byte[] buffer, int globalOffset, int offset)
+        internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
         {
-            base.Parse(buffer, globalOffset, offset);
+            base.Parse(file, globalOffset, offset);
 
-            int dataOffset = BitConverter.ToInt32(buffer, offset + 20);
+            file.BaseStream.Position = offset + 20;
+            int dataOffset = file.ReadInt32();
 
             if (dataOffset == 0)
             {
@@ -58,14 +59,15 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             dataOffset -= globalOffset;
 
-            this.MeshType = (MeshType)BitConverter.ToInt32(buffer, dataOffset + 0);
-            this.ExplosionType = (ExplosionTypes)BitConverter.ToInt32(buffer, dataOffset + 4);
-            this.Span = Vector.FromByteArray(buffer, dataOffset + 8);
-            this.Center = Vector.FromByteArray(buffer, dataOffset + 20);
-            this.Min = Vector.FromByteArray(buffer, dataOffset + 32);
-            this.Max = Vector.FromByteArray(buffer, dataOffset + 44);
-            this.TargetId = BitConverter.ToInt32(buffer, dataOffset + 56);
-            this.Target = Vector.FromByteArray(buffer, dataOffset + 60);
+            file.BaseStream.Position = dataOffset;
+            this.MeshType = (MeshType)file.ReadInt32();
+            this.ExplosionType = (ExplosionTypes)file.ReadInt32();
+            this.Span = Vector.Read(file);
+            this.Center = Vector.Read(file);
+            this.Min = Vector.Read(file);
+            this.Max = Vector.Read(file);
+            this.TargetId = file.ReadInt32();
+            this.Target = Vector.Read(file);
         }
 
         internal override void Write(System.IO.BinaryWriter file, int offset)
@@ -83,12 +85,12 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             file.Write((int)this.MeshType);
             file.Write((int)this.ExplosionType);
-            file.Write(this.Span.ToByteArray());
-            file.Write(this.Center.ToByteArray());
-            file.Write(this.Min.ToByteArray());
-            file.Write(this.Max.ToByteArray());
+            this.Span.Write(file);
+            this.Center.Write(file);
+            this.Min.Write(file);
+            this.Max.Write(file);
             file.Write(this.TargetId);
-            file.Write(this.Target.ToByteArray());
+            this.Target.Write(file);
 
             this.WriteNodes(file, offset);
         }

@@ -11,8 +11,8 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class TextureAlphaNode : Node
     {
-        public TextureAlphaNode()
-            : base(NodeType.TextureAlpha)
+        public TextureAlphaNode(int nodesCount = -1)
+            : base(NodeType.TextureAlpha, nodesCount)
         {
         }
 
@@ -27,12 +27,13 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             }
         }
 
-        internal override void Parse(byte[] buffer, int globalOffset, int offset)
+        internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
         {
-            base.Parse(buffer, globalOffset, offset);
+            base.Parse(file, globalOffset, offset);
 
-            int bytesCount = BitConverter.ToInt32(buffer, offset + 16);
-            int dataOffset = BitConverter.ToInt32(buffer, offset + 20);
+            file.BaseStream.Position = offset + 16;
+            int bytesCount = file.ReadInt32();
+            int dataOffset = file.ReadInt32();
 
             if (dataOffset == 0)
             {
@@ -45,7 +46,8 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             if (bytesCount != 0)
             {
-                Array.Copy(buffer, dataOffset, this.Bytes, 0, bytesCount);
+                file.BaseStream.Position = dataOffset;
+                file.Read(this.Bytes, 0, bytesCount);
             }
         }
 

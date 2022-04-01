@@ -12,8 +12,8 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class NodeReferenceNode : Node
     {
-        public NodeReferenceNode()
-            : base(NodeType.NodeReference)
+        public NodeReferenceNode(int nodesCount = -1)
+            : base(NodeType.NodeReference, nodesCount)
         {
         }
 
@@ -32,11 +32,12 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             return string.Format(CultureInfo.InvariantCulture, "NodeReferenceNode: {0}", this.Reference);
         }
 
-        internal override void Parse(byte[] buffer, int globalOffset, int offset)
+        internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
         {
-            base.Parse(buffer, globalOffset, offset);
+            base.Parse(file, globalOffset, offset);
 
-            int dataOffset = BitConverter.ToInt32(buffer, offset + 20);
+            file.BaseStream.Position = offset + 20;
+            int dataOffset = file.ReadInt32();
 
             if (dataOffset == 0)
             {
@@ -45,7 +46,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             dataOffset -= globalOffset;
 
-            this.Reference = Utils.GetNullTerminatedString(buffer, dataOffset);
+            this.Reference = Utils.GetNullTerminatedString(file, dataOffset);
         }
 
         internal override void Write(System.IO.BinaryWriter file, int offset)
@@ -63,7 +64,11 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             if (dataOffset != 0)
             {
-                file.Write(Encoding.ASCII.GetBytes(this.Reference));
+                for (int i = 0; i < this.Reference.Length; i++)
+                {
+                    file.Write(this.Reference[i]);
+                }
+
                 file.Write((byte)0);
             }
 

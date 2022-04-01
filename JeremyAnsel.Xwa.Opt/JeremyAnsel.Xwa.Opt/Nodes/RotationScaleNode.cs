@@ -10,8 +10,8 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class RotationScaleNode : Node
     {
-        public RotationScaleNode()
-            : base(NodeType.RotationScale)
+        public RotationScaleNode(int nodesCount = -1)
+            : base(NodeType.RotationScale, nodesCount)
         {
         }
 
@@ -31,11 +31,12 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             }
         }
 
-        internal override void Parse(byte[] buffer, int globalOffset, int offset)
+        internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
         {
-            base.Parse(buffer, globalOffset, offset);
+            base.Parse(file, globalOffset, offset);
 
-            int dataOffset = BitConverter.ToInt32(buffer, offset + 20);
+            file.BaseStream.Position = offset + 20;
+            int dataOffset = file.ReadInt32();
 
             if (dataOffset == 0)
             {
@@ -44,10 +45,11 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             dataOffset -= globalOffset;
 
-            this.Pivot = Vector.FromByteArray(buffer, dataOffset + 0);
-            this.Look = Vector.FromByteArray(buffer, dataOffset + 12);
-            this.Up = Vector.FromByteArray(buffer, dataOffset + 24);
-            this.Right = Vector.FromByteArray(buffer, dataOffset + 36);
+            file.BaseStream.Position = dataOffset;
+            this.Pivot = Vector.Read(file);
+            this.Look = Vector.Read(file);
+            this.Up = Vector.Read(file);
+            this.Right = Vector.Read(file);
         }
 
         internal override void Write(System.IO.BinaryWriter file, int offset)
@@ -63,10 +65,10 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             this.WriteNodesOffsets(file, offset);
 
-            file.Write(this.Pivot.ToByteArray());
-            file.Write(this.Look.ToByteArray());
-            file.Write(this.Up.ToByteArray());
-            file.Write(this.Right.ToByteArray());
+            this.Pivot.Write(file);
+            this.Look.Write(file);
+            this.Up.Write(file);
+            this.Right.Write(file);
 
             this.WriteNodes(file, offset);
         }

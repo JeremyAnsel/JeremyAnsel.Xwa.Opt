@@ -12,12 +12,16 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class MeshVerticesNode : Node
     {
-        public MeshVerticesNode()
-            : base(NodeType.MeshVertices)
+        public MeshVerticesNode(int nodesCount = -1, bool alloc = true)
+            : base(NodeType.MeshVertices, nodesCount)
         {
+            if (alloc)
+            {
+                this.Vertices = new List<Vector>();
+            }
         }
 
-        public IList<Vector> Vertices { get; private set; } = new List<Vector>();
+        public IList<Vector> Vertices { get; set; }
 
         protected override int DataSize
         {
@@ -32,12 +36,13 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             return string.Format(CultureInfo.InvariantCulture, "MeshVerticesNode: {0} vertices", this.Vertices.Count);
         }
 
-        internal override void Parse(byte[] buffer, int globalOffset, int offset)
+        internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
         {
-            base.Parse(buffer, globalOffset, offset);
+            base.Parse(file, globalOffset, offset);
 
-            int verticesCount = BitConverter.ToInt32(buffer, offset + 16);
-            int verticesOffset = BitConverter.ToInt32(buffer, offset + 20);
+            file.BaseStream.Position = offset + 16;
+            int verticesCount = file.ReadInt32();
+            int verticesOffset = file.ReadInt32();
 
             if (verticesCount == 0 || verticesOffset == 0)
             {
@@ -48,9 +53,10 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             verticesOffset -= globalOffset;
 
+            file.BaseStream.Position = verticesOffset;
             for (int i = 0; i < verticesCount; i++)
             {
-                this.Vertices.Add(Vector.FromByteArray(buffer, verticesOffset + (i * 12)));
+                this.Vertices.Add(Vector.Read(file));
             }
         }
 
@@ -69,9 +75,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             if (dataOffset != 0)
             {
-                foreach (var vector in this.Vertices)
+                for (int i = 0; i < this.Vertices.Count; i++)
                 {
-                    file.Write(vector.ToByteArray());
+                    this.Vertices[i].Write(file);
                 }
             }
 
