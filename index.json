@@ -1,12 +1,12 @@
 {
-  "index.html": {
-    "href": "index.html",
-    "title": "JeremyAnsel.Xwa.Opt",
-    "keywords": "JeremyAnsel.Xwa.Opt JeremyAnsel.Xwa.Opt is a .Net library to handle X-Wing Alliance's OPT files."
-  },
   "api/index.html": {
     "href": "api/index.html",
     "title": "JeremyAnsel.Xwa.Opt",
     "keywords": "JeremyAnsel.Xwa.Opt This is the documentation for JeremyAnsel.Xwa.Opt."
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "JeremyAnsel.Xwa.Opt",
+    "keywords": "JeremyAnsel.Xwa.Opt JeremyAnsel.Xwa.Opt is a .Net library to handle X-Wing Alliance's OPT files."
   }
 }
