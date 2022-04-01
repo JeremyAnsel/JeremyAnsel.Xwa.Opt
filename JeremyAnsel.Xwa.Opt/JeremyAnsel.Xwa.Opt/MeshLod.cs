@@ -25,7 +25,14 @@ namespace JeremyAnsel.Xwa.Opt
         {
             get
             {
-                return this.FaceGroups.Sum(t => t.TrianglesCount);
+                int count = 0;
+
+                for (int i = 0; i < this.FaceGroups.Count; i++)
+                {
+                    count += this.FaceGroups[i].TrianglesCount;
+                }
+
+                return count;
             }
         }
 
@@ -33,7 +40,14 @@ namespace JeremyAnsel.Xwa.Opt
         {
             get
             {
-                return this.FaceGroups.Sum(t => t.VerticesCount);
+                int count = 0;
+
+                for (int i = 0; i < this.FaceGroups.Count; i++)
+                {
+                    count += this.FaceGroups[i].VerticesCount;
+                }
+
+                return count;
             }
         }
 
@@ -44,7 +58,7 @@ namespace JeremyAnsel.Xwa.Opt
                 Distance = this.Distance
             };
 
-            foreach(var faceGroup in this.FaceGroups)
+            foreach (var faceGroup in this.FaceGroups)
             {
                 lod.FaceGroups.Add(faceGroup.Clone());
             }

@@ -13,17 +13,27 @@ namespace JeremyAnsel.Xwa.Opt
 
     public class Mesh
     {
-        public IList<Vector> Vertices { get; private set; } = new List<Vector>();
+        public Mesh(bool alloc = true)
+        {
+            if (alloc)
+            {
+                this.Vertices = new List<Vector>();
+                this.TextureCoordinates = new List<TextureCoordinates>();
+                this.VertexNormals = new List<Vector>();
+            }
+        }
 
-        public IList<TextureCoordinates> TextureCoordinates { get; private set; } = new List<TextureCoordinates>();
+        public IList<Vector> Vertices { get; set; }
 
-        public IList<Vector> VertexNormals { get; private set; } = new List<Vector>();
+        public IList<TextureCoordinates> TextureCoordinates { get; set; }
+
+        public IList<Vector> VertexNormals { get; set; }
 
         public MeshDescriptor Descriptor { get; set; } = new MeshDescriptor();
 
         public RotationScale RotationScale { get; set; } = new RotationScale();
 
-        public IList<MeshLod> Lods { get; } = new List<MeshLod>();
+        public IList<MeshLod> Lods { get; private set; } = new List<MeshLod>();
 
         public IList<Hardpoint> Hardpoints { get; } = new List<Hardpoint>();
 
@@ -71,13 +81,7 @@ namespace JeremyAnsel.Xwa.Opt
 
         public void SortLods()
         {
-            var lods = this.Lods.OrderByDescending(t => t.Distance).ToList();
-            this.Lods.Clear();
-
-            foreach (var lod in lods)
-            {
-                this.Lods.Add(lod);
-            }
+            ((List<MeshLod>)this.Lods).Sort((a, b) => -a.Distance.CompareTo(b.Distance));
         }
 
         public void CompactBuffers()

@@ -12,15 +12,31 @@ namespace JeremyAnsel.Xwa.Opt
 
     public class FaceGroup
     {
-        public IList<Face> Faces { get; } = new List<Face>();
+        public FaceGroup(bool alloc = true)
+        {
+            if (alloc)
+            {
+                this.Faces = new List<Face>();
+                this.Textures = new List<string>();
+            }
+        }
 
-        public IList<string> Textures { get; } = new List<string>();
+        public IList<Face> Faces { get; set; }
+
+        public IList<string> Textures { get; set; }
 
         public int TrianglesCount
         {
             get
             {
-                return this.Faces.Sum(t => t.VerticesIndex.D < 0 ? 1 : 2);
+                int count = 0;
+
+                for (int i = 0; i < this.Faces.Count; i++)
+                {
+                    count += this.Faces[i].VerticesIndex.D < 0 ? 1 : 2;
+                }
+
+                return count;
             }
         }
 
@@ -28,7 +44,14 @@ namespace JeremyAnsel.Xwa.Opt
         {
             get
             {
-                return this.Faces.Sum(t => t.VerticesIndex.D < 0 ? 3 : 4);
+                int count = 0;
+
+                for (int i = 0; i < this.Faces.Count; i++)
+                {
+                    count += this.Faces[i].VerticesIndex.D < 0 ? 3 : 4;
+                }
+
+                return count;
             }
         }
 
@@ -36,17 +59,96 @@ namespace JeremyAnsel.Xwa.Opt
         {
             get
             {
-                return this.Faces
-                .SelectMany(t => new List<int>()
+                var distinctIndices = new int[this.VerticesCount];
+                int distinctIndicesCount = 0;
+
+                for (int faceIndex = 0; faceIndex < this.Faces.Count; faceIndex++)
+                {
+                    Face face = this.Faces[faceIndex];
+                    Indices index = face.EdgesIndex;
+
+                    if (index.A >= 0)
                     {
-                        t.EdgesIndex.A,
-                        t.EdgesIndex.B,
-                        t.EdgesIndex.C,
-                        t.EdgesIndex.D
-                    })
-                .Where(t => t >= 0)
-                .Distinct()
-                .Count();
+                        bool found = false;
+
+                        for (int i = 0; i < distinctIndicesCount; i++)
+                        {
+                            if (distinctIndices[i] == index.A)
+                            {
+                                found = true;
+                                break;
+                            }
+                        }
+
+                        if (!found)
+                        {
+                            distinctIndices[distinctIndicesCount] = index.A;
+                            distinctIndicesCount++;
+                        }
+                    }
+
+                    if (index.B >= 0)
+                    {
+                        bool found = false;
+
+                        for (int i = 0; i < distinctIndicesCount; i++)
+                        {
+                            if (distinctIndices[i] == index.B)
+                            {
+                                found = true;
+                                break;
+                            }
+                        }
+
+                        if (!found)
+                        {
+                            distinctIndices[distinctIndicesCount] = index.B;
+                            distinctIndicesCount++;
+                        }
+                    }
+
+                    if (index.C >= 0)
+                    {
+                        bool found = false;
+
+                        for (int i = 0; i < distinctIndicesCount; i++)
+                        {
+                            if (distinctIndices[i] == index.C)
+                            {
+                                found = true;
+                                break;
+                            }
+                        }
+
+                        if (!found)
+                        {
+                            distinctIndices[distinctIndicesCount] = index.C;
+                            distinctIndicesCount++;
+                        }
+                    }
+
+                    if (index.D >= 0)
+                    {
+                        bool found = false;
+
+                        for (int i = 0; i < distinctIndicesCount; i++)
+                        {
+                            if (distinctIndices[i] == index.D)
+                            {
+                                found = true;
+                                break;
+                            }
+                        }
+
+                        if (!found)
+                        {
+                            distinctIndices[distinctIndicesCount] = index.D;
+                            distinctIndicesCount++;
+                        }
+                    }
+                }
+
+                return distinctIndicesCount;
             }
         }
 
