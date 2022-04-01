@@ -6,6 +6,8 @@
 
 namespace JeremyAnsel.Xwa.Opt
 {
+    using System.Collections.Generic;
+    using System.IO;
     using System.Text;
 
     internal static class Utils
@@ -29,6 +31,27 @@ namespace JeremyAnsel.Xwa.Opt
             }
 
             return text.Substring(0, index);
+        }
+
+        public static string GetNullTerminatedString(BinaryReader file, int startIndex)
+        {
+            var bytes = new List<byte>(256);
+            file.BaseStream.Position = startIndex;
+
+            while (true)
+            {
+                byte b = file.ReadByte();
+
+                if (b == 0)
+                {
+                    break;
+                }
+
+                bytes.Add(b);
+            }
+
+            string text = Encoding.ASCII.GetString(bytes.ToArray());
+            return text;
         }
     }
 }
