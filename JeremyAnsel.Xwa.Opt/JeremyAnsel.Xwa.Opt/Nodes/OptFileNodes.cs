@@ -15,9 +15,11 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public class OptFileNodes
     {
+        public const int DefaultVersion = 5;
+
         public OptFileNodes(int nodesCount = -1)
         {
-            this.Version = 5;
+            this.Version = DefaultVersion;
 
             if (nodesCount <= 0)
             {
@@ -128,7 +130,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             return opt;
         }
 
-        public void Save(string path)
+        public void Save(string path, bool includeHeader = true)
         {
             FileStream filestream = null;
 
@@ -140,7 +142,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
                 {
                     filestream = null;
 
-                    this.WriteOpt(file);
+                    this.WriteOpt(file, includeHeader);
                     this.FileName = path;
                 }
             }
@@ -153,7 +155,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             }
         }
 
-        public void Save(Stream stream)
+        public void Save(Stream stream, bool includeHeader = true)
         {
             if (stream == null)
             {
@@ -162,18 +164,21 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             using (BinaryWriter file = new BinaryWriter(stream, Encoding.ASCII))
             {
-                this.WriteOpt(file);
+                this.WriteOpt(file, includeHeader);
             }
         }
 
-        private void WriteOpt(BinaryWriter file)
+        private void WriteOpt(BinaryWriter file, bool includeHeader)
         {
-            if (this.Version != 0)
+            if (includeHeader)
             {
-                file.Write(-this.Version);
-            }
+                if (this.Version != 0)
+                {
+                    file.Write(-this.Version);
+                }
 
-            file.Write(this.FileSize - (this.Version == 0 ? 4 : 8));
+                file.Write(this.FileSize - (this.Version == 0 ? 4 : 8));
+            }
 
             file.Write((int)0);
             file.Write((short)0);

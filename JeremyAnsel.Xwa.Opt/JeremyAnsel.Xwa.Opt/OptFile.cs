@@ -18,7 +18,14 @@ namespace JeremyAnsel.Xwa.Opt
     {
         public const float ScaleFactor = 1600.0f * 1.52587890625E-05f;
 
+        public OptFile()
+        {
+            this.Version = OptFileNodes.DefaultVersion;
+        }
+
         public string FileName { get; private set; }
+
+        public int Version { get; private set; }
 
         public IList<Mesh> Meshes { get; } = new List<Mesh>();
 
@@ -146,7 +153,8 @@ namespace JeremyAnsel.Xwa.Opt
         {
             var opt = new OptFile
             {
-                FileName = this.FileName
+                FileName = this.FileName,
+                Version = this.Version
             };
 
             foreach (var mesh in this.Meshes)
@@ -184,7 +192,11 @@ namespace JeremyAnsel.Xwa.Opt
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private static OptFile ReadOpt(OptFileNodes optNodes)
         {
-            var opt = new OptFile();
+            var opt = new OptFile
+            {
+                Version = optNodes.Version
+            };
+
             List<string> globalTexture = null;
 
             for (int meshId = 0; meshId < optNodes.Nodes.Count; meshId++)
@@ -465,22 +477,32 @@ namespace JeremyAnsel.Xwa.Opt
 
         public void Save(string path)
         {
-            this.Save(path, true);
+            this.Save(path, true, true);
         }
 
         public void Save(string path, bool compactBuffers)
         {
+            this.Save(path, compactBuffers, true);
+        }
+
+        public void Save(string path, bool compactBuffers, bool includeHeader)
+        {
             OptFileNodes optNodes = this.BuildOptFileNodes(compactBuffers);
-            optNodes.Save(path);
+            optNodes.Save(path, includeHeader);
             this.FileName = path;
         }
 
         public void Save(Stream stream)
         {
-            this.Save(stream, true);
+            this.Save(stream, true, true);
         }
 
         public void Save(Stream stream, bool compactBuffers)
+        {
+            this.Save(stream, compactBuffers, true);
+        }
+
+        public void Save(Stream stream, bool compactBuffers, bool includeHeader)
         {
             if (stream == null)
             {
@@ -488,7 +510,7 @@ namespace JeremyAnsel.Xwa.Opt
             }
 
             OptFileNodes optNodes = this.BuildOptFileNodes(compactBuffers);
-            optNodes.Save(stream);
+            optNodes.Save(stream, includeHeader);
         }
 
         public OptFileNodes BuildOptFileNodes()
@@ -724,8 +746,13 @@ namespace JeremyAnsel.Xwa.Opt
 
         public int GetSaveRequiredFileSize()
         {
+            return this.GetSaveRequiredFileSize(true);
+        }
+
+        public int GetSaveRequiredFileSize(bool includeHeader)
+        {
             int fileSize = 0;
-            fileSize += NodeSizeInFileBuilder.OptFileNodes(this.Meshes.Count);
+            fileSize += NodeSizeInFileBuilder.OptFileNodes(this.Meshes.Count, includeHeader);
 
             Dictionary<string, bool> texturesWriten = new Dictionary<string, bool>(this.Textures.Count);
             foreach (var texture in this.Textures)

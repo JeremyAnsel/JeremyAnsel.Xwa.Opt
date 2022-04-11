@@ -3,10 +3,17 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 {
     public static class NodeSizeInFileBuilder
     {
-        public static int OptFileNodes(int nodesCount)
+        public static int OptFileNodes(int nodesCount, bool includeHeader = true)
         {
             int version = 5;
-            int size = (version == 0 ? 4 : 8) + 14;
+            int size = 0;
+
+            if (includeHeader)
+            {
+                size += version == 0 ? 4 : 8;
+            }
+
+            size += 14;
             size += nodesCount * 4;
             // Nodes.Sum(t => t.SizeInFile)
             return size;
