@@ -13,12 +13,480 @@
       "is_incremental": false
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.EngineGlow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.EngineGlow.html",
+          "hash": "uUXe2tQuY87rFKzmnQkFP1QmTJcRFkPGF+WB+mhRQdU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.ExplosionTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.ExplosionTypes.html",
+          "hash": "TnZ72EKyn2r7FhKeiXCTvmtFQc5U++iZppd/e/kFKnQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Face.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Face.html",
+          "hash": "xOKhUoCxFDcf4eR/M4fNtVmb4eaSHj8A1L8nLndxu1o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.FaceGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.FaceGroup.html",
+          "hash": "9ax3GX3RGs0kMyuNWsZW7K2GBsaZ/PKLfrS/P62mzsQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Hardpoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Hardpoint.html",
+          "hash": "M1aCdh8+RkE2lo304Tsnupw/7gXs24IhAKFQ3LROxfY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.HardpointType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.HardpointType.html",
+          "hash": "P1lDBPDam6TRAvwkBeOz78XAnVDpQ0S200Q9D+Y0sQA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Indices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Indices.html",
+          "hash": "awnLBeXs2rJ3TtspY9UbmfGOtgPbLbwQhfCvq49xTAI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Mesh.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Mesh.html",
+          "hash": "uSKQmaj+C7XIeD2QsiLheV/kyo1N7IbCEp6Ld0xE698="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.MeshDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshDescriptor.html",
+          "hash": "6rzUxJDvtaLuDuhOpxRu6+YWnLPkK2+KF/vH0L1uCY4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.MeshLod.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshLod.html",
+          "hash": "x5IhiJfTylzOnUEP2Ag8evYL8LXi3jzRAOMGqP4aF+Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.MeshType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshType.html",
+          "hash": "qG1Cz9LIFWa//IW49EQXa6qomVz3W3dM7plFxggGxYY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.NodeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.NodeType.html",
+          "hash": "LLnSnPubOPaW84TTl1qOE/xp8Pp9xuFf/mKX9lACCIY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html",
+          "hash": "Bv74o7yfNDWR5XQm3BsBMM77GKK3I15oURoBP+0lU1Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceDataNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceDataNode.html",
+          "hash": "CUMUoDxIp65pTJwz6/1UK1IQQrRWsOr+8ERMhlBVomw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceGroupingNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceGroupingNode.html",
+          "hash": "VQQHxZ/jWikZAsBdlCLZ2tIq82AEMDaoSOOOLQbagso="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.HardpointNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.HardpointNode.html",
+          "hash": "kr6bx3G9Qk/TbOYBZymMItX+30sAFMwWepvHqBFwbaA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshDescriptorNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshDescriptorNode.html",
+          "hash": "aWEgZxz/lqHItloNm8xj8BLGcTyfKVNjcdG6pYa36T0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshVerticesNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshVerticesNode.html",
+          "hash": "XRrNXfWNBaNWudbPgHpoBArALtZaVtjrP/aLRVRMLK4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.Node.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.Node.html",
+          "hash": "lPPyH6lDQQfIRreWtVCs0+hxtTlqbP6x0fr7ymvBKvE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeGroupNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeGroupNode.html",
+          "hash": "Xg0yoxu4o0NN8Fhmlcd9QHhJ5O1wzEHU1a54/ahweGU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeReferenceNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeReferenceNode.html",
+          "hash": "YuzqcrFqycl5QDWgaa3d5OMgeigpiiYIHH+wby43S94="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html",
+          "hash": "IwZJCgwgo70yWnSFRws7nXVvg4Y/fbnTaVOb03PUPgg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSwitchNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSwitchNode.html",
+          "hash": "N/PZtftEbETz9hpCnALA0+IzYbbiIoGLjRJg75Rir2Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.html",
+          "hash": "EMp1SD/qDR6Fg4lpWDYOZf4mWCTWb8DfV/zcbjgdRhc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html",
+          "hash": "QNo0c5o1ocGqb5V7c3FC+X8X1S7IBxh/dN2xayDTLYs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureAlphaNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureAlphaNode.html",
+          "hash": "1vO2lUn5QKFD+uWNy4Gcc9gDrpLCaAFIleO8X2fIzis="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureCoordinatesNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureCoordinatesNode.html",
+          "hash": "mHEaVQQa7bYDo9y/kOldcZJQCeXrdsCu62NvQndwJCI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureNode.html",
+          "hash": "Ckzh22dieVYCv4qtQ6vmKlHg+99YfkIAotZQT/k4Reg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.VertexNormalsNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.VertexNormalsNode.html",
+          "hash": "JjkBJunWlUChi5kQ1OdBIQ/l2HBrhxDTUg+SB78RTwE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.html",
+          "hash": "nxL9N5yHtRGXnRNSXQ8PVTBOc6lc4Mobn7+TcOObR2c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.OptFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.OptFile.html",
+          "hash": "iPSlo3SVHW7dDZ2nnN0XPfKpK8vSlq2tANQJc3IJKlY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html",
+          "hash": "XgZag8OW5hGvjZJjrlB/WwSqhmHqoaIysw/M4JKWZ1I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html",
+          "hash": "1IUfJL1IuTDUlOKMlbzFTVb9tqJ0ntiWhsURUZrBi0k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel.html",
+          "hash": "flDurj3tu4RvjgCquMMSutKraSUhuXIZL7Ko6Mcdqew="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.RotationScale.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.RotationScale.html",
+          "hash": "vFE4LxyfUdbWl9RVX9GTmHtQTZwFDPSLcZjz1LwMRc8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Texture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Texture.html",
+          "hash": "NipZrnAO+RolSYi1ntjT+CNUE4Zu5UC5PF5hOtFLwng="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.TextureCoordinates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.TextureCoordinates.html",
+          "hash": "F1ikSgu5+eQ+LsYmG0fhImuwQVLQRRnh0RM0VQv5GIg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Vector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Vector.html",
+          "hash": "MEqlCBNykWtxqkCwNf97I0bqb8iha1Xu1zqK86olU/U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Opt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.html",
+          "hash": "vjRaj00m65plzk48UqTmhdvqCKIAP/D3VuMTwcIyeW8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "IY7m+EJMx5VKhKXR78Y4zw=="
+          "hash": "0t0xSGl1/vV9EgIWdTF9CjTtY3j+GIIy0F12uERxpSE="
         }
       },
       "is_incremental": false,
@@ -30,19 +498,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "5cAof8Z0r/KepinW8ZLq2A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "toc.html",
-          "hash": "v+5xx9LRFRFBq0y3qPCbpg=="
+          "hash": "TQaLyIPqbdRCG417hfW3txFhA8tEQDGQsvktGYQbuzo="
         }
       },
       "is_incremental": false,
@@ -64,6 +520,12 @@
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 2,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 39,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
