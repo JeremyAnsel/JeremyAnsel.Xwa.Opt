@@ -622,7 +622,7 @@ namespace JeremyAnsel.Xwa.Opt
                                         Width = texture.Width,
                                         Height = texture.Height,
                                         Palettes = texture.Palette,
-                                        Bytes = texture.ImageData
+                                        Bytes = texture.ImageData?.ToArray()
                                     };
 
                                     if (textureNode.Bytes != null)
@@ -653,7 +653,7 @@ namespace JeremyAnsel.Xwa.Opt
                                     {
                                         TextureAlphaNode alphaNode = new TextureAlphaNode(0)
                                         {
-                                            Bytes = texture.AlphaIllumData
+                                            Bytes = texture.AlphaIllumData?.ToArray()
                                         };
 
                                         OptFile.FlipPixels(alphaNode.Bytes, textureNode.Width, textureNode.Height, 8);
