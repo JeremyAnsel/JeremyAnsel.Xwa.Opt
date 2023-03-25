@@ -9,8 +9,7 @@
         "resource": {
           "relative_path": "index.json"
         }
-      },
-      "is_incremental": false
+      }
     },
     {
       "type": "ManagedReference",
@@ -18,10 +17,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.EngineGlow.html",
-          "hash": "uUXe2tQuY87rFKzmnQkFP1QmTJcRFkPGF+WB+mhRQdU="
+          "hash": "ceuD5Qp+YAsNvmUjKhvPzZV2ChHbvcjSe96v5vr6MIA="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -30,10 +28,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.ExplosionTypes.html",
-          "hash": "TnZ72EKyn2r7FhKeiXCTvmtFQc5U++iZppd/e/kFKnQ="
+          "hash": "RG64G/RrAtT5G9laHJv49DKGZXxiHvcHUQe061B7bGM="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -42,10 +39,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Face.html",
-          "hash": "xOKhUoCxFDcf4eR/M4fNtVmb4eaSHj8A1L8nLndxu1o="
+          "hash": "uVDPh7yLlWtlE4KDgooJt6yxAY97xUpxOlO+w7jD7M0="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -54,10 +50,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.FaceGroup.html",
-          "hash": "9ax3GX3RGs0kMyuNWsZW7K2GBsaZ/PKLfrS/P62mzsQ="
+          "hash": "chGaf/Wss1InyZvX301nw02WSR8xEJOtfVGOI1lROhc="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -66,10 +61,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Hardpoint.html",
-          "hash": "M1aCdh8+RkE2lo304Tsnupw/7gXs24IhAKFQ3LROxfY="
+          "hash": "7+RJyTiXh5qpUkKH1RyZkJeiuiLV/jQ6oETk1qbILXQ="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -78,10 +72,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.HardpointType.html",
-          "hash": "P1lDBPDam6TRAvwkBeOz78XAnVDpQ0S200Q9D+Y0sQA="
+          "hash": "lemmzFTGAZ4yha+hu6WdKzEIP7gAYetVifPRlsXErm8="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -90,10 +83,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Indices.html",
-          "hash": "awnLBeXs2rJ3TtspY9UbmfGOtgPbLbwQhfCvq49xTAI="
+          "hash": "UOKzJKaLVOemc4WwlvthlfS5Bs/HFQm6i0sCCP8yTVg="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -102,10 +94,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Mesh.html",
-          "hash": "uSKQmaj+C7XIeD2QsiLheV/kyo1N7IbCEp6Ld0xE698="
+          "hash": "1ARTab9HdRhBC4FSakBOEk67NXhPOYvlJvT4YPY7ZzI="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -114,10 +105,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshDescriptor.html",
-          "hash": "6rzUxJDvtaLuDuhOpxRu6+YWnLPkK2+KF/vH0L1uCY4="
+          "hash": "0yEq/NZx9Vjgcw8v6W1k6ikQJBcn/tEdZqpUY0YwcBY="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -126,10 +116,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshLod.html",
-          "hash": "x5IhiJfTylzOnUEP2Ag8evYL8LXi3jzRAOMGqP4aF+Y="
+          "hash": "Ap+TlT1mZFQjLHd16mPN1hIzEpTvjZCWG41D0QYrvc8="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -138,10 +127,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshType.html",
-          "hash": "qG1Cz9LIFWa//IW49EQXa6qomVz3W3dM7plFxggGxYY="
+          "hash": "BSZ7CfTlHOIsAtwZj13v+7bCX3Gcrmvi/i7lsc9wJOY="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -150,10 +138,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.NodeType.html",
-          "hash": "LLnSnPubOPaW84TTl1qOE/xp8Pp9xuFf/mKX9lACCIY="
+          "hash": "V0Xafj1Kis4UUOL8TF9E1GaHqByaB05L2U1FDw3Jm5g="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -162,10 +149,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html",
-          "hash": "Bv74o7yfNDWR5XQm3BsBMM77GKK3I15oURoBP+0lU1Y="
+          "hash": "4kI1Ymrz/S4qjSjfxhgwbjygnn1dL87AGgsUpRHgrBk="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -174,10 +160,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceDataNode.html",
-          "hash": "CUMUoDxIp65pTJwz6/1UK1IQQrRWsOr+8ERMhlBVomw="
+          "hash": "507t/chieB+8rpX/eQah0OOh/yoVre0zqhE53gUPeD4="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -186,10 +171,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceGroupingNode.html",
-          "hash": "VQQHxZ/jWikZAsBdlCLZ2tIq82AEMDaoSOOOLQbagso="
+          "hash": "Dho0wHlsGtWdOix1xbOyGJFbJBbFprRo/kVyKuNjuuA="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -198,10 +182,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.HardpointNode.html",
-          "hash": "kr6bx3G9Qk/TbOYBZymMItX+30sAFMwWepvHqBFwbaA="
+          "hash": "1hhdvrX+tIG7FpCH5Q9AE87PkFnWlEpYdN9Lixir9hc="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -210,10 +193,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshDescriptorNode.html",
-          "hash": "aWEgZxz/lqHItloNm8xj8BLGcTyfKVNjcdG6pYa36T0="
+          "hash": "WD7+nEYysrDBfPSWrOIBL1EEo1jQXh4XND4Nfj47xoc="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -222,10 +204,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshVerticesNode.html",
-          "hash": "XRrNXfWNBaNWudbPgHpoBArALtZaVtjrP/aLRVRMLK4="
+          "hash": "ElHxEINTf0k9LYDNx8brtd8rxRyksTXE4NYwmz7ArII="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -234,10 +215,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.Node.html",
-          "hash": "lPPyH6lDQQfIRreWtVCs0+hxtTlqbP6x0fr7ymvBKvE="
+          "hash": "bFqALG6Gf+Q8ixvt/bUVAo5Sh3K0MZ967abd+a/SUkM="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -246,10 +226,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeGroupNode.html",
-          "hash": "Xg0yoxu4o0NN8Fhmlcd9QHhJ5O1wzEHU1a54/ahweGU="
+          "hash": "r4vnRM20qqFqHNxK47TSGSnJgNAMgyd3EXzHRL7U18w="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -258,10 +237,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeReferenceNode.html",
-          "hash": "YuzqcrFqycl5QDWgaa3d5OMgeigpiiYIHH+wby43S94="
+          "hash": "GzK99lFiCFn8E+vMBJiaL4fsBOBKK0nf5wzXyZ0Mrw0="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -270,10 +248,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html",
-          "hash": "IwZJCgwgo70yWnSFRws7nXVvg4Y/fbnTaVOb03PUPgg="
+          "hash": "8ry6QwE0zTjvOZHnpzTyWxQuBlsVHChzNBqhPyrm8pw="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -282,10 +259,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSwitchNode.html",
-          "hash": "N/PZtftEbETz9hpCnALA0+IzYbbiIoGLjRJg75Rir2Q="
+          "hash": "GW8J3WW65XKP35xWSSJuoNwKu9CToYHIe7512itkjRU="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -294,10 +270,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.html",
-          "hash": "EMp1SD/qDR6Fg4lpWDYOZf4mWCTWb8DfV/zcbjgdRhc="
+          "hash": "H7G0F4NepaTy/P8PaMRTkEgplfQQ0eueQlGhyBuL9/0="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -306,10 +281,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html",
-          "hash": "QNo0c5o1ocGqb5V7c3FC+X8X1S7IBxh/dN2xayDTLYs="
+          "hash": "A8wF2CpzAVta4F+ucJpBnkn7ZW80aqlwcB2Yqx74pm8="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -318,10 +292,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureAlphaNode.html",
-          "hash": "1vO2lUn5QKFD+uWNy4Gcc9gDrpLCaAFIleO8X2fIzis="
+          "hash": "r8pKXRmvQFoEmqTeEBFWiF6I03C0ztG09vyrZcExOx8="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -330,10 +303,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureCoordinatesNode.html",
-          "hash": "mHEaVQQa7bYDo9y/kOldcZJQCeXrdsCu62NvQndwJCI="
+          "hash": "2zfQ7GOf8JSpJHIoEKbOnlzs1DaqejFZeTwn4Q9MnKk="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -342,10 +314,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureNode.html",
-          "hash": "Ckzh22dieVYCv4qtQ6vmKlHg+99YfkIAotZQT/k4Reg="
+          "hash": "emRHehXK74zMPal6rJxpT5V6BwKWdMZufb2yIM4e4qk="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -354,10 +325,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.VertexNormalsNode.html",
-          "hash": "JjkBJunWlUChi5kQ1OdBIQ/l2HBrhxDTUg+SB78RTwE="
+          "hash": "cAxNRYM4CNMzwKwFQD7itkgmF92QCYt8l1MeaYFCpII="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -366,10 +336,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.html",
-          "hash": "nxL9N5yHtRGXnRNSXQ8PVTBOc6lc4Mobn7+TcOObR2c="
+          "hash": "+a1N4cztJu5kZQb7hVqsGzIcXUVaAfhqBHx4O8BBT+s="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -378,10 +347,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.OptFile.html",
-          "hash": "iPSlo3SVHW7dDZ2nnN0XPfKpK8vSlq2tANQJc3IJKlY="
+          "hash": "TZCw7/Jud8TkExcVsGVa3QoWDGEKIbkxOU5mIDU/DUc="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -390,10 +358,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html",
-          "hash": "XgZag8OW5hGvjZJjrlB/WwSqhmHqoaIysw/M4JKWZ1I="
+          "hash": "sQrWgCarw6wtF/QA3V3TKicGFuE9Wrk5CBgimkK+bZs="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -402,10 +369,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html",
-          "hash": "1IUfJL1IuTDUlOKMlbzFTVb9tqJ0ntiWhsURUZrBi0k="
+          "hash": "Nhqer2chgqCdbtMv3heEEfkIU9F8eHzVEfJu+Fk2ing="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -414,10 +380,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel.html",
-          "hash": "flDurj3tu4RvjgCquMMSutKraSUhuXIZL7Ko6Mcdqew="
+          "hash": "UDzJFWigWuIoxpbKJhzRl0+RObp9Cbw6HqLIp57LJjg="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -426,10 +391,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.RotationScale.html",
-          "hash": "vFE4LxyfUdbWl9RVX9GTmHtQTZwFDPSLcZjz1LwMRc8="
+          "hash": "8Bs27NorrQ5AZeSGmp1VRyJ48Ba56R2enBNUC1ApMwU="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -438,10 +402,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Texture.html",
-          "hash": "NipZrnAO+RolSYi1ntjT+CNUE4Zu5UC5PF5hOtFLwng="
+          "hash": "vZ7hK4+gmfyeoYV0zO4q+sG7Ptl7PtCUq2LmCy4xYQo="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -450,10 +413,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.TextureCoordinates.html",
-          "hash": "F1ikSgu5+eQ+LsYmG0fhImuwQVLQRRnh0RM0VQv5GIg="
+          "hash": "KB0W6XzPcV4JTFzfmPBgRklTyOfJV7AmiNvSFGpl6kA="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -462,10 +424,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Vector.html",
-          "hash": "MEqlCBNykWtxqkCwNf97I0bqb8iha1Xu1zqK86olU/U="
+          "hash": "t9GpiymHlse8X5Hy1xCSulEgSx4dPxG9tXUoKrSIo+s="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -474,10 +435,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Opt.html",
-          "hash": "vjRaj00m65plzk48UqTmhdvqCKIAP/D3VuMTwcIyeW8="
+          "hash": "7wfy2asy7Br9qgXbN3xk50s4xGCn4nctemgNgmwpJx4="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -486,10 +446,9 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "0t0xSGl1/vV9EgIWdTF9CjTtY3j+GIIy0F12uERxpSE="
+          "hash": "ap75GdAr97o1zpohYM+lgvwxuQ056NG3L+W0FVPKYmU="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -498,54 +457,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "TQaLyIPqbdRCG417hfW3txFhA8tEQDGQsvktGYQbuzo="
+          "hash": "0pICqDKLW0maKGsAINVrBlxZOKS/3l+1RhDypT3taXY="
         }
       },
-      "is_incremental": false,
       "version": ""
-    }
-  ],
-  "incremental_info": [
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
-        "incrementalPhase": "build",
-        "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
-      },
-      "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 2,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 39,
-          "skipped_file_count": 0
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        }
-      }
-    },
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
-        "incrementalPhase": "postProcessing",
-        "total_file_count": 0,
-        "skipped_file_count": 0
-      },
-      "processors": {}
     }
   ],
   "version_info": {},
