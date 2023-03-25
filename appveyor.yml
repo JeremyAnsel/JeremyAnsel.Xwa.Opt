@@ -28,6 +28,7 @@ build:
   verbosity: minimal
 
 after_build:
+- if not defined APPVEYOR_PULL_REQUEST_NUMBER JeremyAnsel.Xwa.Opt\build-doc.cmd
 - if not defined APPVEYOR_PULL_REQUEST_NUMBER 7z a JeremyAnsel.Xwa.Opt.Documentation.zip .\JeremyAnsel.Xwa.Opt\Documentation\_site\* > nul
 - if not defined APPVEYOR_PULL_REQUEST_NUMBER appveyor PushArtifact JeremyAnsel.Xwa.Opt.Documentation.zip
 
