@@ -1215,6 +1215,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.Mesh.EngineGlows
   nameWithType: Mesh.EngineGlows
+- uid: JeremyAnsel.Xwa.Opt.Mesh.GroupFaceGroups
+  name: GroupFaceGroups()
+  href: api/JeremyAnsel.Xwa.Opt.Mesh.html#JeremyAnsel_Xwa_Opt_Mesh_GroupFaceGroups
+  commentId: M:JeremyAnsel.Xwa.Opt.Mesh.GroupFaceGroups
+  fullName: JeremyAnsel.Xwa.Opt.Mesh.GroupFaceGroups()
+  nameWithType: Mesh.GroupFaceGroups()
+- uid: JeremyAnsel.Xwa.Opt.Mesh.GroupFaceGroups*
+  name: GroupFaceGroups
+  href: api/JeremyAnsel.Xwa.Opt.Mesh.html#JeremyAnsel_Xwa_Opt_Mesh_GroupFaceGroups_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.Mesh.GroupFaceGroups
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Opt.Mesh.GroupFaceGroups
+  nameWithType: Mesh.GroupFaceGroups
 - uid: JeremyAnsel.Xwa.Opt.Mesh.Hardpoints
   name: Hardpoints
   href: api/JeremyAnsel.Xwa.Opt.Mesh.html#JeremyAnsel_Xwa_Opt_Mesh_Hardpoints
@@ -1570,6 +1583,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.MeshLod.FaceGroups
   nameWithType: MeshLod.FaceGroups
+- uid: JeremyAnsel.Xwa.Opt.MeshLod.GroupFaceGroups
+  name: GroupFaceGroups()
+  href: api/JeremyAnsel.Xwa.Opt.MeshLod.html#JeremyAnsel_Xwa_Opt_MeshLod_GroupFaceGroups
+  commentId: M:JeremyAnsel.Xwa.Opt.MeshLod.GroupFaceGroups
+  fullName: JeremyAnsel.Xwa.Opt.MeshLod.GroupFaceGroups()
+  nameWithType: MeshLod.GroupFaceGroups()
+- uid: JeremyAnsel.Xwa.Opt.MeshLod.GroupFaceGroups*
+  name: GroupFaceGroups
+  href: api/JeremyAnsel.Xwa.Opt.MeshLod.html#JeremyAnsel_Xwa_Opt_MeshLod_GroupFaceGroups_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.MeshLod.GroupFaceGroups
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Opt.MeshLod.GroupFaceGroups
+  nameWithType: MeshLod.GroupFaceGroups
 - uid: JeremyAnsel.Xwa.Opt.MeshLod.TrianglesCount
   name: TrianglesCount
   href: api/JeremyAnsel.Xwa.Opt.MeshLod.html#JeremyAnsel_Xwa_Opt_MeshLod_TrianglesCount
@@ -3782,6 +3808,15 @@ references:
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.ConvertTextures8To32
   fullName: JeremyAnsel.Xwa.Opt.OptFile.ConvertTextures8To32()
   nameWithType: OptFile.ConvertTextures8To32()
+- uid: JeremyAnsel.Xwa.Opt.OptFile.ConvertTextures8To32(System.Boolean)
+  name: ConvertTextures8To32(bool)
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_ConvertTextures8To32_System_Boolean_
+  commentId: M:JeremyAnsel.Xwa.Opt.OptFile.ConvertTextures8To32(System.Boolean)
+  name.vb: ConvertTextures8To32(Boolean)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.ConvertTextures8To32(bool)
+  fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.ConvertTextures8To32(Boolean)
+  nameWithType: OptFile.ConvertTextures8To32(bool)
+  nameWithType.vb: OptFile.ConvertTextures8To32(Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.ConvertTextures8To32*
   name: ConvertTextures8To32
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_ConvertTextures8To32_
@@ -3892,6 +3927,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.OptFile.GetSaveRequiredFileSize
   nameWithType: OptFile.GetSaveRequiredFileSize
+- uid: JeremyAnsel.Xwa.Opt.OptFile.GroupFaceGroups
+  name: GroupFaceGroups()
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_GroupFaceGroups
+  commentId: M:JeremyAnsel.Xwa.Opt.OptFile.GroupFaceGroups
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.GroupFaceGroups()
+  nameWithType: OptFile.GroupFaceGroups()
+- uid: JeremyAnsel.Xwa.Opt.OptFile.GroupFaceGroups*
+  name: GroupFaceGroups
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_GroupFaceGroups_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.OptFile.GroupFaceGroups
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.GroupFaceGroups
+  nameWithType: OptFile.GroupFaceGroups
 - uid: JeremyAnsel.Xwa.Opt.OptFile.HardpointsCount
   name: HardpointsCount
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_HardpointsCount
@@ -4763,6 +4811,15 @@ references:
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.Convert8To32
   fullName: JeremyAnsel.Xwa.Opt.Texture.Convert8To32()
   nameWithType: Texture.Convert8To32()
+- uid: JeremyAnsel.Xwa.Opt.Texture.Convert8To32(System.Boolean)
+  name: Convert8To32(bool)
+  href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_Convert8To32_System_Boolean_
+  commentId: M:JeremyAnsel.Xwa.Opt.Texture.Convert8To32(System.Boolean)
+  name.vb: Convert8To32(Boolean)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.Convert8To32(bool)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.Convert8To32(Boolean)
+  nameWithType: Texture.Convert8To32(bool)
+  nameWithType.vb: Texture.Convert8To32(Boolean)
 - uid: JeremyAnsel.Xwa.Opt.Texture.Convert8To32*
   name: Convert8To32
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_Convert8To32_

@@ -16,8 +16,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.EngineGlow.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.EngineGlow.html",
-          "hash": "ceuD5Qp+YAsNvmUjKhvPzZV2ChHbvcjSe96v5vr6MIA="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.EngineGlow.html"
         }
       },
       "version": ""
@@ -27,8 +26,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.ExplosionTypes.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.ExplosionTypes.html",
-          "hash": "RG64G/RrAtT5G9laHJv49DKGZXxiHvcHUQe061B7bGM="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.ExplosionTypes.html"
         }
       },
       "version": ""
@@ -38,8 +36,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Face.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Face.html",
-          "hash": "uVDPh7yLlWtlE4KDgooJt6yxAY97xUpxOlO+w7jD7M0="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Face.html"
         }
       },
       "version": ""
@@ -49,8 +46,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.FaceGroup.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.FaceGroup.html",
-          "hash": "chGaf/Wss1InyZvX301nw02WSR8xEJOtfVGOI1lROhc="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.FaceGroup.html"
         }
       },
       "version": ""
@@ -60,8 +56,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Hardpoint.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Hardpoint.html",
-          "hash": "7+RJyTiXh5qpUkKH1RyZkJeiuiLV/jQ6oETk1qbILXQ="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Hardpoint.html"
         }
       },
       "version": ""
@@ -71,8 +66,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.HardpointType.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.HardpointType.html",
-          "hash": "lemmzFTGAZ4yha+hu6WdKzEIP7gAYetVifPRlsXErm8="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.HardpointType.html"
         }
       },
       "version": ""
@@ -82,8 +76,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Indices.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Indices.html",
-          "hash": "UOKzJKaLVOemc4WwlvthlfS5Bs/HFQm6i0sCCP8yTVg="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Indices.html"
         }
       },
       "version": ""
@@ -93,8 +86,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Mesh.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Mesh.html",
-          "hash": "1ARTab9HdRhBC4FSakBOEk67NXhPOYvlJvT4YPY7ZzI="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Mesh.html"
         }
       },
       "version": ""
@@ -104,8 +96,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.MeshDescriptor.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshDescriptor.html",
-          "hash": "0yEq/NZx9Vjgcw8v6W1k6ikQJBcn/tEdZqpUY0YwcBY="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshDescriptor.html"
         }
       },
       "version": ""
@@ -115,8 +106,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.MeshLod.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshLod.html",
-          "hash": "Ap+TlT1mZFQjLHd16mPN1hIzEpTvjZCWG41D0QYrvc8="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshLod.html"
         }
       },
       "version": ""
@@ -126,8 +116,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.MeshType.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshType.html",
-          "hash": "BSZ7CfTlHOIsAtwZj13v+7bCX3Gcrmvi/i7lsc9wJOY="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshType.html"
         }
       },
       "version": ""
@@ -137,8 +126,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.NodeType.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.NodeType.html",
-          "hash": "V0Xafj1Kis4UUOL8TF9E1GaHqByaB05L2U1FDw3Jm5g="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.NodeType.html"
         }
       },
       "version": ""
@@ -148,8 +136,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html",
-          "hash": "4kI1Ymrz/S4qjSjfxhgwbjygnn1dL87AGgsUpRHgrBk="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html"
         }
       },
       "version": ""
@@ -159,8 +146,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceDataNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceDataNode.html",
-          "hash": "507t/chieB+8rpX/eQah0OOh/yoVre0zqhE53gUPeD4="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceDataNode.html"
         }
       },
       "version": ""
@@ -170,8 +156,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceGroupingNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceGroupingNode.html",
-          "hash": "Dho0wHlsGtWdOix1xbOyGJFbJBbFprRo/kVyKuNjuuA="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceGroupingNode.html"
         }
       },
       "version": ""
@@ -181,8 +166,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.HardpointNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.HardpointNode.html",
-          "hash": "1hhdvrX+tIG7FpCH5Q9AE87PkFnWlEpYdN9Lixir9hc="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.HardpointNode.html"
         }
       },
       "version": ""
@@ -192,8 +176,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshDescriptorNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshDescriptorNode.html",
-          "hash": "WD7+nEYysrDBfPSWrOIBL1EEo1jQXh4XND4Nfj47xoc="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshDescriptorNode.html"
         }
       },
       "version": ""
@@ -203,8 +186,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshVerticesNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshVerticesNode.html",
-          "hash": "ElHxEINTf0k9LYDNx8brtd8rxRyksTXE4NYwmz7ArII="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshVerticesNode.html"
         }
       },
       "version": ""
@@ -214,8 +196,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.Node.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.Node.html",
-          "hash": "bFqALG6Gf+Q8ixvt/bUVAo5Sh3K0MZ967abd+a/SUkM="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.Node.html"
         }
       },
       "version": ""
@@ -225,8 +206,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeGroupNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeGroupNode.html",
-          "hash": "r4vnRM20qqFqHNxK47TSGSnJgNAMgyd3EXzHRL7U18w="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeGroupNode.html"
         }
       },
       "version": ""
@@ -236,8 +216,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeReferenceNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeReferenceNode.html",
-          "hash": "GzK99lFiCFn8E+vMBJiaL4fsBOBKK0nf5wzXyZ0Mrw0="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeReferenceNode.html"
         }
       },
       "version": ""
@@ -247,8 +226,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html",
-          "hash": "8ry6QwE0zTjvOZHnpzTyWxQuBlsVHChzNBqhPyrm8pw="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html"
         }
       },
       "version": ""
@@ -258,8 +236,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSwitchNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSwitchNode.html",
-          "hash": "GW8J3WW65XKP35xWSSJuoNwKu9CToYHIe7512itkjRU="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSwitchNode.html"
         }
       },
       "version": ""
@@ -269,8 +246,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.html",
-          "hash": "H7G0F4NepaTy/P8PaMRTkEgplfQQ0eueQlGhyBuL9/0="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.html"
         }
       },
       "version": ""
@@ -280,8 +256,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html",
-          "hash": "A8wF2CpzAVta4F+ucJpBnkn7ZW80aqlwcB2Yqx74pm8="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html"
         }
       },
       "version": ""
@@ -291,8 +266,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureAlphaNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureAlphaNode.html",
-          "hash": "r8pKXRmvQFoEmqTeEBFWiF6I03C0ztG09vyrZcExOx8="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureAlphaNode.html"
         }
       },
       "version": ""
@@ -302,8 +276,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureCoordinatesNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureCoordinatesNode.html",
-          "hash": "2zfQ7GOf8JSpJHIoEKbOnlzs1DaqejFZeTwn4Q9MnKk="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureCoordinatesNode.html"
         }
       },
       "version": ""
@@ -313,8 +286,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureNode.html",
-          "hash": "emRHehXK74zMPal6rJxpT5V6BwKWdMZufb2yIM4e4qk="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureNode.html"
         }
       },
       "version": ""
@@ -324,8 +296,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.VertexNormalsNode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.VertexNormalsNode.html",
-          "hash": "cAxNRYM4CNMzwKwFQD7itkgmF92QCYt8l1MeaYFCpII="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.VertexNormalsNode.html"
         }
       },
       "version": ""
@@ -335,8 +306,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.html",
-          "hash": "+a1N4cztJu5kZQb7hVqsGzIcXUVaAfhqBHx4O8BBT+s="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.html"
         }
       },
       "version": ""
@@ -346,8 +316,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.OptFile.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.OptFile.html",
-          "hash": "TZCw7/Jud8TkExcVsGVa3QoWDGEKIbkxOU5mIDU/DUc="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.OptFile.html"
         }
       },
       "version": ""
@@ -357,8 +326,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html",
-          "hash": "sQrWgCarw6wtF/QA3V3TKicGFuE9Wrk5CBgimkK+bZs="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html"
         }
       },
       "version": ""
@@ -368,8 +336,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html",
-          "hash": "Nhqer2chgqCdbtMv3heEEfkIU9F8eHzVEfJu+Fk2ing="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html"
         }
       },
       "version": ""
@@ -379,8 +346,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel.html",
-          "hash": "UDzJFWigWuIoxpbKJhzRl0+RObp9Cbw6HqLIp57LJjg="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel.html"
         }
       },
       "version": ""
@@ -390,8 +356,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.RotationScale.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.RotationScale.html",
-          "hash": "8Bs27NorrQ5AZeSGmp1VRyJ48Ba56R2enBNUC1ApMwU="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.RotationScale.html"
         }
       },
       "version": ""
@@ -401,8 +366,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Texture.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Texture.html",
-          "hash": "vZ7hK4+gmfyeoYV0zO4q+sG7Ptl7PtCUq2LmCy4xYQo="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Texture.html"
         }
       },
       "version": ""
@@ -412,8 +376,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.TextureCoordinates.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.TextureCoordinates.html",
-          "hash": "KB0W6XzPcV4JTFzfmPBgRklTyOfJV7AmiNvSFGpl6kA="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.TextureCoordinates.html"
         }
       },
       "version": ""
@@ -423,8 +386,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.Vector.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.Vector.html",
-          "hash": "t9GpiymHlse8X5Hy1xCSulEgSx4dPxG9tXUoKrSIo+s="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.Vector.html"
         }
       },
       "version": ""
@@ -434,8 +396,7 @@
       "source_relative_path": "api/JeremyAnsel.Xwa.Opt.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Xwa.Opt.html",
-          "hash": "7wfy2asy7Br9qgXbN3xk50s4xGCn4nctemgNgmwpJx4="
+          "relative_path": "api/JeremyAnsel.Xwa.Opt.html"
         }
       },
       "version": ""
@@ -445,8 +406,7 @@
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
-          "relative_path": "api/index.html",
-          "hash": "ap75GdAr97o1zpohYM+lgvwxuQ056NG3L+W0FVPKYmU="
+          "relative_path": "api/index.html"
         }
       },
       "version": ""
@@ -456,8 +416,7 @@
       "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "0pICqDKLW0maKGsAINVrBlxZOKS/3l+1RhDypT3taXY="
+          "relative_path": "index.html"
         }
       },
       "version": ""
