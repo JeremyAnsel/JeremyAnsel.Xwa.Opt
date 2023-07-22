@@ -1681,6 +1681,11 @@ namespace JeremyAnsel.Xwa.Opt
 
         public void Convert8To32()
         {
+            this.Convert8To32(true);
+        }
+
+        public void Convert8To32(bool generateMipmaps)
+        {
             if (this.BitsPerPixel != 8)
             {
                 return;
@@ -1689,6 +1694,11 @@ namespace JeremyAnsel.Xwa.Opt
             if (this.ImageData == null || this.Palette == null)
             {
                 return;
+            }
+
+            if (!generateMipmaps)
+            {
+                this.RemoveMipmaps();
             }
 
             bool hasAlpha = this.HasAlpha;
@@ -1758,7 +1768,10 @@ namespace JeremyAnsel.Xwa.Opt
                 this.Palette[4] = 0xff;
             }
 
-            this.GenerateMipmaps();
+            if (generateMipmaps)
+            {
+                this.GenerateMipmaps();
+            }
         }
 
         public void Convert32To8()

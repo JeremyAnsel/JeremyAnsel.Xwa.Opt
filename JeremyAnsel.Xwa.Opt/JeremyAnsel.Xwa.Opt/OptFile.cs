@@ -1070,10 +1070,15 @@ namespace JeremyAnsel.Xwa.Opt
 
         public void ConvertTextures8To32()
         {
+            this.ConvertTextures8To32(true);
+        }
+
+        public void ConvertTextures8To32(bool generateMipmaps)
+        {
             this.Textures.Values
                 .AsParallel()
                 .Where(t => t.BitsPerPixel == 8)
-                .ForAll(t => t.Convert8To32());
+                .ForAll(t => t.Convert8To32(generateMipmaps));
         }
 
         public void ConvertTextures32To8()
