@@ -934,6 +934,13 @@ namespace JeremyAnsel.Xwa.Opt
                 .ForAll(mesh => mesh.CompactBuffers());
         }
 
+        public void GroupFaceGroups()
+        {
+            this.Meshes
+                .AsParallel()
+                .ForAll(mesh => mesh.GroupFaceGroups());
+        }
+
         public void CompactTextures()
         {
             var uniqueTextures = new List<string>(this.Textures.Count);

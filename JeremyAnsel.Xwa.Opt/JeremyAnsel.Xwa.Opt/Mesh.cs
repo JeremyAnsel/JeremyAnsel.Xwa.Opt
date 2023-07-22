@@ -316,6 +316,14 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
+        public void GroupFaceGroups()
+        {
+            foreach (var lod in this.Lods)
+            {
+                lod.GroupFaceGroups();
+            }
+        }
+
         private void AddHitzoneToVerticesBuffer()
         {
             //this.Vertices.Add(new Vector(this.Descriptor.Min.X, this.Descriptor.Min.Y, this.Descriptor.Min.Z));

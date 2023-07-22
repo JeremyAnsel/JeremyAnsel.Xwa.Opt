@@ -177,5 +177,58 @@ namespace JeremyAnsel.Xwa.Opt
             groups.TrimExcess();
             this.FaceGroups = groups;
         }
+
+        public void GroupFaceGroups()
+        {
+            var groups = new List<FaceGroup>(this.FaceGroups.Count);
+
+            foreach (var faceGroup in this.FaceGroups)
+            {
+                FaceGroup index = null;
+
+                foreach (var group in groups)
+                {
+                    if (group.Textures.Count != faceGroup.Textures.Count)
+                    {
+                        continue;
+                    }
+
+                    if (group.Textures.Count == 0)
+                    {
+                        index = group;
+                        break;
+                    }
+
+                    int t = 0;
+                    for (; t < group.Textures.Count; t++)
+                    {
+                        if (group.Textures[t] != faceGroup.Textures[t])
+                        {
+                            break;
+                        }
+                    }
+
+                    if (t == group.Textures.Count)
+                    {
+                        index = group;
+                        break;
+                    }
+                }
+
+                if (index == null)
+                {
+                    groups.Add(faceGroup);
+                }
+                else
+                {
+                    foreach (var face in faceGroup.Faces)
+                    {
+                        index.Faces.Add(face);
+                    }
+                }
+            }
+
+            this.FaceGroups = groups;
+        }
     }
 }
