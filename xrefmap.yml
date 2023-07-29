@@ -3657,12 +3657,34 @@ references:
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.New
   nameWithType: OptFile.OptFile
   nameWithType.vb: OptFile.New
+- uid: JeremyAnsel.Xwa.Opt.OptFile.ArePixelsFlipped
+  name: ArePixelsFlipped
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_ArePixelsFlipped
+  commentId: P:JeremyAnsel.Xwa.Opt.OptFile.ArePixelsFlipped
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.ArePixelsFlipped
+  nameWithType: OptFile.ArePixelsFlipped
+- uid: JeremyAnsel.Xwa.Opt.OptFile.ArePixelsFlipped*
+  name: ArePixelsFlipped
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_ArePixelsFlipped_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.OptFile.ArePixelsFlipped
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.ArePixelsFlipped
+  nameWithType: OptFile.ArePixelsFlipped
 - uid: JeremyAnsel.Xwa.Opt.OptFile.BuildOptFileNodes
   name: BuildOptFileNodes()
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_BuildOptFileNodes
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.BuildOptFileNodes
   fullName: JeremyAnsel.Xwa.Opt.OptFile.BuildOptFileNodes()
   nameWithType: OptFile.BuildOptFileNodes()
+- uid: JeremyAnsel.Xwa.Opt.OptFile.BuildOptFileNodes(System.Boolean,System.Boolean)
+  name: BuildOptFileNodes(bool, bool)
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_BuildOptFileNodes_System_Boolean_System_Boolean_
+  commentId: M:JeremyAnsel.Xwa.Opt.OptFile.BuildOptFileNodes(System.Boolean,System.Boolean)
+  name.vb: BuildOptFileNodes(Boolean, Boolean)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.BuildOptFileNodes(bool, bool)
+  fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.BuildOptFileNodes(Boolean, Boolean)
+  nameWithType: OptFile.BuildOptFileNodes(bool, bool)
+  nameWithType.vb: OptFile.BuildOptFileNodes(Boolean, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.BuildOptFileNodes(System.Boolean)
   name: BuildOptFileNodes(bool)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_BuildOptFileNodes_System_Boolean_
@@ -3850,6 +3872,15 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.OptFile.FileName
   nameWithType: OptFile.FileName
+- uid: JeremyAnsel.Xwa.Opt.OptFile.FromFile(System.String,System.Boolean)
+  name: FromFile(string, bool)
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_FromFile_System_String_System_Boolean_
+  commentId: M:JeremyAnsel.Xwa.Opt.OptFile.FromFile(System.String,System.Boolean)
+  name.vb: FromFile(String, Boolean)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.FromFile(string, bool)
+  fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.FromFile(String, Boolean)
+  nameWithType: OptFile.FromFile(string, bool)
+  nameWithType.vb: OptFile.FromFile(String, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.FromFile(System.String)
   name: FromFile(string)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_FromFile_System_String_
@@ -3866,6 +3897,15 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.OptFile.FromFile
   nameWithType: OptFile.FromFile
+- uid: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream,System.Boolean)
+  name: FromStream(Stream, bool)
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_FromStream_System_IO_Stream_System_Boolean_
+  commentId: M:JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream,System.Boolean)
+  name.vb: FromStream(Stream, Boolean)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream, bool)
+  fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream, Boolean)
+  nameWithType: OptFile.FromStream(Stream, bool)
+  nameWithType.vb: OptFile.FromStream(Stream, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream)
   name: FromStream(Stream)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_FromStream_System_IO_Stream_
@@ -4063,6 +4103,15 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.OptFile.RemoveUnusedTextures
   nameWithType: OptFile.RemoveUnusedTextures
+- uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream,System.Boolean,System.Boolean,System.Boolean)
+  name: Save(Stream, bool, bool, bool)
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_IO_Stream_System_Boolean_System_Boolean_System_Boolean_
+  commentId: M:JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream,System.Boolean,System.Boolean,System.Boolean)
+  name.vb: Save(Stream, Boolean, Boolean, Boolean)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream, bool, bool, bool)
+  fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream, Boolean, Boolean, Boolean)
+  nameWithType: OptFile.Save(Stream, bool, bool, bool)
+  nameWithType.vb: OptFile.Save(Stream, Boolean, Boolean, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream,System.Boolean,System.Boolean)
   name: Save(Stream, bool, bool)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_IO_Stream_System_Boolean_System_Boolean_
@@ -4087,6 +4136,15 @@ references:
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream)
   fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream)
   nameWithType: OptFile.Save(Stream)
+- uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.String,System.Boolean,System.Boolean,System.Boolean)
+  name: Save(string, bool, bool, bool)
+  href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_String_System_Boolean_System_Boolean_System_Boolean_
+  commentId: M:JeremyAnsel.Xwa.Opt.OptFile.Save(System.String,System.Boolean,System.Boolean,System.Boolean)
+  name.vb: Save(String, Boolean, Boolean, Boolean)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(string, bool, bool, bool)
+  fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.Save(String, Boolean, Boolean, Boolean)
+  nameWithType: OptFile.Save(string, bool, bool, bool)
+  nameWithType.vb: OptFile.Save(String, Boolean, Boolean, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.String,System.Boolean,System.Boolean)
   name: Save(string, bool, bool)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_String_System_Boolean_System_Boolean_
