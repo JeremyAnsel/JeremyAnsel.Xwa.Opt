@@ -21,11 +21,14 @@ namespace JeremyAnsel.Xwa.Opt
         public OptFile()
         {
             this.Version = OptFileNodes.DefaultVersion;
+            this.ArePixelsFlipped = true;
         }
 
         public string FileName { get; private set; }
 
         public int Version { get; private set; }
+
+        public bool ArePixelsFlipped { get; private set; }
 
         public IList<Mesh> Meshes { get; } = new List<Mesh>();
 
@@ -172,16 +175,26 @@ namespace JeremyAnsel.Xwa.Opt
 
         public static OptFile FromFile(string path)
         {
+            return FromFile(path, true);
+        }
+
+        public static OptFile FromFile(string path, bool flipPixels)
+        {
             OptFileNodes optNodes = OptFileNodes.FromFile(path);
-            OptFile opt = ReadOpt(optNodes);
+            OptFile opt = ReadOpt(optNodes, flipPixels);
             opt.FileName = path;
             return opt;
         }
 
         public static OptFile FromStream(Stream stream)
         {
+            return FromStream(stream, true);
+        }
+
+        public static OptFile FromStream(Stream stream, bool flipPixels)
+        {
             OptFileNodes optNodes = OptFileNodes.FromStream(stream);
-            OptFile opt = ReadOpt(optNodes);
+            OptFile opt = ReadOpt(optNodes, flipPixels);
             return opt;
         }
 
@@ -190,11 +203,12 @@ namespace JeremyAnsel.Xwa.Opt
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         [SuppressMessage("Microsoft.Maintainability", "CA1505:AvoidUnmaintainableCode")]
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        private static OptFile ReadOpt(OptFileNodes optNodes)
+        private static OptFile ReadOpt(OptFileNodes optNodes, bool flipPixels)
         {
             var opt = new OptFile
             {
-                Version = optNodes.Version
+                Version = optNodes.Version,
+                ArePixelsFlipped = flipPixels
             };
 
             List<string> globalTexture = null;
@@ -204,7 +218,7 @@ namespace JeremyAnsel.Xwa.Opt
                 if (meshId == 0 && optNodes.Nodes[meshId].NodeType == NodeType.Texture)
                 {
                     TextureNode textureNode = (TextureNode)optNodes.Nodes[meshId];
-                    opt.CreateTexture(textureNode);
+                    opt.CreateTexture(textureNode, flipPixels);
                     globalTexture = new List<string>() { textureNode.Name };
                     continue;
                 }
@@ -301,7 +315,7 @@ namespace JeremyAnsel.Xwa.Opt
                                 {
                                     TextureNode textureNode = (TextureNode)node;
 
-                                    opt.CreateTexture(textureNode);
+                                    opt.CreateTexture(textureNode, flipPixels);
                                     texture = new List<string>(1) { textureNode.Name };
                                     break;
                                 }
@@ -323,7 +337,7 @@ namespace JeremyAnsel.Xwa.Opt
                                                 {
                                                     TextureNode textureNode = (TextureNode)nodeSwitch;
 
-                                                    opt.CreateTexture(textureNode);
+                                                    opt.CreateTexture(textureNode, flipPixels);
                                                     texture.Add(textureNode.Name);
                                                     break;
                                                 }
@@ -477,50 +491,65 @@ namespace JeremyAnsel.Xwa.Opt
 
         public void Save(string path)
         {
-            this.Save(path, true, true);
+            this.Save(path, true, true, true);
         }
 
         public void Save(string path, bool compactBuffers)
         {
-            this.Save(path, compactBuffers, true);
+            this.Save(path, compactBuffers, true, true);
         }
 
         public void Save(string path, bool compactBuffers, bool includeHeader)
         {
-            OptFileNodes optNodes = this.BuildOptFileNodes(compactBuffers);
+            this.Save(path, compactBuffers, includeHeader, true);
+        }
+
+        public void Save(string path, bool compactBuffers, bool includeHeader, bool flipPixels)
+        {
+            OptFileNodes optNodes = this.BuildOptFileNodes(compactBuffers, flipPixels);
             optNodes.Save(path, includeHeader);
             this.FileName = path;
         }
 
         public void Save(Stream stream)
         {
-            this.Save(stream, true, true);
+            this.Save(stream, true, true, true);
         }
 
         public void Save(Stream stream, bool compactBuffers)
         {
-            this.Save(stream, compactBuffers, true);
+            this.Save(stream, compactBuffers, true, true);
         }
 
         public void Save(Stream stream, bool compactBuffers, bool includeHeader)
+        {
+            this.Save(stream, compactBuffers, includeHeader, true);
+        }
+
+        public void Save(Stream stream, bool compactBuffers, bool includeHeader, bool flipPixels)
         {
             if (stream == null)
             {
                 throw new ArgumentNullException(nameof(stream));
             }
 
-            OptFileNodes optNodes = this.BuildOptFileNodes(compactBuffers);
+            OptFileNodes optNodes = this.BuildOptFileNodes(compactBuffers, flipPixels);
             optNodes.Save(stream, includeHeader);
         }
 
         public OptFileNodes BuildOptFileNodes()
         {
-            return this.BuildOptFileNodes(true);
+            return this.BuildOptFileNodes(true, true);
+        }
+
+        public OptFileNodes BuildOptFileNodes(bool compactBuffers)
+        {
+            return this.BuildOptFileNodes(compactBuffers, true);
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling")]
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        public OptFileNodes BuildOptFileNodes(bool compactBuffers)
+        public OptFileNodes BuildOptFileNodes(bool compactBuffers, bool flipPixels)
         {
             if (compactBuffers)
             {
@@ -622,10 +651,10 @@ namespace JeremyAnsel.Xwa.Opt
                                         Width = texture.Width,
                                         Height = texture.Height,
                                         Palettes = texture.Palette,
-                                        Bytes = texture.ImageData?.ToArray()
+                                        Bytes = flipPixels ? texture.ImageData?.ToArray() : texture.ImageData
                                     };
 
-                                    if (textureNode.Bytes != null)
+                                    if (flipPixels && textureNode.Bytes != null)
                                     {
                                         int size = textureNode.Width * textureNode.Height;
                                         int bpp;
@@ -653,10 +682,14 @@ namespace JeremyAnsel.Xwa.Opt
                                     {
                                         TextureAlphaNode alphaNode = new TextureAlphaNode(0)
                                         {
-                                            Bytes = texture.AlphaIllumData?.ToArray()
+                                            Bytes = flipPixels ? texture.AlphaIllumData?.ToArray() : texture.AlphaIllumData
                                         };
 
-                                        OptFile.FlipPixels(alphaNode.Bytes, textureNode.Width, textureNode.Height, 8);
+                                        if (flipPixels)
+                                        {
+                                            OptFile.FlipPixels(alphaNode.Bytes, textureNode.Width, textureNode.Height, 8);
+                                        }
+
                                         textureNode.Nodes.Add(alphaNode);
                                     }
 
@@ -844,7 +877,7 @@ namespace JeremyAnsel.Xwa.Opt
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        private void CreateTexture(TextureNode textureNode)
+        private void CreateTexture(TextureNode textureNode, bool flipPixels)
         {
             if (textureNode.Name == null)
             {
@@ -894,7 +927,7 @@ namespace JeremyAnsel.Xwa.Opt
                     texture.AlphaIllumData = alphaNode.Bytes;
                 }
 
-                if (texture.ImageData != null)
+                if (flipPixels && texture.ImageData != null)
                 {
                     int size = texture.Width * texture.Height;
                     int bpp;
@@ -918,7 +951,7 @@ namespace JeremyAnsel.Xwa.Opt
                     }
                 }
 
-                if (texture.AlphaIllumData != null)
+                if (flipPixels && texture.AlphaIllumData != null)
                 {
                     OptFile.FlipPixels(texture.AlphaIllumData, texture.Width, texture.Height, 8);
                 }
