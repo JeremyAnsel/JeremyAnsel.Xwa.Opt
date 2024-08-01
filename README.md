@@ -12,3 +12,9 @@ Documentation   | http://jeremyansel.github.io/JeremyAnsel.Xwa.Opt
 Source code     | https://github.com/JeremyAnsel/JeremyAnsel.Xwa.Opt
 Nuget           | https://www.nuget.org/packages/JeremyAnsel.Xwa.Opt
 Build           | https://ci.appveyor.com/project/JeremyAnsel/jeremyansel-xwa-opt/branch/master
+
+# Usage
+
+```csharp
+OptFile file = OptFile.FromFile(fileName);
+```
