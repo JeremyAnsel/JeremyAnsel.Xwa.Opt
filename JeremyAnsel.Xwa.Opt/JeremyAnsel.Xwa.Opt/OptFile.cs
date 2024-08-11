@@ -900,7 +900,7 @@ namespace JeremyAnsel.Xwa.Opt
                                     fileSize += NodeSizeInFileBuilder.TextureNode(
                                         texture.Name,
                                         texture.AlphaIllumData == null ? 0 : 1,
-                                        texture.Palette == null ? 0 : texture.Palette.Length,
+                                        texture.Palette.Length,
                                         texture.ImageData == null ? 0 : texture.ImageData.Length);
 
                                     if (texture.AlphaIllumData != null)
@@ -975,7 +975,7 @@ namespace JeremyAnsel.Xwa.Opt
                 texture.Id = textureNode.UniqueId;
                 texture.Width = textureNode.Width;
                 texture.Height = textureNode.Height;
-                texture.Palette = textureNode.Palettes;
+                texture.Palette = textureNode.Palettes ?? new byte[Texture.DefaultPaletteLength];
                 texture.ImageData = textureNode.Bytes;
 
                 TextureAlphaNode? alphaNode = (TextureAlphaNode?)textureNode.Nodes!
