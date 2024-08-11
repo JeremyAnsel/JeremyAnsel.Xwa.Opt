@@ -859,13 +859,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Indices.Equals(JeremyAnsel.Xwa.Opt.Indices)
   nameWithType: Indices.Equals(Indices)
 - uid: JeremyAnsel.Xwa.Opt.Indices.Equals(System.Object)
-  name: Equals(object)
+  name: Equals(object?)
   href: api/JeremyAnsel.Xwa.Opt.Indices.html#JeremyAnsel_Xwa_Opt_Indices_Equals_System_Object_
   commentId: M:JeremyAnsel.Xwa.Opt.Indices.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: JeremyAnsel.Xwa.Opt.Indices.Equals(object)
+  fullName: JeremyAnsel.Xwa.Opt.Indices.Equals(object?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Indices.Equals(Object)
-  nameWithType: Indices.Equals(object)
+  nameWithType: Indices.Equals(object?)
   nameWithType.vb: Indices.Equals(Object)
 - uid: JeremyAnsel.Xwa.Opt.Indices.Equals*
   name: Equals
@@ -1255,13 +1255,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Mesh.Lods
   nameWithType: Mesh.Lods
 - uid: JeremyAnsel.Xwa.Opt.Mesh.MergeLods(System.Collections.Generic.IEnumerable{JeremyAnsel.Xwa.Opt.MeshLod})
-  name: MergeLods(IEnumerable<MeshLod>)
+  name: MergeLods(IEnumerable<MeshLod>?)
   href: api/JeremyAnsel.Xwa.Opt.Mesh.html#JeremyAnsel_Xwa_Opt_Mesh_MergeLods_System_Collections_Generic_IEnumerable_JeremyAnsel_Xwa_Opt_MeshLod__
   commentId: M:JeremyAnsel.Xwa.Opt.Mesh.MergeLods(System.Collections.Generic.IEnumerable{JeremyAnsel.Xwa.Opt.MeshLod})
   name.vb: MergeLods(IEnumerable(Of MeshLod))
-  fullName: JeremyAnsel.Xwa.Opt.Mesh.MergeLods(System.Collections.Generic.IEnumerable<JeremyAnsel.Xwa.Opt.MeshLod>)
+  fullName: JeremyAnsel.Xwa.Opt.Mesh.MergeLods(System.Collections.Generic.IEnumerable<JeremyAnsel.Xwa.Opt.MeshLod>?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Mesh.MergeLods(System.Collections.Generic.IEnumerable(Of JeremyAnsel.Xwa.Opt.MeshLod))
-  nameWithType: Mesh.MergeLods(IEnumerable<MeshLod>)
+  nameWithType: Mesh.MergeLods(IEnumerable<MeshLod>?)
   nameWithType.vb: Mesh.MergeLods(IEnumerable(Of MeshLod))
 - uid: JeremyAnsel.Xwa.Opt.Mesh.MergeLods*
   name: MergeLods
@@ -1313,11 +1313,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Mesh.SortLods
   nameWithType: Mesh.SortLods
 - uid: JeremyAnsel.Xwa.Opt.Mesh.SplitLod(JeremyAnsel.Xwa.Opt.MeshLod)
-  name: SplitLod(MeshLod)
+  name: SplitLod(MeshLod?)
   href: api/JeremyAnsel.Xwa.Opt.Mesh.html#JeremyAnsel_Xwa_Opt_Mesh_SplitLod_JeremyAnsel_Xwa_Opt_MeshLod_
   commentId: M:JeremyAnsel.Xwa.Opt.Mesh.SplitLod(JeremyAnsel.Xwa.Opt.MeshLod)
-  fullName: JeremyAnsel.Xwa.Opt.Mesh.SplitLod(JeremyAnsel.Xwa.Opt.MeshLod)
-  nameWithType: Mesh.SplitLod(MeshLod)
+  name.vb: SplitLod(MeshLod)
+  fullName: JeremyAnsel.Xwa.Opt.Mesh.SplitLod(JeremyAnsel.Xwa.Opt.MeshLod?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Mesh.SplitLod(JeremyAnsel.Xwa.Opt.MeshLod)
+  nameWithType: Mesh.SplitLod(MeshLod?)
+  nameWithType.vb: Mesh.SplitLod(MeshLod)
 - uid: JeremyAnsel.Xwa.Opt.Mesh.SplitLod*
   name: SplitLod
   href: api/JeremyAnsel.Xwa.Opt.Mesh.html#JeremyAnsel_Xwa_Opt_Mesh_SplitLod_
@@ -2817,13 +2820,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder
   nameWithType: NodeSizeInFileBuilder
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.EngineGlowNode(System.String,System.Int32)
-  name: EngineGlowNode(string, int)
+  name: EngineGlowNode(string?, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_EngineGlowNode_System_String_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.EngineGlowNode(System.String,System.Int32)
   name.vb: EngineGlowNode(String, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.EngineGlowNode(string, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.EngineGlowNode(string?, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.EngineGlowNode(String, Integer)
-  nameWithType: NodeSizeInFileBuilder.EngineGlowNode(string, int)
+  nameWithType: NodeSizeInFileBuilder.EngineGlowNode(string?, int)
   nameWithType.vb: NodeSizeInFileBuilder.EngineGlowNode(String, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.EngineGlowNode*
   name: EngineGlowNode
@@ -2833,13 +2836,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.EngineGlowNode
   nameWithType: NodeSizeInFileBuilder.EngineGlowNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceDataNode(System.String,System.Int32,System.Int32)
-  name: FaceDataNode(string, int, int)
+  name: FaceDataNode(string?, int, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_FaceDataNode_System_String_System_Int32_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceDataNode(System.String,System.Int32,System.Int32)
   name.vb: FaceDataNode(String, Integer, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceDataNode(string, int, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceDataNode(string?, int, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceDataNode(String, Integer, Integer)
-  nameWithType: NodeSizeInFileBuilder.FaceDataNode(string, int, int)
+  nameWithType: NodeSizeInFileBuilder.FaceDataNode(string?, int, int)
   nameWithType.vb: NodeSizeInFileBuilder.FaceDataNode(String, Integer, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceDataNode*
   name: FaceDataNode
@@ -2849,13 +2852,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceDataNode
   nameWithType: NodeSizeInFileBuilder.FaceDataNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceGroupingNode(System.String,System.Int32,System.Int32)
-  name: FaceGroupingNode(string, int, int)
+  name: FaceGroupingNode(string?, int, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_FaceGroupingNode_System_String_System_Int32_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceGroupingNode(System.String,System.Int32,System.Int32)
   name.vb: FaceGroupingNode(String, Integer, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceGroupingNode(string, int, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceGroupingNode(string?, int, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceGroupingNode(String, Integer, Integer)
-  nameWithType: NodeSizeInFileBuilder.FaceGroupingNode(string, int, int)
+  nameWithType: NodeSizeInFileBuilder.FaceGroupingNode(string?, int, int)
   nameWithType.vb: NodeSizeInFileBuilder.FaceGroupingNode(String, Integer, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceGroupingNode*
   name: FaceGroupingNode
@@ -2865,13 +2868,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.FaceGroupingNode
   nameWithType: NodeSizeInFileBuilder.FaceGroupingNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.HardpointNode(System.String,System.Int32)
-  name: HardpointNode(string, int)
+  name: HardpointNode(string?, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_HardpointNode_System_String_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.HardpointNode(System.String,System.Int32)
   name.vb: HardpointNode(String, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.HardpointNode(string, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.HardpointNode(string?, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.HardpointNode(String, Integer)
-  nameWithType: NodeSizeInFileBuilder.HardpointNode(string, int)
+  nameWithType: NodeSizeInFileBuilder.HardpointNode(string?, int)
   nameWithType.vb: NodeSizeInFileBuilder.HardpointNode(String, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.HardpointNode*
   name: HardpointNode
@@ -2881,13 +2884,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.HardpointNode
   nameWithType: NodeSizeInFileBuilder.HardpointNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshDescriptorNode(System.String,System.Int32)
-  name: MeshDescriptorNode(string, int)
+  name: MeshDescriptorNode(string?, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_MeshDescriptorNode_System_String_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshDescriptorNode(System.String,System.Int32)
   name.vb: MeshDescriptorNode(String, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshDescriptorNode(string, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshDescriptorNode(string?, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshDescriptorNode(String, Integer)
-  nameWithType: NodeSizeInFileBuilder.MeshDescriptorNode(string, int)
+  nameWithType: NodeSizeInFileBuilder.MeshDescriptorNode(string?, int)
   nameWithType.vb: NodeSizeInFileBuilder.MeshDescriptorNode(String, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshDescriptorNode*
   name: MeshDescriptorNode
@@ -2897,13 +2900,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshDescriptorNode
   nameWithType: NodeSizeInFileBuilder.MeshDescriptorNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshVerticesNode(System.String,System.Int32,System.Int32)
-  name: MeshVerticesNode(string, int, int)
+  name: MeshVerticesNode(string?, int, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_MeshVerticesNode_System_String_System_Int32_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshVerticesNode(System.String,System.Int32,System.Int32)
   name.vb: MeshVerticesNode(String, Integer, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshVerticesNode(string, int, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshVerticesNode(string?, int, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshVerticesNode(String, Integer, Integer)
-  nameWithType: NodeSizeInFileBuilder.MeshVerticesNode(string, int, int)
+  nameWithType: NodeSizeInFileBuilder.MeshVerticesNode(string?, int, int)
   nameWithType.vb: NodeSizeInFileBuilder.MeshVerticesNode(String, Integer, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshVerticesNode*
   name: MeshVerticesNode
@@ -2913,13 +2916,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.MeshVerticesNode
   nameWithType: NodeSizeInFileBuilder.MeshVerticesNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.Node(System.String,System.Int32)
-  name: Node(string, int)
+  name: Node(string?, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_Node_System_String_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.Node(System.String,System.Int32)
   name.vb: Node(String, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.Node(string, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.Node(string?, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.Node(String, Integer)
-  nameWithType: NodeSizeInFileBuilder.Node(string, int)
+  nameWithType: NodeSizeInFileBuilder.Node(string?, int)
   nameWithType.vb: NodeSizeInFileBuilder.Node(String, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.Node*
   name: Node
@@ -2929,13 +2932,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.Node
   nameWithType: NodeSizeInFileBuilder.Node
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeGroupNode(System.String,System.Int32)
-  name: NodeGroupNode(string, int)
+  name: NodeGroupNode(string?, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_NodeGroupNode_System_String_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeGroupNode(System.String,System.Int32)
   name.vb: NodeGroupNode(String, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeGroupNode(string, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeGroupNode(string?, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeGroupNode(String, Integer)
-  nameWithType: NodeSizeInFileBuilder.NodeGroupNode(string, int)
+  nameWithType: NodeSizeInFileBuilder.NodeGroupNode(string?, int)
   nameWithType.vb: NodeSizeInFileBuilder.NodeGroupNode(String, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeGroupNode*
   name: NodeGroupNode
@@ -2945,13 +2948,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeGroupNode
   nameWithType: NodeSizeInFileBuilder.NodeGroupNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeReferenceNode(System.String,System.Int32,System.String)
-  name: NodeReferenceNode(string, int, string)
+  name: NodeReferenceNode(string?, int, string?)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_NodeReferenceNode_System_String_System_Int32_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeReferenceNode(System.String,System.Int32,System.String)
   name.vb: NodeReferenceNode(String, Integer, String)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeReferenceNode(string, int, string)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeReferenceNode(string?, int, string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeReferenceNode(String, Integer, String)
-  nameWithType: NodeSizeInFileBuilder.NodeReferenceNode(string, int, string)
+  nameWithType: NodeSizeInFileBuilder.NodeReferenceNode(string?, int, string?)
   nameWithType.vb: NodeSizeInFileBuilder.NodeReferenceNode(String, Integer, String)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeReferenceNode*
   name: NodeReferenceNode
@@ -2961,13 +2964,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeReferenceNode
   nameWithType: NodeSizeInFileBuilder.NodeReferenceNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeSwitchNode(System.String,System.Int32)
-  name: NodeSwitchNode(string, int)
+  name: NodeSwitchNode(string?, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_NodeSwitchNode_System_String_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeSwitchNode(System.String,System.Int32)
   name.vb: NodeSwitchNode(String, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeSwitchNode(string, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeSwitchNode(string?, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeSwitchNode(String, Integer)
-  nameWithType: NodeSizeInFileBuilder.NodeSwitchNode(string, int)
+  nameWithType: NodeSizeInFileBuilder.NodeSwitchNode(string?, int)
   nameWithType.vb: NodeSizeInFileBuilder.NodeSwitchNode(String, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.NodeSwitchNode*
   name: NodeSwitchNode
@@ -3006,13 +3009,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.OptFileNodes
   nameWithType: NodeSizeInFileBuilder.OptFileNodes
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.RotationScaleNode(System.String,System.Int32)
-  name: RotationScaleNode(string, int)
+  name: RotationScaleNode(string?, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_RotationScaleNode_System_String_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.RotationScaleNode(System.String,System.Int32)
   name.vb: RotationScaleNode(String, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.RotationScaleNode(string, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.RotationScaleNode(string?, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.RotationScaleNode(String, Integer)
-  nameWithType: NodeSizeInFileBuilder.RotationScaleNode(string, int)
+  nameWithType: NodeSizeInFileBuilder.RotationScaleNode(string?, int)
   nameWithType.vb: NodeSizeInFileBuilder.RotationScaleNode(String, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.RotationScaleNode*
   name: RotationScaleNode
@@ -3022,13 +3025,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.RotationScaleNode
   nameWithType: NodeSizeInFileBuilder.RotationScaleNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureAlphaNode(System.String,System.Int32,System.Int32)
-  name: TextureAlphaNode(string, int, int)
+  name: TextureAlphaNode(string?, int, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_TextureAlphaNode_System_String_System_Int32_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureAlphaNode(System.String,System.Int32,System.Int32)
   name.vb: TextureAlphaNode(String, Integer, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureAlphaNode(string, int, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureAlphaNode(string?, int, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureAlphaNode(String, Integer, Integer)
-  nameWithType: NodeSizeInFileBuilder.TextureAlphaNode(string, int, int)
+  nameWithType: NodeSizeInFileBuilder.TextureAlphaNode(string?, int, int)
   nameWithType.vb: NodeSizeInFileBuilder.TextureAlphaNode(String, Integer, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureAlphaNode*
   name: TextureAlphaNode
@@ -3038,13 +3041,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureAlphaNode
   nameWithType: NodeSizeInFileBuilder.TextureAlphaNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureCoordinatesNode(System.String,System.Int32,System.Int32)
-  name: TextureCoordinatesNode(string, int, int)
+  name: TextureCoordinatesNode(string?, int, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_TextureCoordinatesNode_System_String_System_Int32_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureCoordinatesNode(System.String,System.Int32,System.Int32)
   name.vb: TextureCoordinatesNode(String, Integer, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureCoordinatesNode(string, int, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureCoordinatesNode(string?, int, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureCoordinatesNode(String, Integer, Integer)
-  nameWithType: NodeSizeInFileBuilder.TextureCoordinatesNode(string, int, int)
+  nameWithType: NodeSizeInFileBuilder.TextureCoordinatesNode(string?, int, int)
   nameWithType.vb: NodeSizeInFileBuilder.TextureCoordinatesNode(String, Integer, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureCoordinatesNode*
   name: TextureCoordinatesNode
@@ -3054,13 +3057,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureCoordinatesNode
   nameWithType: NodeSizeInFileBuilder.TextureCoordinatesNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureNode(System.String,System.Int32,System.Int32,System.Int32)
-  name: TextureNode(string, int, int, int)
+  name: TextureNode(string?, int, int, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_TextureNode_System_String_System_Int32_System_Int32_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureNode(System.String,System.Int32,System.Int32,System.Int32)
   name.vb: TextureNode(String, Integer, Integer, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureNode(string, int, int, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureNode(string?, int, int, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureNode(String, Integer, Integer, Integer)
-  nameWithType: NodeSizeInFileBuilder.TextureNode(string, int, int, int)
+  nameWithType: NodeSizeInFileBuilder.TextureNode(string?, int, int, int)
   nameWithType.vb: NodeSizeInFileBuilder.TextureNode(String, Integer, Integer, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureNode*
   name: TextureNode
@@ -3070,13 +3073,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.TextureNode
   nameWithType: NodeSizeInFileBuilder.TextureNode
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.VertexNormalsNode(System.String,System.Int32,System.Int32)
-  name: VertexNormalsNode(string, int, int)
+  name: VertexNormalsNode(string?, int, int)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html#JeremyAnsel_Xwa_Opt_Nodes_NodeSizeInFileBuilder_VertexNormalsNode_System_String_System_Int32_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.VertexNormalsNode(System.String,System.Int32,System.Int32)
   name.vb: VertexNormalsNode(String, Integer, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.VertexNormalsNode(string, int, int)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.VertexNormalsNode(string?, int, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.VertexNormalsNode(String, Integer, Integer)
-  nameWithType: NodeSizeInFileBuilder.VertexNormalsNode(string, int, int)
+  nameWithType: NodeSizeInFileBuilder.VertexNormalsNode(string?, int, int)
   nameWithType.vb: NodeSizeInFileBuilder.VertexNormalsNode(String, Integer, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.VertexNormalsNode*
   name: VertexNormalsNode
@@ -3168,13 +3171,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FileSize
   nameWithType: OptFileNodes.FileSize
 - uid: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromFile(System.String)
-  name: FromFile(string)
+  name: FromFile(string?)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.html#JeremyAnsel_Xwa_Opt_Nodes_OptFileNodes_FromFile_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromFile(System.String)
   name.vb: FromFile(String)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromFile(string)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromFile(string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromFile(String)
-  nameWithType: OptFileNodes.FromFile(string)
+  nameWithType: OptFileNodes.FromFile(string?)
   nameWithType.vb: OptFileNodes.FromFile(String)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromFile*
   name: FromFile
@@ -3184,11 +3187,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromFile
   nameWithType: OptFileNodes.FromFile
 - uid: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromStream(System.IO.Stream)
-  name: FromStream(Stream)
+  name: FromStream(Stream?)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.html#JeremyAnsel_Xwa_Opt_Nodes_OptFileNodes_FromStream_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromStream(System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromStream(System.IO.Stream)
-  nameWithType: OptFileNodes.FromStream(Stream)
+  name.vb: FromStream(Stream)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromStream(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromStream(System.IO.Stream)
+  nameWithType: OptFileNodes.FromStream(Stream?)
+  nameWithType.vb: OptFileNodes.FromStream(Stream)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.FromStream*
   name: FromStream
   href: api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.html#JeremyAnsel_Xwa_Opt_Nodes_OptFileNodes_FromStream_
@@ -3210,22 +3216,22 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Nodes
   nameWithType: OptFileNodes.Nodes
 - uid: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Save(System.IO.Stream,System.Boolean)
-  name: Save(Stream, bool)
+  name: Save(Stream?, bool)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.html#JeremyAnsel_Xwa_Opt_Nodes_OptFileNodes_Save_System_IO_Stream_System_Boolean_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Save(System.IO.Stream,System.Boolean)
   name.vb: Save(Stream, Boolean)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Save(System.IO.Stream, bool)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Save(System.IO.Stream?, bool)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Save(System.IO.Stream, Boolean)
-  nameWithType: OptFileNodes.Save(Stream, bool)
+  nameWithType: OptFileNodes.Save(Stream?, bool)
   nameWithType.vb: OptFileNodes.Save(Stream, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Save(System.String,System.Boolean)
-  name: Save(string, bool)
+  name: Save(string?, bool)
   href: api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.html#JeremyAnsel_Xwa_Opt_Nodes_OptFileNodes_Save_System_String_System_Boolean_
   commentId: M:JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Save(System.String,System.Boolean)
   name.vb: Save(String, Boolean)
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Save(string, bool)
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Save(string?, bool)
   fullName.vb: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Save(String, Boolean)
-  nameWithType: OptFileNodes.Save(string, bool)
+  nameWithType: OptFileNodes.Save(string?, bool)
   nameWithType.vb: OptFileNodes.Save(String, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.Save*
   name: Save
@@ -3503,6 +3509,12 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.Nodes.TextureNode.DataSize
   nameWithType: TextureNode.DataSize
+- uid: JeremyAnsel.Xwa.Opt.Nodes.TextureNode.DefaultPaletteLength
+  name: DefaultPaletteLength
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.TextureNode.html#JeremyAnsel_Xwa_Opt_Nodes_TextureNode_DefaultPaletteLength
+  commentId: F:JeremyAnsel.Xwa.Opt.Nodes.TextureNode.DefaultPaletteLength
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.TextureNode.DefaultPaletteLength
+  nameWithType: TextureNode.DefaultPaletteLength
 - uid: JeremyAnsel.Xwa.Opt.Nodes.TextureNode.Height
   name: Height
   href: api/JeremyAnsel.Xwa.Opt.Nodes.TextureNode.html#JeremyAnsel_Xwa_Opt_Nodes_TextureNode_Height
@@ -3873,22 +3885,22 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.OptFile.FileName
   nameWithType: OptFile.FileName
 - uid: JeremyAnsel.Xwa.Opt.OptFile.FromFile(System.String)
-  name: FromFile(string)
+  name: FromFile(string?)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_FromFile_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.FromFile(System.String)
   name.vb: FromFile(String)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.FromFile(string)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.FromFile(string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.FromFile(String)
-  nameWithType: OptFile.FromFile(string)
+  nameWithType: OptFile.FromFile(string?)
   nameWithType.vb: OptFile.FromFile(String)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.FromFile(System.String,System.Boolean)
-  name: FromFile(string, bool)
+  name: FromFile(string?, bool)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_FromFile_System_String_System_Boolean_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.FromFile(System.String,System.Boolean)
   name.vb: FromFile(String, Boolean)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.FromFile(string, bool)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.FromFile(string?, bool)
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.FromFile(String, Boolean)
-  nameWithType: OptFile.FromFile(string, bool)
+  nameWithType: OptFile.FromFile(string?, bool)
   nameWithType.vb: OptFile.FromFile(String, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.FromFile*
   name: FromFile
@@ -3898,19 +3910,22 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.OptFile.FromFile
   nameWithType: OptFile.FromFile
 - uid: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream)
-  name: FromStream(Stream)
+  name: FromStream(Stream?)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_FromStream_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream)
-  nameWithType: OptFile.FromStream(Stream)
+  name.vb: FromStream(Stream)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream)
+  nameWithType: OptFile.FromStream(Stream?)
+  nameWithType.vb: OptFile.FromStream(Stream)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream,System.Boolean)
-  name: FromStream(Stream, bool)
+  name: FromStream(Stream?, bool)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_FromStream_System_IO_Stream_System_Boolean_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream,System.Boolean)
   name.vb: FromStream(Stream, Boolean)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream, bool)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream?, bool)
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.FromStream(System.IO.Stream, Boolean)
-  nameWithType: OptFile.FromStream(Stream, bool)
+  nameWithType: OptFile.FromStream(Stream?, bool)
   nameWithType.vb: OptFile.FromStream(Stream, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.FromStream*
   name: FromStream
@@ -4020,13 +4035,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.OptFile.MaxTextureVersion
   nameWithType: OptFile.MaxTextureVersion
 - uid: JeremyAnsel.Xwa.Opt.OptFile.MergeMeshes(System.Collections.Generic.IEnumerable{JeremyAnsel.Xwa.Opt.Mesh})
-  name: MergeMeshes(IEnumerable<Mesh>)
+  name: MergeMeshes(IEnumerable<Mesh>?)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_MergeMeshes_System_Collections_Generic_IEnumerable_JeremyAnsel_Xwa_Opt_Mesh__
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.MergeMeshes(System.Collections.Generic.IEnumerable{JeremyAnsel.Xwa.Opt.Mesh})
   name.vb: MergeMeshes(IEnumerable(Of Mesh))
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.MergeMeshes(System.Collections.Generic.IEnumerable<JeremyAnsel.Xwa.Opt.Mesh>)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.MergeMeshes(System.Collections.Generic.IEnumerable<JeremyAnsel.Xwa.Opt.Mesh>?)
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.MergeMeshes(System.Collections.Generic.IEnumerable(Of JeremyAnsel.Xwa.Opt.Mesh))
-  nameWithType: OptFile.MergeMeshes(IEnumerable<Mesh>)
+  nameWithType: OptFile.MergeMeshes(IEnumerable<Mesh>?)
   nameWithType.vb: OptFile.MergeMeshes(IEnumerable(Of Mesh))
 - uid: JeremyAnsel.Xwa.Opt.OptFile.MergeMeshes*
   name: MergeMeshes
@@ -4104,73 +4119,76 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.OptFile.RemoveUnusedTextures
   nameWithType: OptFile.RemoveUnusedTextures
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream)
-  name: Save(Stream)
+  name: Save(Stream?)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream)
-  nameWithType: OptFile.Save(Stream)
+  name.vb: Save(Stream)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream)
+  nameWithType: OptFile.Save(Stream?)
+  nameWithType.vb: OptFile.Save(Stream)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream,System.Boolean)
-  name: Save(Stream, bool)
+  name: Save(Stream?, bool)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_IO_Stream_System_Boolean_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream,System.Boolean)
   name.vb: Save(Stream, Boolean)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream, bool)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream?, bool)
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream, Boolean)
-  nameWithType: OptFile.Save(Stream, bool)
+  nameWithType: OptFile.Save(Stream?, bool)
   nameWithType.vb: OptFile.Save(Stream, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream,System.Boolean,System.Boolean)
-  name: Save(Stream, bool, bool)
+  name: Save(Stream?, bool, bool)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_IO_Stream_System_Boolean_System_Boolean_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream,System.Boolean,System.Boolean)
   name.vb: Save(Stream, Boolean, Boolean)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream, bool, bool)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream?, bool, bool)
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream, Boolean, Boolean)
-  nameWithType: OptFile.Save(Stream, bool, bool)
+  nameWithType: OptFile.Save(Stream?, bool, bool)
   nameWithType.vb: OptFile.Save(Stream, Boolean, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream,System.Boolean,System.Boolean,System.Boolean)
-  name: Save(Stream, bool, bool, bool)
+  name: Save(Stream?, bool, bool, bool)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_IO_Stream_System_Boolean_System_Boolean_System_Boolean_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream,System.Boolean,System.Boolean,System.Boolean)
   name.vb: Save(Stream, Boolean, Boolean, Boolean)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream, bool, bool, bool)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream?, bool, bool, bool)
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.Save(System.IO.Stream, Boolean, Boolean, Boolean)
-  nameWithType: OptFile.Save(Stream, bool, bool, bool)
+  nameWithType: OptFile.Save(Stream?, bool, bool, bool)
   nameWithType.vb: OptFile.Save(Stream, Boolean, Boolean, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.String)
-  name: Save(string)
+  name: Save(string?)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.Save(System.String)
   name.vb: Save(String)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(string)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.Save(String)
-  nameWithType: OptFile.Save(string)
+  nameWithType: OptFile.Save(string?)
   nameWithType.vb: OptFile.Save(String)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.String,System.Boolean)
-  name: Save(string, bool)
+  name: Save(string?, bool)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_String_System_Boolean_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.Save(System.String,System.Boolean)
   name.vb: Save(String, Boolean)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(string, bool)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(string?, bool)
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.Save(String, Boolean)
-  nameWithType: OptFile.Save(string, bool)
+  nameWithType: OptFile.Save(string?, bool)
   nameWithType.vb: OptFile.Save(String, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.String,System.Boolean,System.Boolean)
-  name: Save(string, bool, bool)
+  name: Save(string?, bool, bool)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_String_System_Boolean_System_Boolean_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.Save(System.String,System.Boolean,System.Boolean)
   name.vb: Save(String, Boolean, Boolean)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(string, bool, bool)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(string?, bool, bool)
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.Save(String, Boolean, Boolean)
-  nameWithType: OptFile.Save(string, bool, bool)
+  nameWithType: OptFile.Save(string?, bool, bool)
   nameWithType.vb: OptFile.Save(String, Boolean, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save(System.String,System.Boolean,System.Boolean,System.Boolean)
-  name: Save(string, bool, bool, bool)
+  name: Save(string?, bool, bool, bool)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_Save_System_String_System_Boolean_System_Boolean_System_Boolean_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.Save(System.String,System.Boolean,System.Boolean,System.Boolean)
   name.vb: Save(String, Boolean, Boolean, Boolean)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(string, bool, bool, bool)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.Save(string?, bool, bool, bool)
   fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.Save(String, Boolean, Boolean, Boolean)
-  nameWithType: OptFile.Save(string, bool, bool, bool)
+  nameWithType: OptFile.Save(string?, bool, bool, bool)
   nameWithType.vb: OptFile.Save(String, Boolean, Boolean, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.Save*
   name: Save
@@ -4237,11 +4255,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.OptFile.SpanSize
   nameWithType: OptFile.SpanSize
 - uid: JeremyAnsel.Xwa.Opt.OptFile.SplitMesh(JeremyAnsel.Xwa.Opt.Mesh)
-  name: SplitMesh(Mesh)
+  name: SplitMesh(Mesh?)
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_SplitMesh_JeremyAnsel_Xwa_Opt_Mesh_
   commentId: M:JeremyAnsel.Xwa.Opt.OptFile.SplitMesh(JeremyAnsel.Xwa.Opt.Mesh)
-  fullName: JeremyAnsel.Xwa.Opt.OptFile.SplitMesh(JeremyAnsel.Xwa.Opt.Mesh)
-  nameWithType: OptFile.SplitMesh(Mesh)
+  name.vb: SplitMesh(Mesh)
+  fullName: JeremyAnsel.Xwa.Opt.OptFile.SplitMesh(JeremyAnsel.Xwa.Opt.Mesh?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.OptFile.SplitMesh(JeremyAnsel.Xwa.Opt.Mesh)
+  nameWithType: OptFile.SplitMesh(Mesh?)
+  nameWithType.vb: OptFile.SplitMesh(Mesh)
 - uid: JeremyAnsel.Xwa.Opt.OptFile.SplitMesh*
   name: SplitMesh
   href: api/JeremyAnsel.Xwa.Opt.OptFile.html#JeremyAnsel_Xwa_Opt_OptFile_SplitMesh_
@@ -4295,11 +4316,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker
   nameWithType: PlayabilityChecker
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckEngineGlows(JeremyAnsel.Xwa.Opt.OptFile)
-  name: CheckEngineGlows(OptFile)
+  name: CheckEngineGlows(OptFile?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckEngineGlows_JeremyAnsel_Xwa_Opt_OptFile_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckEngineGlows(JeremyAnsel.Xwa.Opt.OptFile)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckEngineGlows(JeremyAnsel.Xwa.Opt.OptFile)
-  nameWithType: PlayabilityChecker.CheckEngineGlows(OptFile)
+  name.vb: CheckEngineGlows(OptFile)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckEngineGlows(JeremyAnsel.Xwa.Opt.OptFile?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckEngineGlows(JeremyAnsel.Xwa.Opt.OptFile)
+  nameWithType: PlayabilityChecker.CheckEngineGlows(OptFile?)
+  nameWithType.vb: PlayabilityChecker.CheckEngineGlows(OptFile)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckEngineGlows*
   name: CheckEngineGlows
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckEngineGlows_
@@ -4308,11 +4332,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckEngineGlows
   nameWithType: PlayabilityChecker.CheckEngineGlows
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckFlatTextures(JeremyAnsel.Xwa.Opt.OptFile)
-  name: CheckFlatTextures(OptFile)
+  name: CheckFlatTextures(OptFile?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckFlatTextures_JeremyAnsel_Xwa_Opt_OptFile_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckFlatTextures(JeremyAnsel.Xwa.Opt.OptFile)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckFlatTextures(JeremyAnsel.Xwa.Opt.OptFile)
-  nameWithType: PlayabilityChecker.CheckFlatTextures(OptFile)
+  name.vb: CheckFlatTextures(OptFile)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckFlatTextures(JeremyAnsel.Xwa.Opt.OptFile?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckFlatTextures(JeremyAnsel.Xwa.Opt.OptFile)
+  nameWithType: PlayabilityChecker.CheckFlatTextures(OptFile?)
+  nameWithType.vb: PlayabilityChecker.CheckFlatTextures(OptFile)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckFlatTextures*
   name: CheckFlatTextures
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckFlatTextures_
@@ -4321,11 +4348,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckFlatTextures
   nameWithType: PlayabilityChecker.CheckFlatTextures
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckGeometry(JeremyAnsel.Xwa.Opt.OptFile)
-  name: CheckGeometry(OptFile)
+  name: CheckGeometry(OptFile?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckGeometry_JeremyAnsel_Xwa_Opt_OptFile_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckGeometry(JeremyAnsel.Xwa.Opt.OptFile)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckGeometry(JeremyAnsel.Xwa.Opt.OptFile)
-  nameWithType: PlayabilityChecker.CheckGeometry(OptFile)
+  name.vb: CheckGeometry(OptFile)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckGeometry(JeremyAnsel.Xwa.Opt.OptFile?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckGeometry(JeremyAnsel.Xwa.Opt.OptFile)
+  nameWithType: PlayabilityChecker.CheckGeometry(OptFile?)
+  nameWithType.vb: PlayabilityChecker.CheckGeometry(OptFile)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckGeometry*
   name: CheckGeometry
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckGeometry_
@@ -4334,11 +4364,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckGeometry
   nameWithType: PlayabilityChecker.CheckGeometry
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckHardpoints(JeremyAnsel.Xwa.Opt.OptFile)
-  name: CheckHardpoints(OptFile)
+  name: CheckHardpoints(OptFile?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckHardpoints_JeremyAnsel_Xwa_Opt_OptFile_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckHardpoints(JeremyAnsel.Xwa.Opt.OptFile)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckHardpoints(JeremyAnsel.Xwa.Opt.OptFile)
-  nameWithType: PlayabilityChecker.CheckHardpoints(OptFile)
+  name.vb: CheckHardpoints(OptFile)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckHardpoints(JeremyAnsel.Xwa.Opt.OptFile?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckHardpoints(JeremyAnsel.Xwa.Opt.OptFile)
+  nameWithType: PlayabilityChecker.CheckHardpoints(OptFile?)
+  nameWithType.vb: PlayabilityChecker.CheckHardpoints(OptFile)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckHardpoints*
   name: CheckHardpoints
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckHardpoints_
@@ -4347,11 +4380,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckHardpoints
   nameWithType: PlayabilityChecker.CheckHardpoints
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckPlayability(JeremyAnsel.Xwa.Opt.OptFile)
-  name: CheckPlayability(OptFile)
+  name: CheckPlayability(OptFile?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckPlayability_JeremyAnsel_Xwa_Opt_OptFile_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckPlayability(JeremyAnsel.Xwa.Opt.OptFile)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckPlayability(JeremyAnsel.Xwa.Opt.OptFile)
-  nameWithType: PlayabilityChecker.CheckPlayability(OptFile)
+  name.vb: CheckPlayability(OptFile)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckPlayability(JeremyAnsel.Xwa.Opt.OptFile?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckPlayability(JeremyAnsel.Xwa.Opt.OptFile)
+  nameWithType: PlayabilityChecker.CheckPlayability(OptFile?)
+  nameWithType.vb: PlayabilityChecker.CheckPlayability(OptFile)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckPlayability*
   name: CheckPlayability
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckPlayability_
@@ -4360,11 +4396,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckPlayability
   nameWithType: PlayabilityChecker.CheckPlayability
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckTextures(JeremyAnsel.Xwa.Opt.OptFile)
-  name: CheckTextures(OptFile)
+  name: CheckTextures(OptFile?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckTextures_JeremyAnsel_Xwa_Opt_OptFile_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckTextures(JeremyAnsel.Xwa.Opt.OptFile)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckTextures(JeremyAnsel.Xwa.Opt.OptFile)
-  nameWithType: PlayabilityChecker.CheckTextures(OptFile)
+  name.vb: CheckTextures(OptFile)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckTextures(JeremyAnsel.Xwa.Opt.OptFile?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckTextures(JeremyAnsel.Xwa.Opt.OptFile)
+  nameWithType: PlayabilityChecker.CheckTextures(OptFile?)
+  nameWithType.vb: PlayabilityChecker.CheckTextures(OptFile)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckTextures*
   name: CheckTextures
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_CheckTextures_
@@ -4373,11 +4412,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.CheckTextures
   nameWithType: PlayabilityChecker.CheckTextures
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.OptInformations(JeremyAnsel.Xwa.Opt.OptFile)
-  name: OptInformations(OptFile)
+  name: OptInformations(OptFile?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_OptInformations_JeremyAnsel_Xwa_Opt_OptFile_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityChecker.OptInformations(JeremyAnsel.Xwa.Opt.OptFile)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.OptInformations(JeremyAnsel.Xwa.Opt.OptFile)
-  nameWithType: PlayabilityChecker.OptInformations(OptFile)
+  name.vb: OptInformations(OptFile)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityChecker.OptInformations(JeremyAnsel.Xwa.Opt.OptFile?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityChecker.OptInformations(JeremyAnsel.Xwa.Opt.OptFile)
+  nameWithType: PlayabilityChecker.OptInformations(OptFile?)
+  nameWithType.vb: PlayabilityChecker.OptInformations(OptFile)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityChecker.OptInformations*
   name: OptInformations
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html#JeremyAnsel_Xwa_Opt_PlayabilityChecker_OptInformations_
@@ -4392,13 +4434,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage
   nameWithType: PlayabilityMessage
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.#ctor(JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel,System.String,System.String,System.Object[])
-  name: PlayabilityMessage(PlayabilityMessageLevel, string, string, params object[])
+  name: PlayabilityMessage(PlayabilityMessageLevel, string, string, params object?[])
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage__ctor_JeremyAnsel_Xwa_Opt_PlayabilityMessageLevel_System_String_System_String_System_Object___
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.#ctor(JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel,System.String,System.String,System.Object[])
   name.vb: New(PlayabilityMessageLevel, String, String, ParamArray Object())
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.PlayabilityMessage(JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel, string, string, params object[])
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.PlayabilityMessage(JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel, string, string, params object?[])
   fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.New(JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel, String, String, ParamArray Object())
-  nameWithType: PlayabilityMessage.PlayabilityMessage(PlayabilityMessageLevel, string, string, params object[])
+  nameWithType: PlayabilityMessage.PlayabilityMessage(PlayabilityMessageLevel, string, string, params object?[])
   nameWithType.vb: PlayabilityMessage.New(PlayabilityMessageLevel, String, String, ParamArray Object())
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.#ctor*
   name: PlayabilityMessage
@@ -4424,11 +4466,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Category
   nameWithType: PlayabilityMessage.Category
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Compare(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  name: Compare(PlayabilityMessage, PlayabilityMessage)
+  name: Compare(PlayabilityMessage?, PlayabilityMessage?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_Compare_JeremyAnsel_Xwa_Opt_PlayabilityMessage_JeremyAnsel_Xwa_Opt_PlayabilityMessage_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.Compare(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Compare(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  nameWithType: PlayabilityMessage.Compare(PlayabilityMessage, PlayabilityMessage)
+  name.vb: Compare(PlayabilityMessage, PlayabilityMessage)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Compare(JeremyAnsel.Xwa.Opt.PlayabilityMessage?, JeremyAnsel.Xwa.Opt.PlayabilityMessage?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Compare(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
+  nameWithType: PlayabilityMessage.Compare(PlayabilityMessage?, PlayabilityMessage?)
+  nameWithType.vb: PlayabilityMessage.Compare(PlayabilityMessage, PlayabilityMessage)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Compare*
   name: Compare
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_Compare_
@@ -4437,19 +4482,22 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Compare
   nameWithType: PlayabilityMessage.Compare
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo(JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  name: CompareTo(PlayabilityMessage)
+  name: CompareTo(PlayabilityMessage?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_CompareTo_JeremyAnsel_Xwa_Opt_PlayabilityMessage_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo(JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo(JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  nameWithType: PlayabilityMessage.CompareTo(PlayabilityMessage)
+  name.vb: CompareTo(PlayabilityMessage)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo(JeremyAnsel.Xwa.Opt.PlayabilityMessage?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo(JeremyAnsel.Xwa.Opt.PlayabilityMessage)
+  nameWithType: PlayabilityMessage.CompareTo(PlayabilityMessage?)
+  nameWithType.vb: PlayabilityMessage.CompareTo(PlayabilityMessage)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo(System.Object)
-  name: CompareTo(object)
+  name: CompareTo(object?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_CompareTo_System_Object_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo(System.Object)
   name.vb: CompareTo(Object)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo(object)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo(object?)
   fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo(Object)
-  nameWithType: PlayabilityMessage.CompareTo(object)
+  nameWithType: PlayabilityMessage.CompareTo(object?)
   nameWithType.vb: PlayabilityMessage.CompareTo(Object)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo*
   name: CompareTo
@@ -4459,19 +4507,22 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.CompareTo
   nameWithType: PlayabilityMessage.CompareTo
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Equals(JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  name: Equals(PlayabilityMessage)
+  name: Equals(PlayabilityMessage?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_Equals_JeremyAnsel_Xwa_Opt_PlayabilityMessage_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.Equals(JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Equals(JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  nameWithType: PlayabilityMessage.Equals(PlayabilityMessage)
+  name.vb: Equals(PlayabilityMessage)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Equals(JeremyAnsel.Xwa.Opt.PlayabilityMessage?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Equals(JeremyAnsel.Xwa.Opt.PlayabilityMessage)
+  nameWithType: PlayabilityMessage.Equals(PlayabilityMessage?)
+  nameWithType.vb: PlayabilityMessage.Equals(PlayabilityMessage)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Equals(System.Object)
-  name: Equals(object)
+  name: Equals(object?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_Equals_System_Object_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Equals(object)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Equals(object?)
   fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Equals(Object)
-  nameWithType: PlayabilityMessage.Equals(object)
+  nameWithType: PlayabilityMessage.Equals(object?)
   nameWithType.vb: PlayabilityMessage.Equals(Object)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.Equals*
   name: Equals
@@ -4533,13 +4584,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.ToString
   nameWithType: PlayabilityMessage.ToString
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_Equality(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  name: operator ==(PlayabilityMessage, PlayabilityMessage)
+  name: operator ==(PlayabilityMessage?, PlayabilityMessage?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_op_Equality_JeremyAnsel_Xwa_Opt_PlayabilityMessage_JeremyAnsel_Xwa_Opt_PlayabilityMessage_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_Equality(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
   name.vb: =(PlayabilityMessage, PlayabilityMessage)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator ==(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator ==(JeremyAnsel.Xwa.Opt.PlayabilityMessage?, JeremyAnsel.Xwa.Opt.PlayabilityMessage?)
   fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.=(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  nameWithType: PlayabilityMessage.operator ==(PlayabilityMessage, PlayabilityMessage)
+  nameWithType: PlayabilityMessage.operator ==(PlayabilityMessage?, PlayabilityMessage?)
   nameWithType.vb: PlayabilityMessage.=(PlayabilityMessage, PlayabilityMessage)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_Equality*
   name: operator ==
@@ -4552,13 +4603,13 @@ references:
   nameWithType: PlayabilityMessage.operator ==
   nameWithType.vb: PlayabilityMessage.=
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_GreaterThan(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  name: operator >(PlayabilityMessage, PlayabilityMessage)
+  name: operator >(PlayabilityMessage?, PlayabilityMessage?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_op_GreaterThan_JeremyAnsel_Xwa_Opt_PlayabilityMessage_JeremyAnsel_Xwa_Opt_PlayabilityMessage_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_GreaterThan(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
   name.vb: '>(PlayabilityMessage, PlayabilityMessage)'
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator >(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator >(JeremyAnsel.Xwa.Opt.PlayabilityMessage?, JeremyAnsel.Xwa.Opt.PlayabilityMessage?)
   fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.>(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  nameWithType: PlayabilityMessage.operator >(PlayabilityMessage, PlayabilityMessage)
+  nameWithType: PlayabilityMessage.operator >(PlayabilityMessage?, PlayabilityMessage?)
   nameWithType.vb: PlayabilityMessage.>(PlayabilityMessage, PlayabilityMessage)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_GreaterThan*
   name: operator >
@@ -4571,13 +4622,13 @@ references:
   nameWithType: PlayabilityMessage.operator >
   nameWithType.vb: PlayabilityMessage.>
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_GreaterThanOrEqual(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  name: operator >=(PlayabilityMessage, PlayabilityMessage)
+  name: operator >=(PlayabilityMessage?, PlayabilityMessage?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_op_GreaterThanOrEqual_JeremyAnsel_Xwa_Opt_PlayabilityMessage_JeremyAnsel_Xwa_Opt_PlayabilityMessage_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_GreaterThanOrEqual(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
   name.vb: '>=(PlayabilityMessage, PlayabilityMessage)'
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator >=(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator >=(JeremyAnsel.Xwa.Opt.PlayabilityMessage?, JeremyAnsel.Xwa.Opt.PlayabilityMessage?)
   fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.>=(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  nameWithType: PlayabilityMessage.operator >=(PlayabilityMessage, PlayabilityMessage)
+  nameWithType: PlayabilityMessage.operator >=(PlayabilityMessage?, PlayabilityMessage?)
   nameWithType.vb: PlayabilityMessage.>=(PlayabilityMessage, PlayabilityMessage)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_GreaterThanOrEqual*
   name: operator >=
@@ -4590,13 +4641,13 @@ references:
   nameWithType: PlayabilityMessage.operator >=
   nameWithType.vb: PlayabilityMessage.>=
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_Inequality(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  name: operator !=(PlayabilityMessage, PlayabilityMessage)
+  name: operator !=(PlayabilityMessage?, PlayabilityMessage?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_op_Inequality_JeremyAnsel_Xwa_Opt_PlayabilityMessage_JeremyAnsel_Xwa_Opt_PlayabilityMessage_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_Inequality(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
   name.vb: <>(PlayabilityMessage, PlayabilityMessage)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator !=(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator !=(JeremyAnsel.Xwa.Opt.PlayabilityMessage?, JeremyAnsel.Xwa.Opt.PlayabilityMessage?)
   fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.<>(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  nameWithType: PlayabilityMessage.operator !=(PlayabilityMessage, PlayabilityMessage)
+  nameWithType: PlayabilityMessage.operator !=(PlayabilityMessage?, PlayabilityMessage?)
   nameWithType.vb: PlayabilityMessage.<>(PlayabilityMessage, PlayabilityMessage)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_Inequality*
   name: operator !=
@@ -4609,13 +4660,13 @@ references:
   nameWithType: PlayabilityMessage.operator !=
   nameWithType.vb: PlayabilityMessage.<>
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_LessThan(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  name: operator <(PlayabilityMessage, PlayabilityMessage)
+  name: operator <(PlayabilityMessage?, PlayabilityMessage?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_op_LessThan_JeremyAnsel_Xwa_Opt_PlayabilityMessage_JeremyAnsel_Xwa_Opt_PlayabilityMessage_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_LessThan(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
   name.vb: <(PlayabilityMessage, PlayabilityMessage)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator <(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator <(JeremyAnsel.Xwa.Opt.PlayabilityMessage?, JeremyAnsel.Xwa.Opt.PlayabilityMessage?)
   fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.<(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  nameWithType: PlayabilityMessage.operator <(PlayabilityMessage, PlayabilityMessage)
+  nameWithType: PlayabilityMessage.operator <(PlayabilityMessage?, PlayabilityMessage?)
   nameWithType.vb: PlayabilityMessage.<(PlayabilityMessage, PlayabilityMessage)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_LessThan*
   name: operator <
@@ -4628,13 +4679,13 @@ references:
   nameWithType: PlayabilityMessage.operator <
   nameWithType.vb: PlayabilityMessage.<
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_LessThanOrEqual(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  name: operator <=(PlayabilityMessage, PlayabilityMessage)
+  name: operator <=(PlayabilityMessage?, PlayabilityMessage?)
   href: api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html#JeremyAnsel_Xwa_Opt_PlayabilityMessage_op_LessThanOrEqual_JeremyAnsel_Xwa_Opt_PlayabilityMessage_JeremyAnsel_Xwa_Opt_PlayabilityMessage_
   commentId: M:JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_LessThanOrEqual(JeremyAnsel.Xwa.Opt.PlayabilityMessage,JeremyAnsel.Xwa.Opt.PlayabilityMessage)
   name.vb: <=(PlayabilityMessage, PlayabilityMessage)
-  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator <=(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
+  fullName: JeremyAnsel.Xwa.Opt.PlayabilityMessage.operator <=(JeremyAnsel.Xwa.Opt.PlayabilityMessage?, JeremyAnsel.Xwa.Opt.PlayabilityMessage?)
   fullName.vb: JeremyAnsel.Xwa.Opt.PlayabilityMessage.<=(JeremyAnsel.Xwa.Opt.PlayabilityMessage, JeremyAnsel.Xwa.Opt.PlayabilityMessage)
-  nameWithType: PlayabilityMessage.operator <=(PlayabilityMessage, PlayabilityMessage)
+  nameWithType: PlayabilityMessage.operator <=(PlayabilityMessage?, PlayabilityMessage?)
   nameWithType.vb: PlayabilityMessage.<=(PlayabilityMessage, PlayabilityMessage)
 - uid: JeremyAnsel.Xwa.Opt.PlayabilityMessage.op_LessThanOrEqual*
   name: operator <=
@@ -4799,11 +4850,14 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Texture.AlphaIllumData
   nameWithType: Texture.AlphaIllumData
 - uid: JeremyAnsel.Xwa.Opt.Texture.AreEquals(JeremyAnsel.Xwa.Opt.Texture,JeremyAnsel.Xwa.Opt.Texture)
-  name: AreEquals(Texture, Texture)
+  name: AreEquals(Texture?, Texture?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_AreEquals_JeremyAnsel_Xwa_Opt_Texture_JeremyAnsel_Xwa_Opt_Texture_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.AreEquals(JeremyAnsel.Xwa.Opt.Texture,JeremyAnsel.Xwa.Opt.Texture)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.AreEquals(JeremyAnsel.Xwa.Opt.Texture, JeremyAnsel.Xwa.Opt.Texture)
-  nameWithType: Texture.AreEquals(Texture, Texture)
+  name.vb: AreEquals(Texture, Texture)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.AreEquals(JeremyAnsel.Xwa.Opt.Texture?, JeremyAnsel.Xwa.Opt.Texture?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.AreEquals(JeremyAnsel.Xwa.Opt.Texture, JeremyAnsel.Xwa.Opt.Texture)
+  nameWithType: Texture.AreEquals(Texture?, Texture?)
+  nameWithType.vb: Texture.AreEquals(Texture, Texture)
 - uid: JeremyAnsel.Xwa.Opt.Texture.AreEquals*
   name: AreEquals
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_AreEquals_
@@ -4885,32 +4939,38 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.Texture.Convert8To32
   nameWithType: Texture.Convert8To32
+- uid: JeremyAnsel.Xwa.Opt.Texture.DefaultPaletteLength
+  name: DefaultPaletteLength
+  href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_DefaultPaletteLength
+  commentId: F:JeremyAnsel.Xwa.Opt.Texture.DefaultPaletteLength
+  fullName: JeremyAnsel.Xwa.Opt.Texture.DefaultPaletteLength
+  nameWithType: Texture.DefaultPaletteLength
 - uid: JeremyAnsel.Xwa.Opt.Texture.FromFile(System.String)
-  name: FromFile(string)
+  name: FromFile(string?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_FromFile_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.FromFile(System.String)
   name.vb: FromFile(String)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.FromFile(string)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.FromFile(string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.FromFile(String)
-  nameWithType: Texture.FromFile(string)
+  nameWithType: Texture.FromFile(string?)
   nameWithType.vb: Texture.FromFile(String)
 - uid: JeremyAnsel.Xwa.Opt.Texture.FromFile(System.String,System.String)
-  name: FromFile(string, string)
+  name: FromFile(string?, string?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_FromFile_System_String_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.FromFile(System.String,System.String)
   name.vb: FromFile(String, String)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.FromFile(string, string)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.FromFile(string?, string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.FromFile(String, String)
-  nameWithType: Texture.FromFile(string, string)
+  nameWithType: Texture.FromFile(string?, string?)
   nameWithType.vb: Texture.FromFile(String, String)
 - uid: JeremyAnsel.Xwa.Opt.Texture.FromFile(System.String,System.String,System.String)
-  name: FromFile(string, string, string)
+  name: FromFile(string?, string?, string?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_FromFile_System_String_System_String_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.FromFile(System.String,System.String,System.String)
   name.vb: FromFile(String, String, String)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.FromFile(string, string, string)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.FromFile(string?, string?, string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.FromFile(String, String, String)
-  nameWithType: Texture.FromFile(string, string, string)
+  nameWithType: Texture.FromFile(string?, string?, string?)
   nameWithType.vb: Texture.FromFile(String, String, String)
 - uid: JeremyAnsel.Xwa.Opt.Texture.FromFile*
   name: FromFile
@@ -4920,23 +4980,32 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Texture.FromFile
   nameWithType: Texture.FromFile
 - uid: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream)
-  name: FromStream(Stream)
+  name: FromStream(Stream?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_FromStream_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream)
-  nameWithType: Texture.FromStream(Stream)
+  name.vb: FromStream(Stream)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream)
+  nameWithType: Texture.FromStream(Stream?)
+  nameWithType.vb: Texture.FromStream(Stream)
 - uid: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream,System.IO.Stream)
-  name: FromStream(Stream, Stream)
+  name: FromStream(Stream?, Stream?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_FromStream_System_IO_Stream_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream,System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream, System.IO.Stream)
-  nameWithType: Texture.FromStream(Stream, Stream)
+  name.vb: FromStream(Stream, Stream)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream?, System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream, System.IO.Stream)
+  nameWithType: Texture.FromStream(Stream?, Stream?)
+  nameWithType.vb: Texture.FromStream(Stream, Stream)
 - uid: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream,System.IO.Stream,System.IO.Stream)
-  name: FromStream(Stream, Stream, Stream)
+  name: FromStream(Stream?, Stream?, Stream?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_FromStream_System_IO_Stream_System_IO_Stream_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream,System.IO.Stream,System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream, System.IO.Stream, System.IO.Stream)
-  nameWithType: Texture.FromStream(Stream, Stream, Stream)
+  name.vb: FromStream(Stream, Stream, Stream)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream?, System.IO.Stream?, System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.FromStream(System.IO.Stream, System.IO.Stream, System.IO.Stream)
+  nameWithType: Texture.FromStream(Stream?, Stream?, Stream?)
+  nameWithType.vb: Texture.FromStream(Stream, Stream, Stream)
 - uid: JeremyAnsel.Xwa.Opt.Texture.FromStream*
   name: FromStream
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_FromStream_
@@ -5300,37 +5369,40 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Texture.ResetPaletteColors
   nameWithType: Texture.ResetPaletteColors
 - uid: JeremyAnsel.Xwa.Opt.Texture.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
-  name: Save(Stream, ImageFormat)
+  name: Save(Stream?, ImageFormat)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_Save_System_IO_Stream_System_Drawing_Imaging_ImageFormat_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.Save(System.IO.Stream, System.Drawing.Imaging.ImageFormat)
-  nameWithType: Texture.Save(Stream, ImageFormat)
+  name.vb: Save(Stream, ImageFormat)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.Save(System.IO.Stream?, System.Drawing.Imaging.ImageFormat)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.Save(System.IO.Stream, System.Drawing.Imaging.ImageFormat)
+  nameWithType: Texture.Save(Stream?, ImageFormat)
+  nameWithType.vb: Texture.Save(Stream, ImageFormat)
 - uid: JeremyAnsel.Xwa.Opt.Texture.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat,System.Int32)
-  name: Save(Stream, ImageFormat, int)
+  name: Save(Stream?, ImageFormat, int)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_Save_System_IO_Stream_System_Drawing_Imaging_ImageFormat_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat,System.Int32)
   name.vb: Save(Stream, ImageFormat, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.Save(System.IO.Stream, System.Drawing.Imaging.ImageFormat, int)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.Save(System.IO.Stream?, System.Drawing.Imaging.ImageFormat, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.Save(System.IO.Stream, System.Drawing.Imaging.ImageFormat, Integer)
-  nameWithType: Texture.Save(Stream, ImageFormat, int)
+  nameWithType: Texture.Save(Stream?, ImageFormat, int)
   nameWithType.vb: Texture.Save(Stream, ImageFormat, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Texture.Save(System.String)
-  name: Save(string)
+  name: Save(string?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_Save_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.Save(System.String)
   name.vb: Save(String)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.Save(string)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.Save(string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.Save(String)
-  nameWithType: Texture.Save(string)
+  nameWithType: Texture.Save(string?)
   nameWithType.vb: Texture.Save(String)
 - uid: JeremyAnsel.Xwa.Opt.Texture.Save(System.String,System.Int32)
-  name: Save(string, int)
+  name: Save(string?, int)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_Save_System_String_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.Save(System.String,System.Int32)
   name.vb: Save(String, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.Save(string, int)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.Save(string?, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.Save(String, Integer)
-  nameWithType: Texture.Save(string, int)
+  nameWithType: Texture.Save(string?, int)
   nameWithType.vb: Texture.Save(String, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Texture.Save*
   name: Save
@@ -5340,37 +5412,40 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Texture.Save
   nameWithType: Texture.Save
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
-  name: SaveAlphaMap(Stream, ImageFormat)
+  name: SaveAlphaMap(Stream?, ImageFormat)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveAlphaMap_System_IO_Stream_System_Drawing_Imaging_ImageFormat_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat)
-  nameWithType: Texture.SaveAlphaMap(Stream, ImageFormat)
+  name.vb: SaveAlphaMap(Stream, ImageFormat)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.IO.Stream?, System.Drawing.Imaging.ImageFormat)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat)
+  nameWithType: Texture.SaveAlphaMap(Stream?, ImageFormat)
+  nameWithType.vb: Texture.SaveAlphaMap(Stream, ImageFormat)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat,System.Int32)
-  name: SaveAlphaMap(Stream, ImageFormat, int)
+  name: SaveAlphaMap(Stream?, ImageFormat, int)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveAlphaMap_System_IO_Stream_System_Drawing_Imaging_ImageFormat_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat,System.Int32)
   name.vb: SaveAlphaMap(Stream, ImageFormat, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat, int)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.IO.Stream?, System.Drawing.Imaging.ImageFormat, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat, Integer)
-  nameWithType: Texture.SaveAlphaMap(Stream, ImageFormat, int)
+  nameWithType: Texture.SaveAlphaMap(Stream?, ImageFormat, int)
   nameWithType.vb: Texture.SaveAlphaMap(Stream, ImageFormat, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.String)
-  name: SaveAlphaMap(string)
+  name: SaveAlphaMap(string?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveAlphaMap_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.String)
   name.vb: SaveAlphaMap(String)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(string)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(String)
-  nameWithType: Texture.SaveAlphaMap(string)
+  nameWithType: Texture.SaveAlphaMap(string?)
   nameWithType.vb: Texture.SaveAlphaMap(String)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.String,System.Int32)
-  name: SaveAlphaMap(string, int)
+  name: SaveAlphaMap(string?, int)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveAlphaMap_System_String_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(System.String,System.Int32)
   name.vb: SaveAlphaMap(String, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(string, int)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(string?, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap(String, Integer)
-  nameWithType: Texture.SaveAlphaMap(string, int)
+  nameWithType: Texture.SaveAlphaMap(string?, int)
   nameWithType.vb: Texture.SaveAlphaMap(String, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap*
   name: SaveAlphaMap
@@ -5380,37 +5455,40 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Texture.SaveAlphaMap
   nameWithType: Texture.SaveAlphaMap
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
-  name: SaveColorMap(Stream, ImageFormat)
+  name: SaveColorMap(Stream?, ImageFormat)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveColorMap_System_IO_Stream_System_Drawing_Imaging_ImageFormat_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat)
-  nameWithType: Texture.SaveColorMap(Stream, ImageFormat)
+  name.vb: SaveColorMap(Stream, ImageFormat)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.IO.Stream?, System.Drawing.Imaging.ImageFormat)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat)
+  nameWithType: Texture.SaveColorMap(Stream?, ImageFormat)
+  nameWithType.vb: Texture.SaveColorMap(Stream, ImageFormat)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat,System.Int32)
-  name: SaveColorMap(Stream, ImageFormat, int)
+  name: SaveColorMap(Stream?, ImageFormat, int)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveColorMap_System_IO_Stream_System_Drawing_Imaging_ImageFormat_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat,System.Int32)
   name.vb: SaveColorMap(Stream, ImageFormat, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat, int)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.IO.Stream?, System.Drawing.Imaging.ImageFormat, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat, Integer)
-  nameWithType: Texture.SaveColorMap(Stream, ImageFormat, int)
+  nameWithType: Texture.SaveColorMap(Stream?, ImageFormat, int)
   nameWithType.vb: Texture.SaveColorMap(Stream, ImageFormat, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.String)
-  name: SaveColorMap(string)
+  name: SaveColorMap(string?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveColorMap_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.String)
   name.vb: SaveColorMap(String)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(string)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(String)
-  nameWithType: Texture.SaveColorMap(string)
+  nameWithType: Texture.SaveColorMap(string?)
   nameWithType.vb: Texture.SaveColorMap(String)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.String,System.Int32)
-  name: SaveColorMap(string, int)
+  name: SaveColorMap(string?, int)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveColorMap_System_String_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(System.String,System.Int32)
   name.vb: SaveColorMap(String, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(string, int)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(string?, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap(String, Integer)
-  nameWithType: Texture.SaveColorMap(string, int)
+  nameWithType: Texture.SaveColorMap(string?, int)
   nameWithType.vb: Texture.SaveColorMap(String, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap*
   name: SaveColorMap
@@ -5420,37 +5498,40 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Texture.SaveColorMap
   nameWithType: Texture.SaveColorMap
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
-  name: SaveIllumMap(Stream, ImageFormat)
+  name: SaveIllumMap(Stream?, ImageFormat)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveIllumMap_System_IO_Stream_System_Drawing_Imaging_ImageFormat_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat)
-  nameWithType: Texture.SaveIllumMap(Stream, ImageFormat)
+  name.vb: SaveIllumMap(Stream, ImageFormat)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.IO.Stream?, System.Drawing.Imaging.ImageFormat)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat)
+  nameWithType: Texture.SaveIllumMap(Stream?, ImageFormat)
+  nameWithType.vb: Texture.SaveIllumMap(Stream, ImageFormat)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat,System.Int32)
-  name: SaveIllumMap(Stream, ImageFormat, int)
+  name: SaveIllumMap(Stream?, ImageFormat, int)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveIllumMap_System_IO_Stream_System_Drawing_Imaging_ImageFormat_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.IO.Stream,System.Drawing.Imaging.ImageFormat,System.Int32)
   name.vb: SaveIllumMap(Stream, ImageFormat, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat, int)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.IO.Stream?, System.Drawing.Imaging.ImageFormat, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.IO.Stream, System.Drawing.Imaging.ImageFormat, Integer)
-  nameWithType: Texture.SaveIllumMap(Stream, ImageFormat, int)
+  nameWithType: Texture.SaveIllumMap(Stream?, ImageFormat, int)
   nameWithType.vb: Texture.SaveIllumMap(Stream, ImageFormat, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.String)
-  name: SaveIllumMap(string)
+  name: SaveIllumMap(string?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveIllumMap_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.String)
   name.vb: SaveIllumMap(String)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(string)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(String)
-  nameWithType: Texture.SaveIllumMap(string)
+  nameWithType: Texture.SaveIllumMap(string?)
   nameWithType.vb: Texture.SaveIllumMap(String)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.String,System.Int32)
-  name: SaveIllumMap(string, int)
+  name: SaveIllumMap(string?, int)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SaveIllumMap_System_String_System_Int32_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(System.String,System.Int32)
   name.vb: SaveIllumMap(String, Integer)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(string, int)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(string?, int)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap(String, Integer)
-  nameWithType: Texture.SaveIllumMap(string, int)
+  nameWithType: Texture.SaveIllumMap(string?, int)
   nameWithType.vb: Texture.SaveIllumMap(String, Integer)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap*
   name: SaveIllumMap
@@ -5460,28 +5541,31 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Texture.SaveIllumMap
   nameWithType: Texture.SaveIllumMap
 - uid: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(System.Byte[])
-  name: SetAlphaMap(byte[])
+  name: SetAlphaMap(byte[]?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SetAlphaMap_System_Byte___
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(System.Byte[])
   name.vb: SetAlphaMap(Byte())
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(byte[])
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(byte[]?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(Byte())
-  nameWithType: Texture.SetAlphaMap(byte[])
+  nameWithType: Texture.SetAlphaMap(byte[]?)
   nameWithType.vb: Texture.SetAlphaMap(Byte())
 - uid: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(System.IO.Stream)
-  name: SetAlphaMap(Stream)
+  name: SetAlphaMap(Stream?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SetAlphaMap_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(System.IO.Stream)
-  nameWithType: Texture.SetAlphaMap(Stream)
+  name.vb: SetAlphaMap(Stream)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(System.IO.Stream)
+  nameWithType: Texture.SetAlphaMap(Stream?)
+  nameWithType.vb: Texture.SetAlphaMap(Stream)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(System.String)
-  name: SetAlphaMap(string)
+  name: SetAlphaMap(string?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SetAlphaMap_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(System.String)
   name.vb: SetAlphaMap(String)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(string)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap(String)
-  nameWithType: Texture.SetAlphaMap(string)
+  nameWithType: Texture.SetAlphaMap(string?)
   nameWithType.vb: Texture.SetAlphaMap(String)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap*
   name: SetAlphaMap
@@ -5491,28 +5575,31 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Texture.SetAlphaMap
   nameWithType: Texture.SetAlphaMap
 - uid: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(System.Byte[])
-  name: SetIllumMap(byte[])
+  name: SetIllumMap(byte[]?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SetIllumMap_System_Byte___
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(System.Byte[])
   name.vb: SetIllumMap(Byte())
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(byte[])
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(byte[]?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(Byte())
-  nameWithType: Texture.SetIllumMap(byte[])
+  nameWithType: Texture.SetIllumMap(byte[]?)
   nameWithType.vb: Texture.SetIllumMap(Byte())
 - uid: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(System.IO.Stream)
-  name: SetIllumMap(Stream)
+  name: SetIllumMap(Stream?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SetIllumMap_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(System.IO.Stream)
-  nameWithType: Texture.SetIllumMap(Stream)
+  name.vb: SetIllumMap(Stream)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(System.IO.Stream)
+  nameWithType: Texture.SetIllumMap(Stream?)
+  nameWithType.vb: Texture.SetIllumMap(Stream)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(System.String)
-  name: SetIllumMap(string)
+  name: SetIllumMap(string?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SetIllumMap_System_String_
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(System.String)
   name.vb: SetIllumMap(String)
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(string)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(string?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap(String)
-  nameWithType: Texture.SetIllumMap(string)
+  nameWithType: Texture.SetIllumMap(string?)
   nameWithType.vb: Texture.SetIllumMap(String)
 - uid: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap*
   name: SetIllumMap
@@ -5522,13 +5609,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Texture.SetIllumMap
   nameWithType: Texture.SetIllumMap
 - uid: JeremyAnsel.Xwa.Opt.Texture.SetPaletteColors(System.Byte[])
-  name: SetPaletteColors(byte[])
+  name: SetPaletteColors(byte[]?)
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_SetPaletteColors_System_Byte___
   commentId: M:JeremyAnsel.Xwa.Opt.Texture.SetPaletteColors(System.Byte[])
   name.vb: SetPaletteColors(Byte())
-  fullName: JeremyAnsel.Xwa.Opt.Texture.SetPaletteColors(byte[])
+  fullName: JeremyAnsel.Xwa.Opt.Texture.SetPaletteColors(byte[]?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.SetPaletteColors(Byte())
-  nameWithType: Texture.SetPaletteColors(byte[])
+  nameWithType: Texture.SetPaletteColors(byte[]?)
   nameWithType.vb: Texture.SetPaletteColors(Byte())
 - uid: JeremyAnsel.Xwa.Opt.Texture.SetPaletteColors*
   name: SetPaletteColors
@@ -5588,13 +5675,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.TextureCoordinates.Equals(JeremyAnsel.Xwa.Opt.TextureCoordinates)
   nameWithType: TextureCoordinates.Equals(TextureCoordinates)
 - uid: JeremyAnsel.Xwa.Opt.TextureCoordinates.Equals(System.Object)
-  name: Equals(object)
+  name: Equals(object?)
   href: api/JeremyAnsel.Xwa.Opt.TextureCoordinates.html#JeremyAnsel_Xwa_Opt_TextureCoordinates_Equals_System_Object_
   commentId: M:JeremyAnsel.Xwa.Opt.TextureCoordinates.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: JeremyAnsel.Xwa.Opt.TextureCoordinates.Equals(object)
+  fullName: JeremyAnsel.Xwa.Opt.TextureCoordinates.Equals(object?)
   fullName.vb: JeremyAnsel.Xwa.Opt.TextureCoordinates.Equals(Object)
-  nameWithType: TextureCoordinates.Equals(object)
+  nameWithType: TextureCoordinates.Equals(object?)
   nameWithType.vb: TextureCoordinates.Equals(Object)
 - uid: JeremyAnsel.Xwa.Opt.TextureCoordinates.Equals*
   name: Equals
@@ -5847,13 +5934,13 @@ references:
   fullName: JeremyAnsel.Xwa.Opt.Vector.Equals(JeremyAnsel.Xwa.Opt.Vector)
   nameWithType: Vector.Equals(Vector)
 - uid: JeremyAnsel.Xwa.Opt.Vector.Equals(System.Object)
-  name: Equals(object)
+  name: Equals(object?)
   href: api/JeremyAnsel.Xwa.Opt.Vector.html#JeremyAnsel_Xwa_Opt_Vector_Equals_System_Object_
   commentId: M:JeremyAnsel.Xwa.Opt.Vector.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: JeremyAnsel.Xwa.Opt.Vector.Equals(object)
+  fullName: JeremyAnsel.Xwa.Opt.Vector.Equals(object?)
   fullName.vb: JeremyAnsel.Xwa.Opt.Vector.Equals(Object)
-  nameWithType: Vector.Equals(object)
+  nameWithType: Vector.Equals(object?)
   nameWithType.vb: Vector.Equals(Object)
 - uid: JeremyAnsel.Xwa.Opt.Vector.Equals*
   name: Equals
