@@ -38,9 +38,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
         public NodeType NodeType { get; private set; }
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public IList<Node> Nodes { get; internal set; }
+        public IList<Node>? Nodes { get; internal set; }
 
         protected int Parameter1 { get; private set; }
 
@@ -118,7 +118,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             file.BaseStream.Position = offset + 4;
             NodeType type = (NodeType)file.ReadInt32();
 
-            Node node = null;
+            Node? node = null;
 
             switch (type)
             {
@@ -255,7 +255,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
                 return;
             }
 
-            for (int i = 0; i < this.Name.Length; i++)
+            for (int i = 0; i < this.Name!.Length; i++)
             {
                 file.Write(this.Name[i]);
             }

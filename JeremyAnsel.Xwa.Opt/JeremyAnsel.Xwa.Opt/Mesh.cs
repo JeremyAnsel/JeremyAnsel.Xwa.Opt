@@ -23,17 +23,17 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
-        public IList<Vector> Vertices { get; set; }
+        public IList<Vector>? Vertices { get; set; }
 
-        public IList<TextureCoordinates> TextureCoordinates { get; set; }
+        public IList<TextureCoordinates>? TextureCoordinates { get; set; }
 
-        public IList<Vector> VertexNormals { get; set; }
+        public IList<Vector>? VertexNormals { get; set; }
 
-        public MeshDescriptor Descriptor { get; set; } = new MeshDescriptor();
+        public MeshDescriptor? Descriptor { get; set; } = new MeshDescriptor();
 
-        public RotationScale RotationScale { get; set; } = new RotationScale();
+        public RotationScale? RotationScale { get; set; } = new RotationScale();
 
-        public IList<MeshLod> Lods { get; private set; } = new List<MeshLod>();
+        public IList<MeshLod> Lods { get; } = new List<MeshLod>();
 
         public IList<Hardpoint> Hardpoints { get; } = new List<Hardpoint>();
 
@@ -41,21 +41,36 @@ namespace JeremyAnsel.Xwa.Opt
 
         public Mesh Clone()
         {
-            var mesh = new Mesh();
+            var mesh = new Mesh(false);
 
-            foreach (var vertex in this.Vertices)
+            if (this.Vertices is not null)
             {
-                mesh.Vertices.Add(vertex);
+                mesh.Vertices = new List<Vector>(this.Vertices.Count);
+
+                foreach (var vertex in this.Vertices)
+                {
+                    mesh.Vertices.Add(vertex);
+                }
             }
 
-            foreach (var textureCoordinates in this.TextureCoordinates)
+            if (this.TextureCoordinates is not null)
             {
-                mesh.TextureCoordinates.Add(textureCoordinates);
+                mesh.TextureCoordinates = new List<TextureCoordinates>(this.TextureCoordinates.Count);
+
+                foreach (var textureCoordinates in this.TextureCoordinates)
+                {
+                    mesh.TextureCoordinates.Add(textureCoordinates);
+                }
             }
 
-            foreach (var normal in this.VertexNormals)
+            if (this.VertexNormals is not null)
             {
-                mesh.VertexNormals.Add(normal);
+                mesh.VertexNormals = new List<Vector>(this.VertexNormals.Count);
+
+                foreach (var normal in this.VertexNormals)
+                {
+                    mesh.VertexNormals.Add(normal);
+                }
             }
 
             mesh.Descriptor = this.Descriptor?.Clone();
@@ -100,7 +115,7 @@ namespace JeremyAnsel.Xwa.Opt
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         private void CompactVerticesBuffer()
         {
-            if (this.Vertices.Count == 0)
+            if (this.Vertices is null || this.Vertices.Count == 0)
             {
                 return;
             }
@@ -109,7 +124,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             foreach (int i in this.Lods
                 .SelectMany(t => t.FaceGroups)
-                .SelectMany(t => t.Faces)
+                .SelectMany(t => t.Faces ?? Array.Empty<Face>())
                 .Select(t => t.VerticesIndex)
                 .SelectMany(t => new int[] { t.A, t.B, t.C, t.D }))
             {
@@ -158,7 +173,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             foreach (var face in this.Lods
                 .SelectMany(t => t.FaceGroups)
-                .SelectMany(t => t.Faces))
+                .SelectMany(t => t.Faces ?? Array.Empty<Face>()))
             {
                 Indices index = face.VerticesIndex;
 
@@ -173,7 +188,7 @@ namespace JeremyAnsel.Xwa.Opt
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         private void CompactTextureCoordinatesBuffer()
         {
-            if (this.TextureCoordinates.Count == 0)
+            if (this.TextureCoordinates is null || this.TextureCoordinates.Count == 0)
             {
                 return;
             }
@@ -182,7 +197,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             foreach (int i in this.Lods
                 .SelectMany(t => t.FaceGroups)
-                .SelectMany(t => t.Faces)
+                .SelectMany(t => t.Faces ?? Array.Empty<Face>())
                 .Select(t => t.TextureCoordinatesIndex)
                 .SelectMany(t => new int[] { t.A, t.B, t.C, t.D }))
             {
@@ -231,7 +246,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             foreach (var face in this.Lods
                 .SelectMany(t => t.FaceGroups)
-                .SelectMany(t => t.Faces))
+                .SelectMany(t => t.Faces ?? Array.Empty<Face>()))
             {
                 Indices index = face.TextureCoordinatesIndex;
 
@@ -246,7 +261,7 @@ namespace JeremyAnsel.Xwa.Opt
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         private void CompactVertexNormalsBuffer()
         {
-            if (this.VertexNormals.Count == 0)
+            if (this.VertexNormals is null || this.VertexNormals.Count == 0)
             {
                 return;
             }
@@ -255,7 +270,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             foreach (int i in this.Lods
                 .SelectMany(t => t.FaceGroups)
-                .SelectMany(t => t.Faces)
+                .SelectMany(t => t.Faces ?? Array.Empty<Face>())
                 .Select(t => t.VertexNormalsIndex)
                 .SelectMany(t => new int[] { t.A, t.B, t.C, t.D }))
             {
@@ -304,7 +319,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             foreach (var face in this.Lods
                 .SelectMany(t => t.FaceGroups)
-                .SelectMany(t => t.Faces))
+                .SelectMany(t => t.Faces ?? Array.Empty<Face>()))
             {
                 Indices index = face.VertexNormalsIndex;
 
@@ -326,6 +341,11 @@ namespace JeremyAnsel.Xwa.Opt
 
         private void AddHitzoneToVerticesBuffer()
         {
+            if (this.Vertices is null || this.Descriptor is null)
+            {
+                return;
+            }
+
             //this.Vertices.Add(new Vector(this.Descriptor.Min.X, this.Descriptor.Min.Y, this.Descriptor.Min.Z));
             //this.Vertices.Add(new Vector(this.Descriptor.Min.X, this.Descriptor.Min.Y, this.Descriptor.Max.Z));
             //this.Vertices.Add(new Vector(this.Descriptor.Min.X, this.Descriptor.Max.Y, this.Descriptor.Min.Z));
@@ -345,7 +365,9 @@ namespace JeremyAnsel.Xwa.Opt
 
             this.CompactVerticesBuffer();
 
-            if (this.Vertices.Count == 0 || this.Lods.Count == 0)
+            this.Descriptor ??= new MeshDescriptor();
+
+            if (this.Vertices is null || this.Vertices.Count == 0 || this.Lods.Count == 0)
             {
                 this.Descriptor.Min = Vector.Empty;
                 this.Descriptor.Max = Vector.Empty;
@@ -357,7 +379,7 @@ namespace JeremyAnsel.Xwa.Opt
             {
                 var vertices = this.Lods[0]
                     .FaceGroups
-                    .SelectMany(t => t.Faces)
+                    .SelectMany(t => t.Faces ?? Array.Empty<Face>())
                     .SelectMany(t => new[] { t.VerticesIndex.A, t.VerticesIndex.B, t.VerticesIndex.C, t.VerticesIndex.D })
                     .Where(t => t >= 0)
                     .Distinct()
@@ -412,7 +434,7 @@ namespace JeremyAnsel.Xwa.Opt
             this.AddHitzoneToVerticesBuffer();
         }
 
-        public void SplitLod(MeshLod lod)
+        public void SplitLod(MeshLod? lod)
         {
             if (lod == null)
             {
@@ -439,7 +461,7 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
-        public MeshLod MergeLods(IEnumerable<MeshLod> lods)
+        public MeshLod? MergeLods(IEnumerable<MeshLod>? lods)
         {
             if (lods == null)
             {
@@ -483,17 +505,26 @@ namespace JeremyAnsel.Xwa.Opt
 
         public void Move(float moveX, float moveY, float moveZ)
         {
-            for (int i = 0; i < this.Vertices.Count; i++)
+            if (this.Vertices is not null)
             {
-                this.Vertices[i] = this.Vertices[i].Move(moveX, moveY, moveZ);
+                for (int i = 0; i < this.Vertices.Count; i++)
+                {
+                    this.Vertices[i] = this.Vertices[i].Move(moveX, moveY, moveZ);
+                }
             }
 
-            this.Descriptor.Min = this.Descriptor.Min.Move(moveX, moveY, moveZ);
-            this.Descriptor.Max = this.Descriptor.Max.Move(moveX, moveY, moveZ);
-            this.Descriptor.Center = this.Descriptor.Center.Move(moveX, moveY, moveZ);
-            this.Descriptor.Target = this.Descriptor.Target.Move(moveX, moveY, moveZ);
+            if (this.Descriptor is not null)
+            {
+                this.Descriptor.Min = this.Descriptor.Min.Move(moveX, moveY, moveZ);
+                this.Descriptor.Max = this.Descriptor.Max.Move(moveX, moveY, moveZ);
+                this.Descriptor.Center = this.Descriptor.Center.Move(moveX, moveY, moveZ);
+                this.Descriptor.Target = this.Descriptor.Target.Move(moveX, moveY, moveZ);
+            }
 
-            this.RotationScale.Pivot = this.RotationScale.Pivot.Move(moveX, moveY, moveZ);
+            if (this.RotationScale is not null)
+            {
+                this.RotationScale.Pivot = this.RotationScale.Pivot.Move(moveX, moveY, moveZ);
+            }
 
             foreach (var hardpoint in this.Hardpoints)
             {

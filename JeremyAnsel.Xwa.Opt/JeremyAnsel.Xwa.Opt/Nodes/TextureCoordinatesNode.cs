@@ -21,19 +21,19 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             }
         }
 
-        public IList<TextureCoordinates> TextureVertices { get; set; }
+        public IList<TextureCoordinates>? TextureVertices { get; set; }
 
         protected override int DataSize
         {
             get
             {
-                return this.TextureVertices.Count * 8;
+                return this.TextureVertices is null ? 0 : this.TextureVertices.Count * 8;
             }
         }
 
         public override string ToString()
         {
-            return string.Format(CultureInfo.InvariantCulture, "TextureCoordinatesNode: {0} texture vertices", this.TextureVertices.Count);
+            return string.Format(CultureInfo.InvariantCulture, "TextureCoordinatesNode: {0} texture vertices", this.TextureVertices is null ? 0 : this.TextureVertices.Count);
         }
 
         internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
@@ -65,8 +65,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             base.Write(file, offset);
 
             int dataOffset = this.DataSize == 0 ? 0 : (offset + 24 + this.NameSize + this.NodesOffsetsSize);
+            int textureVerticesCount = this.TextureVertices is null ? 0 : this.TextureVertices.Count;
 
-            file.Write(this.TextureVertices.Count);
+            file.Write(textureVerticesCount);
             file.Write(dataOffset);
 
             this.WriteName(file);
@@ -75,9 +76,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             if (dataOffset != 0)
             {
-                for (int i = 0; i < this.TextureVertices.Count; i++)
+                for (int i = 0; i < textureVerticesCount; i++)
                 {
-                    this.TextureVertices[i].Write(file);
+                    this.TextureVertices![i].Write(file);
                 }
             }
 

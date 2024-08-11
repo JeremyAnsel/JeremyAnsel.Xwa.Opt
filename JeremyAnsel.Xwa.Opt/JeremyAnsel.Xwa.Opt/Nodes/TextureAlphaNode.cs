@@ -17,7 +17,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
-        public byte[] Bytes { get; set; }
+        public byte[]? Bytes { get; set; }
 
         protected override int DataSize
         {

@@ -12,6 +12,8 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
     public sealed class TextureNode : Node
     {
+        public const int DefaultPaletteLength = 8192;
+
         public TextureNode(int nodesCount = -1)
             : base(NodeType.Texture, nodesCount)
         {
@@ -20,14 +22,14 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
         public int UniqueId { get; set; }
 
         [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
-        public byte[] Palettes { get; set; }
+        public byte[]? Palettes { get; set; }
 
         public int Width { get; set; }
 
         public int Height { get; set; }
 
         [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
-        public byte[] Bytes { get; set; }
+        public byte[]? Bytes { get; set; }
 
         protected override int DataSize
         {
@@ -94,13 +96,13 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
                 paletteOffset -= globalOffset;
 
-                this.Palettes = new byte[8192];
+                this.Palettes = new byte[DefaultPaletteLength];
                 file.BaseStream.Position = paletteOffset;
                 file.Read(this.Palettes, 0, this.Palettes.Length);
             }
             else
             {
-                this.Palettes = new byte[8192];
+                this.Palettes = new byte[DefaultPaletteLength];
                 file.BaseStream.Position = dataOffset + 24 + bytesSize;
                 file.Read(this.Palettes, 0, this.Palettes.Length);
             }
@@ -111,7 +113,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             base.Write(file, offset);
 
             int dataOffset = this.DataSize == 0 ? 0 : (offset + 24 + this.NameSize + this.NodesOffsetsSize);
-            int paletteOffset = this.DataSize == 0 ? 0 : (dataOffset + 24 + this.Bytes.Length);
+            int paletteOffset = this.DataSize == 0 ? 0 : (dataOffset + 24 + this.Bytes!.Length);
 
             file.Write(this.UniqueId);
             file.Write(dataOffset);
@@ -124,7 +126,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             {
                 file.Write(paletteOffset);
                 file.Write((int)0);
-                file.Write((this.Width * this.Height == this.Bytes.Length) ? (int)0 : (int)(this.Width * this.Height));
+                file.Write((this.Width * this.Height == this.Bytes!.Length) ? (int)0 : (int)(this.Width * this.Height));
                 file.Write(this.Bytes.Length);
                 file.Write(this.Width);
                 file.Write(this.Height);
@@ -136,7 +138,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
                 }
                 else
                 {
-                    for (int i = 0; i < 8192; i++)
+                    for (int i = 0; i < DefaultPaletteLength; i++)
                     {
                         file.Write((byte)0);
                     }

@@ -6,7 +6,7 @@ namespace JeremyAnsel.Xwa.Opt
 {
     public class PlayabilityMessage : IEquatable<PlayabilityMessage>, IComparable, IComparable<PlayabilityMessage>
     {
-        public PlayabilityMessage(PlayabilityMessageLevel level, string category, string format, params object[] args)
+        public PlayabilityMessage(PlayabilityMessageLevel level, string category, string format, params object?[] args)
         {
             this.Level = level;
             this.Category = category;
@@ -19,7 +19,7 @@ namespace JeremyAnsel.Xwa.Opt
 
         public string Message { get; private set; }
 
-        public static bool operator ==(PlayabilityMessage left, PlayabilityMessage right)
+        public static bool operator ==(PlayabilityMessage? left, PlayabilityMessage? right)
         {
             if (left is null)
             {
@@ -29,32 +29,32 @@ namespace JeremyAnsel.Xwa.Opt
             return left.Equals(right);
         }
 
-        public static bool operator !=(PlayabilityMessage left, PlayabilityMessage right)
+        public static bool operator !=(PlayabilityMessage? left, PlayabilityMessage? right)
         {
             return !(left == right);
         }
 
-        public static bool operator <(PlayabilityMessage left, PlayabilityMessage right)
+        public static bool operator <(PlayabilityMessage? left, PlayabilityMessage? right)
         {
             return PlayabilityMessage.Compare(left, right) < 0;
         }
 
-        public static bool operator <=(PlayabilityMessage left, PlayabilityMessage right)
+        public static bool operator <=(PlayabilityMessage? left, PlayabilityMessage? right)
         {
             return PlayabilityMessage.Compare(left, right) <= 0;
         }
 
-        public static bool operator >(PlayabilityMessage left, PlayabilityMessage right)
+        public static bool operator >(PlayabilityMessage? left, PlayabilityMessage? right)
         {
             return PlayabilityMessage.Compare(left, right) > 0;
         }
 
-        public static bool operator >=(PlayabilityMessage left, PlayabilityMessage right)
+        public static bool operator >=(PlayabilityMessage? left, PlayabilityMessage? right)
         {
             return PlayabilityMessage.Compare(left, right) >= 0;
         }
 
-        public static int Compare(PlayabilityMessage left, PlayabilityMessage right)
+        public static int Compare(PlayabilityMessage? left, PlayabilityMessage? right)
         {
             if (object.ReferenceEquals(left, right))
             {
@@ -74,7 +74,7 @@ namespace JeremyAnsel.Xwa.Opt
             return string.Format(CultureInfo.InvariantCulture, "[{0}] {1}: {2}", this.Level, this.Category, this.Message);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (!(obj is PlayabilityMessage other))
             {
@@ -84,7 +84,7 @@ namespace JeremyAnsel.Xwa.Opt
             return this.Equals(other);
         }
 
-        public bool Equals(PlayabilityMessage other)
+        public bool Equals(PlayabilityMessage? other)
         {
             return this.CompareTo(other) == 0;
         }
@@ -101,7 +101,7 @@ namespace JeremyAnsel.Xwa.Opt
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        public int CompareTo(object obj)
+        public int CompareTo(object? obj)
         {
             if (obj == null)
             {
@@ -118,7 +118,7 @@ namespace JeremyAnsel.Xwa.Opt
             return this.CompareTo(other);
         }
 
-        public int CompareTo(PlayabilityMessage other)
+        public int CompareTo(PlayabilityMessage? other)
         {
             if (other == null)
             {

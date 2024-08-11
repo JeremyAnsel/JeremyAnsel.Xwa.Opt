@@ -31,7 +31,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             }
         }
 
-        public string FileName { get; private set; }
+        public string? FileName { get; private set; }
 
         public int Version { get; private set; }
 
@@ -54,10 +54,15 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
         public IList<Node> Nodes { get; private set; }
 
-        public static OptFileNodes FromFile(string path)
+        public static OptFileNodes FromFile(string? path)
         {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
             OptFileNodes opt;
-            FileStream filestream = null;
+            FileStream? filestream = null;
 
             try
             {
@@ -82,7 +87,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             return opt;
         }
 
-        public static OptFileNodes FromStream(Stream stream)
+        public static OptFileNodes FromStream(Stream? stream)
         {
             if (stream == null)
             {
@@ -130,9 +135,14 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             return opt;
         }
 
-        public void Save(string path, bool includeHeader = true)
+        public void Save(string? path, bool includeHeader = true)
         {
-            FileStream filestream = null;
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
+            FileStream? filestream = null;
 
             try
             {
@@ -155,7 +165,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             }
         }
 
-        public void Save(Stream stream, bool includeHeader = true)
+        public void Save(Stream? stream, bool includeHeader = true)
         {
             if (stream == null)
             {

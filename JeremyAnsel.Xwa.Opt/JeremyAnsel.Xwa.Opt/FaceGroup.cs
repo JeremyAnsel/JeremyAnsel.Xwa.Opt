@@ -21,14 +21,19 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
-        public IList<Face> Faces { get; set; }
+        public IList<Face>? Faces { get; set; }
 
-        public IList<string> Textures { get; set; }
+        public IList<string>? Textures { get; set; }
 
         public int TrianglesCount
         {
             get
             {
+                if (this.Faces is null)
+                {
+                    return 0;
+                }
+
                 int count = 0;
 
                 for (int i = 0; i < this.Faces.Count; i++)
@@ -44,6 +49,11 @@ namespace JeremyAnsel.Xwa.Opt
         {
             get
             {
+                if (this.Faces is null)
+                {
+                    return 0;
+                }
+
                 int count = 0;
 
                 for (int i = 0; i < this.Faces.Count; i++)
@@ -59,6 +69,11 @@ namespace JeremyAnsel.Xwa.Opt
         {
             get
             {
+                if (this.Faces is null)
+                {
+                    return 0;
+                }
+
                 var distinctIndices = new int[this.VerticesCount];
                 int distinctIndicesCount = 0;
 
@@ -154,16 +169,26 @@ namespace JeremyAnsel.Xwa.Opt
 
         public FaceGroup Clone()
         {
-            var faceGroup = new FaceGroup();
+            var faceGroup = new FaceGroup(false);
 
-            foreach (var face in this.Faces)
+            if (this.Faces is not null)
             {
-                faceGroup.Faces.Add(face.Clone());
+                faceGroup.Faces = new List<Face>(this.Faces.Count);
+
+                foreach (var face in this.Faces)
+                {
+                    faceGroup.Faces.Add(face.Clone());
+                }
             }
 
-            foreach (string texture in this.Textures)
+            if (this.Textures is not null)
             {
-                faceGroup.Textures.Add(texture);
+                faceGroup.Textures = new List<string>(this.Textures.Count);
+
+                foreach (string texture in this.Textures)
+                {
+                    faceGroup.Textures.Add(texture);
+                }
             }
 
             return faceGroup;
@@ -171,6 +196,11 @@ namespace JeremyAnsel.Xwa.Opt
 
         public void ComputeEdges()
         {
+            if (this.Faces is null)
+            {
+                return;
+            }
+
             List<Tuple<int, int>> edges = new List<Tuple<int, int>>();
 
             int getEdgeIndex(int a, int b)

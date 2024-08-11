@@ -24,7 +24,7 @@ namespace JeremyAnsel.Xwa.Opt
             this.ArePixelsFlipped = true;
         }
 
-        public string FileName { get; private set; }
+        public string? FileName { get; private set; }
 
         public int Version { get; private set; }
 
@@ -38,16 +38,18 @@ namespace JeremyAnsel.Xwa.Opt
         {
             get
             {
-                if (this.Meshes.Count == 0)
+                var meshes = this.Meshes.Where(t => t.Descriptor is not null).ToList();
+
+                if (meshes.Count == 0)
                 {
                     return Vector.Empty;
                 }
 
                 return new Vector()
                 {
-                    X = this.Meshes.Min(t => Math.Min(t.Descriptor.Min.X, t.Descriptor.Max.X)),
-                    Y = this.Meshes.Min(t => Math.Min(t.Descriptor.Min.Y, t.Descriptor.Max.Y)),
-                    Z = this.Meshes.Min(t => Math.Min(t.Descriptor.Min.Z, t.Descriptor.Max.Z))
+                    X = meshes.Min(t => Math.Min(t.Descriptor!.Min.X, t.Descriptor.Max.X)),
+                    Y = meshes.Min(t => Math.Min(t.Descriptor!.Min.Y, t.Descriptor.Max.Y)),
+                    Z = meshes.Min(t => Math.Min(t.Descriptor!.Min.Z, t.Descriptor.Max.Z))
                 };
             }
         }
@@ -56,16 +58,18 @@ namespace JeremyAnsel.Xwa.Opt
         {
             get
             {
-                if (this.Meshes.Count == 0)
+                var meshes = this.Meshes.Where(t => t.Descriptor is not null).ToList();
+
+                if (meshes.Count == 0)
                 {
                     return Vector.Empty;
                 }
 
                 return new Vector()
                 {
-                    X = this.Meshes.Max(t => Math.Max(t.Descriptor.Min.X, t.Descriptor.Max.X)),
-                    Y = this.Meshes.Max(t => Math.Max(t.Descriptor.Min.Y, t.Descriptor.Max.Y)),
-                    Z = this.Meshes.Max(t => Math.Max(t.Descriptor.Min.Z, t.Descriptor.Max.Z))
+                    X = meshes.Max(t => Math.Max(t.Descriptor!.Min.X, t.Descriptor.Max.X)),
+                    Y = meshes.Max(t => Math.Max(t.Descriptor!.Min.Y, t.Descriptor.Max.Y)),
+                    Z = meshes.Max(t => Math.Max(t.Descriptor!.Min.Z, t.Descriptor.Max.Z))
                 };
             }
         }
@@ -112,7 +116,7 @@ namespace JeremyAnsel.Xwa.Opt
                         lod.FaceGroups.Count == 0 ?
                         0 :
                         lod.FaceGroups.Max(group =>
-                            group.Textures.Count)));
+                            group.Textures is null ? 0 : group.Textures.Count)));
             }
         }
 
@@ -173,26 +177,46 @@ namespace JeremyAnsel.Xwa.Opt
             return opt;
         }
 
-        public static OptFile FromFile(string path)
+        public static OptFile FromFile(string? path)
         {
+            if (path is null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
             return FromFile(path, true);
         }
 
-        public static OptFile FromFile(string path, bool flipPixels)
+        public static OptFile FromFile(string? path, bool flipPixels)
         {
+            if (path is null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
             OptFileNodes optNodes = OptFileNodes.FromFile(path);
             OptFile opt = ReadOpt(optNodes, flipPixels);
             opt.FileName = path;
             return opt;
         }
 
-        public static OptFile FromStream(Stream stream)
+        public static OptFile FromStream(Stream? stream)
         {
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             return FromStream(stream, true);
         }
 
-        public static OptFile FromStream(Stream stream, bool flipPixels)
+        public static OptFile FromStream(Stream? stream, bool flipPixels)
         {
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             OptFileNodes optNodes = OptFileNodes.FromStream(stream);
             OptFile opt = ReadOpt(optNodes, flipPixels);
             return opt;
@@ -211,7 +235,7 @@ namespace JeremyAnsel.Xwa.Opt
                 ArePixelsFlipped = flipPixels
             };
 
-            List<string> globalTexture = null;
+            List<string>? globalTexture = null;
 
             for (int meshId = 0; meshId < optNodes.Nodes.Count; meshId++)
             {
@@ -219,7 +243,7 @@ namespace JeremyAnsel.Xwa.Opt
                 {
                     TextureNode textureNode = (TextureNode)optNodes.Nodes[meshId];
                     opt.CreateTexture(textureNode, flipPixels);
-                    globalTexture = new List<string>() { textureNode.Name };
+                    globalTexture = new List<string>() { textureNode.Name ?? string.Empty };
                     continue;
                 }
 
@@ -230,10 +254,10 @@ namespace JeremyAnsel.Xwa.Opt
 
                 NodeGroupNode meshNode = (NodeGroupNode)optNodes.Nodes[meshId];
 
-                var meshNodes = meshNode.Nodes.Union((meshNode.Nodes.Where(t => t.NodeType == NodeType.NodeGroup).FirstOrDefault() ?? new NodeGroupNode()).Nodes).ToList();
+                var meshNodes = meshNode.Nodes!.Union((meshNode.Nodes!.Where(t => t.NodeType == NodeType.NodeGroup).FirstOrDefault() ?? new NodeGroupNode()).Nodes!).ToList();
 
-                RotationScaleNode rotationScaleNode = (RotationScaleNode)meshNodes.FirstOrDefault(t => t.NodeType == NodeType.RotationScale);
-                MeshDescriptorNode descriptorNode = (MeshDescriptorNode)meshNodes.FirstOrDefault(t => t.NodeType == NodeType.MeshDescriptor);
+                RotationScaleNode? rotationScaleNode = (RotationScaleNode?)meshNodes.FirstOrDefault(t => t.NodeType == NodeType.RotationScale);
+                MeshDescriptorNode? descriptorNode = (MeshDescriptorNode?)meshNodes.FirstOrDefault(t => t.NodeType == NodeType.MeshDescriptor);
                 MeshVerticesNode verticesNode = (MeshVerticesNode)meshNodes.First(t => t.NodeType == NodeType.MeshVertices);
                 TextureCoordinatesNode textureVerticesNode = (TextureCoordinatesNode)meshNodes.First(t => t.NodeType == NodeType.TextureCoordinates);
                 VertexNormalsNode vertexNormalsNode = (VertexNormalsNode)meshNodes.First(t => t.NodeType == NodeType.VertexNormals);
@@ -247,7 +271,7 @@ namespace JeremyAnsel.Xwa.Opt
 
                 if (rotationScaleNode != null)
                 {
-                    mesh.RotationScale.Pivot = rotationScaleNode.Pivot;
+                    mesh.RotationScale!.Pivot = rotationScaleNode.Pivot;
                     mesh.RotationScale.Look = rotationScaleNode.Look;
                     mesh.RotationScale.Up = rotationScaleNode.Up;
                     mesh.RotationScale.Right = rotationScaleNode.Right;
@@ -255,7 +279,7 @@ namespace JeremyAnsel.Xwa.Opt
 
                 if (descriptorNode != null)
                 {
-                    mesh.Descriptor.MeshType = descriptorNode.MeshType;
+                    mesh.Descriptor!.MeshType = descriptorNode.MeshType;
                     mesh.Descriptor.ExplosionType = descriptorNode.ExplosionType;
                     mesh.Descriptor.Span = descriptorNode.Span;
                     mesh.Descriptor.Center = descriptorNode.Center;
@@ -293,21 +317,21 @@ namespace JeremyAnsel.Xwa.Opt
                     });
                 }
 
-                if (faceGroupingNode.Distances.Count != faceGroupingNode.Nodes.Count)
+                if (faceGroupingNode.Distances.Count != faceGroupingNode.Nodes!.Count)
                 {
                     throw new InvalidDataException("invalid face groups count in face grouping");
                 }
 
                 for (int lodId = 0; lodId < faceGroupingNode.Distances.Count; lodId++)
                 {
-                    List<string> texture = globalTexture;
+                    List<string>? texture = globalTexture;
 
                     MeshLod lod = new MeshLod
                     {
                         Distance = faceGroupingNode.Distances[lodId]
                     };
 
-                    foreach (Node node in EnumerateNodesInNodeGroupNodes(faceGroupingNode.Nodes[lodId].Nodes))
+                    foreach (Node node in EnumerateNodesInNodeGroupNodes(faceGroupingNode.Nodes[lodId].Nodes!))
                     {
                         switch (node.NodeType)
                         {
@@ -316,18 +340,18 @@ namespace JeremyAnsel.Xwa.Opt
                                     TextureNode textureNode = (TextureNode)node;
 
                                     opt.CreateTexture(textureNode, flipPixels);
-                                    texture = new List<string>(1) { textureNode.Name };
+                                    texture = new List<string>(1) { textureNode.Name ?? string.Empty };
                                     break;
                                 }
 
                             case NodeType.NodeReference:
-                                texture = new List<string>(1) { ((NodeReferenceNode)node).Reference };
+                                texture = new List<string>(1) { ((NodeReferenceNode)node).Reference ?? string.Empty };
                                 break;
 
                             case NodeType.NodeSwitch:
                                 {
                                     NodeSwitchNode switchNode = (NodeSwitchNode)node;
-                                    texture = new List<string>(switchNode.Nodes.Count);
+                                    texture = new List<string>(switchNode.Nodes!.Count);
 
                                     foreach (Node nodeSwitch in switchNode.Nodes)
                                     {
@@ -338,12 +362,12 @@ namespace JeremyAnsel.Xwa.Opt
                                                     TextureNode textureNode = (TextureNode)nodeSwitch;
 
                                                     opt.CreateTexture(textureNode, flipPixels);
-                                                    texture.Add(textureNode.Name);
+                                                    texture.Add(textureNode.Name ?? string.Empty);
                                                     break;
                                                 }
 
                                             case NodeType.NodeReference:
-                                                texture.Add(((NodeReferenceNode)nodeSwitch).Reference);
+                                                texture.Add(((NodeReferenceNode)nodeSwitch).Reference ?? string.Empty);
                                                 break;
                                         }
                                     }
@@ -361,9 +385,9 @@ namespace JeremyAnsel.Xwa.Opt
                                         Faces = faceDataNode.Faces
                                     };
 
-                                    foreach (var face in faceGroup.Faces)
+                                    foreach (var face in faceGroup.Faces!)
                                     {
-                                        if (face.VertexNormalsIndex.A >= mesh.VertexNormals.Count)
+                                        if (face.VertexNormalsIndex.A >= mesh.VertexNormals!.Count)
                                         {
                                             face.VertexNormalsIndex = face.VertexNormalsIndex.SetA(0);
                                         }
@@ -383,7 +407,7 @@ namespace JeremyAnsel.Xwa.Opt
                                             face.VertexNormalsIndex = face.VertexNormalsIndex.SetD(0);
                                         }
 
-                                        if (face.TextureCoordinatesIndex.A >= mesh.TextureCoordinates.Count)
+                                        if (face.TextureCoordinatesIndex.A >= mesh.TextureCoordinates!.Count)
                                         {
                                             face.TextureCoordinatesIndex = face.TextureCoordinatesIndex.SetA(0);
                                         }
@@ -449,7 +473,7 @@ namespace JeremyAnsel.Xwa.Opt
             {
                 if (node.NodeType == NodeType.NodeGroup)
                 {
-                    foreach (Node sub in EnumerateNodesInNodeGroupNodes(node.Nodes))
+                    foreach (Node sub in EnumerateNodesInNodeGroupNodes(node.Nodes!))
                     {
                         yield return sub;
                     }
@@ -471,62 +495,97 @@ namespace JeremyAnsel.Xwa.Opt
                         .SelectMany(t => t.Lods)
                         .Where(t => t.Distance <= lod.Distance)
                         .SelectMany(t => t.FaceGroups)
-                        .LastOrDefault(t => t.Textures.Count != 0);
+                        .LastOrDefault(t => t.Textures!.Count != 0);
 
                     if (texturesFaceGroup == null)
                     {
                         continue;
                     }
 
-                    foreach (var faceGroup in lod.FaceGroups.Where(t => t.Textures.Count == 0))
+                    foreach (var faceGroup in lod.FaceGroups.Where(t => t.Textures!.Count == 0))
                     {
-                        foreach (var texture in texturesFaceGroup.Textures)
+                        foreach (var texture in texturesFaceGroup.Textures!)
                         {
-                            faceGroup.Textures.Add(texture);
+                            faceGroup.Textures!.Add(texture);
                         }
                     }
                 }
             }
         }
 
-        public void Save(string path)
+        public void Save(string? path)
         {
+            if (path is null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
             this.Save(path, true, true, true);
         }
 
-        public void Save(string path, bool compactBuffers)
+        public void Save(string? path, bool compactBuffers)
         {
+            if (path is null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
             this.Save(path, compactBuffers, true, true);
         }
 
-        public void Save(string path, bool compactBuffers, bool includeHeader)
+        public void Save(string? path, bool compactBuffers, bool includeHeader)
         {
+            if (path is null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
             this.Save(path, compactBuffers, includeHeader, true);
         }
 
-        public void Save(string path, bool compactBuffers, bool includeHeader, bool flipPixels)
+        public void Save(string? path, bool compactBuffers, bool includeHeader, bool flipPixels)
         {
+            if (path is null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
             OptFileNodes optNodes = this.BuildOptFileNodes(compactBuffers, flipPixels);
             optNodes.Save(path, includeHeader);
             this.FileName = path;
         }
 
-        public void Save(Stream stream)
+        public void Save(Stream? stream)
         {
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             this.Save(stream, true, true, true);
         }
 
-        public void Save(Stream stream, bool compactBuffers)
+        public void Save(Stream? stream, bool compactBuffers)
         {
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             this.Save(stream, compactBuffers, true, true);
         }
 
-        public void Save(Stream stream, bool compactBuffers, bool includeHeader)
+        public void Save(Stream? stream, bool compactBuffers, bool includeHeader)
         {
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             this.Save(stream, compactBuffers, includeHeader, true);
         }
 
-        public void Save(Stream stream, bool compactBuffers, bool includeHeader, bool flipPixels)
+        public void Save(Stream? stream, bool compactBuffers, bool includeHeader, bool flipPixels)
         {
             if (stream == null)
             {
@@ -578,12 +637,12 @@ namespace JeremyAnsel.Xwa.Opt
                 TextureCoordinatesNode textureVerticesNode = new TextureCoordinatesNode(0, false);
                 VertexNormalsNode vertexNormalsNode = new VertexNormalsNode(0, false);
 
-                rotationScaleNode.Pivot = mesh.RotationScale.Pivot;
+                rotationScaleNode.Pivot = mesh.RotationScale!.Pivot;
                 rotationScaleNode.Look = mesh.RotationScale.Look;
                 rotationScaleNode.Up = mesh.RotationScale.Up;
                 rotationScaleNode.Right = mesh.RotationScale.Right;
 
-                descriptorNode.MeshType = mesh.Descriptor.MeshType;
+                descriptorNode.MeshType = mesh.Descriptor!.MeshType;
                 descriptorNode.ExplosionType = mesh.Descriptor.ExplosionType;
                 descriptorNode.Span = mesh.Descriptor.Span;
                 descriptorNode.Center = mesh.Descriptor.Center;
@@ -596,7 +655,7 @@ namespace JeremyAnsel.Xwa.Opt
                 textureVerticesNode.TextureVertices = mesh.TextureCoordinates;
                 vertexNormalsNode.Normals = mesh.VertexNormals;
 
-                meshNode.Nodes.Add(verticesNode);
+                meshNode.Nodes!.Add(verticesNode);
                 meshNode.Nodes.Add(textureVerticesNode);
                 meshNode.Nodes.Add(vertexNormalsNode);
                 meshNode.Nodes.Add(descriptorNode);
@@ -611,7 +670,7 @@ namespace JeremyAnsel.Xwa.Opt
                     int texturesCount = 0;
                     foreach (var faceGroup in lod.FaceGroups)
                     {
-                        if (faceGroup.Textures.Count != 0)
+                        if (faceGroup.Textures!.Count != 0)
                         {
                             texturesCount++;
                         }
@@ -623,7 +682,7 @@ namespace JeremyAnsel.Xwa.Opt
                     {
                         FaceGroup faceGroup = lod.FaceGroups[faceGroupIndex];
 
-                        if (faceGroup.Textures.Count != 0)
+                        if (faceGroup.Textures!.Count != 0)
                         {
                             List<Node> texturesNodes = new List<Node>(faceGroup.Textures.Count);
 
@@ -687,10 +746,10 @@ namespace JeremyAnsel.Xwa.Opt
 
                                         if (flipPixels)
                                         {
-                                            OptFile.FlipPixels(alphaNode.Bytes, textureNode.Width, textureNode.Height, 8);
+                                            OptFile.FlipPixels(alphaNode.Bytes!, textureNode.Width, textureNode.Height, 8);
                                         }
 
-                                        textureNode.Nodes.Add(alphaNode);
+                                        textureNode.Nodes!.Add(alphaNode);
                                     }
 
                                     texturesNodes.Add(textureNode);
@@ -701,13 +760,13 @@ namespace JeremyAnsel.Xwa.Opt
 
                             if (texturesNodes.Count == 1)
                             {
-                                lodNode.Nodes.Add(texturesNodes[0]);
+                                lodNode.Nodes!.Add(texturesNodes[0]);
                             }
                             else
                             {
                                 NodeSwitchNode switchNode = new NodeSwitchNode(0);
                                 switchNode.Nodes = texturesNodes;
-                                lodNode.Nodes.Add(switchNode);
+                                lodNode.Nodes!.Add(switchNode);
                             }
                         }
 
@@ -718,15 +777,15 @@ namespace JeremyAnsel.Xwa.Opt
 
                         faceDataNode.Faces = faceGroup.Faces;
 
-                        lodNode.Nodes.Add(faceDataNode);
+                        lodNode.Nodes!.Add(faceDataNode);
                     }
 
                     faceGroupingNode.Distances.Add(lod.Distance);
-                    faceGroupingNode.Nodes.Add(lodNode);
+                    faceGroupingNode.Nodes!.Add(lodNode);
                 }
 
                 NodeGroupNode faceGroupingNodeGroup = new NodeGroupNode(4);
-                faceGroupingNodeGroup.Nodes.Add(Node.Null);
+                faceGroupingNodeGroup.Nodes!.Add(Node.Null);
                 faceGroupingNodeGroup.Nodes.Add(Node.Null);
                 faceGroupingNodeGroup.Nodes.Add(Node.Null);
                 faceGroupingNodeGroup.Nodes.Add(faceGroupingNode);
@@ -800,9 +859,9 @@ namespace JeremyAnsel.Xwa.Opt
                 fileSize += NodeSizeInFileBuilder.NodeGroupNode(null, 6 + mesh.Hardpoints.Count + mesh.EngineGlows.Count);
                 fileSize += NodeSizeInFileBuilder.RotationScaleNode(null, 0);
                 fileSize += NodeSizeInFileBuilder.MeshDescriptorNode(null, 0);
-                fileSize += NodeSizeInFileBuilder.MeshVerticesNode(null, 0, mesh.Vertices.Count);
-                fileSize += NodeSizeInFileBuilder.TextureCoordinatesNode(null, 0, mesh.TextureCoordinates.Count);
-                fileSize += NodeSizeInFileBuilder.VertexNormalsNode(null, 0, mesh.VertexNormals.Count);
+                fileSize += NodeSizeInFileBuilder.MeshVerticesNode(null, 0, mesh.Vertices!.Count);
+                fileSize += NodeSizeInFileBuilder.TextureCoordinatesNode(null, 0, mesh.TextureCoordinates!.Count);
+                fileSize += NodeSizeInFileBuilder.VertexNormalsNode(null, 0, mesh.VertexNormals!.Count);
                 fileSize += NodeSizeInFileBuilder.FaceGroupingNode(null, mesh.Lods.Count, mesh.Lods.Count);
 
                 for (int lodIndex = 0; lodIndex < mesh.Lods.Count; lodIndex++)
@@ -812,7 +871,7 @@ namespace JeremyAnsel.Xwa.Opt
                     int texturesCount = 0;
                     foreach (var faceGroup in lod.FaceGroups)
                     {
-                        if (faceGroup.Textures.Count != 0)
+                        if (faceGroup.Textures!.Count != 0)
                         {
                             texturesCount++;
                         }
@@ -824,7 +883,7 @@ namespace JeremyAnsel.Xwa.Opt
                     {
                         FaceGroup faceGroup = lod.FaceGroups[faceGroupIndex];
 
-                        if (faceGroup.Textures.Count != 0)
+                        if (faceGroup.Textures!.Count != 0)
                         {
                             for (int textureNameIndex = 0; textureNameIndex < faceGroup.Textures.Count; textureNameIndex++)
                             {
@@ -862,7 +921,7 @@ namespace JeremyAnsel.Xwa.Opt
                             }
                         }
 
-                        fileSize += NodeSizeInFileBuilder.FaceDataNode(null, 0, faceGroup.Faces.Count);
+                        fileSize += NodeSizeInFileBuilder.FaceDataNode(null, 0, faceGroup.Faces!.Count);
                     }
                 }
 
@@ -891,7 +950,7 @@ namespace JeremyAnsel.Xwa.Opt
 
             if (textureNode.Width == 0 || textureNode.Height == 0)
             {
-                Texture id = this.Textures.Values
+                Texture? id = this.Textures.Values
                     .FirstOrDefault(t => t.Id == textureNode.UniqueId);
 
                 if (id == null && this.Textures.Count != 0)
@@ -919,7 +978,7 @@ namespace JeremyAnsel.Xwa.Opt
                 texture.Palette = textureNode.Palettes;
                 texture.ImageData = textureNode.Bytes;
 
-                TextureAlphaNode alphaNode = (TextureAlphaNode)textureNode.Nodes
+                TextureAlphaNode? alphaNode = (TextureAlphaNode?)textureNode.Nodes!
                     .FirstOrDefault(t => t.NodeType == NodeType.TextureAlpha);
 
                 if (alphaNode != null)
@@ -988,11 +1047,11 @@ namespace JeremyAnsel.Xwa.Opt
 
                 if (texName == null)
                 {
-                    uniqueTextures.Add(texture.Name);
+                    uniqueTextures.Add(texture.Name ?? string.Empty);
                 }
                 else
                 {
-                    duplicateTextures.Add(texture.Name, texName);
+                    duplicateTextures.Add(texture.Name ?? string.Empty, texName);
                 }
             }
 
@@ -1002,7 +1061,7 @@ namespace JeremyAnsel.Xwa.Opt
             {
                 foreach (var texture in duplicateTextures)
                 {
-                    for (int i = 0; i < faceGroup.Textures.Count; i++)
+                    for (int i = 0; i < faceGroup.Textures!.Count; i++)
                     {
                         if (string.Equals(faceGroup.Textures[i], texture.Key, StringComparison.Ordinal))
                         {
@@ -1025,7 +1084,7 @@ namespace JeremyAnsel.Xwa.Opt
                 {
                     foreach (var faceGroup in lod.FaceGroups)
                     {
-                        foreach (var textureName in faceGroup.Textures)
+                        foreach (var textureName in faceGroup.Textures!)
                         {
                             if (texturesUsed.TryGetValue(textureName, out bool value) && !value)
                             {
@@ -1053,7 +1112,7 @@ namespace JeremyAnsel.Xwa.Opt
 
                 string newName = string.Format(CultureInfo.InvariantCulture, "Tex{0:D5}", index);
 
-                map.Add(texture.Name, newName);
+                map.Add(texture.Name ?? string.Empty, newName);
 
                 texture.Name = newName;
                 mapTextures.Add(texture);
@@ -1063,18 +1122,18 @@ namespace JeremyAnsel.Xwa.Opt
 
             foreach (var texture in mapTextures)
             {
-                this.Textures.Add(texture.Name, texture);
+                this.Textures.Add(texture.Name ?? string.Empty, texture);
             }
 
             foreach (var faceGroup in this.Meshes
                 .SelectMany(t => t.Lods)
                 .SelectMany(t => t.FaceGroups))
             {
-                for (int i = 0; i < faceGroup.Textures.Count; i++)
+                for (int i = 0; i < faceGroup.Textures!.Count; i++)
                 {
                     string key = faceGroup.Textures[i];
 
-                    if (map.TryGetValue(key, out string name))
+                    if (map.TryGetValue(key, out string? name))
                     {
                         faceGroup.Textures[i] = name;
                     }
@@ -1136,7 +1195,7 @@ namespace JeremyAnsel.Xwa.Opt
                 .ForAll(t => t.RemoveMipmaps());
         }
 
-        public void SplitMesh(Mesh mesh)
+        public void SplitMesh(Mesh? mesh)
         {
             if (mesh == null)
             {
@@ -1154,28 +1213,28 @@ namespace JeremyAnsel.Xwa.Opt
             {
                 var lodMesh = new Mesh();
 
-                lodMesh.Descriptor.MeshType = mesh.Descriptor.MeshType;
+                lodMesh.Descriptor!.MeshType = mesh.Descriptor!.MeshType;
                 lodMesh.Descriptor.ExplosionType = mesh.Descriptor.ExplosionType;
                 lodMesh.Descriptor.TargetId = mesh.Descriptor.TargetId;
 
-                lodMesh.RotationScale.Pivot = mesh.RotationScale.Pivot;
+                lodMesh.RotationScale!.Pivot = mesh.RotationScale!.Pivot;
                 lodMesh.RotationScale.Look = mesh.RotationScale.Look;
                 lodMesh.RotationScale.Up = mesh.RotationScale.Up;
                 lodMesh.RotationScale.Right = mesh.RotationScale.Right;
 
-                foreach (var v in mesh.Vertices)
+                foreach (var v in mesh.Vertices!)
                 {
-                    lodMesh.Vertices.Add(v);
+                    lodMesh.Vertices!.Add(v);
                 }
 
-                foreach (var v in mesh.TextureCoordinates)
+                foreach (var v in mesh.TextureCoordinates!)
                 {
-                    lodMesh.TextureCoordinates.Add(v);
+                    lodMesh.TextureCoordinates!.Add(v);
                 }
 
-                foreach (var v in mesh.VertexNormals)
+                foreach (var v in mesh.VertexNormals!)
                 {
-                    lodMesh.VertexNormals.Add(v);
+                    lodMesh.VertexNormals!.Add(v);
                 }
 
                 lodMesh.Lods.Add(lod);
@@ -1214,7 +1273,7 @@ namespace JeremyAnsel.Xwa.Opt
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        public Mesh MergeMeshes(IEnumerable<Mesh> meshes)
+        public Mesh? MergeMeshes(IEnumerable<Mesh>? meshes)
         {
             if (meshes == null)
             {
@@ -1247,24 +1306,24 @@ namespace JeremyAnsel.Xwa.Opt
             {
                 this.Meshes.Remove(mesh);
 
-                foreach (var v in mesh.Vertices)
+                foreach (var v in mesh.Vertices!)
                 {
-                    merge.Vertices.Add(v);
+                    merge.Vertices!.Add(v);
                 }
 
-                foreach (var v in mesh.TextureCoordinates)
+                foreach (var v in mesh.TextureCoordinates!)
                 {
-                    merge.TextureCoordinates.Add(v);
+                    merge.TextureCoordinates!.Add(v);
                 }
 
-                foreach (var v in mesh.VertexNormals)
+                foreach (var v in mesh.VertexNormals!)
                 {
-                    merge.VertexNormals.Add(v);
+                    merge.VertexNormals!.Add(v);
                 }
 
                 foreach (var lod in mesh.Lods)
                 {
-                    foreach (var face in lod.FaceGroups.SelectMany(t => t.Faces))
+                    foreach (var face in lod.FaceGroups.SelectMany(t => t.Faces!))
                     {
                         face.VerticesIndex = indexAdd(face.VerticesIndex, verticesIndex);
                         face.TextureCoordinatesIndex = indexAdd(face.TextureCoordinatesIndex, textureCoordinatesIndex);
@@ -1342,17 +1401,17 @@ namespace JeremyAnsel.Xwa.Opt
                 .AsParallel()
                 .ForAll(mesh =>
                 {
-                    for (int i = 0; i < mesh.Vertices.Count; i++)
+                    for (int i = 0; i < mesh.Vertices!.Count; i++)
                     {
                         mesh.Vertices[i] = mesh.Vertices[i].Scale(scaleX, scaleY, scaleZ);
                     }
 
-                    for (int i = 0; i < mesh.VertexNormals.Count; i++)
+                    for (int i = 0; i < mesh.VertexNormals!.Count; i++)
                     {
                         mesh.VertexNormals[i] = mesh.VertexNormals[i].Scale(Math.Sign(scaleX), Math.Sign(scaleY), Math.Sign(scaleZ));
                     }
 
-                    Vector min = mesh.Descriptor.Min.Scale(scaleX, scaleY, scaleZ);
+                    Vector min = mesh.Descriptor!.Min.Scale(scaleX, scaleY, scaleZ);
                     Vector max = mesh.Descriptor.Max.Scale(scaleX, scaleY, scaleZ);
 
                     mesh.Descriptor.Min = new Vector(Math.Min(min.X, max.X), Math.Min(min.Y, max.Y), Math.Min(min.Z, max.Z));
@@ -1362,13 +1421,13 @@ namespace JeremyAnsel.Xwa.Opt
                     mesh.Descriptor.Span = mesh.Descriptor.Span.Scale(scaleX, scaleY, scaleZ).Abs();
                     mesh.Descriptor.Target = mesh.Descriptor.Target.Scale(scaleX, scaleY, scaleZ);
 
-                    mesh.RotationScale.Pivot = mesh.RotationScale.Pivot.Scale(scaleX, scaleY, scaleZ);
+                    mesh.RotationScale!.Pivot = mesh.RotationScale.Pivot.Scale(scaleX, scaleY, scaleZ);
 
                     foreach (var lod in mesh.Lods)
                     {
                         lod.Distance /= Math.Max(Math.Max(Math.Abs(scaleX), Math.Abs(scaleY)), Math.Abs(scaleZ));
 
-                        foreach (var face in lod.FaceGroups.SelectMany(t => t.Faces))
+                        foreach (var face in lod.FaceGroups.SelectMany(t => t.Faces!))
                         {
                             face.Normal = face.Normal.Scale(Math.Sign(scaleX), Math.Sign(scaleY), Math.Sign(scaleZ));
                             face.TexturingDirection = face.TexturingDirection.Scale(scaleX, scaleY, scaleZ);
@@ -1469,17 +1528,17 @@ namespace JeremyAnsel.Xwa.Opt
                 .AsParallel()
                 .ForAll(mesh =>
                 {
-                    for (int i = 0; i < mesh.Vertices.Count; i++)
+                    for (int i = 0; i < mesh.Vertices!.Count; i++)
                     {
                         mesh.Vertices[i] = selectVector(mesh.Vertices[i]);
                     }
 
-                    for (int i = 0; i < mesh.VertexNormals.Count; i++)
+                    for (int i = 0; i < mesh.VertexNormals!.Count; i++)
                     {
                         mesh.VertexNormals[i] = selectVector(mesh.VertexNormals[i]);
                     }
 
-                    Vector min = selectVector(mesh.Descriptor.Min);
+                    Vector min = selectVector(mesh.Descriptor!.Min);
                     Vector max = selectVector(mesh.Descriptor.Max);
 
                     mesh.Descriptor.Min = new Vector(Math.Min(min.X, max.X), Math.Min(min.Y, max.Y), Math.Min(min.Z, max.Z));
@@ -1489,11 +1548,11 @@ namespace JeremyAnsel.Xwa.Opt
                     mesh.Descriptor.Span = selectVector(mesh.Descriptor.Span).Abs();
                     mesh.Descriptor.Target = selectVector(mesh.Descriptor.Target);
 
-                    mesh.RotationScale.Pivot = selectVector(mesh.RotationScale.Pivot);
+                    mesh.RotationScale!.Pivot = selectVector(mesh.RotationScale.Pivot);
 
                     foreach (var lod in mesh.Lods)
                     {
-                        foreach (var face in lod.FaceGroups.SelectMany(t => t.Faces))
+                        foreach (var face in lod.FaceGroups.SelectMany(t => t.Faces!))
                         {
                             face.Normal = selectVector(face.Normal);
                             face.TexturingDirection = selectVector(face.TexturingDirection);
@@ -1542,14 +1601,14 @@ namespace JeremyAnsel.Xwa.Opt
                     {
                         var faceGroup = lod.FaceGroups[faceGroupIndex];
 
-                        List<int> removeFacesIndexes = null;
+                        List<int>? removeFacesIndexes = null;
 
                         if (removeFlatTextures)
                         {
-                            removeFacesIndexes = new List<int>(faceGroup.Faces.Count);
+                            removeFacesIndexes = new List<int>(faceGroup.Faces!.Count);
                         }
 
-                        for (int faceIndex = 0; faceIndex < faceGroup.Faces.Count; faceIndex++)
+                        for (int faceIndex = 0; faceIndex < faceGroup.Faces!.Count; faceIndex++)
                         {
                             var face = faceGroup.Faces[faceIndex];
 
@@ -1565,14 +1624,14 @@ namespace JeremyAnsel.Xwa.Opt
 
                                 if (removeFlatTextures)
                                 {
-                                    removeFacesIndexes.Add(faceIndex);
+                                    removeFacesIndexes!.Add(faceIndex);
                                 }
                             }
                         }
 
                         if (removeFlatTextures)
                         {
-                            for (int faceIndex = removeFacesIndexes.Count - 1; faceIndex >= 0; faceIndex--)
+                            for (int faceIndex = removeFacesIndexes!.Count - 1; faceIndex >= 0; faceIndex--)
                             {
                                 faceGroup.Faces.RemoveAt(removeFacesIndexes[faceIndex]);
                             }

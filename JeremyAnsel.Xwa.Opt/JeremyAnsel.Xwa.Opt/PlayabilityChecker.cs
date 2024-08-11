@@ -5,7 +5,7 @@ namespace JeremyAnsel.Xwa.Opt
 {
     public static class PlayabilityChecker
     {
-        public static IList<PlayabilityMessage> CheckPlayability(OptFile opt)
+        public static IList<PlayabilityMessage> CheckPlayability(OptFile? opt)
         {
             var messages = new List<PlayabilityMessage>();
 
@@ -21,7 +21,7 @@ namespace JeremyAnsel.Xwa.Opt
             return messages;
         }
 
-        public static IEnumerable<PlayabilityMessage> OptInformations(OptFile opt)
+        public static IEnumerable<PlayabilityMessage> OptInformations(OptFile? opt)
         {
             if (opt == null)
             {
@@ -41,7 +41,7 @@ namespace JeremyAnsel.Xwa.Opt
                 opt.TexturesBitsPerPixel);
         }
 
-        public static IEnumerable<PlayabilityMessage> CheckTextures(OptFile opt)
+        public static IEnumerable<PlayabilityMessage> CheckTextures(OptFile? opt)
         {
             if (opt == null)
             {
@@ -92,7 +92,7 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
-        public static IEnumerable<PlayabilityMessage> CheckGeometry(OptFile opt)
+        public static IEnumerable<PlayabilityMessage> CheckGeometry(OptFile? opt)
         {
             if (opt == null)
             {
@@ -107,7 +107,7 @@ namespace JeremyAnsel.Xwa.Opt
                     "The maximum meshes count for an opt is 50.");
             }
 
-            if (opt.Meshes.Any(t => t.Vertices.Count > 512))
+            if (opt.Meshes.Any(t => t.Vertices is not null && t.Vertices.Count > 512))
             {
                 yield return new PlayabilityMessage(
                     PlayabilityMessageLevel.Warning,
@@ -118,9 +118,9 @@ namespace JeremyAnsel.Xwa.Opt
             if (opt.Meshes
                 .SelectMany(t => t.Lods)
                 .SelectMany(t => t.FaceGroups)
-                .Where(t => t.Textures.Any(name =>
+                .Where(t => t.Textures is not null && t.Textures.Any(name =>
                 {
-                    if (opt.Textures.TryGetValue(name, out Texture texture))
+                    if (opt.Textures.TryGetValue(name, out Texture? texture))
                     {
                         return texture.HasAlpha;
                     }
@@ -136,7 +136,7 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
-        public static IEnumerable<PlayabilityMessage> CheckEngineGlows(OptFile opt)
+        public static IEnumerable<PlayabilityMessage> CheckEngineGlows(OptFile? opt)
         {
             if (opt == null)
             {
@@ -152,7 +152,7 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
-        public static IEnumerable<PlayabilityMessage> CheckHardpoints(OptFile opt)
+        public static IEnumerable<PlayabilityMessage> CheckHardpoints(OptFile? opt)
         {
             if (opt == null)
             {
@@ -207,7 +207,7 @@ namespace JeremyAnsel.Xwa.Opt
             }
         }
 
-        public static IEnumerable<PlayabilityMessage> CheckFlatTextures(OptFile opt)
+        public static IEnumerable<PlayabilityMessage> CheckFlatTextures(OptFile? opt)
         {
             if (opt == null)
             {

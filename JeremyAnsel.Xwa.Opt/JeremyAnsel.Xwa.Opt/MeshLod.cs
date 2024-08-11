@@ -72,31 +72,34 @@ namespace JeremyAnsel.Xwa.Opt
 
             foreach (var faceGroup in this.FaceGroups)
             {
-                FaceGroup index = null;
+                FaceGroup? index = null;
 
                 foreach (var group in groups)
                 {
-                    if (group.Textures.Count != faceGroup.Textures.Count)
+                    int groupTexturesCount = group.Textures is null ? 0 : group.Textures.Count;
+                    int faceGroupTexturesCount = faceGroup.Textures is null ? 0 : faceGroup.Textures.Count;
+
+                    if (groupTexturesCount != faceGroupTexturesCount)
                     {
                         continue;
                     }
 
-                    if (group.Textures.Count == 0)
+                    if (groupTexturesCount == 0)
                     {
                         index = group;
                         break;
                     }
 
                     int t = 0;
-                    for (; t < group.Textures.Count; t++)
+                    for (; t < groupTexturesCount; t++)
                     {
-                        if (group.Textures[t] != faceGroup.Textures[t])
+                        if (group.Textures![t] != faceGroup.Textures![t])
                         {
                             break;
                         }
                     }
 
-                    if (t == group.Textures.Count)
+                    if (t == groupTexturesCount)
                     {
                         index = group;
                         break;
@@ -109,9 +112,12 @@ namespace JeremyAnsel.Xwa.Opt
                 }
                 else
                 {
-                    foreach (var face in faceGroup.Faces)
+                    if (index.Faces is not null && faceGroup.Faces is not null)
                     {
-                        index.Faces.Add(face);
+                        foreach (var face in faceGroup.Faces)
+                        {
+                            index.Faces.Add(face);
+                        }
                     }
                 }
             }
@@ -135,9 +141,12 @@ namespace JeremyAnsel.Xwa.Opt
             {
                 var group = new FaceGroup();
 
-                foreach (string texture in faceGroup.Textures)
+                if (faceGroup.Textures is not null)
                 {
-                    group.Textures.Add(texture);
+                    foreach (string texture in faceGroup.Textures)
+                    {
+                        group.Textures!.Add(texture);
+                    }
                 }
 
                 return group;
@@ -156,18 +165,21 @@ namespace JeremyAnsel.Xwa.Opt
                     int verticesCount = 0;
                     FaceGroup group = createNewGroup(faceGroup);
 
-                    foreach (var face in faceGroup.Faces)
+                    if (faceGroup.Faces is not null)
                     {
-                        verticesCount += face.VerticesCount;
-
-                        if (verticesCount > MaxVerticesCount)
+                        foreach (var face in faceGroup.Faces)
                         {
-                            groups.Add(group);
-                            verticesCount = face.VerticesCount;
-                            group = createNewGroup(faceGroup);
-                        }
+                            verticesCount += face.VerticesCount;
 
-                        group.Faces.Add(face);
+                            if (verticesCount > MaxVerticesCount)
+                            {
+                                groups.Add(group);
+                                verticesCount = face.VerticesCount;
+                                group = createNewGroup(faceGroup);
+                            }
+
+                            group.Faces!.Add(face);
+                        }
                     }
 
                     groups.Add(group);
@@ -184,31 +196,34 @@ namespace JeremyAnsel.Xwa.Opt
 
             foreach (var faceGroup in this.FaceGroups)
             {
-                FaceGroup index = null;
+                FaceGroup? index = null;
 
                 foreach (var group in groups)
                 {
-                    if (group.Textures.Count != faceGroup.Textures.Count)
+                    int groupTexturesCount = group.Textures is null ? 0 : group.Textures.Count;
+                    int faceGroupTexturesCount = faceGroup.Textures is null ? 0 : faceGroup.Textures.Count;
+
+                    if (groupTexturesCount != faceGroupTexturesCount)
                     {
                         continue;
                     }
 
-                    if (group.Textures.Count == 0)
+                    if (groupTexturesCount == 0)
                     {
                         index = group;
                         break;
                     }
 
                     int t = 0;
-                    for (; t < group.Textures.Count; t++)
+                    for (; t < groupTexturesCount; t++)
                     {
-                        if (group.Textures[t] != faceGroup.Textures[t])
+                        if (group.Textures![t] != faceGroup.Textures![t])
                         {
                             break;
                         }
                     }
 
-                    if (t == group.Textures.Count)
+                    if (t == groupTexturesCount)
                     {
                         index = group;
                         break;
@@ -221,9 +236,12 @@ namespace JeremyAnsel.Xwa.Opt
                 }
                 else
                 {
-                    foreach (var face in faceGroup.Faces)
+                    if (index.Faces is not null && faceGroup.Faces is not null)
                     {
-                        index.Faces.Add(face);
+                        foreach (var face in faceGroup.Faces)
+                        {
+                            index.Faces.Add(face);
+                        }
                     }
                 }
             }

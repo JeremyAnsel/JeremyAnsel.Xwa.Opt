@@ -81,19 +81,19 @@ namespace JeremyAnsel.Xwa.Opt
                 switch (i)
                 {
                     case 0:
-                        vertexI = mesh.TextureCoordinates[texIndex.A];
+                        vertexI = mesh.TextureCoordinates![texIndex.A];
                         break;
 
                     case 1:
-                        vertexI = mesh.TextureCoordinates[texIndex.B];
+                        vertexI = mesh.TextureCoordinates![texIndex.B];
                         break;
 
                     case 2:
-                        vertexI = mesh.TextureCoordinates[texIndex.C];
+                        vertexI = mesh.TextureCoordinates![texIndex.C];
                         break;
 
                     case 3:
-                        vertexI = mesh.TextureCoordinates[texIndex.D];
+                        vertexI = mesh.TextureCoordinates![texIndex.D];
                         break;
 
                     default:
@@ -112,19 +112,19 @@ namespace JeremyAnsel.Xwa.Opt
                     switch (j)
                     {
                         case 0:
-                            vertexJ = mesh.TextureCoordinates[texIndex.A];
+                            vertexJ = mesh.TextureCoordinates![texIndex.A];
                             break;
 
                         case 1:
-                            vertexJ = mesh.TextureCoordinates[texIndex.B];
+                            vertexJ = mesh.TextureCoordinates![texIndex.B];
                             break;
 
                         case 2:
-                            vertexJ = mesh.TextureCoordinates[texIndex.C];
+                            vertexJ = mesh.TextureCoordinates![texIndex.C];
                             break;
 
                         case 3:
-                            vertexJ = mesh.TextureCoordinates[texIndex.D];
+                            vertexJ = mesh.TextureCoordinates![texIndex.D];
                             break;
 
                         default:

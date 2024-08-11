@@ -17,7 +17,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
         {
         }
 
-        public string Reference { get; set; }
+        public string? Reference { get; set; }
 
         protected override int DataSize
         {
@@ -64,7 +64,7 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             if (dataOffset != 0)
             {
-                for (int i = 0; i < this.Reference.Length; i++)
+                for (int i = 0; i < this.Reference!.Length; i++)
                 {
                     file.Write(this.Reference[i]);
                 }

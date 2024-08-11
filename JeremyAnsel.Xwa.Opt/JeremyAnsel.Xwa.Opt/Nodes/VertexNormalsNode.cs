@@ -21,19 +21,19 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             }
         }
 
-        public IList<Vector> Normals { get; set; }
+        public IList<Vector>? Normals { get; set; }
 
         protected override int DataSize
         {
             get
             {
-                return this.Normals.Count * 12;
+                return this.Normals is null ? 0 : this.Normals.Count * 12;
             }
         }
 
         public override string ToString()
         {
-            return string.Format(CultureInfo.InvariantCulture, "VectexNormalsNode: {0} vertex normals", this.Normals.Count);
+            return string.Format(CultureInfo.InvariantCulture, "VectexNormalsNode: {0} vertex normals", this.Normals is null ? 0 : this.Normals.Count);
         }
 
         internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
@@ -65,8 +65,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             base.Write(file, offset);
 
             int dataOffset = this.DataSize == 0 ? 0 : (offset + 24 + this.NameSize + this.NodesOffsetsSize);
+            int normalsCount = this.Normals is null ? 0 : this.Normals.Count;
 
-            file.Write(this.Normals.Count);
+            file.Write(normalsCount);
             file.Write(dataOffset);
 
             this.WriteName(file);
@@ -75,9 +76,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             if (dataOffset != 0)
             {
-                for (int i = 0; i < this.Normals.Count; i++)
+                for (int i = 0; i < normalsCount; i++)
                 {
-                    this.Normals[i].Write(file);
+                    this.Normals![i].Write(file);
                 }
             }
 

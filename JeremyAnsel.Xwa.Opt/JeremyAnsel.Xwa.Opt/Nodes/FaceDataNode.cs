@@ -23,19 +23,19 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
         public int EdgesCount { get; set; }
 
-        public IList<Face> Faces { get; set; }
+        public IList<Face>? Faces { get; set; }
 
         protected override int DataSize
         {
             get
             {
-                return 4 + (this.Faces.Count * 100);
+                return 4 + (this.Faces is null ? 0 : this.Faces.Count * 100);
             }
         }
 
         public override string ToString()
         {
-            return string.Format(CultureInfo.InvariantCulture, "FaceDataNode: {0} faces", this.Faces.Count);
+            return string.Format(CultureInfo.InvariantCulture, "FaceDataNode: {0} faces", this.Faces is null ? 0 : this.Faces.Count);
         }
 
         internal override void Parse(System.IO.BinaryReader file, int globalOffset, int offset)
@@ -92,8 +92,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             base.Write(file, offset);
 
             int dataOffset = offset + 24 + this.NameSize + this.NodesOffsetsSize;
+            int facesCount = this.Faces is null ? 0 : this.Faces.Count;
 
-            file.Write(this.Faces.Count);
+            file.Write(facesCount);
             file.Write(dataOffset);
 
             this.WriteName(file);
@@ -102,24 +103,24 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             file.Write(this.EdgesCount);
 
-            for (int i = 0; i < this.Faces.Count; i++)
+            for (int i = 0; i < facesCount; i++)
             {
-                Face face = this.Faces[i];
+                Face face = this.Faces![i];
                 face.VerticesIndex.Write(file);
                 face.EdgesIndex.Write(file);
                 face.TextureCoordinatesIndex.Write(file);
                 face.VertexNormalsIndex.Write(file);
             }
 
-            for (int i = 0; i < this.Faces.Count; i++)
+            for (int i = 0; i < facesCount; i++)
             {
-                Face face = this.Faces[i];
+                Face face = this.Faces![i];
                 face.Normal.Write(file);
             }
 
-            for (int i = 0; i < this.Faces.Count; i++)
+            for (int i = 0; i < facesCount; i++)
             {
-                Face face = this.Faces[i];
+                Face face = this.Faces![i];
                 face.TexturingDirection.Write(file);
                 face.TexturingMagniture.Write(file);
             }
