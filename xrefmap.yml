@@ -4932,6 +4932,15 @@ references:
   fullName.vb: JeremyAnsel.Xwa.Opt.Texture.Convert8To32(Boolean)
   nameWithType: Texture.Convert8To32(bool)
   nameWithType.vb: Texture.Convert8To32(Boolean)
+- uid: JeremyAnsel.Xwa.Opt.Texture.Convert8To32(System.Boolean,System.Boolean)
+  name: Convert8To32(bool, bool)
+  href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_Convert8To32_System_Boolean_System_Boolean_
+  commentId: M:JeremyAnsel.Xwa.Opt.Texture.Convert8To32(System.Boolean,System.Boolean)
+  name.vb: Convert8To32(Boolean, Boolean)
+  fullName: JeremyAnsel.Xwa.Opt.Texture.Convert8To32(bool, bool)
+  fullName.vb: JeremyAnsel.Xwa.Opt.Texture.Convert8To32(Boolean, Boolean)
+  nameWithType: Texture.Convert8To32(bool, bool)
+  nameWithType.vb: Texture.Convert8To32(Boolean, Boolean)
 - uid: JeremyAnsel.Xwa.Opt.Texture.Convert8To32*
   name: Convert8To32
   href: api/JeremyAnsel.Xwa.Opt.Texture.html#JeremyAnsel_Xwa_Opt_Texture_Convert8To32_

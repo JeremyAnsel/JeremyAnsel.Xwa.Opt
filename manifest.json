@@ -18,7 +18,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.EngineGlow.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.EngineGlow",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -28,7 +32,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.ExplosionTypes.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.ExplosionTypes",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -38,7 +46,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Face.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Face",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -48,7 +60,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.FaceGroup.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.FaceGroup",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -58,7 +74,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Hardpoint.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Hardpoint",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -68,7 +88,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.HardpointType.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.HardpointType",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -78,7 +102,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Indices.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Indices",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -88,7 +116,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Mesh.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Mesh",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -98,7 +130,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshDescriptor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.MeshDescriptor",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -108,7 +144,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshLod.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.MeshLod",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -118,7 +158,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.MeshType.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.MeshType",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -128,7 +172,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.NodeType.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.NodeType",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -138,7 +186,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -148,7 +200,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceDataNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.FaceDataNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -158,7 +214,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.FaceGroupingNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.FaceGroupingNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -168,7 +228,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.HardpointNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.HardpointNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -178,7 +242,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshDescriptorNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.MeshDescriptorNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -188,7 +256,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.MeshVerticesNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.MeshVerticesNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -198,7 +270,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.Node.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.Node",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -208,7 +284,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeGroupNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.NodeGroupNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -218,7 +298,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeReferenceNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.NodeReferenceNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -228,7 +312,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.NodeSizeInFileBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -238,7 +326,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.NodeSwitchNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.NodeSwitchNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -248,7 +340,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.OptFileNodes",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -258,7 +354,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -268,7 +368,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureAlphaNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.TextureAlphaNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -278,7 +382,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureCoordinatesNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.TextureCoordinatesNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -288,7 +396,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.TextureNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.TextureNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -298,7 +410,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.VertexNormalsNode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes.VertexNormalsNode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -308,7 +424,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Nodes.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Nodes",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -318,7 +438,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.OptFile.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.OptFile",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -328,7 +452,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityChecker.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.PlayabilityChecker",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -338,7 +466,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessage.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.PlayabilityMessage",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -348,7 +480,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.PlayabilityMessageLevel",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -358,7 +494,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.RotationScale.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.RotationScale",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -368,7 +508,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Texture.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Texture",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -378,7 +522,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.TextureCoordinates.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.TextureCoordinates",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -388,7 +536,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.Vector.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt.Vector",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -398,7 +550,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Opt.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Opt",
+      "Summary": null
     },
     {
       "type": "Conceptual",
