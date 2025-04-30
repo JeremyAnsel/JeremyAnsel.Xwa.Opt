@@ -1796,6 +1796,11 @@ namespace JeremyAnsel.Xwa.Opt
 
         public void Convert8To32(bool generateMipmaps)
         {
+            this.Convert8To32(generateMipmaps, false);
+        }
+
+        public void Convert8To32(bool generateMipmaps, bool allocMipmaps)
+        {
             if (this.BitsPerPixel != 8)
             {
                 return;
@@ -1806,17 +1811,19 @@ namespace JeremyAnsel.Xwa.Opt
                 return;
             }
 
-            if (!generateMipmaps)
+            if (!allocMipmaps && !generateMipmaps)
             {
                 this.RemoveMipmaps();
             }
 
             bool hasAlpha = this.HasAlpha;
             bool hasIllum = false;
+            int length = allocMipmaps ? this.MaximumMipmapsLength : this.ImageData.Length;
+            int dataLength = (allocMipmaps || generateMipmaps) ? (this.Width * this.Height) : this.ImageData.Length;
 
-            byte[] illum = new byte[this.ImageData.Length];
+            byte[] illum = new byte[length];
 
-            for (int i = 0; i < this.ImageData.Length; i++)
+            for (int i = 0; i < dataLength; i++)
             {
                 int colorIndex = this.ImageData[i];
                 ushort color = BitConverter.ToUInt16(this.Palette, 4 * 512 + colorIndex * 2);
@@ -1839,9 +1846,9 @@ namespace JeremyAnsel.Xwa.Opt
                 }
             }
 
-            byte[] data = new byte[this.ImageData.Length * 4];
+            byte[] data = new byte[length * 4];
 
-            for (int i = 0; i < this.ImageData.Length; i++)
+            for (int i = 0; i < dataLength; i++)
             {
                 int c = this.ImageData[i];
 
@@ -2054,15 +2061,31 @@ namespace JeremyAnsel.Xwa.Opt
             int mipmapsLength = this.MaximumMipmapsLength;
             bool isIlluminated = this.Palette[4] != 0 && this.AlphaIllumData != null;
 
-            byte[] data = new byte[mipmapsLength * 4];
-            Array.Copy(this.ImageData, 0, data, 0, this.Width * this.Height * 4);
+            byte[] data;
+
+            if (this.ImageData.Length == mipmapsLength * 4)
+            {
+                data = this.ImageData;
+            }
+            else
+            {
+                data = new byte[mipmapsLength * 4];
+                Array.Copy(this.ImageData, 0, data, 0, this.Width * this.Height * 4);
+            }
 
             byte[]? illumData = null;
 
             if (isIlluminated)
             {
-                illumData = new byte[mipmapsLength];
-                Array.Copy(this.AlphaIllumData!, 0, illumData, 0, this.Width * this.Height);
+                if (this.AlphaIllumData!.Length == mipmapsLength)
+                {
+                    illumData = this.AlphaIllumData;
+                }
+                else
+                {
+                    illumData = new byte[mipmapsLength];
+                    Array.Copy(this.AlphaIllumData!, 0, illumData, 0, this.Width * this.Height);
+                }
             }
 
             int index = 0;
