@@ -174,7 +174,13 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
                 throw new InvalidDataException("invalid node found: " + type);
             }
 
-            node.Parse(file, globalOffset, offset);
+            try
+            {
+                node.Parse(file, globalOffset, offset);
+            }
+            catch (EndOfStreamException)
+            {
+            }
 
             return node;
         }
