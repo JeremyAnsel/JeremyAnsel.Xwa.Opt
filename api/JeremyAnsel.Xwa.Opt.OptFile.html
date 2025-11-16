@@ -797,7 +797,9 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OptFileNodes BuildOptFileNodes(bool compactBuffers, bool flipPixels)</code></pre>
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Maintainability&quot;, &quot;CA1506:AvoidExcessiveClassCoupling&quot;)]
+[SuppressMessage(&quot;Microsoft.Maintainability&quot;, &quot;CA1502:AvoidExcessiveComplexity&quot;)]
+public OptFileNodes BuildOptFileNodes(bool compactBuffers, bool flipPixels)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -879,7 +881,9 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ChangeAxes(int axisX, int axisY, int axisZ)</code></pre>
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Maintainability&quot;, &quot;CA1502:AvoidExcessiveComplexity&quot;)]
+[SuppressMessage(&quot;Globalization&quot;, &quot;CA1303:Ne pas passer de litt&#233;raux en param&#232;tres localis&#233;s&quot;, Justification = &quot;Reviewed.&quot;)]
+public void ChangeAxes(int axisX, int axisY, int axisZ)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1455,7 +1459,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Mesh? MergeMeshes(IEnumerable&lt;Mesh&gt;? meshes)</code></pre>
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Maintainability&quot;, &quot;CA1502:AvoidExcessiveComplexity&quot;)]
+public Mesh? MergeMeshes(IEnumerable&lt;Mesh&gt;? meshes)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
