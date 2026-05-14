@@ -11,27 +11,27 @@ namespace JeremyAnsel.Xwa.Opt
         public RotationScale()
         {
             this.Pivot = Vector.Empty;
-            this.Look = new Vector(0, 32767, 0);
-            this.Up = new Vector(0, 0, 32767);
-            this.Right = new Vector(32767, 0, 0);
+            this.RotationAxis = new Vector(0, 32767, 0);
+            this.DirectionAxis = new Vector(0, 0, 32767);
+            this.UpAxis = new Vector(32767, 0, 0);
         }
 
         public Vector Pivot { get; set; }
 
-        public Vector Look { get; set; }
+        public Vector RotationAxis { get; set; }
 
-        public Vector Up { get; set; }
+        public Vector DirectionAxis { get; set; }
 
-        public Vector Right { get; set; }
+        public Vector UpAxis { get; set; }
 
         public RotationScale Clone()
         {
             var rotationScale = new RotationScale
             {
                 Pivot = this.Pivot,
-                Look = this.Look,
-                Up = this.Up,
-                Right = this.Right
+                RotationAxis = this.RotationAxis,
+                DirectionAxis = this.DirectionAxis,
+                UpAxis = this.UpAxis
             };
 
             return rotationScale;

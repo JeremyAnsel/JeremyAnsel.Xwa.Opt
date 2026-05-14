@@ -17,11 +17,11 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
         public Vector Pivot { get; set; }
 
-        public Vector Look { get; set; }
+        public Vector RotationAxis { get; set; }
 
-        public Vector Up { get; set; }
+        public Vector DirectionAxis { get; set; }
 
-        public Vector Right { get; set; }
+        public Vector UpAxis { get; set; }
 
         protected override int DataSize
         {
@@ -47,9 +47,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
             file.BaseStream.Position = dataOffset;
             this.Pivot = Vector.Read(file);
-            this.Look = Vector.Read(file);
-            this.Up = Vector.Read(file);
-            this.Right = Vector.Read(file);
+            this.RotationAxis = Vector.Read(file);
+            this.DirectionAxis = Vector.Read(file);
+            this.UpAxis = Vector.Read(file);
         }
 
         internal override void Write(System.IO.BinaryWriter file, int offset)
@@ -66,9 +66,9 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             this.WriteNodesOffsets(file, offset);
 
             this.Pivot.Write(file);
-            this.Look.Write(file);
-            this.Up.Write(file);
-            this.Right.Write(file);
+            this.RotationAxis.Write(file);
+            this.DirectionAxis.Write(file);
+            this.UpAxis.Write(file);
 
             this.WriteNodes(file, offset);
         }

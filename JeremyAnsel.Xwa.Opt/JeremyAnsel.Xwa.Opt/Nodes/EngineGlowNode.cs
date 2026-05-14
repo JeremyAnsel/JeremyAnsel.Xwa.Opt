@@ -22,15 +22,15 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
 
         public uint OuterColor { get; set; }
 
-        public Vector Format { get; set; }
+        public Vector Dimensions { get; set; }
 
         public Vector Position { get; set; }
 
-        public Vector Look { get; set; }
+        public Vector LookAxis { get; set; }
 
-        public Vector Up { get; set; }
+        public Vector UpAxis { get; set; }
 
-        public Vector Right { get; set; }
+        public Vector RightAxis { get; set; }
 
         protected override int DataSize
         {
@@ -63,11 +63,11 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             this.IsDisabled = file.ReadInt32() != 0;
             this.CoreColor = file.ReadUInt32();
             this.OuterColor = file.ReadUInt32();
-            this.Format = Vector.Read(file);
+            this.Dimensions = Vector.Read(file);
             this.Position = Vector.Read(file);
-            this.Look = Vector.Read(file);
-            this.Up = Vector.Read(file);
-            this.Right = Vector.Read(file);
+            this.LookAxis = Vector.Read(file);
+            this.UpAxis = Vector.Read(file);
+            this.RightAxis = Vector.Read(file);
         }
 
         internal override void Write(System.IO.BinaryWriter file, int offset)
@@ -86,11 +86,11 @@ namespace JeremyAnsel.Xwa.Opt.Nodes
             file.Write(this.IsDisabled ? (int)1 : (int)0);
             file.Write(this.CoreColor);
             file.Write(this.OuterColor);
-            this.Format.Write(file);
+            this.Dimensions.Write(file);
             this.Position.Write(file);
-            this.Look.Write(file);
-            this.Up.Write(file);
-            this.Right.Write(file);
+            this.LookAxis.Write(file);
+            this.UpAxis.Write(file);
+            this.RightAxis.Write(file);
 
             this.WriteNodes(file, offset);
         }

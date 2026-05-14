@@ -13,11 +13,11 @@ namespace JeremyAnsel.Xwa.Opt
             this.IsDisabled = false;
             this.CoreColor = 0xFFFFFFFF;
             this.OuterColor = 0xFFFFFFFF;
-            this.Format = Vector.Empty;
+            this.Dimensions = Vector.Empty;
             this.Position = Vector.Empty;
-            this.Look = new Vector(0, 1, 0);
-            this.Up = new Vector(0, 0, 1);
-            this.Right = new Vector(1, 0, 0);
+            this.LookAxis = new Vector(0, 1, 0);
+            this.UpAxis = new Vector(0, 0, 1);
+            this.RightAxis = new Vector(1, 0, 0);
         }
 
         public bool IsDisabled { get; set; }
@@ -26,15 +26,15 @@ namespace JeremyAnsel.Xwa.Opt
 
         public uint OuterColor { get; set; }
 
-        public Vector Format { get; set; }
+        public Vector Dimensions { get; set; }
 
         public Vector Position { get; set; }
 
-        public Vector Look { get; set; }
+        public Vector LookAxis { get; set; }
 
-        public Vector Up { get; set; }
+        public Vector UpAxis { get; set; }
 
-        public Vector Right { get; set; }
+        public Vector RightAxis { get; set; }
 
         public EngineGlow Clone()
         {
@@ -43,11 +43,11 @@ namespace JeremyAnsel.Xwa.Opt
                 IsDisabled = this.IsDisabled,
                 CoreColor = this.CoreColor,
                 OuterColor = this.OuterColor,
-                Format = this.Format,
+                Dimensions = this.Dimensions,
                 Position = this.Position,
-                Look = this.Look,
-                Up = this.Up,
-                Right = this.Right
+                LookAxis = this.LookAxis,
+                UpAxis = this.UpAxis,
+                RightAxis = this.RightAxis
             };
 
             return engineGlow;

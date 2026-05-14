@@ -272,9 +272,9 @@ namespace JeremyAnsel.Xwa.Opt
                 if (rotationScaleNode != null)
                 {
                     mesh.RotationScale!.Pivot = rotationScaleNode.Pivot;
-                    mesh.RotationScale.Look = rotationScaleNode.Look;
-                    mesh.RotationScale.Up = rotationScaleNode.Up;
-                    mesh.RotationScale.Right = rotationScaleNode.Right;
+                    mesh.RotationScale.RotationAxis = rotationScaleNode.RotationAxis;
+                    mesh.RotationScale.DirectionAxis = rotationScaleNode.DirectionAxis;
+                    mesh.RotationScale.UpAxis = rotationScaleNode.UpAxis;
                 }
 
                 if (descriptorNode != null)
@@ -310,10 +310,10 @@ namespace JeremyAnsel.Xwa.Opt
                         CoreColor = engineGlow.CoreColor,
                         OuterColor = engineGlow.OuterColor,
                         Position = engineGlow.Position,
-                        Format = engineGlow.Format,
-                        Look = engineGlow.Look,
-                        Up = engineGlow.Up,
-                        Right = engineGlow.Right
+                        Dimensions = engineGlow.Dimensions,
+                        LookAxis = engineGlow.LookAxis,
+                        UpAxis = engineGlow.UpAxis,
+                        RightAxis = engineGlow.RightAxis
                     });
                 }
 
@@ -638,9 +638,9 @@ namespace JeremyAnsel.Xwa.Opt
                 VertexNormalsNode vertexNormalsNode = new VertexNormalsNode(0, false);
 
                 rotationScaleNode.Pivot = mesh.RotationScale!.Pivot;
-                rotationScaleNode.Look = mesh.RotationScale.Look;
-                rotationScaleNode.Up = mesh.RotationScale.Up;
-                rotationScaleNode.Right = mesh.RotationScale.Right;
+                rotationScaleNode.RotationAxis = mesh.RotationScale.RotationAxis;
+                rotationScaleNode.DirectionAxis = mesh.RotationScale.DirectionAxis;
+                rotationScaleNode.UpAxis = mesh.RotationScale.UpAxis;
 
                 descriptorNode.MeshType = mesh.Descriptor!.MeshType;
                 descriptorNode.ExplosionType = mesh.Descriptor.ExplosionType;
@@ -813,10 +813,10 @@ namespace JeremyAnsel.Xwa.Opt
                         CoreColor = engineGlow.CoreColor,
                         OuterColor = engineGlow.OuterColor,
                         Position = engineGlow.Position,
-                        Format = engineGlow.Format,
-                        Look = engineGlow.Look,
-                        Up = engineGlow.Up,
-                        Right = engineGlow.Right
+                        Dimensions = engineGlow.Dimensions,
+                        LookAxis = engineGlow.LookAxis,
+                        UpAxis = engineGlow.UpAxis,
+                        RightAxis = engineGlow.RightAxis
                     });
                 }
 
@@ -1218,9 +1218,9 @@ namespace JeremyAnsel.Xwa.Opt
                 lodMesh.Descriptor.TargetId = mesh.Descriptor.TargetId;
 
                 lodMesh.RotationScale!.Pivot = mesh.RotationScale!.Pivot;
-                lodMesh.RotationScale.Look = mesh.RotationScale.Look;
-                lodMesh.RotationScale.Up = mesh.RotationScale.Up;
-                lodMesh.RotationScale.Right = mesh.RotationScale.Right;
+                lodMesh.RotationScale.RotationAxis = mesh.RotationScale.RotationAxis;
+                lodMesh.RotationScale.DirectionAxis = mesh.RotationScale.DirectionAxis;
+                lodMesh.RotationScale.UpAxis = mesh.RotationScale.UpAxis;
 
                 foreach (var v in mesh.Vertices!)
                 {
@@ -1257,11 +1257,11 @@ namespace JeremyAnsel.Xwa.Opt
                             IsDisabled = engineGlow.IsDisabled,
                             CoreColor = engineGlow.CoreColor,
                             OuterColor = engineGlow.OuterColor,
-                            Format = engineGlow.Format,
+                            Dimensions = engineGlow.Dimensions,
                             Position = engineGlow.Position,
-                            Look = engineGlow.Look,
-                            Up = engineGlow.Up,
-                            Right = engineGlow.Right
+                            LookAxis = engineGlow.LookAxis,
+                            UpAxis = engineGlow.UpAxis,
+                            RightAxis = engineGlow.RightAxis
                         });
                 }
 
@@ -1355,11 +1355,11 @@ namespace JeremyAnsel.Xwa.Opt
                             IsDisabled = engineGlow.IsDisabled,
                             CoreColor = engineGlow.CoreColor,
                             OuterColor = engineGlow.OuterColor,
-                            Format = engineGlow.Format,
+                            Dimensions = engineGlow.Dimensions,
                             Position = engineGlow.Position,
-                            Look = engineGlow.Look,
-                            Up = engineGlow.Up,
-                            Right = engineGlow.Right
+                            LookAxis = engineGlow.LookAxis,
+                            UpAxis = engineGlow.UpAxis,
+                            RightAxis = engineGlow.RightAxis
                         });
                 }
             }
