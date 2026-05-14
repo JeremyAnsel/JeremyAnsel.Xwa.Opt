@@ -58,19 +58,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.EngineGlow.CoreColor
   nameWithType: EngineGlow.CoreColor
-- uid: JeremyAnsel.Xwa.Opt.EngineGlow.Format
-  name: Format
-  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_Format
-  commentId: P:JeremyAnsel.Xwa.Opt.EngineGlow.Format
-  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.Format
-  nameWithType: EngineGlow.Format
-- uid: JeremyAnsel.Xwa.Opt.EngineGlow.Format*
-  name: Format
-  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_Format_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.EngineGlow.Format
+- uid: JeremyAnsel.Xwa.Opt.EngineGlow.Dimensions
+  name: Dimensions
+  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_Dimensions
+  commentId: P:JeremyAnsel.Xwa.Opt.EngineGlow.Dimensions
+  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.Dimensions
+  nameWithType: EngineGlow.Dimensions
+- uid: JeremyAnsel.Xwa.Opt.EngineGlow.Dimensions*
+  name: Dimensions
+  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_Dimensions_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.EngineGlow.Dimensions
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.Format
-  nameWithType: EngineGlow.Format
+  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.Dimensions
+  nameWithType: EngineGlow.Dimensions
 - uid: JeremyAnsel.Xwa.Opt.EngineGlow.IsDisabled
   name: IsDisabled
   href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_IsDisabled
@@ -84,19 +84,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.EngineGlow.IsDisabled
   nameWithType: EngineGlow.IsDisabled
-- uid: JeremyAnsel.Xwa.Opt.EngineGlow.Look
-  name: Look
-  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_Look
-  commentId: P:JeremyAnsel.Xwa.Opt.EngineGlow.Look
-  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.Look
-  nameWithType: EngineGlow.Look
-- uid: JeremyAnsel.Xwa.Opt.EngineGlow.Look*
-  name: Look
-  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_Look_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.EngineGlow.Look
+- uid: JeremyAnsel.Xwa.Opt.EngineGlow.LookAxis
+  name: LookAxis
+  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_LookAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.EngineGlow.LookAxis
+  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.LookAxis
+  nameWithType: EngineGlow.LookAxis
+- uid: JeremyAnsel.Xwa.Opt.EngineGlow.LookAxis*
+  name: LookAxis
+  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_LookAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.EngineGlow.LookAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.Look
-  nameWithType: EngineGlow.Look
+  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.LookAxis
+  nameWithType: EngineGlow.LookAxis
 - uid: JeremyAnsel.Xwa.Opt.EngineGlow.OuterColor
   name: OuterColor
   href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_OuterColor
@@ -123,32 +123,32 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.EngineGlow.Position
   nameWithType: EngineGlow.Position
-- uid: JeremyAnsel.Xwa.Opt.EngineGlow.Right
-  name: Right
-  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_Right
-  commentId: P:JeremyAnsel.Xwa.Opt.EngineGlow.Right
-  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.Right
-  nameWithType: EngineGlow.Right
-- uid: JeremyAnsel.Xwa.Opt.EngineGlow.Right*
-  name: Right
-  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_Right_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.EngineGlow.Right
+- uid: JeremyAnsel.Xwa.Opt.EngineGlow.RightAxis
+  name: RightAxis
+  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_RightAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.EngineGlow.RightAxis
+  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.RightAxis
+  nameWithType: EngineGlow.RightAxis
+- uid: JeremyAnsel.Xwa.Opt.EngineGlow.RightAxis*
+  name: RightAxis
+  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_RightAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.EngineGlow.RightAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.Right
-  nameWithType: EngineGlow.Right
-- uid: JeremyAnsel.Xwa.Opt.EngineGlow.Up
-  name: Up
-  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_Up
-  commentId: P:JeremyAnsel.Xwa.Opt.EngineGlow.Up
-  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.Up
-  nameWithType: EngineGlow.Up
-- uid: JeremyAnsel.Xwa.Opt.EngineGlow.Up*
-  name: Up
-  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_Up_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.EngineGlow.Up
+  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.RightAxis
+  nameWithType: EngineGlow.RightAxis
+- uid: JeremyAnsel.Xwa.Opt.EngineGlow.UpAxis
+  name: UpAxis
+  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_UpAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.EngineGlow.UpAxis
+  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.UpAxis
+  nameWithType: EngineGlow.UpAxis
+- uid: JeremyAnsel.Xwa.Opt.EngineGlow.UpAxis*
+  name: UpAxis
+  href: api/JeremyAnsel.Xwa.Opt.EngineGlow.html#JeremyAnsel_Xwa_Opt_EngineGlow_UpAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.EngineGlow.UpAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.Up
-  nameWithType: EngineGlow.Up
+  fullName: JeremyAnsel.Xwa.Opt.EngineGlow.UpAxis
+  nameWithType: EngineGlow.UpAxis
 - uid: JeremyAnsel.Xwa.Opt.ExplosionTypes
   name: ExplosionTypes
   href: api/JeremyAnsel.Xwa.Opt.ExplosionTypes.html
@@ -1976,19 +1976,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.DataSize
   nameWithType: EngineGlowNode.DataSize
-- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Format
-  name: Format
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_Format
-  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Format
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Format
-  nameWithType: EngineGlowNode.Format
-- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Format*
-  name: Format
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_Format_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Format
+- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Dimensions
+  name: Dimensions
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_Dimensions
+  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Dimensions
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Dimensions
+  nameWithType: EngineGlowNode.Dimensions
+- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Dimensions*
+  name: Dimensions
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_Dimensions_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Dimensions
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Format
-  nameWithType: EngineGlowNode.Format
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Dimensions
+  nameWithType: EngineGlowNode.Dimensions
 - uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.IsDisabled
   name: IsDisabled
   href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_IsDisabled
@@ -2002,19 +2002,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.IsDisabled
   nameWithType: EngineGlowNode.IsDisabled
-- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Look
-  name: Look
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_Look
-  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Look
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Look
-  nameWithType: EngineGlowNode.Look
-- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Look*
-  name: Look
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_Look_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Look
+- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.LookAxis
+  name: LookAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_LookAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.LookAxis
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.LookAxis
+  nameWithType: EngineGlowNode.LookAxis
+- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.LookAxis*
+  name: LookAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_LookAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.LookAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Look
-  nameWithType: EngineGlowNode.Look
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.LookAxis
+  nameWithType: EngineGlowNode.LookAxis
 - uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.OuterColor
   name: OuterColor
   href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_OuterColor
@@ -2041,19 +2041,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Position
   nameWithType: EngineGlowNode.Position
-- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Right
-  name: Right
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_Right
-  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Right
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Right
-  nameWithType: EngineGlowNode.Right
-- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Right*
-  name: Right
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_Right_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Right
+- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.RightAxis
+  name: RightAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_RightAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.RightAxis
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.RightAxis
+  nameWithType: EngineGlowNode.RightAxis
+- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.RightAxis*
+  name: RightAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_RightAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.RightAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Right
-  nameWithType: EngineGlowNode.Right
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.RightAxis
+  nameWithType: EngineGlowNode.RightAxis
 - uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.ToString
   name: ToString()
   href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_ToString
@@ -2067,19 +2067,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.ToString
   nameWithType: EngineGlowNode.ToString
-- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Up
-  name: Up
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_Up
-  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Up
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Up
-  nameWithType: EngineGlowNode.Up
-- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Up*
-  name: Up
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_Up_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Up
+- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.UpAxis
+  name: UpAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_UpAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.UpAxis
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.UpAxis
+  nameWithType: EngineGlowNode.UpAxis
+- uid: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.UpAxis*
+  name: UpAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.html#JeremyAnsel_Xwa_Opt_Nodes_EngineGlowNode_UpAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.UpAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.Up
-  nameWithType: EngineGlowNode.Up
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.EngineGlowNode.UpAxis
+  nameWithType: EngineGlowNode.UpAxis
 - uid: JeremyAnsel.Xwa.Opt.Nodes.FaceDataNode
   name: FaceDataNode
   href: api/JeremyAnsel.Xwa.Opt.Nodes.FaceDataNode.html
@@ -3291,19 +3291,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.DataSize
   nameWithType: RotationScaleNode.DataSize
-- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Look
-  name: Look
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_Look
-  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Look
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Look
-  nameWithType: RotationScaleNode.Look
-- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Look*
-  name: Look
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_Look_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Look
+- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.DirectionAxis
+  name: DirectionAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_DirectionAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.DirectionAxis
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.DirectionAxis
+  nameWithType: RotationScaleNode.DirectionAxis
+- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.DirectionAxis*
+  name: DirectionAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_DirectionAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.DirectionAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Look
-  nameWithType: RotationScaleNode.Look
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.DirectionAxis
+  nameWithType: RotationScaleNode.DirectionAxis
 - uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Pivot
   name: Pivot
   href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_Pivot
@@ -3317,32 +3317,32 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Pivot
   nameWithType: RotationScaleNode.Pivot
-- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Right
-  name: Right
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_Right
-  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Right
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Right
-  nameWithType: RotationScaleNode.Right
-- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Right*
-  name: Right
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_Right_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Right
+- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.RotationAxis
+  name: RotationAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_RotationAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.RotationAxis
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.RotationAxis
+  nameWithType: RotationScaleNode.RotationAxis
+- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.RotationAxis*
+  name: RotationAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_RotationAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.RotationAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Right
-  nameWithType: RotationScaleNode.Right
-- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Up
-  name: Up
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_Up
-  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Up
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Up
-  nameWithType: RotationScaleNode.Up
-- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Up*
-  name: Up
-  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_Up_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Up
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.RotationAxis
+  nameWithType: RotationScaleNode.RotationAxis
+- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.UpAxis
+  name: UpAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_UpAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.UpAxis
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.UpAxis
+  nameWithType: RotationScaleNode.UpAxis
+- uid: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.UpAxis*
+  name: UpAxis
+  href: api/JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.html#JeremyAnsel_Xwa_Opt_Nodes_RotationScaleNode_UpAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.UpAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.Up
-  nameWithType: RotationScaleNode.Up
+  fullName: JeremyAnsel.Xwa.Opt.Nodes.RotationScaleNode.UpAxis
+  nameWithType: RotationScaleNode.UpAxis
 - uid: JeremyAnsel.Xwa.Opt.Nodes.TextureAlphaNode
   name: TextureAlphaNode
   href: api/JeremyAnsel.Xwa.Opt.Nodes.TextureAlphaNode.html
@@ -4759,19 +4759,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.RotationScale.Clone
   nameWithType: RotationScale.Clone
-- uid: JeremyAnsel.Xwa.Opt.RotationScale.Look
-  name: Look
-  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_Look
-  commentId: P:JeremyAnsel.Xwa.Opt.RotationScale.Look
-  fullName: JeremyAnsel.Xwa.Opt.RotationScale.Look
-  nameWithType: RotationScale.Look
-- uid: JeremyAnsel.Xwa.Opt.RotationScale.Look*
-  name: Look
-  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_Look_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.RotationScale.Look
+- uid: JeremyAnsel.Xwa.Opt.RotationScale.DirectionAxis
+  name: DirectionAxis
+  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_DirectionAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.RotationScale.DirectionAxis
+  fullName: JeremyAnsel.Xwa.Opt.RotationScale.DirectionAxis
+  nameWithType: RotationScale.DirectionAxis
+- uid: JeremyAnsel.Xwa.Opt.RotationScale.DirectionAxis*
+  name: DirectionAxis
+  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_DirectionAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.RotationScale.DirectionAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.RotationScale.Look
-  nameWithType: RotationScale.Look
+  fullName: JeremyAnsel.Xwa.Opt.RotationScale.DirectionAxis
+  nameWithType: RotationScale.DirectionAxis
 - uid: JeremyAnsel.Xwa.Opt.RotationScale.Pivot
   name: Pivot
   href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_Pivot
@@ -4785,32 +4785,32 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Opt.RotationScale.Pivot
   nameWithType: RotationScale.Pivot
-- uid: JeremyAnsel.Xwa.Opt.RotationScale.Right
-  name: Right
-  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_Right
-  commentId: P:JeremyAnsel.Xwa.Opt.RotationScale.Right
-  fullName: JeremyAnsel.Xwa.Opt.RotationScale.Right
-  nameWithType: RotationScale.Right
-- uid: JeremyAnsel.Xwa.Opt.RotationScale.Right*
-  name: Right
-  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_Right_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.RotationScale.Right
+- uid: JeremyAnsel.Xwa.Opt.RotationScale.RotationAxis
+  name: RotationAxis
+  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_RotationAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.RotationScale.RotationAxis
+  fullName: JeremyAnsel.Xwa.Opt.RotationScale.RotationAxis
+  nameWithType: RotationScale.RotationAxis
+- uid: JeremyAnsel.Xwa.Opt.RotationScale.RotationAxis*
+  name: RotationAxis
+  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_RotationAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.RotationScale.RotationAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.RotationScale.Right
-  nameWithType: RotationScale.Right
-- uid: JeremyAnsel.Xwa.Opt.RotationScale.Up
-  name: Up
-  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_Up
-  commentId: P:JeremyAnsel.Xwa.Opt.RotationScale.Up
-  fullName: JeremyAnsel.Xwa.Opt.RotationScale.Up
-  nameWithType: RotationScale.Up
-- uid: JeremyAnsel.Xwa.Opt.RotationScale.Up*
-  name: Up
-  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_Up_
-  commentId: Overload:JeremyAnsel.Xwa.Opt.RotationScale.Up
+  fullName: JeremyAnsel.Xwa.Opt.RotationScale.RotationAxis
+  nameWithType: RotationScale.RotationAxis
+- uid: JeremyAnsel.Xwa.Opt.RotationScale.UpAxis
+  name: UpAxis
+  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_UpAxis
+  commentId: P:JeremyAnsel.Xwa.Opt.RotationScale.UpAxis
+  fullName: JeremyAnsel.Xwa.Opt.RotationScale.UpAxis
+  nameWithType: RotationScale.UpAxis
+- uid: JeremyAnsel.Xwa.Opt.RotationScale.UpAxis*
+  name: UpAxis
+  href: api/JeremyAnsel.Xwa.Opt.RotationScale.html#JeremyAnsel_Xwa_Opt_RotationScale_UpAxis_
+  commentId: Overload:JeremyAnsel.Xwa.Opt.RotationScale.UpAxis
   isSpec: "True"
-  fullName: JeremyAnsel.Xwa.Opt.RotationScale.Up
-  nameWithType: RotationScale.Up
+  fullName: JeremyAnsel.Xwa.Opt.RotationScale.UpAxis
+  nameWithType: RotationScale.UpAxis
 - uid: JeremyAnsel.Xwa.Opt.Texture
   name: Texture
   href: api/JeremyAnsel.Xwa.Opt.Texture.html
